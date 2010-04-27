@@ -24,9 +24,8 @@ class NaiveBayesSampler(object):
   def pLi(self, j, doc):
     log = np.log
     t1 = log((self.dccs[j] + self.Gammapi[j])/(len(self.labels) + self.Gammapi[1] + self.Gammapi[0] -1))
-    den = np.ones(self.all_words)
+    den = np.ones(self.all_words)*doc
     den.fill(np.log(np.sum(self.wccs[j] + self.Gammatheta)))
-    den *= doc
     s = np.sum(log(self.wccs[j] + self.Gammatheta)*doc - den)
     return t1+s
 
