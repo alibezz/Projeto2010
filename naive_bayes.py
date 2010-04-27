@@ -53,65 +53,40 @@ class NaiveBayesSampler(object):
     for i in xrange(len(self.docs)):
       self.labels.append(self.pick_label())
 
-  def remove_document(self, doc_index):
-    wclass = self.labels[doc_index]
-    #FIXME Change if/else to metaprogramming
-    if wclass == 0:
-      self.c0.remove(doc_index)
-      self.Nc0 -= 1
-    else:    
-      self.c1.remove(doc_index)
-      self.Nc1 -= 1
-  
+#OK  
   def makebag(self, i):
     bag = []
     for word in self.all_words:
-      bag.append(self.docs[i][word])
+      if word in self.docs[i]:
+        bag.append(self.docs[i][word])
+      else:
+        bag.append(0)
     return bag  
 
-  def word_in_class_frequency(self, wclass, word):
-    word_count = 0
-    for index in wclass:
-       word_count += self.docs_freqs[index][word]
-    return word_count
+  def pLi(self, j): 
+    log = np.log
+    t1 = log((self.dccs[j] + self.Gammapi[j])/(len(self.labels) + self.Gammapi[1] + self.Gammapi[0] -1))
+    den = np.ones(len(self.all_words))*self.bags[j]
+    den.fill(np.log(np.sum(self.wccs[j] + self.Gammatheta)))
+    s = np.sum(log(self.wccs[j] + self.Gammatheta)*self.bags[j] - den)
+    return t1+s
 
-  def sum_word_freqs(self, wclass):
-    freq_sum = 0
-    for word in self.all_words:
-      freq_sum += self.word_in_class_frequency(wclass, word)
-    return freq_sum
 
-  def class_prob(self, wclass):
-    product = 1.0
-    for word in self.all_words:
-      product *= (self.word_in_class_frequency(wclass, word) + 1.0) / (self.sum_word_freqs(wclass) + 1.0)
-     
-    #FIXME Change len(wclass) to metaprogramming on c_i
-    return ((len(wclass) + 1.0) / (self.Nwords + 1.0)) * product
+  def conddist(self, td): 
+    c = self.labels[td]
+    self.dccs[c] -= 1 
+    self.wccs[c] -= self.bags[td] 
 
-  def sample_label(self):
-    value0 = self.class_prob(self.c0)
-    value1 = self.class_prob(self.c1)
-    new_pi = value1 / (value0 + value1)
-    return np.random.binomial(1, new_pi)
-
-  def classify_document(self, index, new_label):
-    #FIXME Change if/else to metaprogramming
-    if new_label == 0:
-      self.c0.append(index)
-      self.Nc0 += 1
-    else:
-      self.c1.append(index)
-      self.Nc1 += 1
-    self.labels[index] = new_label
-
-  def iterate(self):
-    for index in range(len(self.docs)):
-      #considering a non-supervised environment
-      self.remove_document(index)
-      new_label = self.sample_label()
-      self.classify_document(index, new_label)
-    return self.labels.copy()
+    pL0 = self.pLi(0) 
+    pL1 = self.pLi(1)
+    loglr = pL1-pL0
+    lr = math.exp(loglr)
+    p = lr/(1+lr)
+    na = random.random() <= p
+    self.labels[td] = na
+    self.dccs[na] += 1
+    self.wccs[na] += self.bags[td]
+    return na
 
   def sample(self, nsamples):
     #initialize
@@ -128,18 +103,13 @@ class NaiveBayesSampler(object):
       self.wccs[a] += self.bags[i]
     ####
    
-
-   # samples = []
-   # 
-   # while len(samples) < nsamples:
-   #   it = self.iterate()
-   #   samples.append(it)
-   #   if len(samples) % 10 == 0:
-   #     print it
-   #     print '\n'
+    for i in xrange(nsamples):
+      for j in xrange(len(self.bags)):
+        self.conddist(j)
+      print self.labels  
 
 if __name__=='__main__':
   docs = os.listdir(sys.argv[1])
   s = NaiveBayesSampler()
   [s.load_as_bag(x) for x in docs]
-  print s.sample(1000)
+  s.sample(100)
