@@ -1,115 +1,80 @@
+#Aline Bessa - 27/04/2010
+#Naive Bayes modelling for sentiment analysis in docs
+
 import numpy as np
 import random
-import os
-import sys
 import math
 
-import re
-wre = re.compile(r"[a-zA-Z0-9 ]+")
-def get_words(text):
-  "A simple tokenizer"
-  text = ";".join(text)
-  l = 0
-  while l < len(text):
-    s = wre.search(text,l)
-    try:
-      yield text[s.start():s.end()]
-      l = s.end()
-    except:
-      break
-
 class NaiveBayesSampler(object):
-  def __init__(self):
+  def __init__(self, docs):
+    if not docs.any(): 
+      self.all_words = 0
+    else:
+      self.all_words = len(docs[0])
     self.labels = [] 
-    self.docs = []
-    self.bags = []
-    
-    self.all_words = []
-    self.Nwords = 0
+    self.docs = docs
 
-#OK
-  def load_as_bag(self,doc):
-        "Creates a bag of words for a single document"
-        word_freqs = {}
-        #Talvez self.docs fique desnecessario
-        for w in get_words(file("/home/alibezz/Desktop/Projeto2010/vectors/"+doc).read().split(" ")):
-            w = w.lower()
-            if not w in word_freqs:
-              word_freqs[w] = 1
-
-            else:
-              word_freqs[w] += 1
-            if not w in self.all_words:
-              self.all_words.append(w)
-              self.Nwords += 1
-        self.docs.append(word_freqs)
-
-#OK
   def pick_label(self):
     return np.random.binomial(1, self.pi)
 
-#OK
   def label_documents(self):
     for i in xrange(len(self.docs)):
       self.labels.append(self.pick_label())
 
-#OK  
-  def makebag(self, i):
-    bag = []
-    for word in self.all_words:
-      if word in self.docs[i]:
-        bag.append(self.docs[i][word])
-      else:
-        bag.append(0)
-    return bag  
-
-  def pLi(self, j): 
+  def pLi(self, j, doc):
     log = np.log
     t1 = log((self.dccs[j] + self.Gammapi[j])/(len(self.labels) + self.Gammapi[1] + self.Gammapi[0] -1))
-    den = np.ones(len(self.all_words))*self.bags[j]
+    den = np.ones(self.all_words)
     den.fill(np.log(np.sum(self.wccs[j] + self.Gammatheta)))
-    s = np.sum(log(self.wccs[j] + self.Gammatheta)*self.bags[j] - den)
+    den *= doc
+    s = np.sum(log(self.wccs[j] + self.Gammatheta)*doc - den)
     return t1+s
 
 
-  def conddist(self, td): 
+  def conddist(self, td):
     c = self.labels[td]
     self.dccs[c] -= 1 
-    self.wccs[c] -= self.bags[td] 
+    self.wccs[c] -= self.docs[td] 
 
-    pL0 = self.pLi(0) 
-    pL1 = self.pLi(1)
+    pL0 = self.pLi(0, self.docs[td]) 
+    pL1 = self.pLi(1, self.docs[td])
     loglr = pL1-pL0
     lr = math.exp(loglr)
     p = lr/(1+lr)
     na = random.random() <= p
     self.labels[td] = na
     self.dccs[na] += 1
-    self.wccs[na] += self.bags[td]
+    self.wccs[na] += self.docs[td]
     return na
 
   def sample(self, nsamples):
-    #initialize
     self.Gammapi = np.array([1., 1.])
-    self.Gammatheta = np.array([1. for i in self.all_words])
+    self.Gammatheta = np.array([1. for i in xrange(self.all_words)])
     self.pi = random.betavariate(1,1)
     self.label_documents()
-    self.wccs = np.zeros((2, len(self.all_words)))
+    self.wccs = np.zeros((2, self.all_words))
     self.dccs = np.zeros(2)
-    for i in xrange(len(self.labels)):
-      self.bags.append(self.makebag(i))
+
     for i, a in enumerate(self.labels):
       self.dccs[a] += 1
-      self.wccs[a] += self.bags[i]
-    ####
-   
+      self.wccs[a] += self.docs[i]
+
     for i in xrange(nsamples):
-      for j in xrange(len(self.bags)):
+      for j in xrange(len(self.docs)):
         self.conddist(j)
-      print self.labels  
+      print self.labels
 
 if __name__=='__main__':
-  docs = os.listdir(sys.argv[1])
-  s = NaiveBayesSampler()
-  [s.load_as_bag(x) for x in docs]
-  s.sample(100)
+  docs = np.array([
+[0, 1, 1, 1, 1, 0, 0, 0, 0, 1],
+[1, 0, 1, 1, 1, 0, 0, 0, 1, 0],
+[1, 1, 0, 1, 1, 0, 0, 1, 0, 0],
+[1, 1, 1, 0, 1, 0, 1, 0, 0, 0],
+[1, 0, 0, 0, 0, 1, 1, 1, 1, 0],
+[0, 1, 0, 0, 0, 1, 1, 1, 0, 1],
+[0, 0, 1, 0, 0, 1, 1, 0, 1, 1],
+[0, 0, 0, 1, 0, 1, 0, 1, 1, 1],
+], dtype=np.float32)
+ 
+  s = NaiveBayesSampler(docs)
+  s.sample(10)
