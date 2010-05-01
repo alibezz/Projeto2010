@@ -18,6 +18,13 @@ sp1 = [
 [0, 0, 0, 1, 0, 1, 0, 1, 1, 1],
 [0, 0, 0, 0, 1, 0, 1, 1, 1, 1]]
 
+neut = [
+[1, 0, 0, 0, 1, 0, 1, 0, 0, 1],
+[0, 0, 1, 1, 0, 0, 0, 0, 1, 0],
+[1, 0, 0, 0, 1, 0, 1, 0, 0, 0],
+[1, 1, 0, 0, 1, 0, 0, 0, 0, 1],
+[0, 0, 0, 1, 1, 0, 0, 1, 0, 0]]
+
 def choose_set(label):
     return np.random.binomial(1, abs(label - 0.2))
 
@@ -28,10 +35,14 @@ if __name__=='__main__':
     nsents = random.randint(25, 50)
     doc = []
     for j in xrange(nsents):
-      sents_set = choose_set(pdoc)
-      if sents_set == 0:
-        doc.append(sp0[random.randint(0, 4)])
+      neuter = np.random.binomial(1, 0.4)
+      if neuter:
+        doc.append(neut[random.randint(0, 4)])
       else:
-        doc.append(sp1[random.randint(0, 4)])
+        sents_set = choose_set(pdoc)
+        if sents_set == 0:
+          doc.append(sp0[random.randint(0, 4)])
+        else:
+          doc.append(sp1[random.randint(0, 4)])
     docs.append(doc)
   print docs       
