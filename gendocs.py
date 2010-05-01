@@ -28,12 +28,12 @@ neut = [
 if __name__=='__main__':
   docs = []
   for i in xrange(10):
-    pdoc = np.random.binomial(1, 0.5)
+    persp = np.random.binomial(1, 0.5)
     nsents = random.randint(25, 50)
     doc = []
     for j in xrange(nsents):
-      neuter = np.random.binomial(1, 0.4)
-      if neuter:
+      no_persp = np.random.binomial(1, 0.4)
+      if no_persp:
         doc.append(neut[random.randint(0, 4)])
       else:
         if pdoc == 0:
