@@ -25,9 +25,6 @@ neut = [
 [1, 1, 0, 0, 1, 0, 0, 0, 0, 1],
 [0, 0, 0, 1, 1, 0, 0, 1, 0, 0]]
 
-def choose_set(label):
-    return np.random.binomial(1, abs(label - 0.2))
-
 if __name__=='__main__':
   docs = []
   for i in xrange(10):
@@ -39,8 +36,7 @@ if __name__=='__main__':
       if neuter:
         doc.append(neut[random.randint(0, 4)])
       else:
-        sents_set = choose_set(pdoc)
-        if sents_set == 0:
+        if pdoc == 0:
           doc.append(sp0[random.randint(0, 4)])
         else:
           doc.append(sp1[random.randint(0, 4)])
