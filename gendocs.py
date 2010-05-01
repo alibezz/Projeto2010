@@ -36,7 +36,7 @@ if __name__=='__main__':
       if no_persp:
         doc.append(neut[random.randint(0, 4)])
       else:
-        if pdoc == 0:
+        if persp == 0:
           doc.append(sp0[random.randint(0, 4)])
         else:
           doc.append(sp1[random.randint(0, 4)])
