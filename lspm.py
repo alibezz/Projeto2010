@@ -14,6 +14,7 @@ class LSPMSampler(object):
       self.all_words = len(docs[0][0])
     self.docs = docs
 
+  #FIXME Sometimes pLi overflows
   def pLi(self, label, doc):
     log = np.log
     t1 = log((self.dccs[label] + self.Gammapi[label])/(len(self.docs) + self.Gammapi[1] + self.Gammapi[0] -1))
@@ -45,34 +46,31 @@ class LSPMSampler(object):
       self.wccs[new] += self.docs[index][i]
     return new
 
-  def sPi(self, label, j_ind, k_ind, j_words):
+  def sPi(self, label, sntcs, freq_sntcs, sntc, doc_ind):
     log = np.log
-    t1 = log((sum(self.labels[j_ind][1]) + self.Gammatau[label])/(self.Msents + self.Gammatau[0] + self.Gammatau[1] - 1))
-
-    den = np.ones(self.all_words) 
-    den.fill(np.log(np.sum(j_words + self.Gammatheta)))
-    t2 =  np.sum(log((1 - label)*j_words + (label - 1)*self.sprs[label] + label*self.sprs[label] + self.Gammatheta)*self.docs[j_ind] - den)
-    return t1 + t2
+    t1 = log((sntcs + self.Gammatau[label])/(len(self.labels[doc_ind][1]) + self.Gammatau[1] + self.Gammatau[0] -1))
+    den = np.ones(self.all_words)
+    den.fill(np.log(np.sum(freq_sntcs + self.Gammatheta)))
+    s = np.sum(log(freq_sntcs + self.Gammatheta)*sntc - den)
+    return t1+s
 
   def pick_prsp(self, label, j_ind, k_ind):
-    self.sprs[label] -= self.labels[j_ind][1][k_ind]
-    self.labels[j_ind][1][k_ind] = 0
-    
-    jwords = np.zeros(self.all_words)
-    for i in xrange(len(self.docs[j_ind])):
-      jwords += self.docs[j_ind][i]
-    jwords -= self.docs[j_ind][k_ind]
+    rlv = np.zeros(2)
+    freqs = np.zeros((2, self.all_words))
+    for i, a in enumerate(self.labels[j_ind][1]):
+      if i != k_ind:
+        rlv[a] += 1
+        freqs[a] += self.docs[j_ind][i]
 
-    sP0 = self.sPi(label, j_ind, k_ind, jwords)
-    sP1 = self.sPi(label, j_ind, k_ind, jwords)
+    sP0 = self.sPi(0, rlv[0], freqs[0], self.docs[j_ind][k_ind], j_ind)
+    sP1 = self.sPi(1, rlv[1], freqs[1], self.docs[j_ind][k_ind], j_ind)
     loglr = sP1-sP0
     lr = math.exp(loglr)
     p = lr/(1+lr)
-    new = random.random() <= p
+    na = random.random() <= p
+    self.labels[j_ind][1][k_ind] = na
     
-    self.labels[j_ind][1][k_ind] = new
-    self.sprs[label] += self.labels[j_ind][1][k_ind]
-    return new
+    return na
  
   def sample(self, nsamples):
     self.Gammapi = np.array([1., 1.])
@@ -107,15 +105,18 @@ class LSPMSampler(object):
 
     ###iterate
     for i in xrange(nsamples):
-      print self.labels
-      print '\n'
       for j in xrange(len(self.docs)): 
         new_label = self.pick_label(j)
         for k in xrange(len(self.docs[j])):
           new_prsp = self.pick_prsp(new_label, j, k) 
-    ### 
+    ###
+
+ #   for i in xrange(len(self.docs)):
+ #     print self.docs[i]
+ #     print self.labels[i][0]
 
 if __name__=='__main__':
   a = Docs()
   b = LSPMSampler(a.list_docs())
-  b.sample(10)
+  d = a.list_docs()
+  b.sample(30)

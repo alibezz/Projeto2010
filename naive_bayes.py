@@ -39,6 +39,7 @@ class NaiveBayesSampler(object):
     pL1 = self.pLi(1, self.docs[td])
     loglr = pL1-pL0
     lr = math.exp(loglr)
+    print loglr, lr
     p = lr/(1+lr)
     na = random.random() <= p
     self.labels[td] = na
