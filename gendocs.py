@@ -34,7 +34,7 @@ if __name__=='__main__':
     for j in xrange(nsents):
       no_persp = np.random.binomial(1, 0.4)
       if no_persp:
-        doc.append(neut[random.randint(0, 4)])
+       doc.append(neut[random.randint(0, 4)])
       else:
         if persp == 0:
           doc.append(sp0[random.randint(0, 4)])
