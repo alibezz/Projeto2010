@@ -50,9 +50,10 @@ class LSPMSampler(object):
       rlv += self.class_freqs(j+1)[0]
       freqs += self.class_freqs(j+1)[1]
 
-    rlv[old] -= sum(self.labels[index][1])
+    rlv[0] -= len(self.labels[index][1]) - sum(self.labels[index][1])
+    rlv[1] -= sum(self.labels[index][1])
     freqs[old] -= self.wfreqs[index]
-   
+  
     pL0 = self.pLi(0, index, rlv[0], freqs[0])
     pL1 = self.pLi(1, index, rlv[1], freqs[1])
     loglr = pL1-pL0
@@ -69,6 +70,7 @@ class LSPMSampler(object):
       sys.exit("nan!")
 
     label = random.random() <= p
+    print index, p
     self.labels[index][0] = label
     self.dccs[label] += 1
     return label
@@ -127,7 +129,7 @@ class LSPMSampler(object):
         l.append(new_label)
         for k in xrange(len(self.docs[j])):
           self.pick_prsp(j, k) 
-      print l
+     # print l
       l = []
  #    
  #   for i in xrange(len(self.docs)):
@@ -138,4 +140,4 @@ if __name__=='__main__':
   a = Docs()
   b = LSPMSampler(a.list_docs())
   d = a.list_docs()
-  b.sample(30)
+  b.sample(20)
