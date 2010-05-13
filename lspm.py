@@ -13,49 +13,31 @@ class LSPMSampler(object):
     else:
       self.all_words = len(docs[0][0])
     self.docs = docs
-
-  def class_freqs(self, index):
-    rlv = np.zeros(2)
-    freqs = np.zeros((2, self.all_words))
-    for i, a in enumerate(self.labels[index][1]):
-      rlv[a] += 1
-      freqs[a] += self.docs[index][i]
-    return rlv, freqs  
-
+  #Resnik equation
   def pLi(self, label, index, sntcs, freqs):
     log = np.log
     t1 = log((self.dccs[label] + self.Gammapi[label])/(len(self.docs) + self.Gammapi[1] + self.Gammapi[0] -1))
-
-    p = 0.0
-    for j in xrange(len(self.docs)):
-      if j == index:
-        nsents = 0
-        sntcs *= 0.0 
-      else:
-        nsents = len(self.labels[j][1])
-      t2 = log((sntcs + self.Gammatau[label])/(nsents + self.Gammatau[1] + self.Gammatau[0] -1))
-      
-      den = np.ones(self.all_words)
-      den.fill(log(sum(freqs + self.Gammatheta)))
-      t3 = np.sum(log(freqs + self.Gammatheta) - den)
-      p += t2 + t3
+    t2 = log(((self.prsp[0] + self.Gammatau[0])*(self.prsp[1] + self.Gammatau[1]))/self.Msents + self.Gammatau[0] + self.Gammatau[1])
     
+ 
     return t1 + p
   
   def pick_label(self, index):
     old = self.labels[index][0]
     self.dccs[old] -= 1
-    rlv, freqs = self.class_freqs(0)
-    for j in xrange(len(self.docs) - 1):
-      rlv += self.class_freqs(j+1)[0]
-      freqs += self.class_freqs(j+1)[1]
-
-    rlv[0] -= len(self.labels[index][1]) - sum(self.labels[index][1])
-    rlv[1] -= sum(self.labels[index][1])
-    freqs[old] -= self.wfreqs[index]
+    self.wfreqs[old] -= self.rlv[index][1]
+    self.Msents -= len(self.docs[index])
+    #FALTAM TODAS AS FRASES RELEVANTES NA CLASSE ZERO E UM EXCETUANDO O DOC! SOMA E FREQS!
+    
+   # rlv[0] -= len(self.labels[index][1]) - sum(self.labels[index][1])
+   # rlv[1] -= sum(self.labels[index][1])
+   # freqs[old] -= self.wfreqs[index]
   
-    pL0 = self.pLi(0, index, rlv[0], freqs[0])
-    pL1 = self.pLi(1, index, rlv[1], freqs[1])
+    # self.rlv[index][1] são todas as frases com perspectiva no documento
+    #self.rlvfreqs[index][1] é a freq. de todas as palavras em frases relevantes dos documentos
+
+    pL0 = self.pLi(0, index)
+    pL1 = self.pLi(1, index)
     loglr = pL1-pL0
     lr = np.exp(loglr)
     if lr == np.inf:
@@ -70,9 +52,10 @@ class LSPMSampler(object):
       sys.exit("nan!")
 
     label = random.random() <= p
-    print index, p
     self.labels[index][0] = label
+    self.Msents += len(self.docs[index])
     self.dccs[label] += 1
+    self.wfreqs[label] += self.rlv[index][1]
     return label
 
   def sPi(self, label, sntcs, freq_sntcs, sntc, doc_ind):
@@ -105,8 +88,11 @@ class LSPMSampler(object):
     self.Gammatheta = np.array([1. for i in xrange(self.all_words)])
     self.Gammatau = np.array([1., 1.])
     self.dccs = np.zeros(2)
-    self.wfreqs = np.zeros((len(self.docs), self.all_words))
-
+    self.prsp = np.zeros(2)
+    self.wfreqs = np.zeros((2, self.all_words)) #freqs per class considering ONLY relevant sentences
+    self.rlv = np.zeros((len(self.docs), 2))
+    self.rlvfreqs = np.zeros((len(self.docs), 2, self.all_words))
+ 
     ###initial document labels and sentence bearing perspectives
     self.labels = []
     self.Msents = 0
@@ -116,10 +102,18 @@ class LSPMSampler(object):
       spbearing = []
       tau = random.betavariate(1, 1)
       for j in xrange(len(self.docs[i])):
-        spbearing.append(np.random.binomial(1, tau)) 
+        slabel = np.random.binomial(1, tau)
+        spbearing.append(slabel) 
         self.Msents += 1
-        self.wfreqs[i] += self.docs[i][j]
       self.labels.append([label, spbearing])
+
+    for i in xrange(len(self.docs)):
+      for j, a in enumerate(self.labels[i][1]):
+        self.rlv[i][a] += 1
+        self.rlvfreqs[i][a] += self.docs[i][j]
+        if self.labels[i][1][j] == 1:
+          self.prsp[self.labels[i][0]] += 1
+          self.wfreqs[self.labels[i][0]] += self.docs[i][j]
 
     ###iterate
     l =[]
@@ -129,7 +123,7 @@ class LSPMSampler(object):
         l.append(new_label)
         for k in xrange(len(self.docs[j])):
           self.pick_prsp(j, k) 
-     # print l
+      print l
       l = []
  #    
  #   for i in xrange(len(self.docs)):
