@@ -28,12 +28,14 @@ class LSPMSampler(object):
     return t1 + t2 + t3
   
   def pick_label(self, index):
+    print 'kk', index
     old = self.labels[index][0]
     self.dccs[old] -= 1
     self.wfreqs[old] -= self.rlvfreqs[index][1]
     self.Msents -= len(self.docs[index])
     #FALTAM TODAS AS FRASES RELEVANTES NA CLASSE ZERO E UM EXCETUANDO O DOC! SOMA E FREQS!
     print 'iiii'
+    print old
     print self.wfreqs[old]
     print self.rlvfreqs[index][1]
     print 'jjjj' 
@@ -60,6 +62,7 @@ class LSPMSampler(object):
       sys.exit("nan!")
 
     label = random.random() <= p
+    print 'nnn', label
     self.labels[index][0] = label
     self.Msents += len(self.docs[index])
     self.dccs[label] += 1
@@ -78,6 +81,10 @@ class LSPMSampler(object):
     old = self.labels[j_ind][1][k_ind]
     self.rlv[j_ind][old] -= 1
     self.rlvfreqs[j_ind][old] -= self.docs[j_ind][k_ind]
+    #sentence is relevant; wfreqs considers ONLY relevant sentences
+    if old == 1:
+      self.wfreqs[self.labels[j_ind][0]] -= self.docs[j_ind][k_ind]
+
 
     sP0 = self.sPi(0, j_ind, self.docs[j_ind][k_ind])
     sP1 = self.sPi(1, j_ind, self.docs[j_ind][k_ind])
@@ -89,7 +96,8 @@ class LSPMSampler(object):
     #redundante
     self.rlv[j_ind][has_prsp] += 1
     self.rlvfreqs[j_ind][has_prsp] += self.docs[j_ind][k_ind]
-    
+    if has_prsp == 1:
+      self.wfreqs[self.labels[j_ind][0]] += self.docs[j_ind][k_ind]
     return has_prsp
  
   def sample(self, nsamples):
