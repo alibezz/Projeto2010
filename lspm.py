@@ -14,27 +14,35 @@ class LSPMSampler(object):
       self.all_words = len(docs[0][0])
     self.docs = docs
   #Resnik equation
-  def pLi(self, label, index, sntcs, freqs):
+  def pLi(self, label, index):
     log = np.log
     t1 = log((self.dccs[label] + self.Gammapi[label])/(len(self.docs) + self.Gammapi[1] + self.Gammapi[0] -1))
     t2 = log(((self.prsp[0] + self.Gammatau[0])*(self.prsp[1] + self.Gammatau[1]))/self.Msents + self.Gammatau[0] + self.Gammatau[1])
-    
+    den = np.ones(self.all_words)
+    den.fill(np.log(np.sum(self.wfreqs[label] + self.Gammatheta)))
+    print self.wfreqs[label] + self.Gammatheta
+    print self.rlvfreqs[index][1]
+    t3 = np.sum(log(self.wfreqs[label] + self.Gammatheta)*self.rlvfreqs[index][1] - den)
+    print t1, t2, t3 
  
-    return t1 + p
+    return t1 + t2 + t3
   
   def pick_label(self, index):
     old = self.labels[index][0]
     self.dccs[old] -= 1
-    self.wfreqs[old] -= self.rlv[index][1]
+    self.wfreqs[old] -= self.rlvfreqs[index][1]
     self.Msents -= len(self.docs[index])
     #FALTAM TODAS AS FRASES RELEVANTES NA CLASSE ZERO E UM EXCETUANDO O DOC! SOMA E FREQS!
-    
+    print 'iiii'
+    print self.wfreqs[old]
+    print self.rlvfreqs[index][1]
+    print 'jjjj' 
    # rlv[0] -= len(self.labels[index][1]) - sum(self.labels[index][1])
    # rlv[1] -= sum(self.labels[index][1])
    # freqs[old] -= self.wfreqs[index]
   
-    # self.rlv[index][1] são todas as frases com perspectiva no documento
-    #self.rlvfreqs[index][1] é a freq. de todas as palavras em frases relevantes dos documentos
+    # self.rlv[index][1] sao todas as frases com has_has_perspectiva no documento
+    #self.rlvfreqs[index][1] eh a freq. de todas as palavras em frases relevantes dos documentos
 
     pL0 = self.pLi(0, index)
     pL1 = self.pLi(1, index)
@@ -55,32 +63,34 @@ class LSPMSampler(object):
     self.labels[index][0] = label
     self.Msents += len(self.docs[index])
     self.dccs[label] += 1
-    self.wfreqs[label] += self.rlv[index][1]
+    self.wfreqs[label] += self.rlvfreqs[index][1]
     return label
 
-  def sPi(self, label, sntcs, freq_sntcs, sntc, doc_ind):
+  def sPi(self, has_prsp, doc_ind, sntc):
     log = np.log
-    t1 = log((sntcs + self.Gammatau[label])/(len(self.labels[doc_ind][1]) + self.Gammatau[1] + self.Gammatau[0] -1))
+    t1 = log((self.rlv[doc_ind][has_prsp] + self.Gammatau[has_prsp])/(len(self.labels[doc_ind][1]) + self.Gammatau[1] + self.Gammatau[0] -1))
     den = np.ones(self.all_words)
-    den.fill(np.log(np.sum(freq_sntcs + self.Gammatheta)))
-    s = np.sum(log(freq_sntcs + self.Gammatheta)*sntc - den)
+    den.fill(np.log(np.sum(self.rlvfreqs[doc_ind][has_prsp] + self.Gammatheta)))
+    s = np.sum(log(self.rlvfreqs[doc_ind][has_prsp] + self.Gammatheta)*sntc - den)
     return t1+s
 
   def pick_prsp(self, j_ind, k_ind):
     old = self.labels[j_ind][1][k_ind]
-    rlv, freqs = self.class_freqs(j_ind)
-    rlv[old] -= 1
-    freqs[old] -= self.docs[j_ind][k_ind]
+    self.rlv[j_ind][old] -= 1
+    self.rlvfreqs[j_ind][old] -= self.docs[j_ind][k_ind]
 
-    sP0 = self.sPi(0, rlv[0], freqs[0], self.docs[j_ind][k_ind], j_ind)
-    sP1 = self.sPi(1, rlv[1], freqs[1], self.docs[j_ind][k_ind], j_ind)
+    sP0 = self.sPi(0, j_ind, self.docs[j_ind][k_ind])
+    sP1 = self.sPi(1, j_ind, self.docs[j_ind][k_ind])
     loglr = sP1-sP0
     lr = np.exp(loglr)
     p = lr/(1+lr)
-    label = random.random() <= p
-    self.labels[j_ind][1][k_ind] = label
+    has_prsp = random.random() <= p
+    self.labels[j_ind][1][k_ind] = has_prsp
+    #redundante
+    self.rlv[j_ind][has_prsp] += 1
+    self.rlvfreqs[j_ind][has_prsp] += self.docs[j_ind][k_ind]
     
-    return label
+    return has_prsp
  
   def sample(self, nsamples):
     self.Gammapi = np.array([1., 1.])
@@ -93,7 +103,7 @@ class LSPMSampler(object):
     self.rlv = np.zeros((len(self.docs), 2))
     self.rlvfreqs = np.zeros((len(self.docs), 2, self.all_words))
  
-    ###initial document labels and sentence bearing perspectives
+    ###initial document labels and sentence bearing has_has_perspectives
     self.labels = []
     self.Msents = 0
     for i in xrange(len(self.docs)):
