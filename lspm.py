@@ -13,19 +13,29 @@ class LSPMSampler(object):
     else:
       self.all_words = len(docs[0][0])
     self.docs = docs
+
   #Resnik equation
   def pLi(self, label, index):
     log = np.log
     t1 = log((self.dccs[label] + self.Gammapi[label])/(len(self.docs) + self.Gammapi[1] + self.Gammapi[0] -1))
-    t2 = log(((self.prsp[0] + self.Gammatau[0])*(self.prsp[1] + self.Gammatau[1]))/self.Msents + self.Gammatau[0] + self.Gammatau[1])
-    den = np.ones(self.all_words)
-    den.fill(np.log(np.sum(self.wfreqs[label] + self.Gammatheta)))
-    print self.wfreqs[label] + self.Gammatheta
-    print self.rlvfreqs[index][1]
-    t3 = np.sum(log(self.wfreqs[label] + self.Gammatheta)*self.rlvfreqs[index][1] - den)
-    print t1, t2, t3 
- 
-    return t1 + t2 + t3
+
+    p = 0.0
+    for i in xrange(len(self.docs)):
+      if i != index and self.labels[i][0] == label: #it doesn't consider the document itself and only counts for docs in the class
+        tdoc = log((self.prsp[i] + self.Gammatau[i])/self.Msents + self.Gammatau[0] + self.Gammatau[1])
+        tsents = 0.0
+        for j in xrange(len(self.docs[i])):
+          if self.labels[i][1][j] == 1: #sentence has perspective
+            tsents += LOG
+#    t2 = log(((self.prsp[0] + self.Gammatau[0])*(self.prsp[1] + self.Gammatau[1]))/self.Msents + self.Gammatau[0] + self.Gammatau[1])
+#    den = np.ones(self.all_words)
+#    den.fill(np.log(np.sum(self.wfreqs[label] + self.Gammatheta)))
+#    print self.wfreqs[label] + self.Gammatheta
+#    print self.rlvfreqs[index][1]
+#    t3 = np.sum(log(self.wfreqs[label] + self.Gammatheta)*self.rlvfreqs[index][1] - den)
+#    print t1, t2, t3 
+# 
+#    return t1 + t2 + t3
   
   def pick_label(self, index):
     print 'kk', index
@@ -106,7 +116,7 @@ class LSPMSampler(object):
     self.Gammatheta = np.array([1. for i in xrange(self.all_words)])
     self.Gammatau = np.array([1., 1.])
     self.dccs = np.zeros(2)
-    self.prsp = np.zeros(2)
+    self.prsp = np.zeros(len(self.docs))
     self.wfreqs = np.zeros((2, self.all_words)) #freqs per class considering ONLY relevant sentences
     self.rlv = np.zeros((len(self.docs), 2))
     self.rlvfreqs = np.zeros((len(self.docs), 2, self.all_words))
@@ -130,7 +140,7 @@ class LSPMSampler(object):
         self.rlv[i][a] += 1
         self.rlvfreqs[i][a] += self.docs[i][j]
         if self.labels[i][1][j] == 1:
-          self.prsp[self.labels[i][0]] += 1
+          self.prsp[i] += 1
           self.wfreqs[self.labels[i][0]] += self.docs[i][j]
 
     ###iterate
