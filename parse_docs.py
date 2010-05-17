@@ -4,6 +4,14 @@
 import sys
 import os
 
+def read_file(file):
+   text = []
+   line = file.readline()
+   while(line != ""):
+     text.append(str(line).strip())
+     line = file.readline()
+   return text
+
 def get_words(text):
   import re
   wre = re.compile(r"(\w)+")
@@ -21,14 +29,9 @@ class CorpusParser(object):
     self.corpus = corpus
     self.Ncorpus = len(os.listdir(corpus))
     self.all_words = []
+    self.docs= []
 
-  def get_new_words(self, file):
-    text = []
-    line = file.readline()
-    while(line != ""):
-      text.append(str(line).strip())
-      line = file.readline()
-    
+  def get_new_words(self, text):
     for i in text:
       for t in get_words(i):
         t = t.lower().strip()
@@ -38,14 +41,36 @@ class CorpusParser(object):
           #lemmatizing version
           #t = en.noun.singular(t)
           self.all_words.append(t)
-    
+
+  def get_doc(self, text):
+     "bli"
+#from BeautifulSoup import BeautifulSoup
+#import re
+#import sys
+#
+#source = open(sys.argv[1], 'r')
+#recipe = [source.readline()]
+#source.close()
+#doc = BeautifulSoup(''.join(recipe))
+#
+##contents 1 and 5 are interesting
+##5 contains the recipe's HOWTO
+#
+#ingredients = doc.contents[1].findAll('li')
+
 
   def pdocs(self):
     for file in os.listdir(self.corpus):
       f = open(os.path.realpath(self.corpus + '/' + file), 'r')
-      self.get_new_words(f)
+      text = read_file(f)
+      from BeautifulSoup import BeautifulSoup
+      doc = BeautifulSoup(''.join(text))
+      print doc.contents[1].findAll('s')
+     # print text
+      self.get_new_words(text)
+      self.get_doc(text)
       f.close()
-    print self.all_words
+    #print self.all_words
 
 if __name__ =='__main__':
   a = CorpusParser(sys.argv[1])
