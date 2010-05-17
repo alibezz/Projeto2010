@@ -156,15 +156,16 @@ class LSPMSampler(object):
         l.append(new_label)
         for k in xrange(len(self.docs[j])):
           self.pick_prsp(j, k) 
-      print l
+     # if i % 10 == 0:
+     #   print l
       l = []
  #    
- #   for i in xrange(len(self.docs)):
- #     print self.docs[i]
- #     print self.labels[i][0]
+    #for i in xrange(len(self.docs)):
+    print self.docs[8]
+    print self.labels[8][1]
 
 if __name__=='__main__':
   a = Docs()
   b = LSPMSampler(a.list_docs())
   d = a.list_docs()
-  b.sample(20)
+  b.sample(100)

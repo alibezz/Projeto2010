@@ -1,0 +1,3 @@
+Essa versão do LSPM não está usando um dos termos da equação original para amostrar documentos, que é justamente a prob. duma frase ser relevante ser da classe. Está sendo admitido que essa prob. é 0.5.
+
+ 
