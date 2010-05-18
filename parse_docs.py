@@ -3,6 +3,7 @@
 #sentences and the corpus itself
 import sys
 import os
+from BeautifulSoup import BeautifulSoup
 
 def read_file(file):
    text = []
@@ -31,6 +32,14 @@ class CorpusParser(object):
     self.all_words = []
     self.docs= []
 
+  def chop(self, raw_sntc):
+    x =  raw_sntc.find(">") + 1
+    y = raw_sntc.find("</")
+    return raw_sntc[x:y]
+
+  def get_sntc(self, sntc):
+    "get frequencies of words per sentence"
+
   def get_new_words(self, text):
     for i in text:
       for t in get_words(i):
@@ -43,30 +52,17 @@ class CorpusParser(object):
           self.all_words.append(t)
 
   def get_doc(self, text):
-     "bli"
-#from BeautifulSoup import BeautifulSoup
-#import re
-#import sys
-#
-#source = open(sys.argv[1], 'r')
-#recipe = [source.readline()]
-#source.close()
-#doc = BeautifulSoup(''.join(recipe))
-#
-##contents 1 and 5 are interesting
-##5 contains the recipe's HOWTO
-#
-#ingredients = doc.contents[1].findAll('li')
+    doc = BeautifulSoup(''.join(text)).contents[1].findAll('s')
+    sntcs = []
+    for i in xrange(len(doc)):
+      sntcs.append(self.get_sntc(self.chop(doc[i]))) 
 
 
   def pdocs(self):
     for file in os.listdir(self.corpus):
       f = open(os.path.realpath(self.corpus + '/' + file), 'r')
       text = read_file(f)
-      from BeautifulSoup import BeautifulSoup
-      doc = BeautifulSoup(''.join(text))
-      print doc.contents[1].findAll('s')
-     # print text
+          # print text
       self.get_new_words(text)
       self.get_doc(text)
       f.close()
