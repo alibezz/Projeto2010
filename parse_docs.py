@@ -4,6 +4,7 @@
 import sys
 import os
 from BeautifulSoup import BeautifulSoup
+import numpy as np
 
 def read_file(file):
    text = []
@@ -38,7 +39,15 @@ class CorpusParser(object):
     return raw_sntc[x:y]
 
   def get_sntc(self, sntc):
-    "get frequencies of words per sentence"
+    print sntc
+    print self.all_words
+    freqs = np.zeros(len(self.all_words))
+    #TODO Get rid of this repetition
+    for t in get_words(sntc):
+      t = t.lower().strip()
+      freqs[self.all_words.index(t)] += 1.
+    
+    print freqs
 
   def get_new_words(self, text):
     for i in text:
@@ -55,15 +64,17 @@ class CorpusParser(object):
     doc = BeautifulSoup(''.join(text)).contents[1].findAll('s')
     sntcs = []
     for i in xrange(len(doc)):
-      sntcs.append(self.get_sntc(self.chop(doc[i]))) 
+      sntcs.append(self.get_sntc(self.chop(str(doc[i])))) 
 
 
   def pdocs(self):
+    text = ""
     for file in os.listdir(self.corpus):
       f = open(os.path.realpath(self.corpus + '/' + file), 'r')
       text = read_file(f)
-          # print text
       self.get_new_words(text)
+   
+    for file in os.listdir(self.corpus):
       self.get_doc(text)
       f.close()
     #print self.all_words
