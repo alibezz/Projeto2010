@@ -39,19 +39,19 @@ class CorpusParser(object):
     return raw_sntc[x:y]
 
   def get_sntc(self, sntc):
-    print sntc
-    print self.all_words
+  #  print sntc
+ #   print self.all_words
     freqs = np.zeros(len(self.all_words))
     #TODO Get rid of this repetition
     for t in get_words(sntc):
       t = t.lower().strip()
       freqs[self.all_words.index(t)] += 1.
     
-    print freqs
+#    print freqs
 
-  def get_new_words(self, text):
-    for i in text:
-      for t in get_words(i):
+  def get_new_words(self, doc):
+    for i in xrange(len(doc)):
+      for t in get_words(self.chop(str(doc[i]))):
         t = t.lower().strip()
         if not t in self.all_words:
           #stemming version
@@ -60,24 +60,24 @@ class CorpusParser(object):
           #t = en.noun.singular(t)
           self.all_words.append(t)
 
-  def get_doc(self, text):
-    doc = BeautifulSoup(''.join(text)).contents[1].findAll('s')
+  def get_doc(self, doc):
     sntcs = []
     for i in xrange(len(doc)):
       sntcs.append(self.get_sntc(self.chop(str(doc[i])))) 
 
 
   def pdocs(self):
-    text = ""
+    doc = [] 
     for file in os.listdir(self.corpus):
       f = open(os.path.realpath(self.corpus + '/' + file), 'r')
       text = read_file(f)
-      self.get_new_words(text)
+      doc = BeautifulSoup(''.join(text)).contents[1].findAll('s')
+      self.get_new_words(doc)
    
     for file in os.listdir(self.corpus):
-      self.get_doc(text)
+      self.get_doc(doc)
       f.close()
-    #print self.all_words
+    print self.all_words
 
 if __name__ =='__main__':
   a = CorpusParser(sys.argv[1])
