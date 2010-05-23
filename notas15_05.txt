@@ -1,3 +1,20 @@
 Essa versão do LSPM não está usando um dos termos da equação original para amostrar documentos, que é justamente a prob. duma frase ser relevante ser da classe. Está sendo admitido que essa prob. é 0.5.
 
+23/05
+Hoje, depois de fazer um parser pro corpus anotado de sentenças do bitterlemons, vou rodar prum pedacinho do corpus e ver se ele saca a diferença dos documentos. Pra isso, é claro, vou manter uma lista do que é Palestina e do que é Jerusalém. Quem viver, verá. :-)
+Decisões de projeto: arrumar esse parser pra documentos reais antes de dizer se o modelo tá certo ou n; com aqueles documentos gerados artificialmente pelo parse_docs.py, tava mta forçação de barra! A idéia é fazer cru e, depois, botar iterações iniciais pra descartar e só aproveitar a computação de tempos em tempos (tudo bem que pareeece que tá convergindo rápido). Depois, o mais importante é fechar uma partezinha do corpus pra deixar semi-supervisionado.
+
+Bom, mudança de planos: fazer um script que separe o nome dos autores e se é palestina ou israel, marcando os documentos numa tabela em algum lugar. Com isso feito, rodar com o máximo de documentos que o programa consiga pegar em tempo de um dia de execução.
+
+MIL MUDANÇAS IMPORTANTES!
+
+Agora, vou usar o corpus que efetivamente foi utilizado no artigo do LSPM, em vez daquilo que baixei do site na tora: http://sites.google.com/site/weihaolinatcmu/data
+
+Isso é crucial para saber que estamos comparando de igual pra igual, nosso modelo com o deles (como assim n pensei nisso antes, Brasil?).
+
+Outra coisa: na hora de escolher os documentos, n eh pra escolhê-los aleatoriamente. É melhor escolher os autores aleatoriamente. P q isso?
+
+ah, e uma dica
+se vc for rodar seu experimento, e vc tem acesso a informação de autores, o ideal não é vc escolher textos aleatórios pra fazer treinamento e teste e sim escolher autores aleatórios pra treinamento e teste
+aí vc tem certeza que está identificando perspectivas mesmo e não só fazendo identificação de autores
  
