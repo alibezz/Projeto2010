@@ -144,4 +144,4 @@ class LSPMSampler(object):
 if __name__=='__main__':
   a = CorpusParser(sys.argv[1])
   b = LSPMSampler(a.pdocs())
-  b.sample(1000)
+  b.sample(200)
