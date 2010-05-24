@@ -4,6 +4,8 @@
 
 import os
 import sys
+import math
+import random
 
 class SelectDocs(object):
   def __init__(self, dir, corpus):
@@ -31,8 +33,25 @@ class SelectDocs(object):
             self.relation[author] = [[file, view]] 
           else:
             self.relation[author].append([file, view])
-    print self.relation 
+
+  def pretty_print(self):
+    "prints relation in a human-readable way"
+
+  def pick_docs(self, percentage):
+    "picks a percentage of authors and, as a consequence, all their docs"
+    num_authors = int(math.ceil(len(self.relation.keys()) * percentage))
+    temp = self.relation.keys()
+    authors = []
+    print num_authors
+
+    for i in xrange(num_authors):
+      index = random.randint(0, len(temp) - 1)
+      authors.append(temp[index])
+      del temp[index] 
  
+    return authors     
+
 if __name__=='__main__':
   a = SelectDocs(sys.argv[1], os.listdir(sys.argv[1]))
   a.generate_relations()
+  print a.pick_docs(0.4)
