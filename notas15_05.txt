@@ -17,4 +17,7 @@ Outra coisa: na hora de escolher os documentos, n eh pra escolhê-los aleatoriam
 ah, e uma dica
 se vc for rodar seu experimento, e vc tem acesso a informação de autores, o ideal não é vc escolher textos aleatórios pra fazer treinamento e teste e sim escolher autores aleatórios pra treinamento e teste
 aí vc tem certeza que está identificando perspectivas mesmo e não só fazendo identificação de autores
- 
+
+24/05
+
+Rodar a parada com 40% dos autores. Importante monitorar o numero de iterações. Vou começar com 1000 e jogar tudo num arquivo (?). 

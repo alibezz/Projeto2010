@@ -1,9 +1,15 @@
 #Aline Bessa - 23/05/2010
 #This program intends to keep track of which documents were written by each of the authors - and under which viewpoint.
+#It also separates files from corpus to be tested by lspm
+#ARGS: argv[1] - directory containing meta-data about the corpus 
+#      argv[2] - directory containing corpus docs (parsed in sentences)
+#      argv[3] - directory that will be tested by lspm
+ 
 #SPECIALIZED TO BITTERLEMONS ORIGINAL CORPUS
 
 import os
 import sys
+import shutil
 import math
 import random
 
@@ -36,6 +42,10 @@ class SelectDocs(object):
 
   def pretty_print(self):
     "prints relation in a human-readable way"
+    for index, author in enumerate(self.relation.keys()):
+      print author
+      for i in xrange(len(self.relation[author])):
+        print "  " + self.relation[author][i][0] + " - " + self.relation[author][i][1]
 
   def pick_docs(self, percentage):
     "picks a percentage of authors and, as a consequence, all their docs"
@@ -58,4 +68,8 @@ class SelectDocs(object):
 if __name__=='__main__':
   a = SelectDocs(sys.argv[1], os.listdir(sys.argv[1]))
   a.generate_relations()
-  print a.pick_docs(0.4)
+  a.pretty_print()
+#  docs = a.pick_docs(0.4)
+#  
+#  for doc in xrange(len(docs)):
+#   shutil.copy(os.path.realpath(sys.argv[2] + '/' + doc), os.path.realpath(sys.argv[3])) 
