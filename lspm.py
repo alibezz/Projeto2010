@@ -1,7 +1,9 @@
 #Aline Bessa - 01/05/2010
 #Beta version of LSPM
+#ARGS: argv[1] - Directory containing files to be tested
 
-from texts import Docs
+from parse_docs import CorpusParser
+import sys
 import numpy as np
 import random
 import math
@@ -119,6 +121,7 @@ class LSPMSampler(object):
           self.wfreqs[2] += self.docs[i][j]
 
     ###iterate
+    fdocs = open('label_docs.txt', 'w+') 
     l =[]
     for i in xrange(nsamples):
       for j in xrange(len(self.docs)): 
@@ -126,14 +129,19 @@ class LSPMSampler(object):
         l.append(new_label)
         for k in xrange(len(self.docs[j])):
           self.pick_prsp(j, k) 
-     # if i % 10 == 0:
-     #   print l
+      if i % 10 == 0:
+        fdocs.write(str(l)) 
       l = []
+    fdocs.close()
+
+    flabels = open('all_labels.txt', 'w+')
+    flabels.write(str(self.labels))
+    flabels.close()
     #for i in xrange(len(self.docs)):
 #    print self.docs[8]
 #    print self.labels[8][1]
 
 if __name__=='__main__':
-  a = Docs()
-  b = LSPMSampler(a.list_docs())
-  b.sample(100)
+  a = CorpusParser(sys.argv[1])
+  b = LSPMSampler(a.pdocs())
+  b.sample(1000)

@@ -82,8 +82,8 @@ class CorpusParser(object):
       self.docs.append(self.get_doc(doc))
       f.close()
    
-    print self.all_words, len(self.all_words)
-    print self.docs
+  #  print self.all_words, len(self.all_words)
+    return self.docs
 
 if __name__ =='__main__':
   a = CorpusParser(sys.argv[1])

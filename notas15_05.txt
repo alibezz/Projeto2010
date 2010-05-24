@@ -20,4 +20,9 @@ aí vc tem certeza que está identificando perspectivas mesmo e não só fazendo
 
 24/05
 
-Rodar a parada com 40% dos autores. Importante monitorar o numero de iterações. Vou começar com 1000 e jogar tudo num arquivo (?). 
+Rodar a parada com 40% dos autores. Importante monitorar o numero de iterações. Vou começar com 1000 e jogar tudo num arquivo (?).
+
+Autores escolhidos para primeiro teste:
+
+['Manuel Hassassian', 'Zahira Kamal', 'Qadura Fares', 'Lamis Andoni', 'Majid Al-Haj', 'Tamar Hermann', 'Yossi Alpher', 'Maha Abu Dayyeh Shamas', 'Danny Ayalon', 'Yaron Ezrahi', 'Salem Ajluni', 'Uri Savir', 'Arnon Soffer', 'Yossi Melman', 'Saleh Abdul Jawad', 'Michael Tarazi', 'Dan Meridor', 'Ephraim Sneh', 'Shimon Peres', "Meir Pa'il", 'Reuven Merhav', 'Zeev Schiff', 'Jonathan Kuttab', 'Michael Eitan', 'Uri Ariel', 'Amira Hass', 'Galia Golan', 'Arie Lova Eliav', 'Hasan Asfour', 'Rami Shehadeh', 'Smadar Perry', 'Saeb Erekat', 'Bishop Munib Younan', 'Noah Kinarty', 'Yair Sheleg', 'Bruce Maddy-Weitzman', 'Ephraim Inbar', 'Dov Sedaka', 'Sari Hanafi', 'Efraim Inbar', 'Danny Rothschild', 'Ziad Abu Zayyad', 'Nabeel Kassis', 'Bassam Al-Salhi', 'Nabil Khatib', 'Intisar al Wazir', 'Meron Benvenisti', 'Mouin Rabbani', 'Shlomo Brom', 'Moriah Shlomot', 'George Giacaman', 'Sami Awad', 'Amnon Lord', 'Ingrid Gassner Jaradat', 'Ahmad Harb', 'Arnon Groiss', 'Samih Al Abed', 'Zakaria Al Agha', 'Yaacov Amidror', 'Dror Etkes', 'Ghassan Andoni', 'Ihsan Asalim', 'Amir Cheshin', 'Saul Singer', 'Menachem Froman', 'Amireh Hanna', 'Alon Liel', 'Shlomo Ben-Ami', 'Danny Rubinstein', 'Sam Bahour', 'Muhsin Yusuf', 'Nadia Naser-Najjab', 'Uri Elitzur', 'Yaser M. Dajani', 'Yossi Sarid', 'Bassam Salahi', 'Abraham Ben-Zvi', 'Meir Sheetrit', 'Hatem Abdel Qader', 'Dan Schueftan']
+ 

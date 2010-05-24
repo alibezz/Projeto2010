@@ -58,6 +58,7 @@ class SelectDocs(object):
       authors.append(temp[index])
       del temp[index] 
 
+    print authors
     selected_docs = []
     for index, name in enumerate(authors):
       for i in xrange(len(self.relation[name])):
@@ -68,8 +69,8 @@ class SelectDocs(object):
 if __name__=='__main__':
   a = SelectDocs(sys.argv[1], os.listdir(sys.argv[1]))
   a.generate_relations()
-  a.pretty_print()
-#  docs = a.pick_docs(0.4)
-#  
-#  for doc in xrange(len(docs)):
-#   shutil.copy(os.path.realpath(sys.argv[2] + '/' + doc), os.path.realpath(sys.argv[3])) 
+#  a.pretty_print()
+  docs = a.pick_docs(0.4)
+  
+  for i in xrange(len(docs)):
+   shutil.copy(os.path.realpath(sys.argv[2] + '/' + docs[i]), os.path.realpath(sys.argv[3])) 
