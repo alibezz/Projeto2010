@@ -42,14 +42,18 @@ class SelectDocs(object):
     num_authors = int(math.ceil(len(self.relation.keys()) * percentage))
     temp = self.relation.keys()
     authors = []
-    print num_authors
 
     for i in xrange(num_authors):
       index = random.randint(0, len(temp) - 1)
       authors.append(temp[index])
       del temp[index] 
- 
-    return authors     
+
+    selected_docs = []
+    for index, name in enumerate(authors):
+      for i in xrange(len(self.relation[name])):
+        selected_docs.append(self.relation[name][i][0])
+    
+    return selected_docs     
 
 if __name__=='__main__':
   a = SelectDocs(sys.argv[1], os.listdir(sys.argv[1]))
