@@ -130,7 +130,8 @@ class LSPMSampler(object):
         for k in xrange(len(self.docs[j])):
           self.pick_prsp(j, k) 
       if i % 10 == 0:
-        fdocs.write(str(l)) 
+        fdocs.write(str(l))
+        fdocs.write("\n") 
       l = []
     fdocs.close()
 
@@ -144,4 +145,4 @@ class LSPMSampler(object):
 if __name__=='__main__':
   a = CorpusParser(sys.argv[1])
   b = LSPMSampler(a.pdocs())
-  b.sample(200)
+  b.sample(1000)
