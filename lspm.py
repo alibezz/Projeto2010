@@ -9,12 +9,14 @@ import random
 import math
 
 class LSPMSampler(object):
-  def __init__(self, docs):
+  def __init__(self, p):
+    docs = a.pdocs()
     if not docs:
       self.all_words = 0
     else:
       self.all_words = len(docs[0][0])
     self.docs = docs
+    self.words = a.words()
 
   def pLi(self, label, index):
     t1 = np.log((self.dccs[label] + self.Gammapi[label])/(len(self.docs) + self.Gammapi[1] + self.Gammapi[0] -1))
@@ -86,7 +88,33 @@ class LSPMSampler(object):
     if has_prsp == 1:
       self.wfreqs[self.labels[j_ind][0]] += self.docs[j_ind][k_ind]
     return has_prsp
+
+  def likelihood(self):
+    lik = 0.
+    for i in xrange(len(self.labels)):
+      lik += self.pLi(self.labels[i][0], i)
+      for j in xrange(len(self.labels[i][1])):
+        lik += self.sPi(self.labels[i][1][j], i, self.docs[i][j])
+
+    return lik
+
+  def most_common_words(self, label, n):
+    wfreqs = {}
  
+    for i in xrange(len(self.labels)):
+      if self.labels[i][0] == label:
+        for j in xrange(len(self.docs[i])):
+          if self.labels[i][1][j]:
+            for k in xrange(len(self.docs[i][j])):
+              if self.docs[i][j][k] and self.words[k] in wfreqs:
+                wfreqs[self.words[k]] += 1
+              else:
+                wfreqs[self.words[k]] = 1
+
+    t = wfreqs.items()
+    t.sort (key=lambda a:a[1], reverse=True)
+    return t[:n]
+  
   def sample(self, nsamples):
     self.Gammapi = np.array([1., 1.])
     self.pi = random.betavariate(1, 1)
@@ -130,8 +158,15 @@ class LSPMSampler(object):
         for k in xrange(len(self.docs[j])):
           self.pick_prsp(j, k) 
       if i % 10 == 0:
-        fdocs.write(str(l))
-        fdocs.write("\n") 
+        fdocs.write(str(self.likelihood()))
+        fdocs.write("\n")
+      if i % 20 == 0:
+        fdocs.write(str(self.most_common_words(0, 30)))
+        fdocs.write("\n")
+        fdocs.write(str(self.most_common_words(1, 30)))
+        fdocs.write("\n")
+      fdocs.write(str(l))
+      fdocs.write("\n") 
       l = []
     fdocs.close()
 
@@ -144,5 +179,5 @@ class LSPMSampler(object):
 
 if __name__=='__main__':
   a = CorpusParser(sys.argv[1])
-  b = LSPMSampler(a.pdocs())
+  b = LSPMSampler(a)
   b.sample(1000)

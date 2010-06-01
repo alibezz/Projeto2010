@@ -38,6 +38,9 @@ class CorpusParser(object):
     y = raw_sntc.find("</")
     return raw_sntc[x:y]
 
+  def words(self):
+    return self.all_words
+
   def get_sntc(self, sntc):
  #   print self.all_words
     freqs = np.zeros(len(self.all_words))
