@@ -5,6 +5,7 @@ import sys
 import os
 from BeautifulSoup import BeautifulSoup
 import numpy as np
+import random
 
 def read_file(file):
    text = []
@@ -32,6 +33,8 @@ class CorpusParser(object):
     self.Ncorpus = len(os.listdir(corpus))
     self.all_words = []
     self.docs= []
+    self.list_docs = os.listdir(corpus)
+    random.shuffle(self.list_docs)
 
   def chop(self, raw_sntc):
     x =  raw_sntc.find(">") + 1
@@ -61,6 +64,12 @@ class CorpusParser(object):
           #t = en.noun.singular(t)
           self.all_words.append(t)
 
+  def ldocs(self):
+    return self.list_docs
+
+  def dirname(self):
+    return self.corpus
+
   def get_doc(self, doc):
     sntcs = []
     for i in xrange(len(doc)):
@@ -68,7 +77,7 @@ class CorpusParser(object):
     return sntcs
 
   def pdocs(self):
-    for file in os.listdir(self.corpus):
+    for file in self.list_docs:
       f = open(os.path.realpath(self.corpus + '/' + file), 'r')
       text = read_file(f)
       doc = BeautifulSoup(''.join(text)).contents[1].findAll('s')
@@ -76,7 +85,7 @@ class CorpusParser(object):
       f.close()
     
     self.docs = []
-    for file in os.listdir(self.corpus):
+    for file in self.list_docs:
       #TODO get rid of repetition
       f = open(os.path.realpath(self.corpus + '/' + file), 'r')
       text = read_file(f)

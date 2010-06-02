@@ -4,12 +4,13 @@
 
 from parse_docs import CorpusParser
 import sys
+import os
 import numpy as np
 import random
 import math
 
 class LSPMSampler(object):
-  def __init__(self, p):
+  def __init__(self, a):
     docs = a.pdocs()
     if not docs:
       self.all_words = 0
@@ -17,6 +18,10 @@ class LSPMSampler(object):
       self.all_words = len(docs[0][0])
     self.docs = docs
     self.words = a.words()
+    self.list_docs = a.ldocs()
+    self.Ndocs = len(self.docs)
+    self.dirname = a.dirname()
+    self.alpha = random.betavariate(1, 1) #supervision level
 
   def pLi(self, label, index):
     t1 = np.log((self.dccs[label] + self.Gammapi[label])/(len(self.docs) + self.Gammapi[1] + self.Gammapi[0] -1))
@@ -92,12 +97,14 @@ class LSPMSampler(object):
   def likelihood(self):
     lik = 0.
     for i in xrange(len(self.labels)):
-      lik += self.pLi(self.labels[i][0], i)
+      if i >= self.Ndocs * self.alpha:
+        lik += self.pLi(self.labels[i][0], i)
       for j in xrange(len(self.labels[i][1])):
         lik += self.sPi(self.labels[i][1][j], i, self.docs[i][j])
 
     return lik
 
+  #FIXME Should use self.wfreqs!!!
   def most_common_words(self, label, n):
     wfreqs = {}
  
@@ -114,7 +121,15 @@ class LSPMSampler(object):
     t = wfreqs.items()
     t.sort (key=lambda a:a[1], reverse=True)
     return t[:n]
-  
+ 
+  def get_real_label(self, index):
+    #assumptions, assumptions: pal = 1; isr = 0
+    filename = os.path.realpath(self.dirname + '/' + self.list_docs[index])
+    if filename.find("is") >= 0:
+      return 0
+    else:
+      return 1
+ 
   def sample(self, nsamples):
     self.Gammapi = np.array([1., 1.])
     self.pi = random.betavariate(1, 1)
@@ -125,11 +140,14 @@ class LSPMSampler(object):
     self.rlv = np.zeros((len(self.docs), 2))
     self.rlvfreqs = np.zeros((len(self.docs), 2, self.all_words))
  
-    ###initial document labels and sentence bearing has_has_perspectives
+    ###initial document labels and sentence bearing perspectives
     self.labels = []
     self.Msents = 0
-    for i in xrange(len(self.docs)):
-      label = np.random.binomial(1, self.pi)
+    for i in xrange(self.Ndocs):
+      if i < self.alpha * self.Ndocs:
+        label = self.get_real_label(i)
+      else:
+        label = np.random.binomial(1, self.pi)
       self.dccs[label] += 1
       spbearing = []
       tau = random.betavariate(1, 1)
@@ -139,7 +157,7 @@ class LSPMSampler(object):
         self.Msents += 1
       self.labels.append([label, spbearing])
 
-    for i in xrange(len(self.docs)):
+    for i in xrange(self.Ndocs):
       for j, a in enumerate(self.labels[i][1]):
         self.rlv[i][a] += 1
         self.rlvfreqs[i][a] += self.docs[i][j]
@@ -148,12 +166,18 @@ class LSPMSampler(object):
         else:
           self.wfreqs[2] += self.docs[i][j]
 
+
     ###iterate
     fdocs = open('label_docs.txt', 'w+') 
+    fdocs.write(str(self.alpha))
+    fdocs.write("\n")
     l =[]
     for i in xrange(nsamples):
-      for j in xrange(len(self.docs)): 
-        new_label = self.pick_label(j)
+      for j in xrange(self.Ndocs): 
+        if j >= self.alpha * self.Ndocs:
+          new_label = self.pick_label(j)
+        else:
+          new_label = self.labels[j][0]
         l.append(new_label)
         for k in xrange(len(self.docs[j])):
           self.pick_prsp(j, k) 
@@ -170,9 +194,9 @@ class LSPMSampler(object):
       l = []
     fdocs.close()
 
-    flabels = open('all_labels.txt', 'w+')
-    flabels.write(str(self.labels))
-    flabels.close()
+#    flabels = open('all_labels.txt', 'w+')
+#    flabels.write(str(self.labels))
+#    flabels.close()
     #for i in xrange(len(self.docs)):
 #    print self.docs[8]
 #    print self.labels[8][1]
