@@ -70,7 +70,7 @@ if __name__=='__main__':
   a = SelectDocs(sys.argv[1], os.listdir(sys.argv[1]))
   a.generate_relations()
 #  a.pretty_print()
-  docs = a.pick_docs(0.4)
+  docs = a.pick_docs(0.04)
   
   for i in xrange(len(docs)):
    shutil.copy(os.path.realpath(sys.argv[2] + '/' + docs[i]), os.path.realpath(sys.argv[3])) 

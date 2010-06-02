@@ -21,7 +21,7 @@ class LSPMSampler(object):
     self.list_docs = a.ldocs()
     self.Ndocs = len(self.docs)
     self.dirname = a.dirname()
-    self.alpha = random.betavariate(1, 1) #supervision level
+    self.alpha = 0.6 #random.random() #supervision level
 
   def pLi(self, label, index):
     t1 = np.log((self.dccs[label] + self.Gammapi[label])/(len(self.docs) + self.Gammapi[1] + self.Gammapi[0] -1))
@@ -104,23 +104,22 @@ class LSPMSampler(object):
 
     return lik
 
-  #FIXME Should use self.wfreqs!!!
-  def most_common_words(self, label, n):
-    wfreqs = {}
- 
-    for i in xrange(len(self.labels)):
-      if self.labels[i][0] == label:
-        for j in xrange(len(self.docs[i])):
-          if self.labels[i][1][j]:
-            for k in xrange(len(self.docs[i][j])):
-              if self.docs[i][j][k] and self.words[k] in wfreqs:
-                wfreqs[self.words[k]] += 1
-              else:
-                wfreqs[self.words[k]] = 1
-
-    t = wfreqs.items()
+  def sublist(self, prsp, n):
+    t = prsp.items()
     t.sort (key=lambda a:a[1], reverse=True)
     return t[:n]
+
+  def most_common_words(self, n):
+    prsp0 = {}
+    prsp1 = {}
+    no_prsp = {}
+
+    for i in xrange(self.all_words):
+      prsp0[self.words[i]] = self.wfreqs[0][i]
+      prsp1[self.words[i]] = self.wfreqs[1][i]
+      no_prsp[self.words[i]] = self.wfreqs[2][i] 
+
+    return self.sublist(prsp0, n), self.sublist(prsp1, n), self.sublist(no_prsp, n) 
  
   def get_real_label(self, index):
     #assumptions, assumptions: pal = 1; isr = 0
@@ -171,6 +170,8 @@ class LSPMSampler(object):
     fdocs = open('label_docs.txt', 'w+') 
     fdocs.write(str(self.alpha))
     fdocs.write("\n")
+    fdocs.write(str(self.list_docs))
+    fdocs.write("\n")
     l =[]
     for i in xrange(nsamples):
       for j in xrange(self.Ndocs): 
@@ -185,9 +186,11 @@ class LSPMSampler(object):
         fdocs.write(str(self.likelihood()))
         fdocs.write("\n")
       if i % 20 == 0:
-        fdocs.write(str(self.most_common_words(0, 30)))
+        fdocs.write(str(self.most_common_words(30)[0]))
         fdocs.write("\n")
-        fdocs.write(str(self.most_common_words(1, 30)))
+        fdocs.write(str(self.most_common_words(30)[1]))
+        fdocs.write("\n")
+        fdocs.write(str(self.most_common_words(30)[2]))
         fdocs.write("\n")
       fdocs.write(str(l))
       fdocs.write("\n") 
@@ -204,4 +207,4 @@ class LSPMSampler(object):
 if __name__=='__main__':
   a = CorpusParser(sys.argv[1])
   b = LSPMSampler(a)
-  b.sample(1000)
+  b.sample(5000)
