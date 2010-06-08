@@ -6,6 +6,9 @@ import os
 from BeautifulSoup import BeautifulSoup
 import numpy as np
 import random
+from nltk import *
+
+stop_words = ['which', 'even', 'can', 'peace', 'than', 'i', 'there', 'one', 'their', 'all', 'they', 'if', 'would', 'more', 'us', 'he', 'its', 'we', 'his', 'from', 'or', 'has', 'have', 'at', 'but', 'are', 'an', 'will', 'not', 'was', 'be', 'by', 'this', 'as', 'the', 'of', 'and', 'to', 'in', 'a', 'that', 'is', 'for', 'quot', 'it', 'on', 'with', 's']
 
 def read_file(file):
    text = []
@@ -50,6 +53,7 @@ class CorpusParser(object):
     #TODO Get rid of this repetition
     for t in get_words(sntc):
       t = t.lower().strip()
+#      t = PorterStemmer().stem_word(t)
       freqs[self.all_words.index(t)] += 1.
     return freqs
  
@@ -57,6 +61,7 @@ class CorpusParser(object):
     for i in xrange(len(doc)):
       for t in get_words(self.chop(str(doc[i]))):
         t = t.lower().strip()
+ #       t = PorterStemmer().stem_word(t)
         if not t in self.all_words:
           #stemming version
           #t = PorterStemmer().stem_word(t)
