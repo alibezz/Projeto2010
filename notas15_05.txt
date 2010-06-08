@@ -67,4 +67,5 @@ Mudando radicalmente as equações. Testando com 10% dos autores e 31 artigos.
 ['Ghada Karmi', 'Riad Malki', 'Tamar Hermann', 'Lily Galili', 'Bassam Al-Salhi', 'Shimon Peres', 'Arnon Soffer', 'Zalman Shoval', 'Michael Tarazi', 'Ali Jarbawi', 'Uri Ariel', 'Noah Kinarty', 'Hasan Khreisheh', 'Ruth Lapidoth', 'Yaser M. Dajani', 'Amin Amin', 'Maha Abu Dayyeh Shamas', 'Saul Singer', 'Hatem Abdel Qader', 'Reuven Merhav']
 
 Rodando sem um termo da equação.
- 
+08/06
+Hoje foi um dia importante. Mexi nas equações novamente e meti stop_words, stemming e palavras de baixa frequencia no pré-processamento. as stop_words são as palavras q apareceram nas 3 classes entre as 60 mais frequentes de cada uma testando com 317 documentos. as off_words são as stop_words mais aquelas palavras q apareceram em apenas um documento, considerando tb 317 deles. 
