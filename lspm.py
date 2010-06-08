@@ -20,7 +20,7 @@ class LSPMSampler(object):
     self.list_docs = a.ldocs()
     self.Ndocs = len(self.docs)
     self.dirname = a.dirname()
-    self.alpha = 0.6 #random.random() #supervision level
+    self.alpha = 1.0 #supervision level
 
   def pLi(self, label, index):
     t1 = np.log((self.dccs[label] + self.Gammapi[label])/(len(self.docs) + self.Gammapi[1] + self.Gammapi[0] -1))
@@ -60,10 +60,18 @@ class LSPMSampler(object):
     return label
 
   def sPi(self, has_prsp, label, label2, doc_ind, sntc):
-#    t1 = np.log((self.rlv[doc_ind][has_prsp] + self.Gammatau[has_prsp])/(len(self.docs[doc_ind]) + self.Gammatau[1] + self.Gammatau[0] -1))
     den = np.sum(self.wcounts[label] + self.wcounts[label2] + self.Gammatheta)
     t = np.sum(sntc * (np.log(self.wcounts[label] + self.Gammatheta)) - np.log(den))
     return t
+
+  def prsp(self, prsp, label, doc_index, sntc):
+    if prsp == 0:
+     l = 2
+    else:
+     l = label
+    # prior probability of getting a (ir)relevant sentence given its doc class scount (label) and irrelevant scount (2)
+    prior = np.log((self.scounts[l] + self.Gammatau[prsp])/(self.scounts[label] + self.scounts[2] + self.Gammatau[0] + self.Gammatau[1]))
+    return prior + self.sPi(prsp, label, 2, doc_index, sntc)
 
   def pick_prsp(self, j_ind, k_ind):
     old = self.labels[j_ind][1][k_ind]
@@ -71,12 +79,14 @@ class LSPMSampler(object):
     self.rlv_counts[j_ind][old] -= self.docs[j_ind][k_ind]
     if old == 1:  #sentence's prsp == doc_label
       self.wcounts[self.labels[j_ind][0]] -= self.docs[j_ind][k_ind]
+      self.scounts[self.labels[j_ind][0]] -= 1
     else:  #sentence has no prsp
       self.wcounts[2] -= self.docs[j_ind][k_ind]
- 
-    # 0 -> no_prsp; 1 -> prsp == doc_label // doc_label // gen_class // doc_index // sentence
-    sP0 = self.sPi(0, self.labels[j_ind][0], 2, j_ind, self.docs[j_ind][k_ind])
-    sP1 = self.sPi(1, self.labels[j_ind][0], 2, j_ind, self.docs[j_ind][k_ind])
+      self.scounts[2] -= 1
+
+    # 0 -> no_prsp; 1 -> prsp == doc_label // doc_label // doc_index // sentence
+    sP0 = self.prsp(0, self.labels[j_ind][0], j_ind, self.docs[j_ind][k_ind])
+    sP1 = self.prsp(1, self.labels[j_ind][0], j_ind, self.docs[j_ind][k_ind])
   
     loglr = sP1-sP0
     lr = np.exp(loglr)
@@ -87,8 +97,10 @@ class LSPMSampler(object):
     self.rlv_counts[j_ind][has_prsp] += self.docs[j_ind][k_ind]
     if has_prsp == 1:
       self.wcounts[self.labels[j_ind][0]] += self.docs[j_ind][k_ind]
+      self.scounts[self.labels[j_ind][0]] += 1
     else:
       self.wcounts[2] += self.docs[j_ind][k_ind]
+      self.scounts[2] += 1
     return has_prsp
 
   def likelihood(self):
@@ -104,7 +116,7 @@ class LSPMSampler(object):
   def sublist(self, prsp, n):
     t = prsp.items()
     t.sort (key=lambda a:a[1], reverse=True)
-    return t[n:]
+    return t[:n]
 
   def most_common_words(self, n):
     prsp0 = {}
@@ -133,6 +145,7 @@ class LSPMSampler(object):
     self.Gammatau = np.array([1., 1.])
     self.dccs = np.zeros(2)
     self.wcounts = np.zeros((3, self.all_words)) #freqs per class (0, 1 or irrelevant)
+    self.scounts = np.zeros(3)
     self.rlv = np.zeros((len(self.docs), 2))
     self.rlv_counts = np.zeros((len(self.docs), 2, self.all_words))
  
@@ -148,6 +161,10 @@ class LSPMSampler(object):
       tau = random.betavariate(1, 1)
       for j in xrange(len(self.docs[i])):
         slabel = np.random.binomial(1, tau)
+        if slabel:
+          self.scounts[label] += 1
+        else:
+          self.scounts[2] += 1
         spbearing.append(slabel)
       self.labels.append([label, spbearing])
 
@@ -181,14 +198,14 @@ class LSPMSampler(object):
         fdocs.write(str(self.likelihood()))
         fdocs.write("\n")
       if i % 20 == 0:
-        fdocs.write(str(self.most_common_words(20)[0]))
+        fdocs.write(str(self.most_common_words(40)[0]))
         fdocs.write("\n")
-        fdocs.write(str(self.most_common_words(20)[1]))
+        fdocs.write(str(self.most_common_words(40)[1]))
         fdocs.write("\n")
-        fdocs.write(str(self.most_common_words(20)[2]))
+        fdocs.write(str(self.most_common_words(40)[2]))
         fdocs.write("\n")
-      fdocs.write(str(l))
-      fdocs.write("\n")
+#      fdocs.write(str(l))
+#      fdocs.write("\n")
       l = []
     fdocs.close()
 
