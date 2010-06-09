@@ -70,7 +70,7 @@ class LSPMSampler(object):
      wcounts = self.wcounts[2]
      wcounts2 = self.wcounts[0] + self.wcounts[1] 
     else:
-     counts = self.scounts[label] 
+     counts = self.scounts[0] + self.scounts[1] 
      wcounts = self.wcounts[0] + self.wcounts[1] 
      wcounts2 = self.wcounts[2] 
     # prior probability of getting a (ir)relevant sentence 
