@@ -68,4 +68,9 @@ Mudando radicalmente as equações. Testando com 10% dos autores e 31 artigos.
 
 Rodando sem um termo da equação.
 08/06
-Hoje foi um dia importante. Mexi nas equações novamente e meti stop_words, stemming e palavras de baixa frequencia no pré-processamento. as stop_words são as palavras q apareceram nas 3 classes entre as 60 mais frequentes de cada uma testando com 317 documentos. as off_words são as stop_words mais aquelas palavras q apareceram em apenas um documento, considerando tb 317 deles. 
+Hoje foi um dia importante. Mexi nas equações novamente e meti stop_words, stemming e palavras de baixa frequencia no pré-processamento. as stop_words são as palavras q apareceram nas 3 classes entre as 60 mais frequentes de cada uma testando com 317 documentos. as off_words são as stop_words mais aquelas palavras q apareceram em apenas um documento, considerando tb 317 deles. as off_words tão mal calculadas; vou usar só as stop_words.
+
+Um experimento: botar label em 100% dos documentos e ver a distribuição das palavras.
+243 docs - 20% autores.
+['Yisrael Harel', 'Meron Benvenisti', 'Noah Kinarty', 'Hasan Khreisheh', 'Ghazi Hamad', 'Moriah Shlomot', 'Akiva Eldar', 'Ihsan Asalim', 'Yosef (Tommy) Lapid', 'Adel Manna', 'Efraim Inbar', 'Zeev Schiff', 'Avraham Sela', 'Amir Cheshin', 'Hasan Abu-Libdeh', 'Yasser Abed Rabbo', 'Robbie Sabel', 'Bishop Munib Younan', 'Muhammed Haykaleh', "Meir Pa'il", 'Jamal Juma', 'Mahmoud Zahhar', 'Shlomo Gazit', 'Dror Etkes', 'Haidar Abdel Shafi', 'Amira Hass', 'Adel Zagha', 'Yossi Melman', 'Barry Rubin', 'Ghassan Khatib', 'Saul Singer', 'Bassam Salahi', 'Salem Ajluni', 'Nabil Shaath', 'Ahmad Ghneim', 'Ali Jarbawi', 'Yoram Meital', 'Tamar Hermann', 'Adina Shapiro', 'Arnon Soffer', 'Issam Nassar', 'Majid Al-Haj', 'Mamdouh Nofal', 'Zvi Elpeleg', 'Eyad El Sarraj', 'Danny Ayalon', 'Ghada Karmi', 'Hatem Abdel Qader', 'Yair Hirschfeld', 'Tzipi Livni', 'Ziad Asali', 'Amnon Abramovitz', 'Reuven Merhav', 'Ephraim Inbar', 'Shlomo Brom', 'Danny Rubinstein', 'Nabil Khatib', 'Ghassan Andoni', 'Naim Al Ashhab', 'Abraham Ben-Zvi']
+ 

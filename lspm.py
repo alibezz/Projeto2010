@@ -29,7 +29,7 @@ class LSPMSampler(object):
     t2 = 0.
     for sntc, prsp in zip(self.docs[index], self.labels[index][1]):
       if prsp == 0: continue
-      t2 += self.sPi(1, label, label2, index, sntc) 
+      t2 += self.sPi(self.wfreqs[label], self.wfreqs[label2], sntc) 
     return t1 + t2
  
   def pick_label(self, index):
@@ -59,19 +59,23 @@ class LSPMSampler(object):
     self.wcounts[label] += self.rlv_counts[index][1]
     return label
 
-  def sPi(self, has_prsp, label, label2, doc_ind, sntc):
-    den = np.sum(self.wcounts[label] + self.wcounts[label2] + self.Gammatheta)
-    t = np.sum(sntc * (np.log(self.wcounts[label] + self.Gammatheta)) - np.log(den))
+  def sPi(self, wcounts, wcounts2, sntc):
+    den = np.sum(wcounts + wcounts2 + self.Gammatheta)
+    t = np.sum(sntc * (np.log(wcounts + self.Gammatheta)) - np.log(den))
     return t
 
-  def prsp(self, prsp, label, doc_index, sntc):
+  def prsp(self, prsp, label, sntc):
     if prsp == 0:
-     l = 2
+     counts = self.scounts[2]
+     wcounts = self.wcounts[2]
+     wcounts2 = self.wcounts[label] 
     else:
-     l = label
-    # prior probability of getting a (ir)relevant sentence given its doc class scount (label) and irrelevant scount (2)
-    prior = np.log((self.scounts[l] + self.Gammatau[prsp])/(self.scounts[label] + self.scounts[2] + self.Gammatau[0] + self.Gammatau[1]))
-    return prior + self.sPi(prsp, label, 2, doc_index, sntc)
+     counts = self.scounts[label] 
+     wcounts = self.wcounts[label] 
+     wcounts2 = self.wcounts[2] 
+    # prior probability of getting a (ir)relevant sentence 
+    prior = np.log((counts + self.Gammatau[prsp])/(self.scounts[label] + self.scounts[2] + self.Gammatau[0] + self.Gammatau[1]))
+    return prior + self.sPi(wcounts, wcounts2, sntc)
 
   def pick_prsp(self, j_ind, k_ind):
     old = self.labels[j_ind][1][k_ind]
@@ -84,9 +88,9 @@ class LSPMSampler(object):
       self.wcounts[2] -= self.docs[j_ind][k_ind]
       self.scounts[2] -= 1
 
-    # 0 -> no_prsp; 1 -> prsp == doc_label // doc_label // doc_index // sentence
-    sP0 = self.prsp(0, self.labels[j_ind][0], j_ind, self.docs[j_ind][k_ind])
-    sP1 = self.prsp(1, self.labels[j_ind][0], j_ind, self.docs[j_ind][k_ind])
+    # 0 -> no_prsp; 1 -> prsp == doc_label // doc_label // sentence
+    sP0 = self.prsp(0, self.labels[j_ind][0], self.docs[j_ind][k_ind])
+    sP1 = self.prsp(1, self.labels[j_ind][0], self.docs[j_ind][k_ind])
   
     loglr = sP1-sP0
     lr = np.exp(loglr)
@@ -195,7 +199,7 @@ class LSPMSampler(object):
         for k in xrange(len(self.docs[j])):
           self.pick_prsp(j, k)
       if i % 10 == 0:
-        fdocs.write(str(self.likelihood()))
+    #    fdocs.write(str(self.likelihood()))
         fdocs.write("\n")
       if i % 20 == 0:
         fdocs.write(str(self.most_common_words(40)[0]))
