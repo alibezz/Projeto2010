@@ -21,6 +21,7 @@ class LSPMSampler(object):
     self.Ndocs = len(self.docs)
     self.dirname = a.dirname()
     self.alpha = 1.0 #supervision level
+    self.sprob = np.log(0.5)
 
   def pLi(self, label, index):
     t1 = np.log((self.dccs[label] + self.Gammapi[label])/(len(self.docs) + self.Gammapi[1] + self.Gammapi[0] -1))
@@ -66,16 +67,16 @@ class LSPMSampler(object):
 
   def prsp(self, prsp, label, sntc):
     if prsp == 0:
-     counts = self.scounts[2]
+#     counts = self.scounts[2]
      wcounts = self.wcounts[2]
-     wcounts2 = self.wcounts[0] + self.wcounts[1] 
+     wcounts2 = self.wcounts[label] # self.wcounts[0] + self.wcounts[1] 
     else:
-     counts = self.scounts[0] + self.scounts[1] 
-     wcounts = self.wcounts[0] + self.wcounts[1] 
+#     counts = self.scounts[0] + self.scounts[1] 
+     wcounts = self.wcounts[label] #self.wcounts[0] + self.wcounts[1] 
      wcounts2 = self.wcounts[2] 
-    # prior probability of getting a (ir)relevant sentence 
-    prior = np.log((counts + self.Gammatau[prsp])/(np.sum(self.scounts) + self.Gammatau[0] + self.Gammatau[1]))
-    return prior + self.sPi(wcounts, wcounts2, sntc)
+#    # prior probability of getting a (ir)relevant sentence 
+#    prior = np.log((counts + self.Gammatau[prsp])/(np.sum(self.scounts) + self.Gammatau[0] + self.Gammatau[1]))
+    return self.sPi(wcounts, wcounts2, sntc)
 
   def pick_prsp(self, j_ind, k_ind):
     old = self.labels[j_ind][1][k_ind]
