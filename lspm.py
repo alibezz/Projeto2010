@@ -68,13 +68,13 @@ class LSPMSampler(object):
     if prsp == 0:
      counts = self.scounts[2]
      wcounts = self.wcounts[2]
-     wcounts2 = self.wcounts[label] 
+     wcounts2 = self.wcounts[0] + self.wcounts[1] 
     else:
      counts = self.scounts[label] 
-     wcounts = self.wcounts[label] 
+     wcounts = self.wcounts[0] + self.wcounts[1] 
      wcounts2 = self.wcounts[2] 
     # prior probability of getting a (ir)relevant sentence 
-    prior = np.log((counts + self.Gammatau[prsp])/(self.scounts[label] + self.scounts[2] + self.Gammatau[0] + self.Gammatau[1]))
+    prior = np.log((counts + self.Gammatau[prsp])/(np.sum(self.scounts) + self.Gammatau[0] + self.Gammatau[1]))
     return prior + self.sPi(wcounts, wcounts2, sntc)
 
   def pick_prsp(self, j_ind, k_ind):
@@ -113,7 +113,10 @@ class LSPMSampler(object):
       if i >= self.Ndocs * self.alpha:
         lik += self.pLi(self.labels[i][0], i)
       for j in xrange(len(self.labels[i][1])):
-        lik += self.sPi(self.labels[i][1][j], self.labels[i][0], 2, i, self.docs[i][j])
+        if self.labels[i][1][j]:
+          lik += self.sPi(self.wcounts[self.labels[i][0]], self.wcounts[2], self.docs[i][j])
+        else:
+          lik += self.sPi(self.wcounts[2], self.wcounts[self.labels[i][0]], self.docs[i][j])
 
     return lik
 
@@ -199,7 +202,7 @@ class LSPMSampler(object):
         for k in xrange(len(self.docs[j])):
           self.pick_prsp(j, k)
       if i % 10 == 0:
-    #    fdocs.write(str(self.likelihood()))
+        fdocs.write(str(self.likelihood()))
         fdocs.write("\n")
       if i % 20 == 0:
         fdocs.write(str(self.most_common_words(40)[0]))
@@ -212,13 +215,6 @@ class LSPMSampler(object):
 #      fdocs.write("\n")
       l = []
     fdocs.close()
-
-# flabels = open('all_labels.txt', 'w+')
-# flabels.write(str(self.labels))
-# flabels.close()
-    #for i in xrange(len(self.docs)):
-# print self.docs[8]
-# print self.labels[8][1]
 
 if __name__=='__main__':
   a = CorpusParser(sys.argv[1])
