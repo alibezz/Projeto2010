@@ -21,7 +21,6 @@ class LSPMSampler(object):
     self.Ndocs = len(self.docs)
     self.dirname = a.dirname()
     self.alpha = 1.0 #supervision level
-    self.sprob = np.log(0.5)
 
   def pLi(self, label, index):
     t1 = np.log((self.dccs[label] + self.Gammapi[label])/(len(self.docs) + self.Gammapi[1] + self.Gammapi[0] -1))
@@ -30,7 +29,7 @@ class LSPMSampler(object):
     t2 = 0.
     for sntc, prsp in zip(self.docs[index], self.labels[index][1]):
       if prsp == 0: continue
-      t2 += self.sPi(self.wfreqs[label], self.wfreqs[label2], sntc) 
+      t2 += self.sPi(1, label, label2, index, sntc) 
     return t1 + t2
  
   def pick_label(self, index):
@@ -60,23 +59,21 @@ class LSPMSampler(object):
     self.wcounts[label] += self.rlv_counts[index][1]
     return label
 
-  def sPi(self, wcounts, wcounts2, sntc):
-    den = np.sum(wcounts + wcounts2 + self.Gammatheta)
-    t = np.sum(sntc * (np.log(wcounts + self.Gammatheta)) - np.log(den))
+  def sPi(self, has_prsp, label, label2, doc_ind, sntc):
+    den = np.sum(self.wcounts[label] + self.wcounts[label2] + self.Gammatheta)
+    t = np.sum(sntc * (np.log(self.wcounts[label] + self.Gammatheta)) - np.log(den))
     return t
 
-  def prsp(self, prsp, label, sntc):
+  def prsp(self, prsp, label, doc_index, sntc):
     if prsp == 0:
-#     counts = self.scounts[2]
-     wcounts = self.wcounts[2]
-     wcounts2 = self.wcounts[label] # self.wcounts[0] + self.wcounts[1] 
+     l1 = 2
+     l2 = label
     else:
-#     counts = self.scounts[0] + self.scounts[1] 
-     wcounts = self.wcounts[label] #self.wcounts[0] + self.wcounts[1] 
-     wcounts2 = self.wcounts[2] 
-#    # prior probability of getting a (ir)relevant sentence 
-#    prior = np.log((counts + self.Gammatau[prsp])/(np.sum(self.scounts) + self.Gammatau[0] + self.Gammatau[1]))
-    return self.sPi(wcounts, wcounts2, sntc)
+     l1 = label
+     l2 = 2
+    # prior probability of getting a (ir)relevant sentence given its doc class scount (label) and irrelevant scount (2)
+#    prior = np.log((self.scounts[l] + self.Gammatau[prsp])/(self.scounts[label] + self.scounts[2] + self.Gammatau[0] + self.Gammatau[1]))
+    return self.sPi(prsp, l1, l2, doc_index, sntc)
 
   def pick_prsp(self, j_ind, k_ind):
     old = self.labels[j_ind][1][k_ind]
@@ -89,9 +86,9 @@ class LSPMSampler(object):
       self.wcounts[2] -= self.docs[j_ind][k_ind]
       self.scounts[2] -= 1
 
-    # 0 -> no_prsp; 1 -> prsp == doc_label // doc_label // sentence
-    sP0 = self.prsp(0, self.labels[j_ind][0], self.docs[j_ind][k_ind])
-    sP1 = self.prsp(1, self.labels[j_ind][0], self.docs[j_ind][k_ind])
+    # 0 -> no_prsp; 1 -> prsp == doc_label // doc_label // doc_index // sentence
+    sP0 = self.prsp(0, self.labels[j_ind][0], j_ind, self.docs[j_ind][k_ind])
+    sP1 = self.prsp(1, self.labels[j_ind][0], j_ind, self.docs[j_ind][k_ind])
   
     loglr = sP1-sP0
     lr = np.exp(loglr)
@@ -114,10 +111,7 @@ class LSPMSampler(object):
       if i >= self.Ndocs * self.alpha:
         lik += self.pLi(self.labels[i][0], i)
       for j in xrange(len(self.labels[i][1])):
-        if self.labels[i][1][j]:
-          lik += self.sPi(self.wcounts[self.labels[i][0]], self.wcounts[2], self.docs[i][j])
-        else:
-          lik += self.sPi(self.wcounts[2], self.wcounts[self.labels[i][0]], self.docs[i][j])
+        lik += self.sPi(self.labels[i][1][j], self.labels[i][0], 2, i, self.docs[i][j])
 
     return lik
 
@@ -156,19 +150,19 @@ class LSPMSampler(object):
     self.scounts = np.zeros(3)
     self.rlv = np.zeros((len(self.docs), 2))
     self.rlv_counts = np.zeros((len(self.docs), 2, self.all_words))
- 
+    self.tau = np.array([random.betavariate(1,1), random.betavariate(1,1)]) 
     ###initial document labels and sentence bearing perspectives
     self.labels = []
     for i in xrange(self.Ndocs):
       if i < self.alpha * self.Ndocs:
         label = self.get_real_label(i)
       else:
-        label = np.random.binomial(1, self.pi)
+        label = np.random.binomial(1, 0.5)
       self.dccs[label] += 1
       spbearing = []
-      tau = random.betavariate(1, 1)
       for j in xrange(len(self.docs[i])):
-        slabel = np.random.binomial(1, tau)
+        slabel = np.random.binomial(1, 0.5)
+        print slabel
         if slabel:
           self.scounts[label] += 1
         else:
@@ -188,12 +182,19 @@ class LSPMSampler(object):
 
     ###iterate
     fdocs = open('label_docs.txt', 'w+')
-    fdocs.write(str(self.alpha))
+    fdocs.write(str(self.tau))
     fdocs.write("\n")
     fdocs.write(str(self.list_docs))
     fdocs.write("\n")
     l =[]
     for i in xrange(nsamples):
+      if i % 20 == 0:
+        fdocs.write(str(self.most_common_words(40)[0]))
+        fdocs.write("\n")
+        fdocs.write(str(self.most_common_words(40)[1]))
+        fdocs.write("\n")
+        fdocs.write(str(self.most_common_words(40)[2]))
+        fdocs.write("\n")
       for j in xrange(self.Ndocs):
         if j >= self.alpha * self.Ndocs:
           new_label = self.pick_label(j)
@@ -216,6 +217,13 @@ class LSPMSampler(object):
 #      fdocs.write("\n")
       l = []
     fdocs.close()
+
+# flabels = open('all_labels.txt', 'w+')
+# flabels.write(str(self.labels))
+# flabels.close()
+    #for i in xrange(len(self.docs)):
+# print self.docs[8]
+# print self.labels[8][1]
 
 if __name__=='__main__':
   a = CorpusParser(sys.argv[1])
