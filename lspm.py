@@ -190,22 +190,40 @@ class LSPMSampler(object):
       if i < self.alpha * self.Ndocs:
         label = self.get_real_label(i)
       else:
-        label = np.random.binomial(1, self.pi)
+        label = np.random.binomial(1, 0.5)
       self.dccs[label] += 1
       spbearing = []
       for j in xrange(len(self.docs[i])):
-        sP0 = self.sPi(self.theta[2], self.docs[i][j]) 
-        sP1 = self.sPi(self.theta[label], self.docs[i][j]) 
-        loglr = (sP1-sP0)
-        lr = np.exp(loglr)
-        p = lr/(1+lr)
-        slabel = np.random.binomial(1, p)
+        slabel = np.random.binomial(1, 0.5)
+        print slabel
         if slabel:
           self.scounts[label] += 1
         else:
           self.scounts[2] += 1
         spbearing.append(slabel)
       self.labels.append([label, spbearing])
+  
+
+  #  for i in xrange(self.Ndocs):
+  #    if i < self.alpha * self.Ndocs:
+  #      label = self.get_real_label(i)
+  #    else:
+  #      label = np.random.binomial(1, self.pi)
+  #    self.dccs[label] += 1
+  #    spbearing = []
+  #    for j in xrange(len(self.docs[i])):
+  #      sP0 = self.sPi(self.theta[2], self.docs[i][j]) 
+  #      sP1 = self.sPi(self.theta[label], self.docs[i][j]) 
+  #      loglr = (sP1-sP0)
+  #      lr = np.exp(loglr)
+  #      p = lr/(1+lr)
+  #      slabel = np.random.binomial(1, p)
+  #      if slabel:
+  #        self.scounts[label] += 1
+  #      else:
+  #        self.scounts[2] += 1
+  #      spbearing.append(slabel)
+  #    self.labels.append([label, spbearing])
 
     for i in xrange(self.Ndocs):
       for j, a in enumerate(self.labels[i][1]):
