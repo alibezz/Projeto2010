@@ -235,13 +235,13 @@ class LSPMSampler(object):
    #   print a[::-1][:20]
       print self.scounts
       print "\n"
-#      if i % 5 == 0:
-#        fdocs.write(str(self.most_common_words(40)[0]))
-#        fdocs.write("\n")
-#        fdocs.write(str(self.most_common_words(40)[1]))
-#        fdocs.write("\n")
-#        fdocs.write(str(self.most_common_words(40)[2]))
-#        fdocs.write("\n")
+      if i % 5 == 0:
+        fdocs.write(str(self.most_common_words(40)[0]))
+        fdocs.write("\n")
+        fdocs.write(str(self.most_common_words(40)[1]))
+        fdocs.write("\n")
+        fdocs.write(str(self.most_common_words(40)[2]))
+        fdocs.write("\n")
       if i % 10 == 0:
         fdocs.write(str(self.likelihood()))
         fdocs.write("\n")
