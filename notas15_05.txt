@@ -73,4 +73,10 @@ Hoje foi um dia importante. Mexi nas equações novamente e meti stop_words, ste
 Um experimento: botar label em 100% dos documentos e ver a distribuição das palavras.
 243 docs - 20% autores.
 ['Yisrael Harel', 'Meron Benvenisti', 'Noah Kinarty', 'Hasan Khreisheh', 'Ghazi Hamad', 'Moriah Shlomot', 'Akiva Eldar', 'Ihsan Asalim', 'Yosef (Tommy) Lapid', 'Adel Manna', 'Efraim Inbar', 'Zeev Schiff', 'Avraham Sela', 'Amir Cheshin', 'Hasan Abu-Libdeh', 'Yasser Abed Rabbo', 'Robbie Sabel', 'Bishop Munib Younan', 'Muhammed Haykaleh', "Meir Pa'il", 'Jamal Juma', 'Mahmoud Zahhar', 'Shlomo Gazit', 'Dror Etkes', 'Haidar Abdel Shafi', 'Amira Hass', 'Adel Zagha', 'Yossi Melman', 'Barry Rubin', 'Ghassan Khatib', 'Saul Singer', 'Bassam Salahi', 'Salem Ajluni', 'Nabil Shaath', 'Ahmad Ghneim', 'Ali Jarbawi', 'Yoram Meital', 'Tamar Hermann', 'Adina Shapiro', 'Arnon Soffer', 'Issam Nassar', 'Majid Al-Haj', 'Mamdouh Nofal', 'Zvi Elpeleg', 'Eyad El Sarraj', 'Danny Ayalon', 'Ghada Karmi', 'Hatem Abdel Qader', 'Yair Hirschfeld', 'Tzipi Livni', 'Ziad Asali', 'Amnon Abramovitz', 'Reuven Merhav', 'Ephraim Inbar', 'Shlomo Brom', 'Danny Rubinstein', 'Nabil Khatib', 'Ghassan Andoni', 'Naim Al Ashhab', 'Abraham Ben-Zvi']
- 
+13/06
+
+O que tá pegando é que, com 70% de supervisão e ignorando a prior dos documentos, os labels 0 ou 1 começam a acontecer muuuuuuuitooooo - 0 se a classe 0 tiver mais palavras, 1, se a 1 tiver mais palavras (e ganhando frases)! Talvez seja o caso de normalizar somehow.
+
+Sem a prior é incrível como ele classifica meeramente, mas nunca faz nada do tipo botar tuuuuudo com label 0 ou 1. Tá na cara que essa prior precisa ser melhor pensada.
+
+Sem a prior, as classes ficam mais ou menos com o mesmo número de palavras - e são poucas palavras. Daí, a taxa de acerto não fica mto alta, mas nenhuma das classes zera. É interessante ver o poder de uma prior na vida da comunidade. 
