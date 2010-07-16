@@ -1,0 +1,36 @@
+Discourse Level Opinion Relations: An Annotation Study
+
+Estudo das opiniões no nível do discurso: mais que sentenças ou documentos.
+
+Opinion frames: duas opiniões relacionadas por conterem targets opostos ou united. => Às vezes, opomos ideias em um texto para mostrar o que gostamos e o que não gostamos. Dois tipos de opinião: sentiment and arguing.
+
+1 - Sentiment: positive and negative evaluations, emotions and judgements.
+2 - Arguing: arguing for or against something, or arguing that something should or should not be done. 
+
+Opinions having the same target: they are essentiaally about the same things. As targets podem ser: a mesma ou alternativas one to another. Usa 4 opinion type-polarity pairs: Sentiment Negative, Sentiment Positive, Arguing Negative, Arguing Positive (SN, SP, AN, AP) para slots contendo duas opiniões, e duas possible target relations: same, alternative => por análise combinatória, isso dá 4*4*2 = 32 tipos de frame. Um exemplo: a positive argument about something and a negative argument about its alternative: APANalt.
+
+Para saber se a target é a mesma, eles incluem tb elipses e anáforas, itens similares lexicalmente e algumas metonímias (parte pelo todo, instância e classe...). Anáfora resolution é pra coisas como "it's". Vc tem que recorrer à frase ou oração anterior e talz.
+
+When alt relations are involved, it may indicate the following scenario: opinions towards one alternative imply opinions of opposite polarity toward the remaining options. If the latter are numerous, it may reinforce the former polarity. (Minhas palavras)
+
+Faz um esquema de anotação baseado em trabalhos anteriores e depois monta um opinion frame com conhecimentos novos.
+
+Corpus: meetings pro desenvolvimento de um controle remoto, envolvendo design, funcionalidades etc. => Discurso.
+
+Os anotadores selecionam text spans e marcam como opinion ou target. A métrica de concordância é assim: um é considerado padrão-ouro e as anotações do outro são avaliadas contra (inter-annotator agreement). Depois, consensuada essa etapa, eles classificam Opinion Type e Polarity. Sebndo-se o target, eles fazem isso e o agreement é bem alto. Depois, vem o Target Linking, onde técnicas de coreference resolution são utilizadas (olha aí, ó: um trabalho pra opinião em discurso que usa coreference de forma interessante).
+
+> Target Span => Um span of text que captura sobre o que é a opinião. Pode ser uma proposição ou entidade.
+
+> Target Link => Um atributo de um target que mantém todas as targets no discurso que são associadas.
+
+> Link Type => Same ou alternative.
+
+Definir opinion type, opinion polarity e target relation type é reliable pra humanos - mas a retrieval de opinion spans, target spans e target links é mais dificil. Uma fonte de problemas potencial para o processo de target-linking são casos onde O MESMO ITEM ESTÁ ENVOLVIDO EM MAIS DE UMA OPOSIÇÃO. Tipo: um controle deveria ter reconhecimento de voz (should have). Mas that alone wouldn't work so well. The having buttons option SHOULD also be considered. Vai e volta na opinião.
+
+O trabalho mescla uma metodologia manual para anotações e uma parte automática pra target linkage.
+
+Teem que tomar cuidado com esse artigo pra não sair voando para muito longe da área.
+
+
+Nessa linha de tentar achar opiniões e suas targets - ou seja, com que assuntos ou aspectos de assunto elas se relacionam - tem um artigo da Janyce Wiebe bem mais explicadinho. Ela estuda opiniões *no nível do discurso*, e define o conceito de opinion frames: duas opiniões com mesmo target ou targets opostos. Ela estrutura a informação assim em cima de uma hipótese bem válida: às vezes, pra falar bem de uma coisa, falamos mal de outras. Tudo bem que isso é mais comum em discursos e debates do que em textos críticos, suponho eu, mas isso ajuda a coisa dela a funcionar. Ela classifica opinião em arguing, que é quando vc defende algo ou argumenta sobre como a coisa deveria ser, ou sentiment, que é qdo vc expressa uma avaliação positiva ou negativa sobre alguma coisa. Daí ela usa uns códigos para classificar as opiniões: AP, AN, SP e SN (arguing positive, arguing negative, sentiment positive e sentiment negative) e um código pra classificar se é o mesmo target ou alternativo (same e alt). Um opinion frame, portanto, além de guardar os excertos com as opiniões, recebe uma tag no formato APSNsame, por exemplo - ou seja, o primeiro excerto é do tipo AP; o segundo, SN e eles dois se referem ao mesmo target. O trabalho mescla um approach manual e um approach de ML pra construção desses opinion frames. Na parte manual, ela chama dois anotadores para marcarem documentos (já já falo do corpus), separando aquilo que é opinion daquilo que é target. Avaliando comparativamente as anotações dos dois, ela indica que não é uma tarefa trivial para humanos separar o que é opinião e o que é assunto - tipo, eles escolhem aproximadamente as mesmas coisas, mas raramente label exactly the same spans como uma coisa ou outra. Considerando overlappings e aproximações, e retirando opiniões que não casam com nada, eles concordam em 87%-90% dos casos. Fechado isso, é a vez deles anotarem o tipo da opinion e a polaridade. Eles concordam em 97.8%-98.5% dos casos. Ou seja, isso indica que provavelmente há uma distinção clara na cabeça da gente sobre o que é sentiment e oq é arguing, definido como ela definiu. Ela acredita que saber de antemão o que é target e o que não é, que vem da etapa anterior, influi nesse alto resultado de diferenciar entre arguing e sentiment. Ela usa ML finalmente para associar, dado um target, todos os targets que se relacionam com ele. Para associar os targets, ela os trata como anaphoric chains e usa o método de Passonneau para resolver co-reference (preciso estudar isso). Em seguida, com esse bolo de targets associados (e seus respectivos pares de opinion type e polarity), manualmente os annotators devem marcar "alt" ou "same". Estão prontos os opinion frames. Com um bolo deles, pra um conjunto de targets associados, o artigo indica que dá pra ter uma noção melhor do discurso. Isso é obvio, mas falta exemplificar direitinho. Eu tenho pra mim que a ideia dos opinion frames é bem legal, mas acho que dava pra automatizar as partes para as quais o desempenho humano já é sensacional (opinion type, polarity e relation type). Ela usa ML pra target linking pq acredita que essa eh uma tarefa humanamente complexa, mas isso não é empiricamente questionado/demonstrado. Faltou mostrar que realmente funciona, sei lá; explicar direito como ela usa ML, que vc ter esses bolinhos de targets realmente te leva a entender melhor um conjunto de discursos... Ah! Ela mede a eficácia da parte em que usa ML assim: ela varia um alpha do método de Passonneau e, quão maior for o consenso entre "same/alt" entre os anotadores para o alpha, melhor o target linking tá funcionando (ou seja, mais adequado é o alpha).
+

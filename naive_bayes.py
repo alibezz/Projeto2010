@@ -17,7 +17,7 @@ class NaiveBayesSampler(object):
       self.all_words = len(self.docs[0])
     self.dirname = a.dirname()
     self.labels = [] 
-    self.alpha = 0.3 #supervision level
+    self.alpha = 0.4 #supervision level
     self.Ndocs = len(self.docs)
     self.list_docs = a.ldocs()
 
@@ -121,4 +121,4 @@ if __name__=='__main__':
 #], dtype=np.float32)
   a = CorpusParser(sys.argv[1]) 
   s = NaiveBayesSampler(a)
-  s.sample(150)
+  s.sample(200)

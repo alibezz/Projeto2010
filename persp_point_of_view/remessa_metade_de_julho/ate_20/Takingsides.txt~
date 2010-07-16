@@ -1,0 +1,34 @@
+Taking sides
+
+A coisa toda do opinion mining tem a ver com a Web 2.0: discussion forums, social networking sites, chat rooms => conteúdo criado pelos próprios usuários. =====> Claro que o âmbito é bem maior, mas o cara tá estudando textos informais.
+
+QUERO IMAGEEEEEEEEEEEEEEEEEEENNNNNNNSSSS!!!!! ====> É mais dificil extrair opinião de textos informais. Requerem mto mais contexto pra que os leitores entendam do que se trata. ===> Mas eles não são feitos pruma audiência entender, e sim como um ***produto de uma interação*** (olha o viés comunicacional aí, gente!) ===> Além disso, às vezes, só por saber a revista ou o editor, já dá pra sacar mta coisa. Em textos mto informais, é preciso ler bem mais e talz. Além disso, vc n sabe qtas pessoas e quem tá escrevendo (a questão do anonimato).
+
+Rola uma lista massa de aplicações úteis q vc só consegue saber minerando a opinião.
+
+
+Perspectiva => conjunto de opiniões sobre coisas relacionadas. ===>  a opinião duma pessoa sobre aborto pode ajudar a entender sobre outras coisas.
+
+Rola de identificar citações de posts anteriores em um mesmo post (massa, mas possivel source of errors).
+
+É LEGAL COMO ELE FALA DOS DESAFIOS!!! Necessidade de lidar com palavras desconhecidas (léxico mto particular), diversos erros de mispell, named-entity recognition, organização retórica complexa...
+
+Usa PMI-IR pra ver se acha ocorrências da frase descritiva na vizinhança dos termos "liberal" e "conservative" => PMI(x,y) = log[P(x,y)/P(x)P(y)]; SO(w) = PMI(w,liberal)-PMI(w,conservative). ===> Funciona mto mal, acerta a orientação dos usuários mto pouco. E é como se eles n mudassem de lado nas discussões, além de n considerar q lá há mtas citações e menções ao lado oposto.
+
+Um naive bayes treinado com uns textinhos e descrição dos usuários atinge +/- 60% de eficácia ===> MTO POUCO AINDA! Mtas palavras se repetem em todos os lados e mto mispelling aumenta loucamente a qtd de dados necessários num treinamneto (mas tirar o mispelling diminuiu a eficácia pra +/- 58%!!!). Tira posts escritos por uma pessoa ou coisa asism e a eficácia sobe pra 67%, do naive bayes.
+
+Aí é que vem a parte 2: ele tenta olhar pra coisas no site (social properties of teh community of posters). ===> Usa referências explicitas a outros usuários e a seus posts. Citações em fórum costumam ser pra pessoas q pensam diferente; em blogs, o inter-blogging costuma se alinhar. Talvez a diferença nessa coisa da inter-citação tenha a veer com o publico, discussões mais sérias ou bllogs se destinam a uma audiencia maior, enqto discussões informais são produzidas para serem consumidas pelos proprios participantes.
+
+Cria um grafo de co-citação em que cada usuário é um nó e cada quoted post representa uma aresta. Mas não é um bipartite, n. às vezes pessoas alinhadas se citam, ou discordam/concordam de forma mais complexa. ==> Hipotese: users com papel retorico similar em textos provavelmente tão do mesmo lado. Pega a matriz de adjacência, computa a low-rank approximation (via SVD (estudaaaaaaar!!!!!!)) Computa a distância entre usuários no citation space e usa esses valores pra agrupar os usuários com padrões de citação similares (single-link hierarchical cluster algorithm (estudaaaar!!!)). Normalmente, esses clusters indicam orientação comum. Colapsa todos os posts de um cluster e usa NB na coleção. O resultado que vier vai pra todos os usuários do cluster. Para usuários com >500 palavras, acerta 73%.
+
+                                                     he conclusion is clear: purely
+text-based methods (sentiment detection and text classification) performed
+relatively poorly at predicting user’s political orientation. This is not surprising,
+given the nature of the texts. Since the posts are part of an on-going interaction,
+their meaning can only be understood within the context of a particular social
+environment and discourse situation. Unlike product reviews or news articles,
+they are not intended to be understood in isolation by a generic reader. Our results
+further suggest that information gained about the rhetorical relations between
+posters and the roles they take in the discourse is of use in identifying the political
+sentiment of the posts.
+

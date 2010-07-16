@@ -1,0 +1,498 @@
+Alexandre: olá
+  já deu nossa hora?
+ eu: sim, sim
+09:00 Alexandre: então, como vão as coisas?
+ eu: eu fechei a palestra sexta e li 2 artigos sábadp
+ Alexandre: como as pessoas reagiram à palestra?
+ eu: e pensei na estrutura da monografia
+09:01 a reação foi boa
+  recebi emails
+  de pessoas pedindo mais informações sobre o assunto
+  e querendo conversar
+  tem um interesse em fazer filtros de spam pruns servidores da ufba
+  e eles consideram a possibilidade de atacar a coisa ainda no nivel do servidor, usando classificação bayesiana
+09:02 e regras
+ Alexandre: ah, legal
+  olha
+  pra classificação de texto
+  logistic regression é melhor que naive bayes e quase tão fácil de implementar
+ eu: humm
+09:03 vou dar a dica a eles
+  bom
+  Luciano marcou de me ver hoje
+ Alexandre: o maior problema de classificar spam ao nivel do servidor
+ eu: para me dar um feedback doq achou
+ Alexandre: é que lidar com falsos positivos e falsos negativos é complicado
+ eu: pois é! imagina vc matar uma mensagem boa, q merda?
+ Alexandre: tipo, vc não vai ter alguém manualmente lendo os emails que chegarem pra ver se classificou algum válido como spam ou algo assim
+  ler os spams de cada caixa rola, mas os geraizões não
+09:04 mas, claro
+  eles podem calibrar o filtro pra não ter falsos positivos, praticamente
+  mas é complicadinho
+ eu: hj eu devo ler mais uns 3 artigos e fechar a parte inicial para perspective. já tem uma lista, via busca em largura nas referencias, pra parte seguinte.
+  a ideia eh experimentar.
+09:05 Italo q tah futucando isso.
+ Alexandre: certo
+  se quiser manda ele falar comigo, que eu posso passar referências mais apropriadas
+ eu: ok, Rop
+  vc sempre tão prestativo
+  :-D
+  bueno
+  eu conversei rapidamente com Luciano
+  sexta, I guess
+09:06 e ele sugeriu q, conforme eu vá lendo, eu vá pensando em métricas para comparar os trabalhos
+ Alexandre: certo
+ eu: isso me agrada muitissimo
+  e a ideia q tive para a parte da revisão
+  foi a seguinte:
+ Alexandre: diga
+ eu: vc tem problemas iniciais, certo?
+  tipo, p q essa area eh quente?
+09:07 vamos falar deles e diferenciá-los
+  depois, vamos falar dos objetos
+  são textos, ok?
+  os trabalhos giram em torno de textos em que formato?
+  como eles são representados?
+  bag-of-words?
+  grafos de palavras?
+ Alexandre: hm
+  tome cuidado aí
+  que vc tem várias coisas diferentes como formato
+09:08 vc tem o formato de entrada que cada coisa usa, que quase sempre é texto puro, mas pode ser uma parse tree ou algo assim
+  vc tem o formato interno, que pode ser bag of words, pode ser uma dependency tree ou pode ser algo mais complicado
+ eu: sim, é importante diferenciar
+  mesmo q eu n fale de todos
+ Alexandre: e vc tem o formato de saída, que pode ser um rótulo pra cada texto, um pra cada frase, um pra cada palavra, um pra cada nó de alguma árvore, etc
+09:09 eu: eu tou pensando em escrever a revisão como uma pipelinezinha
+ Alexandre: eu, se fosse vc, relegaria essa discussão pra uma sessão tarde na monografia discutindo os detalhes de cada modelo
+  e começaria focando com que subproblema específico eles tentam resolver
+  (ou seja: começar pela saída, por assim dizer)
+  e qual a abordagem geral pra fazer isso
+ eu: a questão é: tem um bilhão de modelos diferentes... como escrever sobre todos eles?
+09:10 Alexandre: vc vai ter que categorizá-los, eu sei
+  mas é melhor categorizar pelo problema que eles resolvem
+  do que por detalhes técnicos
+  e aí
+  pra cada problema
+09:11 vc escolhe um ou dois modelos representativos e aprofunda eles
+ eu: mto bacana
+  é legal fzer assim, uma pipeline às avessas
+ Alexandre: se vc simplesmente pipelinear o leitor fica perdido nos detalhes de cada um
+  e não vê o mais importante, que é qual usar pra que, e como se resolve aquele tipo de problema
+09:12 eu: então começa com subproblema -> modelos -> dados -> conclusões minhas
+  isso para cada subproblema
+ Alexandre: eu trocaria assim
+  subproblema -> dados -> modelos representativos -> suas conclusões
+ eu: sim sim sim sim
+  ;)
+  até pq
+  é esquisito falar dos modelos antes de falar dos dados
+  isso eh a revisão, ok?
+09:13 Alexandre: na hora de escolher um modelo vc tem que ter duas coisas em mente: ele deve ser bom, porque se estiver muito longe do estado da arte não é mais interessante, mas ele também deve ser simples o suficiente pra alguém conseguir entender
+ eu: mas a monografia ficaria assim, ó:
+  introdução
+ Alexandre: sim
+09:16 oi
+  continue
+  vc tinha parado em "introdução"
+09:17 eu: conceitos básicos
+revisão
+e uma sugestão do Luciano, que eu acho importante,
+minhas experiencias na área
+ele disse q n se desperdiça trabalho em mongrafia nunca
+e q essa seria a primeira pergunta dele
+'se vc mexeu, p q n escreveu nada?'
+depois disso, uma seção de open problems crítica e uma conclusãosona
+Enviado às 09:14 de terça-feira
+Alexandre não recebeu seu bate-papo.
+Alexandre não recebeu seu bate-papo.
+Alexandre: oi
+continue
+vc tinha parado em "introdução"
+ Alexandre: ah, ok
+09:18 eu: eu acredito q, eu adiantando isso legal
+  termino até outubro
+  e sobra tempo
+  pra fazer mais experimentos
+  oq eh mto confortável para mim
+ Alexandre: certo
+  isso puxa pra outra coisa que eu queria falar com você, voltando ao trabalho do LSPM (não é pra vc fazer mais nada lá, relaxe)
+  eu queria que vc me dissesse qual a taxa de acerto que ele reporta pro LSPM e pro naive bayes, e com quanto de supervisão, naquele dataset
+ eu: (o cara até hj n me respondeu nada, acredita?)
+09:19 Alexandre: (acredito)
+  (provavelmente ele não vai responder)
+  (vc mandou pra que autor? o primeiro? o segundo? o último?)
+ eu: (o primeiro)
+ Alexandre: (remande pro último, que deve ser o professor, e ainda tem carreira)
+ eu: (mmmmm)
+  (boa)
+  xô pegar as taxas aqui
+09:21 ó
+  qdo ele treina com os editores e testa com os guests
+  ele treina com 297 artigos e treina com 594 - 297
+09:22 para o naive bayes - B
+  q faz full Bayesian Inference
+  ele consegue
+ Alexandre: (ou seja, ele fez 50% de supervisão)
+ eu: 0.8585
+  isso eh MTO POUCO
+ Alexandre: pois é
+  vc conseguiu 95% né?
+  com 20% de supervisão
+ eu: consegui, mas foi um pico
+  treinei mais depois
+09:23 e ele ficava nos 75%
+ Alexandre: ah
+ eu: agora com 40% dos editores
+  tipo
+  eu peguei os editores
+  supervisionei com 40%
+  e consegui mais de 95% vááááárias vezes
+ Alexandre: ah
+  ótimo
+  esse é um bom resultado pra vc reportar na sua monografia
+ eu: total
+ Alexandre: que eles fizeram um modelo complicado
+09:24 chato de implementar
+ eu: mas tenho q fazer mais serio
+ Alexandre: cheio de problemas de convergência
+  que perde feio pra um naive bayes semi-supervisionado
+ eu: tipo assim: treinar mesmo com os editores
+  e testar com os guests
+ Alexandre: não, não
+ eu: mas aposto q dá mais q isso
+ Alexandre: treine jointly
+  que nem vc está fazendo
+  tipo, supervisando os editores e amostrando os guests
+  que é o mesmo experimental setup que o lspm
+ eu: eu tava supervisionando 40% dos editores e testando nos 60% restantes, entende?
+09:25 eu nem mexi com os guests
+ Alexandre: ah, sim, entendi
+  bom
+ eu: pq meu comutador eh uma carroça
+ Alexandre: ainda assim
+  deve funcionar
+  naive bayes é rápido
+ eu: I think so
+  e consome menos memoria
+  pq tem menos vetores ali
+ Alexandre: e vc ainda não parou pra otimizar o código, né?
+ eu: menos variaveis no meio
+  qui
+  fulerão
+  foi só pra apresentar
+09:26 Alexandre: quando fizer isso vc consegue fazer ele rodar com mais o dobro da velocidade e menos da metade da memória, se quiser
+ eu: e tipo
+  eu n usei 5000 iterações
+  eu usei bem menos
+  150 e 200
+ Alexandre: é
+  naive bayes converge bem mais rápido que isso
+ eu: pode ser até q o lspm seja melhor, mesmo
+  mas se for
+ Alexandre: olha
+ eu: é mto, mto pouco
+ Alexandre: eu duvidei quando vc mostrou esses resultados de naive bayes semisupervisionado
+  e
+09:27 se ele não disse que fez isso
+  ele não fez mesmo
+  e melhora bastante os resultados
+ eu: quais resultados de naive bayes semi supervisionado?
+  os meus?
+  ou os dele?
+09:28 Alexandre: naive bayes semi-supervisionado é bem melhor que naive bayes ordinário
+ eu: sim
+ Alexandre: então se vc fizer semi-supervisionado é de se esperar que tenha melhores resultados que o naive bayes dele
+ eu: ele usa um naive bayes - M tb
+  que é assim:
+  usa maximum a posteriori
+  MAP
+  que é isso?
+09:29 os resultados ficam, treinando em editores e testando em guests
+  0.8485
+ Alexandre: boa pergunta
+ eu: treinando com guests e testando nos editores, tudo aumenta um pouco
+ Alexandre: vou olhar o artigo dele e te digo
+09:30 eu: eu vou fazer os dois experimentos
+ Alexandre: (MAP é um método de inferência em que vc tenta maximizar a probabilidade a posteriori dos parâmetros dado a prior e os dados)
+ eu: e com ctz nem vou precisar de 5000 iterações
+ Alexandre: é
+ eu: ele faz three chains
+  enfim:
+  o Resnik suprimiu o lspm da versão nova
+  eu perguntei a ele recentemente p q
+09:31 ele disse q tava mega ocupado
+  mas q ia me responder
+  depois de sexta
+  tipo:
+  considerando q ele eh o unico cara além de nós
+  q eu conheça
+  futucando isso
+  e q parece disposto a responder
+  n custa nada pergntar
+ Alexandre: sim
+ eu: oq ele concluiu com esse lspm
+09:32 mas é isso: tou mto animada com tudo q leio; a area eh cheia de problemas interessantes
+  eu prefiro começar pela revisão e só depois escrever os conceitos básicos
+ Alexandre: sim
+ eu: pq n sei de antemão oq eh basico
+ Alexandre: senão vc vai ter que reescrever os conceitos básicos várias vezes
+  sim
+  bom
+  deixa eu te perguntar algumas coisas sobre a revisão agora
+ eu: ok
+ Alexandre: vc leu quais artigos exatamente? do que eles tratam?
+09:33 eu: eu li um dessa mesma galera do lspm
+  mais novo
+  em q eles usam KL pra avaliar se duas coleções de documentos estão escritas sob a mesma perspectiva
+  sob perspectivas diferentes
+ Alexandre: mas KL do que?
+ eu: se tão escritas com o mesmo topico
+09:34 ou topicos diferentes
+  assim
+  ele tem um parametro theta
+  q ele estima assim:
+  p(theta|A) = p(A|theta)*p(A)/p(theta)
+  theta ~ Dir(alpha)
+  A eh uma coleção
+ Alexandre: ah
+ eu: de documentos
+  e B eh outra
+ Alexandre: então theta é uma distribuição de palavras
+ eu: aih ele faz a KL de theta
+  isso
+09:35 a ideia é:
+ Alexandre: e ele quer ver o quanto essas distribuições são diferentes usando a divergência KL?
+ eu: sim
+ Alexandre: que bobo
+ eu: há patamares pras coisas
+ Alexandre: as duas coleções têm que ser sobre o mesmo assunto, imagino?
+ eu: eh ALTAMENTE forçação
+  ele pega de topicos diferentes tb
+  uma do reuters
+  pra mostrar q divergencia eh um bom teste
+  claro q eh neh
+09:36 duh
+  tipo assim
+  ele usa bags of words
+  se as palavras são bem distintas
+  claro q diverge mais
+  se sao parecidas mas as frequencias sao diferentes
+ Alexandre: é, isso parece bem bobo
+ eu: claro q diverge menos
+  eh um artigo bem obvio
+  em q ele conclui o seguinte
+  'parece q perspectivas têm a ver com as palavras usadas e com a enfase nelas'
+  tipo:
+09:37 isso eh a pedra fundamental
+  de todos esses modelos estatisticos
+  usando bags of words nuas e cruas
+ Alexandre: é, sim
+  bom
+ eu: então é bobão, saca?
+ Alexandre: interessante saber que se publica porcaria nessa área
+  em que conferência foi?
+ eu: coisa séria
+  acl
+  08
+ Alexandre: sério?
+09:38 ah, maravilha
+ eu: xô evr
+  *xô ver
+  acl06
+  eh de 2008 o artigo
+  mas oq eu achei massa
+  nesse artigo
+  são as referencias
+09:39 ele aponta prumas coisas antigonas
+ Alexandre: ah, legal
+ eu: da década de 70, de gente começando a tentar definir oq eh belief e opinion
+  eu adoro museu
+ Alexandre: é bom vc ver o que se fazia nessa área antes de aprendizado de máquina, também
+ eu: mais à frente, lerei eles
+ Alexandre: é
+ eu: eles usam regras
+  lógica
+ Alexandre: baixa prioridade, mas é legal
+ eu: é bem rico
+  saber isso
+  tipo: é uma revisão. isso eh interessante.
+ Alexandre: é, sim
+  bom, continue
+  que outros artigos?
+09:40 eu: aih eu li um outro
+  bem pequenininho
+  em q o cara tenta defender q, em um grupo de pessoas postando sobre politica
+  respostas diretas tendem a defender ponto de vista oposto
+09:41 Alexandre: (uma coisa que é bom você fazer depois é olhar os últimos 4 ou 5 anos das conferências: ACL, EMNLP, NAACL, pra ver se alguma tem algum artigo que vc perdeu)
+  e ele consegue defender isso?
+ eu: eh bem nah, esse
+  ele faz testes de claassificação com palavras
+  e nem explica direito
+  oq eh q us
+  usa
+  n sei como publicou
+  ele fala mais da filosofia da coisa
+  e dos corpora
+09:42 Alexandre: publicou onde?
+ eu: doq de fato oq ele sou pra fazer os esquemas de publicação
+  xô ver
+  aaai?
+  isso diz algo?
+ Alexandre: sim
+  American Association of Articial Intelligence, ou algo assim
+  é uma conferência de segunda
+09:43 eu: hum
+  ele usa um naive bayesinho
+  e 'testes estatisticos'
+  q n explica
+  e fica falando sobre 'como eh dificil sbaer a perspectiva, pq os textos se estruturam diferente'
+  oq eu achei massa
+09:44 Alexandre: testes estatísticos tende a ser t-test ou chi-²
+ eu: é q isso me fez pensar em coisas q eu gostaria de testar em blogs de politica brasileiros
+  escritos por varios editores
+  e comentados por varias pessoas
+  tipo:
+  fazer posts versus comments
+  e tentar saber se o blog eh amado
+  ou rechaçado
+  ou se isso varia com o tema
+  ou com o topico
+09:45 tem o da dilma, por exemplo
+  eu fico com meu naive bayes e meu ldazinho até segunda ordem
+  hahaha
+ Alexandre: é, sim
+  bom, próximo
+ eu: eu li esses dois
+  domingo eu fiquei trabalhando
+09:46 e ateh sexta eu tava presa lendo o prml
+  e outras coisas
+  pra apresentação
+  faltam 4 da primeira leva
+  =/
+  tem um grande
+  49 páginas
+  de gente de humanas
+  =/
+ Alexandre: ah, certo
+  ok
+ eu: mas eh melhor lê-lo
+09:47 tipo
+  meu método inicial foi:
+  pegar as coisas citadas por pang e lee
+  na survey deles
+  mas talvez seja melhor
+  ir direto nas conferencias fodonas
+  nips, acl
+ Alexandre: também
+  nips não tem quase nada de sentiment
+09:48 é melhor ir pra acl, naacl e emnlp
+  e sair seguindo o grafo de lá
+  os últimos 4 ou 5 anos
+  agora
+  é também bom ver quem cita as coisas que bo pang cita
+  e coisas assim
+  que aí vc pode achar novos artigos na área
+ eu: sim, fazr o contrário
+09:49 bom, eu tou tranquil
+  *tranquila
+  e motivada
+  =)
+ Alexandre: ok :-)
+  deixe eu te dar um update
+  meu primeiro modelo de unsupervised opinion mining está funcionando ok
+ eu: oh!
+09:50 oh!!!
+  cacete, oq vc fez???
+ Alexandre: se vc solta ele num corpus com reviews positivas e negativas ele meio que separa elas
+  bom
+  estou me concentrando em reviews de produtos
+  a idéia é o seguinte
+  digamos que vc tenha uma review de um produto
+09:51 cada palavra dessa review pode ser: ou uma palavra genérica, ou uma palavra que se refere a algo desse produto em si ou uma palavra que está tentando expressar a opinião do autor
+  mantenha então um dirichlet pra cada produto, um dirichlet de background e um pra cada opinião que vc quer modelar
+  faça gibbs sampling reamostrando as palavras pra ver pra onde elas vão e depois fazendo um passo estilo lspm pra ver se aquela review vai pra outra opinião
+09:52 pra testar se está funcionando eu estou vendo que, num corpus com reviews pré-rotuladas com positivo e negativo, ele tende a separar até mais as positivas das negativas
+  e achar alguns nichos no meio
+ eu: caramba
+ Alexandre: eu vou botar pra rodar num corpus maior assim que der
+09:53 eu: eh positive/negative classification
+  tá usando um benchmark?
+ Alexandre: assim
+  eu não estou classificando
+  já que é não supervisionado
+  estou agrupandop
+ eu: tá clusteriznaod
+ Alexandre: mas estou usando o dataset de benchmark pra ver que ele não está fazendo partições independentes das opiniões das pessoas
+ eu: saquei
+  q dataset é?
+09:54 Alexandre: o de multi task sentiment analysis, dos artigos de crammer, dredze e pereira
+ eu: conheço n
+  mas eh de filmes?
+  eh d eq?
+  q produtos?
+ Alexandre: é de várias coisas
+  tem livros, dvds, roupas, coisas de bebês, etc
+09:55 eu: mmmm
+  eh duma loja?
+ Alexandre: eles vẽm pré-separados por categoria
+  não sei
+  eu te passei o link dele
+  já mais de uma vez
+ eu: =(
+  certamente n ficou no topo da prioridade
+  e como ela foi mudando...
+  eu n li
+  :/
+  mas se vc me passou
+  então eu tenho aqui
+09:56 Alexandre: http://www.cs.jhu.edu/~mdredze/datasets/sentiment/
+  pequei o unprocessed
+ eu: eu acho q vc me passou o artigo.
+  xô te falar uma coisa
+ Alexandre: dig
+09:57 eu: essa coisa de criar métricas pra comparar trabalhos num mesmo subproblema é muito bom, acho
+  torna a coisa mais matematicazinha de ler
+  mas só vou conseguir pensar nelas conforme for lendo
+ Alexandre: mas
+  tome cuidado
+  porque vc pode criar métricas fantasmas
+  o que vc tem que fazer é tentar comparar as métricas que eles mesmos lhe oferecem
+09:58 eu: sim
+  é mais ideia q vir com minha opiniao
+  minhas metricas de cabeça
+  bom
+  eu vou ler mto ainda
+  mas em paralelo, já me sinto segura pra escrever a introdução/motivação da mono
+09:59 Alexandre: ok
+ eu: então em algum lugar temporal não muito longe daqui, eu gostaria de saber se dá pra te passar isso
+  tipo:
+  vc prefere ler aos poucos né?
+  e opinar
+  ou ler de vez?
+ Alexandre: ler aos poucos
+  antes de reuniões me passe o que vc escreveu
+  tipo na véspera
+  e eu leio e comento na reunião
+10:00 eu: ok
+  10h
+  ;)
+  reunião produtiva
+ Alexandre: assim com reunião marcada fica mais fácil não perder tempo
+  antes de vc terminar, mais uma coisa
+  quais os seus planos pra essa semana?
+10:01 eu: continuar lendo, anotando coisas e começar a introdução
+ Alexandre: ok
+ eu: vou puxar a leva 2 das conferencias decentes
+  n quero perder tempo com coisas não tão relevantes assim
+ Alexandre: sim
+ eu: beijos, Top
+  =)
+10:02 vc eh formidável
+  sabia q vai acabar achando mais orientandos?
+  eu acho q esse tema vai atrair gente no dcc
+ Alexandre: ah, que bom
+10:03 eu: vou tomar banho
+  e ir ao trabalho
+  beijos
+ Alexandre: beijos

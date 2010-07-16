@@ -1,0 +1,41 @@
+Coupling Niche Browsers and Affect Analysis for an Opinion Mining Application
+
+O dataset é de notícias, então é interessante pq a coisa da opinião não é assim tão óbvia como é com blogs.
+
+Niche Browsers produce full-text indexes of documents found on the web, but they ONLY index pages correspondign to a specific class of papers. (Google News limits its browsing to X online news sources). They deal with a wide variety of input document formats, gathet their documents from the changing Web and have no control over document field definition.
+
+Affect Analysis: textos podem ser apresentados with different emotional slants. (free-fighters != terrorists)
+
+VÁRIAS REFERÊNCIAS VELHINHAS, TANTO PRA DICIONÁRIOS QTO PRA TRABALHOS ANTERIORES EM AFFECT ANALYSIS
+
+Esse trabalho é insano, com adjetivos: Hatzivassiloglou & McKeown (1997)
+
+"                                                            Turney & Littman (2003) have shown how it
+was possible to automatically discover positively and negatively charged words, given fourteen seed
+words, and using statistics of association from the WWW. Their set of positive charged seed words was
+{good, nice, excellent, positive, fortunate, correct, superior} and their set of negatively charged seed
+words was {bad, nasty, poor, negative, unfortunate, wrong, inferior}." => Ler isso pq, se for facil de fazer, eu vou querer usar em português.
+
+
+Our system functions as follows:
+   • The end-user specifies the entity about whom the current public opinion (as voiced in the press)
+        is to be mined, as well as the time period involved.
+   • Our system sends a request to the Google News browser and fetches up to 1000 references to
+        news articles concerning this entity during the specified period.
+   • Each article is fetched, and the text around the specified entity is extracted (using a KWIC
+        Keyword-in-Context (Heaps, 1978) program). We used 120 characters before and after the
+        entity as a window.
+   • The extracted windows are sorted and duplicates removed (to eliminate duplicate articles
+        portions).
+   • The windows are collated, and all affect words (in any morphological variant) from our lexicon
+        are identified. Affect classes are associated with each affect word using the lexicon.
+   • A score for the entity is produced by dividing the number of instances of a positive affect class
+        by the number of instances of a negative affect class. If there are more positive than negative
+        references, then, the score will be greater than 1; if there are more negative references, it will be
+        less than one.
+
+Problemas: não considera negações no sentido - tipo, palavras positivas com 'não' na frente na verdade são negativas - nem considera ambiguidades de classificação.
+
+
+====> Esse trabalho avalia como pessoas públicas são 'quistas' em sites famosos de política. É massa que é voltado pra textos que, teoricamente, NÃO EXPRESSAM OPINIÕES e ele mostra como isso é falso. Oh, eh massa essa coisa da janelinha pequena. Ele pula a parte elocubrante de catar targets, assumindo q tudo se refere ao topico.
+

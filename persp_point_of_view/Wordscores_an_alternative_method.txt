@@ -1,0 +1,36 @@
+Artigo submetido pros oxfordjournals de political analysis - 2008.
+
+Método "Wordscores": uma leitura das limitações.
+
+Wordscores: trata as palavras no texto como dados a serem scored em vez de palavras a serem entendidas.
+
+Esse Wordscores parece ser bem utilizado.
+
+Parece ser a rotina chave do Wordscores:
+
+"         LBG’s fundamental insight is elegant. The essence of the approach is to use texts with an
+exogenously defined ideological position (the “reference” texts) to estimate the ideological position of
+texts whose position is unknown (the “virgin” texts). To do so, the LBG procedure creates a “dictionary”
+that assigns each word that appears in the reference texts an ideological score. This score is an average of
+the ideological scores assigned to the reference texts, weighted by the relative frequency of the word
+across the reference texts. With this dictionary in hand, the ideological position of any virgin text is
+estimated as the frequency-weighted average position of the dictionary words appearing in the virgin text.
+"
+
+
+Método do wordscores: n textos de referencia, scored numa escala unidimensional. Ar é o ideological score do texto r. Seja Nwr o número de vezes que a palavra w aparece em r. A freq. relativa de w, Rwr, é
+
+Nwr/sum(Nwj), j de 1 a n. Rwr é a probabilidade de que w vem do texto r. Como os textos de referencia tem tamanhos diferentes, padroniza-se Rwr dividindo pelo tamanho de r, Nr.
+
+Aí cria pesos Wwr, dividindo Rwr por sum(Rwj), e cria um "dicionário" de posições ideológicas para as palavras com os Wwr. O score ideológico Sw é o somatório de WwjAj, j de 1 a n.
+
+Overlapping words assume centrist ideological positions. O mal é que essa assumption tb vai pra palavras that do not carry ideological content at all (stop words).
+
+O escore transformado para um texto virgem depende da combinação particular dos escores de outros textos virgens, o que se torna um problema quando se pretende analisar conteúdo de coleções mto grandes, q exigem a escolha de subsets. O problema está no uso dos desvios-padrão, que dependem totalmente do set particular de textos virgens.
+Os escores precisam ser menos sensiveis ao set of virgin texts.
+
+Os escores transformados pros textos de referencia n equivalem aos originais; é como se mudasse a escala. Isso limita as comparações entre textos virgens e textos de referencia. Eles ficam tão diferentes que nem caem no intervalo de 95% de confiança.
+
+Ok: ele gera uma transformação que recupera certinho os escores das referencias e n depende dos textos virgens, usando a distancia relativa entre 2 reference texts. Mas APENAS 2 reference texts podem ser usados pra gerar o dicionário.
+
+ARTIGO IMENSO PRA FALAR DE ALGO TÃO SIMPLES!

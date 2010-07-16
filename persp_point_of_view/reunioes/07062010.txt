@@ -1,0 +1,380 @@
+Alexandre: está doente?
+11:28 eu: vamos ver
+  hehe
+  fiz os exames
+  chatissimos
+  bom, eu tou livre agora
+  se vc preferir conversar agora em vez de amanhã, estamos aí
+11:29 Alexandre: pode ser
+  então, o que vc me conta?
+ eu: eu conto que eu tou tendo probleminhas com o encoding da minha introducao.tex
+  heheh
+11:30 e q a motivação ainda n tá pŕonta
+ Alexandre: como assim encoding?
+ eu: sabe ç e ã?
+ Alexandre: (pra debugar tex pelo menos eu sirvo)
+  sim
+  então
+ eu: tão saindo toscos
+ Alexandre: vc está salvando em que formato no texto?
+  utf-8 ou iso-8859-1?
+ eu: eu acho q eh nisso o problema, mas como eu vejo mesmo?
+11:31 Alexandre: vc usa emacs?
+  bom
+  faça o seguinte
+  no cabeçalho
+  coloque
+ eu: tenho aqui
+  I guess
+ Alexandre: \usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+ eu: mas n uso com latex, n me adaptei
+ Alexandre: e recompile
+  se não funcionar
+11:32 troque o utf8x por latin1
+ eu: tava latin1
+ Alexandre: troque pra utf8x então
+ eu: piorou
+  tipo
+11:33 esses \usepackage
+ Alexandre: pode ser
+ eu: ficam em monografia.tex
+  esse arquivo
+ Alexandre: vc está com um arquivo só
+  ou aquela loucura de um por capítulo?
+  bom
+ eu: chama outros
+ Alexandre: fica no principal
+ eu: \input{introducao.tex}
+ Alexandre: e todos tem que estar com a mesma codificação
+  vc usa vim, então?
+ eu: o \input{conclusao.tex} funciona lindamente
+11:34 Alexandre: é, deve ser isso
+ eu: o \input{introducao.tex}, n
+ Alexandre: alguns arquivos com uma codificação e outros com outra
+  certo
+ eu: acho q ele tah errado
+ Alexandre: vc diz
+  funciona lindamente
+  depois do utf8x ou antes?
+ eu: antes
+  o utf8x mangueou
+ Alexandre: certo
+  então volte pra latin1
+11:35 ah
+  rapidinho
+  faça, no bash, echo $LANG
+  e me diga o que ele fala
+ eu: pt_BR.UTF-8
+ Alexandre: certo
+  então coloque utf8x mesmo no usepackage
+  e vamos normalizar o resto
+11:36 depois de fazer isso
+  abra cada arquivo no vim
+  ee faça ":set encoding=utf8" e salve
+ eu: mmmmmmm
+  isso deve resolver!
+ Alexandre: deveria, sim
+11:39 eu: ele tá mal-formaando cedilhas e tils
+  vou botar tudo pra latin1
+ Alexandre: não
+  não faz isso
+  me passe os arquivos
+  que eu conserto
+ eu: beleza
+ Alexandre: vc colocou o \usepackage[T1]{inputenc}?
+11:40 é importante
+ eu: sim
+ Alexandre: ok
+ eu: fontenc n?
+ Alexandre: sim, fontenc
+ eu: eh inputenc mesmo?
+ Alexandre: me mande
+  que eu conserto
+ eu: putz
+  o mal eh q isso pode aconecer com frequencia n?
+ Alexandre: aline
+  isso só acontece uma vez
+  até vc se normalizar
+ eu: ok
+11:41 Alexandre: é que os templates da ufba são velhos
+  e assumem que todo mundo usa latin1
+  o que não é verdade
+  então eles te passaram arquivos em latin1, provavelmente
+  e o template em latin1
+  e o seu sistema usa utf8
+11:42 eu: prontinho
+  foi
+  entonces
+  essa semana eu criei uma metodologiazinha pra minerar os artigos
+  e descobri na prática que algumas cisas n funcionam como deveriam
+11:43 Alexandre: diga-me
+ eu: mexi na motivação, tb. ainda n terminei, mas li mais fontes para estruturá-la, em vez de ficar só presa no e-book de pang and lee
+11:44 tem um cara chamado bing liu que escreveu um capitulo prum livro de IR chamado Opinion Mining. Parece legal; n consegui pegar ainda (eh pago), mas peguei o artigo que ele fez, e q gerou o capitulo mais à frente
+  a metodologia era:
+  chegue na acl anthology
+11:45 busque por opinion sentiment viewpoint perspective
+  e cate
+  eu consegui 33 documentos
+  sendo q alguns eram ccompilações
+  de vááários artigos
+  proceedings, sabe?
+  então eu saí lendo os abstracts
+11:46 e aí que a recuperação doq eu queria foi medonha ;)
+  só tinha 4 artigos interessantes e q tinham a ver
+  todos recentaços
+  e tratando exatamente doq eu quero estudar
+  mas tipo: mto pouco, né?
+  pq a metodologia tava ruim
+11:47 mas eles são o ponto de partida
+  eles têm mtas referecias
+  e tb são bem referenciados
+ Alexandre: ok
+ eu: eu percebi q eh melhor ir no site dos caras
+  q tão pesquisando
+ Alexandre: é o que eu tenho te falado desde o começo, seguir referências é melhor que sair buscando
+ eu: n "melhor", mas é valido
+  sim, é; nunca duvidei
+  mas tipo:
+11:48 queria alargar o X0
+  do trabalho
+  entende?
+ Alexandre: sim
+  mas
+  eu faria isso
+  depois de vc já ter lido vários outros
+  não precisa fazer uma busca em largura
+ eu: eu li 10 até agora
+ Alexandre: uma em profundidade acaba dando menos trabalho
+11:49 eu: eles variam bastante
+  mas todos usam machine learning, ou peelo menos o principio de bayes
+  tem gente q estuda mais brutalmente semântica léxica
+  tem gente q só usa bag of words
+11:50 eu fiquei catando por algum tempo uma definição boa para opinion mining, tb
+  eh tudo mto fluido, ainda
+  eh tudo mto novo; n há consenso ainda sobre os boundings da área
+  oq eh opinion mining e oq n eh
+11:51 mas de todo modo, nosso objeto de estudo, consensualmente, é subproblema de opinion mining
+  n existe uma definição para ele, mas sim uma caracterização
+  dada pelo pang and lee e tb por um artigo do stephen greene
+11:52 eu n gosto de como o artigo do lspm projeta o problema
+  mas...
+  é definitivamente um artigo marco pra área.
+11:53 Alexandre: (te mandei consertado)
+ eu: pode meter o pau noq já tem da introdução, viu?)
+ Alexandre: ainda não li
+  estou vendo o que vc fala
+  assim
+11:54 eu: tem uma estruturazinha pra falar dos avanços de machine learning e IR, as tasks que a area cobre inicialmente e q problema eu estou estudando
+ Alexandre: se fixar em definições sempre é uma má idéia
+  dê preferencia em focar nas tasks
+  e nos subproblemas que cada artigo resolve
+  depois
+  que vc tiver caracterizado tudo isso
+  vc pode pensar em uma definição geral, tentando seguir um dos outros
+  ou
+  pode simplesmente definir como aquele conjunto de subproblemas
+11:55 no sentido de "pessoas que dizem que estão fazendo opinion mining na verdade estão fazendo X, y, z, w, ou m"
+ eu: pois eh
+ Alexandre: não se foque em definições
+ eu: opinion extraction, subjectivity analysis...
+ Alexandre: que elas são perda de tempo
+  nessa área
+11:56 eu: vamos ver se eu entendi bem
+ Alexandre: em que as coisas são difusas e com interseções
+ eu: oq vcc quis dizer
+  x, y, z ou w são caracterizações, correto?
+  tipo:
+ Alexandre: não
+ eu: pessoas que dizem estar fazendo opinion mining na verdade estão extraindo opinioes de textos, diferenciando opinioes de fatos, bablabla
+11:57 Alexandre: X é identificar num texto quais frases carregam opinião de alguém, Y é marcar cada palavra como pertencendo a uma categoria de opinião, Z é marcar cada resenha como positiva ou negativa, W é ...
+ eu: isso
+  isso pra mim eh caracterização
+  isso eh bom de entrar na introdução
+ Alexandre: aline
+  se preocupe com a introdução só depois de ter conteúdo
+11:58 pesquisa começa no específico e chega no geral
+  vc não tem conhecimento suficiente pra generalizar ainda
+  no máximo guarde essas conclusões em anotações pra você
+ eu: eu acho que eu vou deixar a introdução definitivamente ora depois
+  tipo:
+  vou guardando as informações ali
+  mas sem grandes organizações
+  q senão terei de reescrever
+ Alexandre: é, sim
+11:59 eu: oq eu tenho de me ocupar agora eh com a revisão
+  o passo 1 é tentar, a partir de agora
+  separar oq eu li em classes
+  em subproblemas
+  se, conforme eu vá lendo, chegue um novo, beleza
+  mais um subproblema
+ Alexandre: não
+  o passo 1 agora é ler as coisas e entender do que elas se tratam
+12:00 não categorizar de cara
+  deixar pra categorizar depois
+  no máximo marcar cada um com características que vc acha interessante agora
+  mas primeiro vc desenvolve uma familiaridade com a área, depois categoriza
+ eu: isso eu já tou fazendo
+  qdo será que eu sentirei que estou pronta pra categorizar?
+12:01 Alexandre: vc já leu tudo o que iria ler?
+  já consegue explicar cada uma das coisas e traças várias analogias entre elas?€
+  aí categorize
+ eu: eu já consigo traçar analogias entre as coisas que li, mas ainda n li o suficiente
+  eu li 20% doq devo ler
+ Alexandre: já consegue dizer quais são os conceitos gerais que mais de um reusa, e quais são os conceitos específicos que cada um usa sozinho?
+  pois é
+  espere ler tudo
+12:02 que qualquer categorização feita sem informação não vai ser melhor do que alguém consegue fazer com meia hora no google scholar
+12:03 e não ache, também, que uma categorização só vai explicar tudo; vc provavelmente vai ter que achar 2 ou 3 categorizações diferentes e ortogonais pra cobrir todo o assunto
+ eu: umhum
+  perspectivas diferentes
+12:04 a área n eh tão grande
+  mas ela sai de computação
+  digamos assim
+  tipo: há trabalhos citados
+  de comunicação e economia
+  sociologia
+  eu acho q deveria lê-los tb
+ Alexandre: talvez sim, talvez não
+  vc é que sabe
+12:05 depende do foco que vc quiser dar na monografia
+ eu: umhum
+  acho q n mexe mto no foco n
+  só indica que esse problema chama a atenção de outras areas tb
+12:06 Alexandre: tipo
+  se vc quiser focar mais nos problemas, é talvez necessário
+  mas se quiser focar nas técnicas computacionais é desnecessário
+  se quiser focar nos modelos cognitivos por trás das técnicas, é talvez necessário, mas com dúvidas
+ eu: acho q são duas categorizações diferentes
+  e quasi-ortogonais
+  n era para ser
+  mas na verdade é
+12:07 os métodos computcionais ainda são usados meio a culhão
+  pq tem pouco trabalho na area
+ Alexandre: bom
+ eu: n dá ainda, por tudo q li, pra dizer: "mmmmm, método X vai melhor com problema Y"
+ Alexandre: é, então
+  ainda é bom vc ler os textos
+  pra depois se perguntar o que vc quer dizer sobre eles
+  e isso não necessariamente é o que eles estão falando apenas
+12:08 nem algum agrupamento óbvio por tipo de metodologia ou tipo de problema
+  acho que vc está confundindo um pouco essas coisas
+  e os trabalhos que vc vai catar que são tangenciais aos textos que são o seu assunto vão depender do foco que vc quiser dar
+  eu focaria no lado computacional da coisa, até pra justificar a monografia como de computação
+12:09 mas é o seu trabalho, e vc escolhe
+ eu: mmmm
+  mas mesmp focando apenas no aspecto computacional
+  os trabalhos em outras areas q tb usam métodos computacionais, creio eu, deveriam ser lidos
+ Alexandre: vc vai ter, obviamente, que falar do resto
+  sim
+12:10 agora com limite
+ eu: entendo
+ Alexandre: guarde uma lista separada, talvez
+ eu: o limite é o cuidado com a escolha da tecnica
+ Alexandre: dos trabalhos de outras áreas
+  e leia só o que vc acha que te esclarece alguma dúvida importante sobre essa área
+12:11 eu: se os trabalhos n refletem sobre isso, n vale a pena lê-los. se simplesmente pegam um software pronto mas n investem em entender/escolher/modificar alguma coisa no processo, n vale a pena.
+  eh
+  eu tou meio confusa ainda
+ Alexandre: pois é
+  clareie isso lendo as coisas
+12:12 eu: vc acha q tou mto atrasada?
+ Alexandre: não
+  nem de longe
+12:13 um momento
+12:15 pronto
+ eu: oi
+12:18 vc tem alguma recomendação pra me fazer? metodologica ou alguma dica de algo q acha q eu devo ter em mente enqto estou lendo? pq eu tenho feito assim: leio e, como tá tudo mto recente, sempre acabo mapeando as tecnicas com coisas parecidas q já vi. as descrições dos problemas são mto, mto parecidas; há variações, claro - mas oq distancia e aproxima mais são as metodologias, as formas de testar, os tipos de corpora empregados e como eles são cuidados... mas isso pode ser vazio; pode ser algo q qqr pessoa consiga fazer. como aprofundar a minha analise?
+ Alexandre: não se preocupe com isso ainda
+  vá lendo
+  vá tentando entender
+12:19 e a profundidade vem naturalmente com a familiaridade
+  eu acho mais produtivo agora vc focar em ler mesmo e entender o que está sendo feito
+  quer agora aproveitar o resto do tempo pra me mostrar alguns artigos que vc leu e do que eles falam e como?
+ eu: sim
+  xô pegar os de destaque aqui
+12:21 os artigos q eu li esses dias
+  no geral
+  tentam se aprofundar mais em aspectos semânticos dos corpora
+  ou seja, eles definitivamente n tratam as coisas apenas como um bag of words
+  teve um que chama-se
+12:22 "Extracting Aspect-Evaluation and Aspect-of Relations in Opinion Mining"
+  q cria primeiramente uma caracterização para oq eh uma opiniao
+  q eh uma quadrupla de <holder, subject, aspect, evaluation>
+12:23 e faz assim
+  com ajuda de um dicionário de evaluations e manual annotators
+  eles separam expressões que devem ser avaliações
+12:24 Alexandre: esse é bem diferente dos outros, então
+  o aprendizado entra onde?
+ eu: agora
+  pera q tou mini-relendo minhas anotações
+  hehe
+12:25 isso
+  eles geram um conjunto de avaliações
+  e tentam maximizar uma função
+  q case aspecto com evaluation
+  isso tudo intra-sentença
+12:26 se os escores sempre derem negativos, eles ignoram essa evaluation (intra-sentença) ou tentam casar com aspectos de fora
+  eles usam uma arvore meio mal-explicada
+  um parser aih
+  pra separar os aspects
+  esse parser eh treinado pra extrair aspects
+  com supervisão dos annotators
+12:27 depois
+  eh hora de saber se o par <aspect, evaluation> é de fato uma opiniao sobre o subject ou n
+12:28 mmm
+  uma coisa q eles usam pra ajudar a separar aspectos automaticamente é co-ocorrencia das expressoes com o subject
+12:29 expressões q co-ocorrem mto com o subject provavelmente indicam aspectos dele
+  retiradas as opinioes
+  com o dicionario
+12:30 essa parte de saber se o par <aspect, evaluation> é ou n uma opiniao sobre o subject é machine learning com svm
+ Alexandre: ah, certo
+ eu: os exemplos positivos são pares anotados manualmente
+12:31 e os negativos são gerados artificialmente assim: pega-se evaluations cujos escores pros aspects sempre dão negativos
+  e monta as duplas com esses aspects
+  ele n tem mto a ver com a coisa q tou estudando
+12:32 mas o fato eh q dá pra fazer linkage
+  entre mesmos aspects
+  e várias evaluations diferentes
+  e tomar o overall das avaliações pra um aspect
+  e tomar vários aspects diferentes
+  e tirar a media das medias de avaliações
+  enfim, viajei um pouco
+  mas, mais à frente
+12:33 tem gente q faz issso, mesmo
+  usa outras tecnicas, mas acaba chegando nessa coisa de linkage de avaliações
+  e linkage de aspectos
+ Alexandre: certo
+ eu: repare q o opinion holder sobra aih, apesar de fazer parte da tupla
+ Alexandre: vc consegue ver que problemas nesse trabalho?
+12:34 eu: a parte de vc usar um dicionario pra retirar avaliações e candidatá-las é legal
+  mas esse parser com assumptions de co-ocorrência é triste
+12:35 ele inclusive conclui q precisa estimar os aspects de forma melhor
+ Alexandre: certo
+  eu acho que um problema desse tipo de coisa é a avaliação
+  nada garante que vc ache as opiniões e que o que vc ache sejam opiniões de fato
+12:36 e a estrutura parece ser mais complexa do que precisa
+ eu: sim!
+  a estrutura definitivamente está pesada
+  eles complicam a estrutura de dados
+12:37 pra lidar com os raros casos em q uma evaluation n eh sobre um aspecto da coisa per se
+  e digo isso pq eles avaliaram
+  blogs de marcas
+  eles justificam essa estrutura pra evitar coisas asism:
+  "the weather was good. So I went to the park and took some photos"
+12:38 esse was good n tem nada a ver com a qualidade das photos
+  (era algo com camera digital, esse exemplo daih)
+  então <weather, good> n eh uma opiniao de fato
+  n sobre oq vc quer
+12:39 eles tentam casar as evaluations com a frase anterior, in an anaphora fashion,
+  mas os resultados n são legais
+ Alexandre: aline
+  tenho que almoçar
+  continuamos amanhã?
+12:40 eu: ok
+  tb tenho q almoçar
+  =)
+  enfim, le cconsegue bons resultados intra-sentença.
+12:41 beijos, Top!
+ Alexandre: beijos

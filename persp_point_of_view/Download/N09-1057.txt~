@@ -1,0 +1,50 @@
+More than Words: Syntactic Packaging and Implicit Sentiment
+
+The identification of implicit sentiment, or perspective. Existe uma conexão entre a estrutura da sentença e sua perspectiva. Olha como essas frases diferem:
+
+
+"On November 25, a soldier veered his jeep into a crowded market and killed three civilians." "On November 25, a soldier's jeep veered into a crowded market, causing three civilian detahs". Essa conexão é mediada por um conjunto de propriedades semânticas gramaticalmente relevantes.
+
+=> To frame the same event in different ways. speakers or authors "select some aspects of a perceived reality and make them more salient in a communicating text, in such a way as to promote a particular problem definition, causal interpretation, moral evaluation, and/or treatment recommendation" (Entman, 1993, p. 52). "terrorist" rather than "freedom fighter" (Dilma!!!!), or referencing "killer whales" rather than "orcas".
+
+Escolhas sintáticas têm framing effects. "Mistakes were made", não tem uma "by-phrase", e aí vc n consegue identificar o agente causador e a responsabilidade não se sabe de quem é!!!
+
+Estudos linguisticos (Levin, 1993; Levin and Hovav, 2005) apontam que existe um conjunto de propriedades semânticas vistas como "gramaticalmente relevantes", por permitirem generalizações sobre o "empacotamento" sintático do significado dentro e através do mundo das linguagens. Exemplo: verbo quebrar. X quebrou Y, ou Y quebrou. Pode ter agente causador ou não! É diferente de escalar. Um breaking event muda Y, mas a climning one, não (Y climbed é impossivel).
+
+Semantic properties of events: causation, change of state and others. São centrais em trabalhos teóricos em semântica léxica, e tb em métodos computacionais que usam léxicos.
+
+NÃO É UM SIMPLES BAG OF WORDS, ISSO AQUI!!! 
+
+Seja X verb Y, tem-se:
+
+1 - Propriedades associadas a X: ver no artigo, mas é tipo causation of event, awareness or perception, causing a change of state in Y...
+
+2 - Propriedades associadas ao evento ou estado transmitido pelo verbo: pontualidade, ter endpoint definido.
+
+3 - Propriedades associadas a Y: affectedness, mudança de estado, ausência/presença de existência independente do evento... mais cousas.
+
+Essas propriedades envolvem muitas questões naturais quando se quer formar uma opiião sobre um evento: alguḿ ou algo foi afetado pelo que aconteceu? Em que grau? O evento simplesmente aconteceu ou foi causado? O evento atingiu um endpoint definido? A participação no evento foi consciente?
+
+Hipótese: talvez framing envolva a manipulação dessas propriedades semânticas. Proposta: uma conexão entre escolhas sintáticas e implicit sentiment mediada pelas mesmas propriedades semânticas que os linguistas já identificaram como centrais na conexão entre surface expression and underlying meaning.
+
+13 prop. sem. + identity of the verb = independent variables
+
+Estudos de correlaçao entre as variaveis confirmam que as escolhas sintáticas mexem nas percepções of implicit sentiment.
+
+NÃO TEM AUTOMATIC ANNOTATORS NEM LABELED TRAINING DATA! => Estratégia: observable proxies for underlying semantics (opus). Usar relaçoes gramaticais observáveis, definidas a partir do uso de termos relevantes pro dominio, como "procuradoras" das propriedades semânticas subjacentes (responsáveis por aquela realização sintática).
+
+Separa um set T de termos relevantes e define OPUS features em termos de relaçoes sintáticas entre T. Dado o set D d syntactic dependency relations, features são da forma t:d ou d:t. => termo é  a cabeça da relação de dependencia ou é odependente. TRANS:v, verbo v está na forma canonica, transitiva; NOOBJ:v, verbo v eh usado sem objeto direto.
+
+1 - Corpus especialmente montado para predict opinions of death penalty. 596 pró-pena de morte; 596, contra.
+
+Frequent bigram baseline:  stemmed bigrams for our baseline comparisons. Weka SVM => N most frequent stemmed bigrams as the baseline feature set where N is matched to number of OPUS features used in the comparison condition.
+
+1 - OPUS features para verbos selecionados manualmente: 14 kill verbs e suas nominalizações (e.g. both "the killing" and "the killer").
+
+2 - OPUS features para domain-relevant verbs: para todo verbo cuja freq. relativa fosse maior que 1. Ele quer que o classificador encapsule documentos de acordo com o Website, não se é pró ou contra. Faz site-wise cross-validation. Pega dois sites pra cada perspective faz 4-fold cross-validation. f11,22 é: use todos os docs de pro1 e anti1 e treine; teste com todos de pro2 e anti2.
+
+Os resultados são bem melhores que com o baseline de simplesmente pegar os mais frequentes bigramas. Usa sempre só o Weka SVM. É inteligência pura!
+
+Pro bitterlemons, ele separa features de modo parecido => automatically extracted lists of domain-relevant verbs AND domain-relevant nouns. Eles conseguem resultados melhores e NÃO comparam com o LSPM, mas só com os outros. Acho q n conseguiram simplesmente codificar o lspm. Bom, treinando com guests e testando com editors, eles conseguiram, na média, 95.41% de acerto - o que é melhor que o 94.93% do lspm. Treinando com editores e testando com guests, cai pra 83.12% - pior que o 86.99% do lspm.
+
+As referencias são incriveis!

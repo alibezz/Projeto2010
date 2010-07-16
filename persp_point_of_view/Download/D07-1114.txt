@@ -1,0 +1,93 @@
+Extracting Aspect-Evaluation and Aspect-of Relations in Opinion Mining
+
+Opinião é uma quádrupla: (opinion holder, subject being evaluated, part/attribute of subject being evaluated, value (positive or negative assessment).
+
+A visão do autor quanto às tasks na área de opinion mining:
+
+1 - Classificação de documentos: classificar docs ou passagens de acordo com orientações semânticas, como positivo vs. negativo.
+
+2 - Extração de informação: extrair opiniões consistindo de informação sobre, por exemplo, <quem se sente como sobre que aspecto de que produto> a partir de dados textuais não-estruturados. => Opinion extraction != sentiment classification
+
+
+Referências: Yi et al., 2003 Hu and Liu, 2004, Popescu and Etzioni, 2005
+
+Extrair opiniões de blogs pode ser mais desafiador do que de reviews de produtos, por causa da variedade de tópicos, metas, vocabulários, estilos... ISSO EH ALGO PRA DECISÃO DE PROJETO BEM BACANA!
+
+Dois tipos de opinion extraction: aspect-evaluation e aspect-of relation. Exemplo: "I went out for lunch at the Deli and ordered a curry with chicken. It was pretty good". Aspect-evaluation: <curry with chicken, was good>. Aspect-of relation: <The Deli, curry with chicken>.
+
+Subject: Uma entidade ou uma classe de interesse particular.
+
+Aspect: A part, member or related object, or an attribute (of a part) of the subject on which the evaluation is made (engine, size etc).
+
+Evaluation: An evaluative or subjective phrase used to express an evaluation or the opinion holder's mental/emotional attitude.
+
+O corpus: 116 posts under the "gourmet" category. Dois annotators anotaram os posts indep. seguindo essa especificação de Subject, Aspect e Evaluation. Se uma sentença tem duas ou mais avaliações, eles tinham de montar uma opinion unit para cada uma delas. As anotações dos dois no mesmo corpus acabaram sendo consistentes.
+
+Corpus 2: mais domínios. Restaurant, automobile, cellular phone and video game.
+
+Como concluiu-se que, normalmente, o opinion holder era o próprio autor do blog, a questão de fill the opinion holder slot was put aside.
+
+Aspect phrases are heavily domain-dependent. Evaluation expressions are more likely to be used commonly across different domains compared with aspects.
+
+Começar o processo de opinion extraction a partir da identificação de evaluation expressions utilizando um dicionário para auxiliar.
+
+Opinion extraction:
+
+Passo 1 - Aspect-evaluation extraction: Para cada avaliação candidata, selecionada de um documento by dictionary look-up, identifique a target, que pode ser um subject ou um aspect of a subject.
+
+Passo 2 - Opinion-hood determination: Julgue se um par <aspect, evaluation> expressa uma opinião ou não, dado o contexto. Se sim, vá pro passo 3. Senão, volte pro Passo 1 com uma outra avaliação candidata.
+
+Passo 3 - Aspect-of relation extraction: Se o aspecto identificado não é um subject, procure por seu antecedente: um higher aspect ou o subject do aspect. Repetir passo 3 até chegar ao subject ou não achar antecedente.
+
+Esse trabalho hierarquiza a opinion extraction, portanto.
+
+Método para resolver os passos 1 e 3: usar contextual clues e context-independent statistical clues. 
+
+Supervised learning of contextual clues: dada uma evaluation expression t, aprender uma função para o seguinte problema de classificação: decidir se cada par de aspecto c e target t é ou não um aspect-evaluation relation. Se essa função é obtida, identifica-se the most likely aspect simply by selecting the best scored c-t pair and, if score is negative for all possible candidates, we conclude that t has no corresponding aspect in the candidate set. => Expressão sem aspecto. Usa uma árvore para cada sentença, criando dependencias entre os termos. 
+
+Co-occurrences of aspect-evaluation/aspect-aspect: usaram PLSI para estimar as condicionais P(Aspect|Evaluation) e P(Aspect_A|Aspect_B). Extraíram co-ocorrencias de 1.7 milhões de posts. Essa informação é integrada ao modelo, através de sua codificação em features que indicam the relative score rank of each candidate in a given candidate set. Co-ocorrência tb é utilizado para avaliar aspect-hood. Se uma frase co-ocorre mto com um subject, sua probabilidade de ser um aspect aumenta. Esta informação tb é usada como feature.
+
+Intra-/inter-sentential relation extraction: a árvore mostrada antes só cola quando as aspect-evaluation e aspect-of envolvem uma mesma sentença. Daí, constrói-se um modelo separado para inter-sentential relation extraction, rodado depois do intra-sentential, caso só se ache escore negativo ali. Intra-sentential: busque o aspecto mais likely nas sentenças precedendo o target evaluation.
+
+Opinion-hood determination: "The weather was good. So I went to the park to take some pictures". <The weather, good> não é uma opinião no digital camera domain. Faz um SVM treinado com positive examples como aspect-evaluation pairs anotados e negativos gerados artificialmente assim: identifica-se uma evaluation, pega o melhor aspect e, se ele n for o true aspect, usa como exemplo negativo.
+
+**Models**
+
+                                                       
+                                                       
+   The Contextual and Contextual+statistics models     contextual clues are also useful in aspect-of rela-
+are our proposed models where the former uses only     tion extraction. In comparing the Contextual and
+contextual clues (3.2.1) and the latter uses both con- Contextual+statistics models, on the other hand, we
+textual and statistical clues. We prepared two base-   could get only a slight improvement, which indicates
+line models, one for each of the above tasks. The      that we need to estimate the statistical clues more
+Pattern model (in Table 3) simulates the pattern-      precisely. We found that the unsophisticated esti-
+based method proposed by Tateishi at al. (2004),       mation of the statistical clues was a major source of
+which uses the following patterns: “ Aspect case-      errors in aspect-of relation extraction, however, this
+particle Evaluation ” and “ Evaluation syntacti-       estimation is not so easy since the correct expres-
+cally depends on Aspect ”. The Co-occurrence           sions are appeared only once in large data. We are
+model (in Table 4) simulates the co-occurrence         seeking efficient ways to avoid data sparseness prob-
+statistics-based model used in bridging reference      lem (e.g. categorize the aspects).
+resolution (Bunescu, 2003): For an aspect expres-
+                                                          In the aspect-evaluation relation extraction, we
+sion, we select the nearest candidate that has the
+                                                       evaluated the results against the human annotated
+highest positive score of the pointwise mutual in-
+                                                       gold-standard in a strict manner. However, accord-
+formation regardless of its occurrence (i.e. inter-
+                                                       ing to our error analysis, some of the errors can be
+or intra-sentential). Comparing the Pattern (Co-
+                                                       regarded as correct for some real applications. In
+occurrence) model with the Contextual model shows
+                                                       the following example, a relation annotated by the
+the effects of the supervised learning with contex-
+                                                       human is “aji (taste), koi-me (strong)”.
+tual clues, while comparison of the Contextual and
+Contextual+statistics models shows the joint effect
+of combining contextual and statistical clues.
+
+
+Results and discussions
+
+Aspect-evaluation, concerning intra-sentencial cases: usar contexctual clues aumenta em 10% precision e recall, comparando com o Pattern model ("<Aspect> case-particle <Evaluation>" e "<Evaluation> syntactically depends on <Aspect>".) Para aspect-of, usar contextual clues aumenta em 10% a precision e em 20% a recall. O improvement oferecido pelas statistics, com o modelo Contextual+Statistics, é pequeno. A conclusão que o autor chega é que precisa estimar as statistical clues more precisely. Categorizar os aspectos pode diminuir erros de aspect-of extraction. Para inter-sentence, os modelos todos extrairam mto mal.
+
+Opinion-hood determination problem: a avaliação é ou nãao uma opinião E, caso seja, ela se relaciona ou não com o domínio?

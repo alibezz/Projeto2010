@@ -33,7 +33,7 @@ class LSPMSampler(object):
     t2 = 0.
     for sntc, prsp in zip(self.docs[index], self.labels[index][1]):
       if prsp == 0: continue
-      t2 += self.sPi(self.theta[label], sntc)
+      t2 += self.sPi(self.theta[label], sntc) + self.prior(index, 1)
     return t2
  
   def pick_label(self, index):
@@ -54,8 +54,6 @@ class LSPMSampler(object):
       else:
         label = 0
     if label != label:
-#      print pL0, pL1
- #     print loglr, lr
       import sys
       sys.exit("nan!")
    
@@ -65,34 +63,18 @@ class LSPMSampler(object):
     return label
 
   def sPi(self, theta, sntc):
-  #  p = np.log(p) - np.log(np.sum(p))
     p = sntc*np.log(theta)
- #   p = wcounts + self.Gammatheta
- #   p = np.log(p)
- #   p -= np.sum(p)
- #   p *= sntc
- #   k = (wcounts + self.Gammatheta)/(sum(wcounts + self.Gammatheta))
- #   ent = - sum(k*np.log(k)) 
-#    print ent 
     return np.sum(p)
 
   def prsp(self, prsp, label, sntc):
     if prsp == 0:
      l = 2
-   #  counts = self.scounts[2]
-   #  wcounts = self.wcounts[2] 
-   #  wcounts2 = self.wcounts[label]  
     else:
      l = label
-    # counts = self.scounts[label]  
-    # wcounts = self.wcounts[label]  
-    # wcounts2 = self.wcounts[2] 
-    # prior probability of getting a (ir)relevant sentence 
-   # prior = np.log((counts + self.Gammatau[prsp])/(self.scounts[label] + self.scounts[2] + self.Gammatau[0] + self.Gammatau[1]))
- #   print "iiiii"
- #   print label 
     return self.sPi(self.theta[l], sntc)
 
+  def prior(self, j, prsp):
+    return np.log(self.rlv[j][prsp] + self.Gammatau[prsp]) - np.log(np.sum(self.rlv[j]) + np.sum(self.Gammatau))    
   def pick_prsp(self, j, k):
     old = self.labels[j][1][k]
     self.rlv[j][old] -= 1
@@ -104,18 +86,11 @@ class LSPMSampler(object):
       self.wcounts[2] -= self.docs[j][k]
       self.scounts[2] -= 1
     # 0 -> no_prsp; 1 -> prsp == doc_label // doc_label // sentence
-    sP0 = self.prsp(0, self.labels[j][0], self.docs[j][k])
-    sP1 = self.prsp(1, self.labels[j][0], self.docs[j][k])
-#    if self.labels[j][0] == 0:
-#      prior = np.log(0.65)
-#    else:
-#      prior = np.log(0.95) 
-    print sP1, sP0
+    sP0 = self.prsp(0, self.labels[j][0], self.docs[j][k]) + self.prior(j, 0)
+    sP1 = self.prsp(1, self.labels[j][0], self.docs[j][k]) + self.prior(j, 1)
     loglr = sP1-sP0  #prior
     lr = np.exp(loglr)
     p = lr/(1+lr)
-#    print "random e p"
-#    print k, p
     has_prsp = np.random.binomial(1, p)
     self.labels[j][1][k] = has_prsp
     self.rlv[j][has_prsp] += 1
@@ -186,7 +161,7 @@ class LSPMSampler(object):
     self.scounts = np.zeros(3)
     self.rlv = np.zeros((len(self.docs), 2))
     self.rlv_counts = np.zeros((len(self.docs), 2, self.all_words))
-    self.tau =  np.array([random.betavariate(1, 1), random.betavariate(1, 1)])
+    self.tau =0. #  np.array([random.betavariate(1, 1), random.betavariate(1, 1)])
  
 #    cclass = np.zeros((3, self.all_words))
 #    for i in xrange(self.Ndocs):
@@ -259,12 +234,31 @@ class LSPMSampler(object):
       self.theta[0] = np.random.dirichlet(self.wcounts[0] + self.Gammatheta)
       self.theta[1] = np.random.dirichlet(self.wcounts[1] + self.Gammatheta)
       self.theta[2] = np.random.dirichlet(self.wcounts[2] + self.Gammatheta)
+      
+      rlvs = np.zeros(2)
+      for j in xrange(self.Ndocs):
+        for k, a in enumerate(self.labels[j][1]):
+          rlvs[a] += 1
+
+      self.tau = random.betavariate(self.Gammatau[0] + rlvs[0], self.Gammatau[1] + rlvs[1])
+
+      self.pi = random.betavariate(self.Gammapi[0] + self.dccs[0], self.Gammapi[1] + self.dccs[1]) 
+   
+      for j in xrange(self.Ndocs):
+        if j >= self.alpha * self.Ndocs:
+          new_label = self.pick_label(j)
+        else:
+          new_label = self.labels[j][0]
+        l.append(new_label)
+        for k in xrange(len(self.docs[j])):
+          self.pick_prsp(j, k)
+      
       print self.most_common_words(40)[0]
       print self.most_common_words(40)[1]
       print self.most_common_words(40)[2]
       print self.accuracy()
-      print "theta[0]", self.theta[0]
-      print "theta[1]", self.theta[1]
+    #  print "theta[0]", self.theta[0]
+    #  print "theta[1]", self.theta[1]
  
    #   a = (self.wcounts[0] + self.Gammatheta)/(np.sum(self.wcounts[0] + self.Gammatheta))
    #   a.sort()
@@ -289,15 +283,7 @@ class LSPMSampler(object):
         fdocs.write("\n")
         fdocs.write(str(self.accuracy()))
         fdocs.write("\n")
-      for j in xrange(self.Ndocs):
-        if j >= self.alpha * self.Ndocs:
-          new_label = self.pick_label(j)
-        else:
-          new_label = self.labels[j][0]
-        l.append(new_label)
-        for k in xrange(len(self.docs[j])):
-          self.pick_prsp(j, k)
-        
+       
          #      fdocs.write(str(l))
 #      fdocs.write("\n")
       l = []

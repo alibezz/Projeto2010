@@ -1,0 +1,352 @@
+9:11 eu: Oi, Top
+ Alexandre: oi
+ eu: Desculpa o atraso
+ Alexandre: tranquilo
+  eu só cheguei agora também
+ eu: está melhor?
+ Alexandre: então eu te desculpo se vc me desculpar :-)
+  sim
+  acordei normal hoje
+ eu: ai, q otimo
+  fpi algo q vc comeu
+09:12 bueno, eu estou insatisfeitinha com oq escrevi
+  tipo, tá feinho, ms é normal
+  qto ao q vc disse
+  com ctz faz sentido
+  e eu já havia pensado nisso
+  aqueles dados listados vão sumir
+09:13 acho aquilo chato
+  vai virar algo como a estatistica no primeiro paragrafo
+  e a ideia é q, ali no meio, entre uns dois paragrafos explicando oq eh opinion mining e pq soh estourou por agora
+  nisso, entra a questão da escala
+  q tem tudo a ver com machine learning
+09:14 como o assunto é gigante
+  eu fechei a revisão pra viewpoints e perspectives
+  é um dos itens do ebook de pang e lee
+  e bem: ali é só a motivação
+  a introdução tb tem proposta e metodologia
+ Alexandre: sim
+09:15 eu: Ali tá mto rascunhão
+09:16 essa semana ainda te passo uma versão decente de introdução
+ Alexandre: ok, beleza
+ eu: e discutimos terça
+ Alexandre: sem pressa, afinal ainda está cedão
+ eu: ;)
+ Alexandre: vc teve tempo de ler artigos essa semana
+   ?
+ eu: sim, sim
+  li ou mini-li tudo q havia baixado
+  eu tava pensando nessa coisa de viewpoints e perspectives + opinion identification
+  mas fica enooooorme
+09:17 por isso cortei
+ Alexandre: certo
+  vamos ver
+  afinal
+  se ficar pequeno vc coloca coisas
+  se ficar grande vc tira
+ eu: umhum
+  bom, opinion identification tem a ver com separar fato de opinião
+  e ali pelo meio tb havia artigos q tem a ver com polaridade
+  q eh, basicamente, vc ter uma coisa
+09:18 tipo um topico, objeto, serviço ou produto
+  e separar as reviews entre boas e ruins
+  o problema de perspectives e viewpoints é diferente
+  vc n tem uma coisa e polaridade em cima dela
+  vc tem uma situação e posicionamentos em relação a ela
+09:19 Alexandre: certo
+ eu: os métodos usados são mais ou menos os mesmos
+  mas enfim: é outro problema
+  então eu li várias coisinhas
+  q não necessariamente utilizam modelos estatisticos
+09:20 Alexandre: tudo bem, é bom citar elas também
+ eu: elas tem a ver com opinion mining, mas os approaches são distintos
+  tem alguns trabalhos usando um treco chamado Wordscores
+  vc conhece?
+ Alexandre: (embora eu perca a paciência completamente, vc não é eu :-). E se perder a paciência vc sempre pode botar "estatísticos" no título da monografia e bola pra frente)
+  não
+  me conte, o que é?
+  é aquela wordnet com polaridade?
+09:21 eu: n conheço essa wordnet com polaridad
+  wordscores é uma ferramenta
+  q eh assim:
+  vc passa textos de referencia em um assunto pra ela
+  de perspectivas diferentes
+  ela guarda as palavras e as frequencias, normalizando as frequencias pelos documentos todos
+09:22 tipo: ela guarda as palavras e a prob. delas serem ou n dum texto
+  daí depois vc passa documentos virgens, como eles chamam, e pede pra classificar
+  ele classifica fazendo intersecção entre as palavras dos textos virgens e referencia
+09:23 e computando o produto das probabilidades
+  dessas palavras na intersecção
+ Alexandre: ou seja: é um naive bayes?
+  só que sem a prior de dirichlet?
+ eu: tipo uma iteração só
+ Alexandre: sim
+  um naive bayes tradicional supervisionado
+  (quando se fala de naive bayes 99% das pessoas não estão falando do algoritmo com gibbs sampling)
+09:24 (e sim do algoritmo basicão maximum-likelihood que tem um training set e um test set separados)
+ eu: tão falando só da aplicação do principio
+ Alexandre: é
+ eu: rapá
+  eles n usam o principio tão explicitamente
+  mas pensando aqui com meus botões
+  é um naive bayes, sim.
+09:25 então um cara acha isso ruim
+ Alexandre: pois é
+  sempre que vc multiplica probabilidades de palavras pra classificar algo e assume que as palavras são independentes é um naive bayes
+ eu: pq o conjunto de textos virgens influencia completamente na classificação, qdo só deveria depender dos textos de referencia
+ Alexandre: influencia?
+ eu: tipo: se vc tira um ou mais dos textos virgens
+09:26 as probabilidades mudam
+  influencia
+ Alexandre: por que?
+  não entendi
+ eu: as contas originais
+ Alexandre: pelo que vc descreveu
+  as contas são só sobre os de referência, não?
+09:27 eu: pegam as palavras da intersecção, normalizam pelo conjunto de textos virgens (a frequencia) e depois multiplicam pelos textos de referencia
+  xô olhar aqui a carinha da equação
+  pra saber se multiplicam ou q operação fazem com os textos de referencia
+  mas, basicamente, eles normalizam antes as frequencias pelos virgens
+  e isso muda tudo
+09:28 Alexandre: que esquisito
+  então não é exatamente um naive bayes
+09:29 como eles justificam essa normalização?
+09:30 eu: é assim: eles fazem um naive bayes q n tem interferencia dos outros textos
+  e geram um escore bruto
+  daí eles geram um escore transformado
+ Alexandre: (essas perguntas que eu te faço podem entrar na monografia, explicando cada texto com suas respostas a elas)
+ eu: q eh escore bruto - media de escores dos textos virgens
+09:31 Alexandre: certo
+ eu: isso daih vezes a razao dos desvios padrão referencia/virgem
+ Alexandre: eles fazem isso então pra tentar diminuir o impacto das palavras muito comuns?
+ eu: + a media de escores de textos virgens
+  sim, sim
+ Alexandre: certo
+ eu: pra diminuir o impacto das palavras q aparecem mto
+ Alexandre: é bom vc dizer isso claramente quando for explicar o método
+ eu: mas isso fode mto com a metrica
+  e aih um cara propoe ignorar esses desvios
+09:32 e tirar a dependencia dos textos virgens
+  ele gera o escore padrão da mesma forma
+  mas limita o problema assim:
+  só haverá 2 textos de referencia
+  (repare q ele quer criar uma metrica coerente internamente)
+09:33 um que é um extremo, outro q é outro extremo
+ Alexandre: ah, certo
+ eu: e aí faz uma conta tipo uma reta
+09:34 (escore - escore1)*(escorebruto2-escorebruto1/escore2 - escore1) + escorebruto1
+ Alexandre: ou seja
+09:35 ele projeta cada documento no vetor r1-r2, onde r1 e r2 são os de referência?
+ eu: isso
+  daí o escore transformado dos textos de referencia = seus escores brutos
+  e a inclusao exclusao de textyos virgens n bagunça a classificação
+  oq ele acha mto importante
+  pq se vc pega um assunto gigante
+09:36 com mtos textos na area
+  é interessante q a classificação n seja tão sensivel às escolhas q vc fez
+  de alguns dos textos da area
+09:38 eu li mais artigos de opinion identification, pra sacar um pouco da area e ver q vou tentar fugir
+  li 2 usando wordscores
+  oq adapta e o original
+ Alexandre: wordscore é essa metodologia?
+ eu: é a ferramenta
+09:39 li um bacana q discute a qualidade do corpus - tipo, o cara pega um fórum mega informal de discussão política e tenta classificar usando naive bayes -
+  e fala das dificuldades de vc lidar com linguagem informal
+  erro de sintaxe, léxico proprio (lol e essas coisas de internet, além de expressoes bem particulares pra politica)
+09:40 e acaba concluindo q, pro caso particular dele
+  uns +/- 80% dos posts
+  citam outros posts
+  e q tipo umas 70% dessas citações são pra pontos de vista opostos aos defendidos no post em si
+09:41 Alexandre: é interessante incorporar isso diretamente em um modelo generativo, imagino
+  mas também é meio trivial
+ eu: e q usar essa informação na classificação é valiosíssima
+  o naive bayes puro n saia efetivamente do baseline
+  cruamente
+  outra coisa q ele sacou
+  eh q eh mtooooo dificil classificar gente q soh posta pouco
+09:42 e q isso eh um problema intratavel
+  pq, por mais q vc aumente o dataset
+  a distribuição de posts por pessoa parece q sempre será livre de escala
+ Alexandre: sim
+ eu: ou seja: sempre terá gente postando pouco
+ Alexandre: isso é comum em coisas de linguagem
+ eu: então ele restringe pra 20 posts ou mais
+  e já melhora
+09:43 mas ele acha q vai melhorar bem mais embutindo essa informação das citação com pontos de vista cruzados
+  aí tem um artigo citado q tou doida pra achar
+  mas aqui de casa tá ruim
+  q eh de 95
+ Alexandre: vc tem o nome do artigo?
+ eu: e q aparentemente usa um método não supervisionado pra separar ontos de vista
+  tenho
+ Alexandre: eu pego da unicamp, que é bem generosa com o portal
+  ok, me dê
+  que eu te passo agora
+09:44 (essas coisas pode pedir por email qualquer hora, btw)
+ eu: Clustering documents by ideological point of view: Representing and recognizing point of view.
+  e tem essa mulher, J. Wiebe (sabia q Pang e Lee são duas mulheres?), q escreveu isso:
+ Alexandre: isso foi publicado?
+  (pang e lee eu sabia sim)
+ eu: Tracking point of view in narrative.
+09:45 foi
+  foram os dois
+  e eu tou doida pra ler
+  ademais, eu busquei na naacl, emnlp e acl
+ Alexandre: o pang e lee é http://acl.ldc.upenn.edu/J/J94/J94-2004.pdf
+  o outro o google scholar não acha
+ eu: eh da wiebe esse
+ Alexandre: o que é bem esquisito
+ eu: pois é
+ Alexandre: ah, sim
+ eu: eu achei um resumo
+  mas busca por
+ Alexandre: talvez só exista o resumo
+ eu: representing
+09:46 and recognizing
+  point of view
+  só esse pedaço
+  eu achei coisinhas nesses sites
+  tipo aquela referencia q te passei ontem
+  mas depois eu resolvi fazer o seguinte
+  sabe o ACL Anthology?
+  entonces
+  eu cheguei lá
+  e piquei as seguintes palavras chave
+09:47 Alexandre: ok
+ eu: viewpoint perspective opinion sentiment
+ Alexandre: esse artigo de representing and recognizing não existe
+ eu: e consegui 35 artigos
+ Alexandre: só tem resumo mesmo
+ eu: Oh...
+  q eu acho q são um bom ponto de partida
+  + oq coletei no olho
+ Alexandre: certo, bom
+09:48 eu: aih na busca em largura certamente acharei coisas q as palavras chave n pegaram
+  tava pensando em só buscar em largura os artigos q foram citados 2+ vezes nesses 35
+ Alexandre: assim
+09:49 eu: tipo:criar algum método pra seguir
+  mas n sei se vale
+ Alexandre: vc não precisa ser tão exaustiva
+  basta pegar os artigos que parecem relevantes quando vc vê o contexto em que eles são citados nos 35
+  e inverta as setas e veja os que citam os melhores desses 35, também
+  porque pode ter algo lá
+09:50 eu: sim, sim
+  isso sempre é importante
+  é isso
+  eu estudei legal, até
+  mas dormi mais q tudo
+  hehe
+  dramin etc
+  e escrevi menos doq gostaria.
+  só pra fechar
+  Eric
+  q eh um cara q trabalha com o Resnik
+  me respondeu
+  um email interessante
+09:51 sobre o lspm
+ Alexandre: me encaminhe
+ eu: umhum
+  encaminho os dois
+  minha pergunta
+  e a resposta dele
+ Alexandre: sim
+ eu: é perguntando sobre a derivação dele, pq ela foi tirada do doumento e tal
+09:52 se ele testou aquilo
+  ele n conseguiu replicar o experimento
+  parece ser mto sensivel, segundo ele, aos hiperparametros
+09:53 Alexandre: ah
+  faz sentido
+ eu: eu cheguei a testar as equações dele há um temmpão
+  mas acho q n com a semantica certa
+  e n prestou
+  hj eu acho q elas têm vários probleminhas
+ Alexandre: sim, as equações dele estavam erradinhas em várias coisas
+09:54 eu: pois eh
+  aí é dificil saber se eram soh os hiperparametros, mesmo
+  mas os resultados são similar, segundo ele
+ Alexandre: bom
+  moving on, então
+  isso é mais uma informação que vc pode botar na sua monografia
+09:55 eu: sim, sim
+  basicamente, isso foi essa semana
+09:56 minhas prioridades agora são arrumar a introdução e continuar estudando
+  é legal estudar: vc definitivamente evolui.
+  e mtas ideias surgem
+ Alexandre: ok
+09:57 continue assim, então
+  eu acho
+  mas vc pode pensar diferente
+  que escrever a introdução fica mais fácil quanto mais vc entende o assunto
+  e aí ela é boa de ser escrita no fim
+  até porque vc já dá uma visão bem clara do que vem pela frente
+09:58 eu: vc tá certo, mas eu acho q pelo menos a motivação
+  rola
+  a proposta eu acho complexo
+  pq isso pode ir mudando
+  conforme a pesquisa for rolando
+09:59 acho q eu vou terminar essa motivação
+10:00 Alexandre: uma coisa boa de focar na motivação
+  é tentar relacionar minimamente com computação esse assunto
+  dizer que são algoritmos interessantes, que têm conexões com o resto da computação, etc
+10:01 eu: ah, sim
+  e mini discutir as areas relacionadas
+  ML e IR
+ Alexandre: sim
+ eu: e como eh interdisciplinar tanto dentrpo de computação como fora
+ Alexandre: introduzir elas e dizer que esse é um problema na interseção
+10:02 eu: umhum
+  a proposta eu ainda n vou escrever
+  talvez daqui a um tempinho
+ Alexandre: é
+ eu: qdo ler os 35 artigos
+ Alexandre: se dê um tempo
+ eu: sim
+  mas tou tranquilona
+10:03 vai dar tempo de sobra pra fazer tudo
+  é isso :-)
+  um instante
+10:04 Alexandre: ok
+10:05 eu: opa
+  bom, acho q n tenho mais nada pra contar
+  =/
+  eu tava mesmo era curiosa
+10:06 pra saber se vc já pensou sobre pq seu treco n funciona como vc esperava
+ Alexandre: sim
+  é claro olhando as distribuições de palavras que ele escolhe, mesmo se vc supervisiona
+  elas não são nem de longe muito claramente positivas ou negativsd
+10:07 as distribuições de produtos ficam ótimas
+  mas as de palavras de opiniões não
+  mas com bigramas em vez de unigramas, supervisionado, as distribuições ficam fantásticas
+  e fica óbvio porque uma é positiva e a outra negativa
+  mas
+  por outro lado
+  demora bastante pra convergir
+  vocabulário enorme, etc
+10:08 existe uma sensitividadezinha a hiperparâmetros também
+ eu: normal
+  isso eh um troço
+  q precisa de mais pesquisa, acho
+  a escolha de hiperparametros
+10:09 existem artigos conhecidos sobre o tema, q nunca li inclusive, mas pelo q vi nas acl emnlp e naacl, n há tanto esforço nesse sentido
+  talvez seja uma area ardua
+ Alexandre: ah
+  não
+  não precisa mais de pesquisa
+  já se sabe como fazer pra resolver
+10:11 tem
+  eu te passei alguns links
+  mallet, hbc, palantir (é isso? não lembro mais qual era o nomr)
+10:16 não está certo, não tem como estar, amostrar virando uma de cada vez
+  que é o que eu estou fazendo no meu treco
+  estou pensando com meus botões
+  que talvez seja melhor fazer metropolis-hasting e amostrar essas variáveis em bloco
+10:17 o sampler ficaria algo como
+  para cada documento
+	21 minutos
+10:38 Alexandre: é
+  boa pergunta
+  o ideal
+  na verdade
+10:39 pode ser o seguinte
+  maximiza, e depois amostra
+  que gibbs sampoling funciona bem melhor quando inicializa de um bom jeito

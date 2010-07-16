@@ -1,0 +1,22 @@
+Ler todos estes artigos fichando assunto, métodos quando foi lançado e por onde, que problemas são resolvidos e meus comentários. Anotar as referências para fazer a busca em largura, também.
+
+Estrutura da monografia:
+	0) Introdução e motivação
+	1) Conceitos básicos
+	2) Revisão crítica do tema
+	3) Algumas coisas que aprendi na prática (minhas experiências com opinion mining)
+	4) Conclusão
+
+- Estrutura para fazer com que a revisão seja o mais comparativa possível (não ficar tipo um monte de informações jogadas):
+
+	1) Usa features sintáticos? Quais?
+	2) Que linha de algoritmos é utilizada (em outras palavras, que tipo de machine learning é empregado)?
+		2.1.) Não dá para explicar cada modelo utilizado! Que bases de estatística e tudo o mais entram nos conceitos básicos?? Acho que eu só deveria destrinchar os modelos das aplicações mais conhecidas e/ou das minhas experiências.
+
+	3) Que corpora são utilizados? Aliás: é um trabalho envolvendo experimentos práticos?
+	4) No caso de se utilizar corpora, como é feito o pré-processamento?
+	5) Separação por assuntos
+	6) Toolkits e lugares comuns nos artigos
+	7) Aplicações e panorama de ferramentas: que modelos estão bombando mais? Relacioná-los
+	8) Áreas em aberto.
+	

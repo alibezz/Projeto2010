@@ -1,0 +1,79 @@
+Recognizing Stances in Online Debates
+
+Minerar a web atrás de associações que indicam opinion stances em debates + discourse information = an Integer Linear Programming problem.
+
+A estrutura de um debate é muito diferente da estrutura duma série de documentos a favor e/ou contra. As pessoas defendem suas ideias de uma forma bem mais incisiva; há bem mais opinião naturalmente doq ilustração de fatos, pq se pressupõe q todo mundo já tá ciente dos fatos. Então vira mais uma defesa, mesmo. E é mais arguing que sentiment, claramente. Em debates, é mais comum tb falar mal do outro lado doq em textos. Diferenciar concessões de um dos lados de suas opiniões, mesmo.
+
+Neste artigo, o tipo de debate é assim: dual-side e dual-topic. Tipo: X e Y, pro-X e pro-Y. Ela pega debates no site convinceme.net. Características do gênero que complicam o opinion mining: multiple polarities to argue for a side, sentiments towards both sides within a single post, differentiating aspects and personal preferences, concessions.
+
+1 - Achando opiniões: todas as instâncias de um subjectivity lexicon (Wilson et al., 2005) são tratadas como opiniões (http://www.cs.pitt.edu/mpqa), e a polaridade dada é a de máxima prioridade no lexicon (se vier precedida de um "not", e a prioridade for + ou -, reverte). Ela cria umas regras baseadas no Stanford Parser pra fechar os targets das opiniões, mas nem cita todas no artigo. Algumas das regras para fechar targets:
+
+1 - Direct Object rule: the target is the direct object of the opinion dobj(opinion, target) => I love (opinion1) Firefox (target1)
+
+2 - Nominal Subject rule: The target is the subjective of the opinion nsubj(opinion, target) => IE(target1) breaks(opinion) with everything.
+
+etc etc (Table 1 do artigo)
+
+Depois que os opinion-target pairs são assim criados (culhãããããããoooo! como saber que regra usar??), muda a opinion word pela polarity => em vez de pleasing-interface, fica interface+ (isso é pra lidar com a sparseness dos dados!).
+
+Polarity-target pairs which explicitly mention one of the topics are used to anchor the mining process. Baixou weblogs e foruns em seguida qe falam dos mesmos main topics. A intuição desse anchoring é que, se uma pessoa expressa uma opinião sobre um tópico, é provável que siga com argumentos praquela opinião. Escolhe os polarity-target pairs na vizinhança (na mesma sentença e nas 5 seguintes).
+
+P(topico X + | target Y -) = #(topico X +, target Y -)/#target Y -
+
+Probabilidade da target Y ter recebido uma opinião negativa na vizinhança duma opinião positiva pra X.
+
+As conclusões a que ela chega sobre trending são mto legais! Pessoas que cutem email preferem blackberry e talz.
+
+Com essas probabilidades aprendidas, chega a hora de classificar em debate-side. Seja N o número de instâncias de polarity-target pairs em um post. Para cada instância Ij, olha-se as probabilidades aprendidas e faz-se:
+
+wj = P(topic1+|target_i_p) + P(topic2-|target_i_p) (side1)
+uj = P(topic1-|target_i_p) + P(topic2+|target_i_p) (side2)
+
+Com isso, a classificação vira um problema de maximizar isso aqui:
+
+   We formulate the problem of finding the over-
+all side of the post as an Integer Linear Program-
+ming (ILP) problem. The side that maximizes the
+overall side-score for the post, given all the N in-
+stances Ij , is chosen by maximizing the objective
+function
+                 N
+                   (wj xj + uj yj )              (4)
+                j=1
+subject to the following constraints
+                        xj ∈ {0, 1}, ∀j          (5)
+                         yj ∈ {0, 1}, ∀j         (6)
+                        xj + yj = 1, ∀j          (7)
+           xj − xj−1 = 0, j ∈ {2..N }            (8)
+           yj − yj−1 = 0, j ∈ {2..N }            (9)
+
+Para tratar concessão, ela vai em cima de conectivos como nonetheless, however e talz e faz assim: se o conectivo aparece no meio, a prior sentence é considerada conceded, e a segunda n. Se ocorre no começo, até a primeira virgula é considera cenceded e depois n. As opiniões contidas nas partes conceded tem polaridade invertida => ou seja, os pesos em (4), pros lados wj e uj, são trocados.
+
+Baselines pros experimentos: OpTopic System: só considera menções explicitas ao tópico (n corre a vizinhança). score(side1) = #topic1+ + #topic2- (10) e análogo pro side2. O post vai pro lado com maior score.
+
+O OpPMI usa n só os tópicos, mas tb palavras intimamente relacionadas semanticamente. Pra isso, calcula o Pointwise Mutial Information (PMI) entre o termo e cada tópico over the entire corpus (usa a API em http://cwl-projects.cogsci.rpi.edu/msr/). Cada palavra k é assgned to the topic with higher PMI score. Tipo:
+
+se PMI(topic1, k) > PMI(topic2, k) => k = topic1. Depois, os polarity-target pairs são montados e faz como em (10). Nos resultados, fica claro que isso melhroa a recall, mas a precision cai em alguns debates, qdo comparado com OpTopic. Isso prov. tem a ver com o fato de q nem todos os termos relevantes prum topico sao uteis pra determinar um debate side. A metodologia dela melhora a accuracy em relaçao ao OpTopic, estando com 35% a mais e 20% a mais do OpenPMI. É incrivel como, a depender do corpus, colocar a conceded information n muda nada, mas chega a subir em até 25% às vezes! O OpenPMI é problemático, pois aproximar uma palavra dum topico não é suficiente pra saber oq a opiniao sobre ela significa no debate scenario.
+
+
+Performance is measured using the follow-
+                             #Correct
+ing metrics: Accuracy ( #T otal posts ), Precision
+                         #Correct
+( #Correct ), Recall ( #relevant ) and F-measure
+  #guessed
+  2∗P recision∗Recall
+( (P recision+Recall) ).
+    In our task, it is desirable to make a pre-
+diction for all the posts; hence #relevant =
+#Total posts. This results in Recall and Accuracy being the same.
+
+Testa 4: esses baselines, o método (OpPr) e a versão com discourse information pra conceded opinions.
+
+
+É massa a discussão dos erros: desde o lexicon, q pode capturar palavras com senso objetivo, qto essa insanidade das regras pra formar polarity-targets... (Dada uma opinião, sobre oq ela se trata? "                                        Stoyanov
+and Cardie (2008) work on opinion co-reference;
+however, we need to identify the specific target". Pragmatic opinions, que usam "it's worth it", por exemplo. Sem a co-reference pra assimilar que "it" tá com algo anterior, fica foda resolver.
+
+A taxa de acerto dos baselines é assustadoramente ruim. E 60 e poucos% ainda é pouco. O artigo D09-1120 mostraa uma forma de catar targets mais interessante doq esse acochambre com o Stanford Parser.
+
