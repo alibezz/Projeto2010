@@ -1,0 +1,25 @@
+Sentiment classification on customer feedback data: noisy data, large feature vectors, and the role of linguistic analysis
+
+Tb usa SVMs, conceito básico aqui (linear svms no caso desse artigo).
+
+n-gramas: estudar.
+
+Usa machine learning directrly, em vez de se apoiar em outros semantic resources.
+
+Coisa massa tá no approach aí:  eles vã aumentando aos poucos o numero de features e vão vendo se deep linguitic features são mesmo mto necessarias ou surface-based features são suficientes (lemma unigrams, lemma bigrams and lemma trigrams). Linguistic features: part-of-speech info. MMMMMMMMMM Interessante: eles usavam valores binarios pra presença/ausencia das features em vez de frequencias, pq as reviews tinham tipo 2 sentenças e meia, coisa assim. sensacional pra pensar num twitter da vida.
+
+As reviews recebem 1, 2, 3 ou 4 estrelas. Dois experimentos variando as features (só surface, sói linguistic, combinações delas): 1 (8596 docs.) vs. 4 (8655 docs) e 1/2 (8596 + 9060) vs. 3/4 (14573 + 8655) => repatar q, no 2o experimento, rola um descompasso na qtd de docs. 1o exp: Usar all features dá quase na mesma de jsar só surface features. usar só lingustic é pior q usar só n-gramas. bem pior. ISSO PROVA que complicar nem sempre ajuda!
+
+===> surface features: word ngrams, function word freqs and POS ngrams.
+
+2o exp: menos accuracy por causa das fuzzy classes 2 e 3. Paralelo com várias classificações mais ou menos intensas em política.
+
+
+===> O massa desse artigo é que ele varia loucamente o número de features, de 20.000 a 1.000 mais ou menos, e vai vendo se melhora ou n a accuracy. Com as top 2000 features, os resultados são os melhores nos dois experimentos.
+
+
+As accuracies maximas são 77.5% e 69.48% (exps 1 e 2 resp.). Isso é menor q outros estudos com revuews de fimes, mas tem a ver com o tamanho precario e com o fato de q há mta unclearness. de 200, um humano só conseguiu classificar 117, pois os outros tavam MTO unclear. Usando só os 117 mais clean, eles atingem accuracy de 85 e poucos %, coerente com os artigos na praça.
+
+O artigo ainda examina quais lingistic features realmente ajudaram a melhorar a performance. Haviam vãrias coiss n obvias, mas q carregam noção de affect, tipo o 3-grama ADV PRON PREP, off etc. Essa não-obviedade leva a concluir que n eh necessariamente aconselhável utilizar recursos com terminologia affect-charged especifica. No caso de noisy domaisn, parece boa ideia começar com large initial feature vectors e ver que pedaços combinam melhor.
+
+====> correlações entre estilo e affect no texto.

@@ -1,0 +1,37 @@
+Contextual Valence Shifters
+
+Atitude do autor transparecida no texto por conta do léxico e da forma como o material está organizado. => "the base attitudinal valence of a lexical item is modified by lexical and discourse context." ==> Esse termo valence super já caiu. SINÔNIMOS NEM SEMPRE CARREGAM A MESMA VALÊNCIA! Essa informação é importante na hora de discutir detalhes pra modelos. ===> Só contar as valências é PÉSSIMO. O artigo que passei pra Tarcizio fecha janelinhas, conseguindo resultados bons.
+
+Um estudo em cima de informações de contexto que mudam o polo da valência de um canto pro outro. Um estudo importante, portanto, BÁSICO, pois mtos métodos usam de algum modo a valência dos termos.
+
+Primeiro: negatives and intensifiers. Bem além do not. Tem uma série de termos, como never, don't e tal que mudam a cara da coisa. E tem enfraquecedores, tb (é que no artigo eles consideram não apenas positivo e negativo, mas 3 graus de positivo e de negativo). Exemplo: rather enfraquece e deeply reforça.
+
+Segundo: Modals. O evento aconteceu, acontecerá, acontece? Exemplo:Mary é bizarra != "se" mary fosse bizarra. => o modal neutraliza a valência.
+
+Terceiro: sufficient != barely sufficient
+
+Quarto: Ironia => nega  a polaridade.
+
+Quinto: Conceitos, conceitos, conceitos: estrutura do discurso. Listas e elaborações. Lista: pedaços do discurso se concectam por codificar relações semelhantes a um conceito mais geral e qdo uns especificam msis ooutros. Elaboration: tem um conjuntinho de sentenças, uma eh dominante e outras detaham. Elas reforçam a valência da sentença principal.
+
+Sexto: multiplas entidades.
+
+Sétimo: o tipo do texto. Linguagem polarizada tem mais peso em textos mais factuais doq em textos naturalmente de opinião. Ou seja, o tipo do texto interfere tb.
+
+Oitavo: Qdo reportam a pinião dos outros E NÃO ENDOSSAM.  ==> X is a, BUT Y is b. Essa estrtura dá naturalmente mais peso à segunda sentença.
+
+Nono: Subtópicos: OPINIÕES SE CLUSTERIZAM ASSIMM!!!! Inspiração total pro q quero fazer com LDA.
+
+Décimo: LIMITES PRA COMPUTAÇÃO! Pega um filme. Minera ali. É foda, pq mistura opiniões sobre a história do filme e sobre a produção per se, dificulta pra responder a pergunta: o filme presta? por casa do ruido causado pelas opiniões pra história. n tem como resolver isso na epoca do artigo.
+Décimo primeiro: limitações culturais! 'Revoluçaõ' e golpe pro caso de 64.
+
+Conclusão:
+               We showed that, in these cases, the calcula-  
+tion of point of view must be done with respect to each      
+entity separately and must take into account higher order
+factors such as genre that influence document structure
+Taken together, these considerations argue strongly that
+calculating author attitude must be based on a finer grained
+analysis of the text on all levels than has been previously
+proposed.
+

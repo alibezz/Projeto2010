@@ -1,0 +1,43 @@
+Discourse Level Opinion Interpretation ∗
+
+Aquela mesma ideia de Opinion Frames, em que vc tem Argument ou Sentiment, Positive ou Negative, same ou alt: APSPalt.
+
+===> Frama types: dois tipos funcionais: reinforcing frames ou non-reinforcing frames. Os segundos ocorrem quando um speaker é ambiguo ou pesa prós e contras. A análise de varios opinion frames podem indicar algo em relação ao corpus.
+
+O artigo separa os 32 tipos de opinion frames nessas duas taxonomias, o que fara bastante sentido se os opinion frames n fossem mto errados. Acho que a ideia per se é boa, mas se vc monta os opinion frames usando outras metodologias.
+
+Ajudando a desambiguar: o aspecto polaridade de uma opinião individual é unclear. Se o discurso sugere certos opinion frames, isso pode resolver a underlying ambiguity. Há adjetivos cuja polaridade n eh clara se vc n sabe o objeto referente, tipo 'redondo' ou 'diferente dos outros'.
+
+Estruturas frasais do tipo "X, so Y" costumam indicar que Y é consequencia de X, e se as opiniões em X tem uma pol. boa, em Y tb terão, além de haver umm compartilhamento de tag.
+
+Experimentos: dadas duas opinion sentences, determine if they participate in any frame relation.
+
+Padrão-ouro:
+
+[  Pegou as anotações do artigo de 2007, para quatro meetings, adicionou atributos (polarity and target_id), anotou relações entre targets. Qdo uma target que acabou de ser anotada é similar ou oposta a um set de targets participando de _same_ ou _alt_ relations, o link _same_ ou _alt_ é feito com apenas uma delas, a mais natural (normalmente a mais proxima fisicamente). 
+
+Quando existe um caminho transitivo entre duas targets, as opiniões no caminho tb particiam de opinion-frame relations! Constraint:  a distância n pode ser de mais de 10 sentenças.  ]
+
+Jeito ML de fechar opinion frames:
+
+[   ===> Duas opiniões são relacionadas? O que vai determinar é a relaçao entre as targets.
+
+Para detectar essas relações entre as targets, usa-se:
+
+1 - o grau de topic overlap entre o par de sentenças e busca target relations via identity
+
+2 - Participantes se referem a um topico sem se referir explicitamente a ele. Daí, se cria um espaço de foco usando NP chunks e vê o qto overlap (NÃO ENTENDI NEM FUDENDO!)
+
+3 - Checa a presença de pronomes como it e that na segunda sentença para target relations via anaphora.
+
+4 - Tenta capturar a ideia de que topicos mudam com o tempo, via diferença temporal das sentenças e número de intervening sentences (entre-sentenças).
+
+5 - Existência de anotações manuais indicando diálogo entre sentenças.
+
+6 - Standard bag of words features.
+
+Com essas features e um SVM ajustado pra otimizar F1.  ]
+
+Na moral, a precisão até melhora razoavelmente em relaçao a uns baselines burrões, mas é apenas 36.8%! A accuracy é 67.6%, minimamente melhor que um baseline que se baseia na distribuição do training dataset. A recall é de 64.9% e a F-measure, 46%. Ou seja, detectar a relação entre as targets, fechando o opinion frame automaticamente, n eh facil assim n. Eu n entendo pra q diabos tanto estudo nessa linha se há outras formas de puxar um overall do discurso com mais sources potenciais de erro (simplificações linguisticas), mas que na pratica funcionam bem melhor.
+
+De todo modo, a forma como esse artigo fecha os opinion frames, usando um SVM e features, é menos bizarrinha q o artigo anterior
