@@ -1,0 +1,48 @@
+The power of negative thinking: Exploiting label disagreement in the min-cut classification framework
+
+Propõem several heuristics that encode disagreement information with non-negative edge weights (evitando que o problema vire np-hard). Usa provavelmente o mesmo dataset do artigo get out the vote, mas usa, além de agreement information, disagreement informationt tb. Mesma hipotese: se vc n sabe a calsse dum xi complicado, mas sabe q ele concorda com xj, classificar xi fica mais facil.
+
+Association-preference function: X x X --> R; a reward for placing two items in the same class.
+
+"Then, we
+can search for a classification function c(x i |Xtest )
+— note that all of Xtest can affect an instance’s la-
+bel — that minimizes the total “pining” of the test
+items for the class they were not assigned to due to
+either their individual or associational preferences:
+
+SUM(Ind(xi, ~c(xi|Xtest))) + alpha*SUM(Assoc(xi,xj), onde i,j | c(xi|Xtest) = ~c(xj|Xtest))
+
+alpha regula a enfase dada a agreement information. ==> solucionar a equaçoa acima corresponde a achar minimum s-t cuts in a certain graph (faz todo o sentido) AND if Ind and Assoc ar non-negative functions, then they can be found in polynomial time. a ideia eh mapear valores negativos em algo diferente de 0, como faz o get out the vote.
+
+Heuristics:
+
+1- Scale all up
+
+Assoc(xi, xj) := g(Assoc'(xi,xj + N), onde N eh uma constante positiva bem grande.
+
+2 - SetTo heuristic
+
+beta in (.5,1]
+
+Ind(xi,c1) := max(beta, f(Ind'(xi,c1)))
+Ind(xi,c2) := min(1 - beta, f(Ind'(xi,c2)))
+Ind(xj,c1) := min(1-beta, f(Ind'(xj,c1)))
+Ind(xj,c2) := max(beta, f(Ind'(xj,c2)))
+
+com Assoc'(xi,xj) < 0 ===> se a preferencia for colocar xi em c1, isso força a colocar xj em c2. Procede em ordem: x1,x2,..., ou seja j > i.
+
+                                                       The IncBy heuristic A more conservative ver-
+                                                       sion of the above heuristic is to increment and
+        
+                                                       decrement the individual-preference values so that
+        
+                                                             they are somewhat preserved, rather than com-
+          pletely replace them with fixed constants:
+        Ind(xi , c1 ) := min(1, f (Ind (xi , c1 )) + β)
+        Ind(xi , c2 ) := max(0, f (Ind (xi , c2 )) − β)
+                                                           Ind(xj , c1 ) := max(0, f (Ind (xj , c1 )) − β)
+                                                           Ind(xj , c2 ) := min(1, f (Ind (xj , c2 )) + β)
+
+
+A Scale all up performs worse q o método do get out the vote. as outras duas passam mtas vezes, tanto em um teste segment-based classification qto num speaker-based, tal e qual aparece no get out the vote. INVESTIGAR PQ. seria ruido?

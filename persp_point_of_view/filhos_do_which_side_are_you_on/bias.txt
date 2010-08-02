@@ -1,0 +1,9 @@
+Using Naive Bayes to Determine Political Bias in News Articles
+
+às vezes o neutro tb eh interessante: buscar the least biased news corpus pra ler. Pega dois jornais considerados extremos em conservador e liberal e mede os outros na escala. Interessantr: o which side are you on? é um dos poucos exemplos (único que eu me lembro, na verdade) em que naive bayes se sai melhor que svm. Outro parece ser o mining the peanut gallery (vergonha q eu n li isso ainda), onde parece q eles usam wordnet pra transformar sinonimos => tipo: not good em bad.
+
+MASSA: ele cruza informações sobre quem usa naive bayes e quem usa svms.
+
+Ele, mesmo com poucos dados, chega a resultados interessantes sobre relative bias em diversos tópicos.
+
+

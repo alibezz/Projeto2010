@@ -1,0 +1,14 @@
+Vocabulary Choice as an Indicator of Perspective
+
+GRANDE DEFINIÇÃO DO QUE É PERSPECTIVA. 4 níveis de abstração pra perspectiva: desde opiniões num assunto só até questões culturais.
+
+A escolha do vocabulário vai mto além do tópico trabalhado - tem a ver com a perspectiva tb.
+
+
+====> Trabalha com debates sobre aborto. Pega 1 speech por ano por pessoa, de modo que cada pessoa tem entre 1 e 5 speeches. Separa na hora da cross validtion por speaker, de modo que nao tem discursos do mesmo  cara em teste e treinamento.
+
+===> Death penalty corpus. Testando num site e treinando m outros, faz sentido. Misturando tudo, ele aprende por site - n por perspectiva.
+
+===> Pegaram só os guests do bitterlemons de 2006 e depois uma coleçaõ de 150 documentos entre 2003 e 2009, um doc por cabeça.
+
+Compara naive bayes em que as features são ou freqs ou booleanos (a palavra tá ou n tá). Boolean features se saem mto bem no caso de perspectiva (+/- igual a frequencies) - oq mostra q classificar persp. é diferente de categorizar textos por topico, onde as frequencias são mto importantes.

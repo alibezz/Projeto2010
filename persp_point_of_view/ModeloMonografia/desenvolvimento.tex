@@ -1,0 +1,69 @@
+\chapter{Conceitos} \label{cap:conceitos}
+
+Este trabalho relata o onon ono non ono non ono non ono non ono non on.
+
+\section{Listagens} \label{sec:listagens}
+
+Na listagem \ref{lst:testjUnit} 
+é mostrado o teste do método \texttt{Engine.initialize()}:
+
+\lstset{language=java}
+\lstset{commentstyle=\textit}
+\begin{lstlisting}[frame=trbl, caption=Classe Factory2D,label=lst:testjUnit]{}
+public class EngineTest
+// JUnitDoclet begin extends_implements
+extends TestCase
+// JUnitDoclet end extends_implements
+{
+  //...
+  public void testInitialize() throws Exception {
+   // JUnitDoclet begin method initialize
+   EngineState engineState = (EngineState) PrivateAccessor.
+    getField(engine,"engineState");
+   engine.initialize();
+   assertEquals(engineState, new InitState());
+   // JUnitDoclet end method initialize
+  }
+  ...
+}
+\end{lstlisting}
+
+\section{Figuras} \label{sec:figuras}
+
+É possível usar imagens vetoriais no formato PDF, como pode ser visto
+na figura \ref{fig:ufba}, ou imagens \emph{bitmap} no formato PNG, como
+a da figura \ref{fig:ufba2}.
+
+\begin{figure}
+\centering
+\includegraphics{brasaoUFBA2}
+\caption{Brasão da UFBA (vetorial)}
+\label{fig:ufba}
+\end{figure}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.3\textwidth]{brasaoUFBA}
+\caption{Brasão da UFBA (\emph{bitmap})}
+\label{fig:ufba2}
+\end{figure}
+
+\chapter{Relação entre as características dos \emph{datasets} e as metodologias utilizadas}
+\label{cap:caracsdatasets}
+
+Os \emph{datasets} estudados nesse projeto são oriundos de fontes diversas, incluindo \emph{blogs} \cite{jiang-argamon} \cite{durant-smith}, matérias jornalísticas \cite{grefenstette-et-al} \cite{schimmelfing-baldwin}, artigos escritos por especialistas \cite{lin-et-al2006} \cite{efrom}, discussões \emph{online} \cite{somasundaran} \cite{wiebe08} e debates políticos \cite{hirst-et-al} \cite{thomas-pang-lee}. Os assuntos discutidos também são bastante variados, incluindo tópicos relativamente abstratos, como a discussão da pena de morte \cite{greeneTESE}, e outros mais objetivos, como possíveis \emph{designs} para um controle remoto \cite{somasundaranGRAPH} \cite{wiebe08}. As linguagens empregadas nos documentos diferem bastante de um trabalho para outro, variando tanto na informalidade dos termos e construções empregadas quanto no teor opinativo das colocações \textbf{sigo citando?}. Outra característica importante, que distingue um estudo de outro, envolve a língua - ou línguas - nas quais os documentos se encontram. \textbf{Ler um pouco sobre isso para amadurecer este ponto} Por fim, o tamanho dos textos analisados, que varia de algumas sentenças a vários parágrafos, bem como o nível de engajamento de seus autores com as perspectivas defendidas, indica uma Web muito plural no que diz respeito aos tipos de conteúdo \emph{online}. 
+
+Nos trabalhos estudados para este projeto, percebeu-se que as características inerentes a cada \emph{dataset} pouco interferem na decisão dos métodos utilizados na mineração das perspectivas dos documentos. No decorrer deste capítulo, a forte relação que existe entre essas características e a escolha das metodologias será discutida, justificando parcialmente os resultados ruins encontrados em alguns artigos. Adicionalmente, através de experimentos em \emph{datasets} referenciados nesses estudos, ou coletados \emph{online}, este capítulo apontará possibilidades metodológicas que podem conduzir a melhorias nos resultados analisados. \textbf{Devo enfatizar a originalidade disso aqui? Acho q n, né? Fica na problematização.} O capítulo está estruturado da seguinte forma: \textbf{blablabla}. Por fim, na \textbf{Seção Y}, algumas combinações de características comuns em documentos da Web, como alto teor de linguagem opinativa em debates informais \emph{online} \cite{somasundaran}, serão analisadas conjuntamente.
+
+\section{O nível de formalidade na linguagem dos documentos}
+
+\textbf{MODO RASCUNHO AINDA}
+
+Explicar que uma diferença fundamental notada entre os datasets observados diz respeito à formalidade da linguagem empregada nos documentos. Enquanto alguns datasets utilizam documentos provenientes de meios onde a norma culta da linguagem impera, e uma revisão ortográfica é utilizada, outros são carregados de gírias, expressões e abreviações típicas da linguagem da Internet e contêm, eventualmente, grafias erradas para uma mesma palavra. <Dar exemplos textuais. Mostrar uma tabelinha, algo assim, indicando o volume de datasets com linguagem informal nos documentos estudados.> 
+
+A linguagem informal pode criar alguns desafios para a Mineração de Perspectiva [FECHAR O PROBLEMA EM: IDENTIFICAÇÃO DA PERSPECTIVA PRESENTE EM UM DOCUMENTO], especificamente no que diz respeito ao pré-processamento dos documentos e à escolha do método empregado. No pré-processamento, como indicado em (aaai-politics.pdf e 10.1.1.138.7160.pdf), a correção gramatical das palavras é bastante indicada. Com uma única versão de grafia para cada palavra (a correta), diminui-se a quantidade de ruído que grafias erradas podem causar na classificação.
+
+Uma característica dos datasets que deveria ser considerada sempre antes de se escolher o método utilizado - mas não é prática entre as pessoas que estudam perspective mining - é a frequência das palavras nos documentos do dataset. Se o léxico empregado pelos autores dos textos muda sensivelmente a depender de sua ideologia/perspectiva defendida/ponto de vista, é possível resolver o problema utilizando classificadores que usam essa frequencia como feature. GASTE TEMPO DANDO ALGUNS EXEMPLOS.  Em datasets informais, entretanto, como aponta Efron, a linguagem empregada por todos os lados da discussão pode ser basicamente a mesma: termos com forte carga de polaridade e gírias/jargões comuns na discussão [EXEMPLO]. Neste caso, é preciso utilizar métodos que utilizem mecanismos mais rebuscados do que a simples frequência/presença das palavras no texto. Alguns autores utilizam métodos mais gramaticais para lidar com datasets informais, como é o caso de , BLE e BLI. Os 2 primeiros criam o conceito de Opinion Frame (DEFINIR O CONCEITO). No primeiro caso, a ideia é associar corretamente opiniões a alvos, e associar alvos iguais utilizando técnicas de co-referência. Segundo Wiebe et al. (pegar a citação corretamente), ter as targets associadas, com as opiniões próximas, é uma boa forma de entender o overall de opiniões de um documento. A estratégia é uma alternativa possível para documentos em que as perspectivas estão muito associadas à linguagem opinativa, e onde essa linguagem é comum para todos os lados. Infelizmente, os resultados alcançados indicam que a tarefa não é trivial: blablablablababla (resolver coreferencia pra linkar targets não é tão simples assim => e dê exemplo). 
+
+%uma diferença fundamental notada entre os \emph{datasets} observados diz respeito à formalidade da linguagem empregada nos documentos. Enquanto alguns datasets utilizam documentos provenientes de meios onde a norma culta da linguagem impera, e uma revisão ortográfica é utilizada, outros são carregados de gírias, expressões e abreviações típicas da linguagem da Internet e contêm, eventualmente, grafias erradas para uma mesma palavra. <Dar exemplos textuais. Mostrar uma tabelinha, algo assim, indicando o volume de datasets com linguagem informal nos documentos estudados.> 
+

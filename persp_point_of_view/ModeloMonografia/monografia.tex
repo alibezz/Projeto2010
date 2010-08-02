@@ -1,0 +1,97 @@
+% vim: tw=80 noai
+\documentclass[normaltoc,capchap,capsec,times]{abnt}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[brazil]{babel}
+\usepackage[alf]{abntcite}
+\usepackage[ordem=alf]{tabela-simbolos}
+\usepackage{url}
+\usepackage[pdftex]{graphicx}
+\usepackage{listings}
+\usepackage{verbatim}
+\usepackage{subfigure}
+\usepackage{multicol}
+\usepackage{framed}
+\def\lstlistingname{Listagem}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Dados da monografia
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\meunome}{Aline Duarte Bessa}
+\newcommand{\meutitulo}{PROVISORIO: Um estudo sobre \emph{Opinion Mining}}
+\newcommand{\meusubtitulo}{PROVISORIO: Aspectos teóricos e práticos}
+\newcommand{\meuano}{2010}
+\newcommand{\meuorientador}{Orientador: Alexandre Tachard Passos}
+\newcommand{\meucoorientador}{Co-orientador: Luciano Porto Barreto}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%% O comando \obs aqui definido permite que o autor faca anotacoes na
+%% monografia que aparecem no PDF gerado. Para ativar o comando, descomente
+%% a primeira linha e comente a segunda.
+%% Exemplo de uso: \obs{Preciso melhorar este par�grafo...}
+
+%\newcommand{\obs}[1]{\underline{\textbf{OBSERVAÇÃO}}: \emph{#1}}
+\newcommand{\obs}[1]{}
+
+\def\ordfem{\mbox{\raise .35em \hbox{\underline{\scriptsize a}\ }}}
+\def\ordmasc{\mbox{\raise .35em \hbox{\underline{\scriptsize o}\ }}}
+\def\profa{Prof\ordfem.}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\input{capa.tex}
+\input{folhaderosto.tex}
+
+\begin{resumo}
+Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
+Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
+Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
+Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
+Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
+Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
+Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
+
+\textbf{Palavras-chave:}
+monografia,
+graduação, 
+projeto final.
+\end{resumo}
+
+% O abstract e' opcional.
+\begin{abstract}
+Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
+Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
+Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
+Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
+Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
+Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
+Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
+
+\textbf{Keywords:} 
+monograph,
+graduation,
+final project.
+\end{abstract}
+
+%% As listas a seguir sao opcionais:
+\listadefiguras
+%\listadetabelas
+\listadesiglas
+%\listadesimbolos
+
+\sumario
+
+% O conteudo da monografia esta' nos seguintes arquivos:
+\input{introducao.tex}
+\input{desenvolvimento.tex}
+\input{conclusao.tex}
+\input{apendices.tex}
+
+\bibliography{monografia}
+
+\end{document}
+

@@ -1,0 +1,69 @@
+This is BibTeX, Version 0.99c (Web2C 7.5.6)
+The top-level auxiliary file: monografia.aux
+The style file: abnt-alf.bst
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: abnt-options.bib
+Database file #2: monografia.bib
+Warning--I didn't find a database entry for "pesquisa-eua"
+Warning--I didn't find a database entry for "pang-lee-survey"
+Warning--I didn't find a database entry for "jiang-argamon"
+Warning--I didn't find a database entry for "durant-smith"
+Warning--I didn't find a database entry for "grefenstette-et-al"
+Warning--I didn't find a database entry for "schimmelfing-baldwin"
+Warning--I didn't find a database entry for "lin-et-al2006"
+Warning--I didn't find a database entry for "efrom"
+Warning--I didn't find a database entry for "somasundaran"
+Warning--I didn't find a database entry for "wiebe08"
+Warning--I didn't find a database entry for "hirst-et-al"
+Warning--I didn't find a database entry for "thomas-pang-lee"
+Warning--I didn't find a database entry for "greeneTESE"
+Warning--I didn't find a database entry for "somasundaranGRAPH"
+Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
++---------------------------------------------------------+
+| Estilo bibliografico abnt-alf.bst versao 1.53           |
+| Implementa a NBR6023, NBR10520 e NBR10523               |
+| Em caso de duvidas ou problemas com este estilo procure |
+| http://abntex.codigolivre.org.br                        |
++---------------------------------------------------------+
+You've used 1 entry,
+            6522 wiz_defined-function locations,
+            1179 strings with 9450 characters,
+and the built_in function-call counts, 970 in all, are:
+= -- 191
+> -- 0
+< -- 0
++ -- 43
+- -- 0
+* -- 33
+:= -- 175
+add.period$ -- 0
+call.type$ -- 2
+change.case$ -- 3
+chr.to.int$ -- 1
+cite$ -- 0
+duplicate$ -- 4
+empty$ -- 67
+format.name$ -- 0
+if$ -- 234
+int.to.chr$ -- 0
+int.to.str$ -- 0
+missing$ -- 11
+newline$ -- 8
+num.names$ -- 0
+pop$ -- 27
+preamble$ -- 1
+purify$ -- 3
+quote$ -- 0
+skip$ -- 110
+stack$ -- 1
+substring$ -- 46
+swap$ -- 0
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 0
+warning$ -- 0
+while$ -- 2
+width$ -- 0
+write$ -- 8
+(There were 14 warnings)

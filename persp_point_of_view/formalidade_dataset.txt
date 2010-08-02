@@ -1,0 +1,50 @@
+Se o dataset provém de fontes mais informais, é possível que palavras grafadas incorretamente apareçam com uma frequência indesejável, criando ruído para os classificadores. Outra questão em datasets mais informais é o uso de gírias / expressões linguísticas "sensíveis a contexto", não mapeáveis semanticamente na norma culta da língua e que, por isso mesmo, podem requerer cuidados especiais/anotações-extra caso se adotem POS Taggers, Coreference Taggers e/ou outros métodos anotados em corpora de outros "contextos linguisticos".
+
+Dos artigos lidos, tem-se que:
+	aaai-politics.pdf => O dataset é informal. Fonte: www.politics.com
+        10.1.1.59.5160.pdf => Formal. Fonte: notícias do GoogleNews
+	lin06....pdf => Dois datasets: o do bitterlemons, que são artigos em linguagem formal, e transcrições de debates (http://www.debates.org/index.php?page=2004-debates), tb em linguagem formal PQ EU LI E ACHEI ISSO.
+	P09-1026.pdf => Todos os datasets aí são BEM informais: convinceme.net => usa técnicas bem complicadinhas e os resultados são bem ruinzinhos.
+	D07-1114.pdf => n dá pra saber pq foram blogs japoneses.
+	N09-1057.pdf => vem de vários sites e parece ser tudo jornalístico - ou seja, razoavelmente formal.
+	W08-01-wiebe => Informal. => ami corpus
+	Somasundaran => ami corpus tb. Lembrar de falar dessa linha de galeras que criam opinion frames e outras agonias pra avaliar opinião no nível do discurso.	
+	textGraphs2009 => ami corpus
+	10.1.1.138.7160 => efrom. formal. esse e aaai-politics trabalham com um esquema de co-citação e obtém bons resultados.
+	C04-1121 => noisy data (dificil de saber o posicionamento, textos pequenos e sem estruturações semânticas). mostra que coisas linguisticas ajudam, mas oq pesa mesmo acaba sendo ngrams e word freqs. pesquisar mais sobre os dados.
+	coling-disagree-2008 => Mesmo do get out the vote: us debates no congresso. O dataset n tem erros de grafia, mas tem algumas coisas de léxico bem particulares. é um bem legal de ver as frequencias.
+	bias => formal, googlenews
+	Hirstetal => formal. debates do canadá de dentro do parlamento. talvez use um lexico particular, enfim...
+	P10-2047 => usa vários, a maioria semi-formais. Yay! Consegui baixar o death penalty corpus do N09-1057. vai dar pra dar uma analisada.
+	which side are you on? => formal. bitterlemons.
+
+**** Ler: mining the peanut gallery.
+
+Estrutura da escrita:
+
+Começar a definir o que eu quero dizer por dataset informal e mostrar que os estudos com estes tipos de dataset são comuns. Mostrar que há duas linhas de experimentos com datasets, falar de intertexto e social networks metadata no caso de fóruns; falar de agreement. Para cada ponto desse, citar uma galerinha. Formular um experimento. Quão mais artigos eu for lendo, mais escrevo.
+
+
+
+Lidar com erros de grafia. Palavras, nomes, jargões, gírias e outras palavras fora da norma culta têm grande importância para a compreensão do texto (fácil perceber isso em textos políticos). Para resolver, ou você usa métodos em que o caráter das palavras pouco importa, apenas suas frequências importam, para definir o lado do texto ou, se quiser avaliar que opiniões se relacionam a que aspectos do texto, pra depois construir uma bigger picture dos pontos de vista, pode precisar de corretores gramaticais, ferramentas que reconheçam nomes, sinônimos e coreferencias nos textos e ferramentas que consigam lidar com polaridade de palavras novas - ou seja, consigam inferir polaridade de jargões e gírias baseando-se no corpus em mãos e/ou, de repente, tb em outros documentos da web whatever. O aaai-politics.pdf tb atenta para as construções gramaticais diferenciadas, que podem confundir um POS Tagger e baixar a eficácia do método.
+
+Oq eu quero defender aqui é que essas preocupações com polaridade, pos taggers etc podem ser besteira. O problema pode ser resolvido apenas em cima das frequencias das palavras, e aí o fato delas serem de um léxico mto particular semanticamente deixa de ser um problema. Se as palavras aparecem em frequencias mto parecidas para os dois lados, aí essa minha hipótese n serve e passa a ser necessário avaliar *como* essas palavras caminham nos textos. O aaai-politics.pdf usa Naive Bayes em cima de um dataset bem zuado, querendo fechar political affiliations de acordo com as palavras utilizadas, e chega a um resultado ruim. Ele lança uma hipótese, (Efron 2004), que é a  seguinte: palavras iguais usadas por todos os lados da discussão; poucas palavras diferentes levantando a diferença para cada lado. Ele mostra tb como a correção gramatical é importante nesses casos, indicando um aumento no desempenho qdo corrige palavras (menos ruído pro naive bayes). O approach básico, portanto, é descobrir ou não se os lados estão usando, basicamente, o mesmo vocabulário com frequencias mto parecidas. Se esse n for o caso, utilizar Naive Bayes ou coisas simples assim, baseadas apenas na freq. dos termos, pode funcionar - e a vantagem é que nenhuma informação adicional sobre a natureza dos termos (inclua aí jargões e gírias) precisa ser colocada. EXEMPLO DE SUCESSO:
+
+Se der mto parecido, é o caso de fechar um conjunto de tópicos que sejam falados por todos os lados da discussão e ver como os termos se agregam ao redor deles => daí, dá pra usar coreference e polarity lexicons, tão melhor qto mais adaptados eles estiverem pros jargões/gírias do dataset informal em questão. Em Takingsides.pdf, os mesmos autores do aaai.pdf utilizam uma estrategia diferente: levam em conta metadados sobre os usuarios do fórum para melhorar a classificação. A hipótese levantada é que, quando esses datasets informais fazem parte de fóruns ou redes sociais em que há dados sobre os usuários, eles podem ser levados em conta para ajudar na classificação => a possibilidade do intertexo vem aí, como algo mais simples que métodos hard de NLP do tipo POS taggers, coreference taggers e polarity lexicons.  => Outra proposta, além disso de ver metadados, é ver o qto os documentos agree com um cujo lado já seja conhecido (get out the vote usa intertexto dessa forma).
+
+
+
+Estrutura do texto
+
+Explicar que uma diferença fundamental notada entre os datasets observados diz respeito à formalidade da linguagem empregada nos documentos. Enquanto alguns datasets utilizam documentos provenientes de meios onde a norma culta da linguagem impera, e uma revisão ortográfica é utilizada, outros são carregados de gírias, expressões e abreviações típicas da linguagem da Internet e contêm, eventualmente, grafias erradas para uma mesma palavra. <Dar exemplos textuais. Mostrar uma tabelinha, algo assim, indicando o volume de datasets com linguagem informal nos documentos estudados.> 
+
+A linguagem informal pode criar alguns desafios para a Mineração de Perspectiva [FECHAR O PROBLEMA EM: IDENTIFICAÇÃO DA PERSPECTIVA PRESENTE EM UM DOCUMENTO], especificamente no que diz respeito ao pré-processamento dos documentos e à escolha do método empregado. No pré-processamento, como indicado em (aaai-politics.pdf e 10.1.1.138.7160.pdf), a correção gramatical das palavras é bastante indicada. Com uma única versão de grafia para cada palavra (a correta), diminui-se a quantidade de ruído que grafias erradas podem causar na classificação.
+
+Uma característica dos datasets que deveria ser considerada sempre antes de se escolher o método utilizado - mas não é prática entre as pessoas que estudam perspective mining - é a frequência das palavras nos documentos do dataset. Se o léxico empregado pelos autores dos textos muda sensivelmente a depender de sua ideologia/perspectiva defendida/ponto de vista, é possível resolver o problema utilizando classificadores que usam essa frequencia como feature. GASTE TEMPO DANDO ALGUNS EXEMPLOS.  Em datasets informais, entretanto, como aponta Efron, a linguagem empregada por todos os lados da discussão pode ser basicamente a mesma: termos com forte carga de polaridade e gírias/jargões comuns na discussão [EXEMPLO]. Neste caso, é preciso utilizar métodos que utilizem mecanismos mais rebuscados do que a simples frequência/presença das palavras no texto. Alguns autores utilizam métodos mais gramaticais para lidar com datasets informais, como é o caso de , BLE e BLI. Os 2 primeiros criam o conceito de Opinion Frame (DEFINIR O CONCEITO). No primeiro caso, a ideia é associar corretamente opiniões a alvos, e associar alvos iguais utilizando técnicas de co-referência. Segundo Wiebe et al. (pegar a citação corretamente), ter as targets associadas, com as opiniões próximas, é uma boa forma de entender o overall de opiniões de um documento. A estratégia é uma alternativa possível para documentos em que as perspectivas estão muito associadas à linguagem opinativa, e onde essa linguagem é comum para todos os lados. Infelizmente, os resultados alcançados indicam que a tarefa não é trivial: blablablablababla (resolver coreferencia pra linkar targets não é tão simples assim => e dê exemplo). 
+
+
+
+ seguem uma linha mais gramatical, tentando capturar opiniões e seus assuntos no texto para[CITE ALGUMAS ALTERNATIVAS, DIZENDO COMO ALGUMAS SÃO COMPLICADAS E AINDA NÃO ATINGIRAM O ESTADO DA ARTE E COMO ALGUMAS PODEM APROVEITAR A ESTRUTURA DA FONTE PARA FAZER INTERTEXTO E AGREEMENT].
+
+
+empregadas para cada perspectiva presente nos documentos do dataset. 

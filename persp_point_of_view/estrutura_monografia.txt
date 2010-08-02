@@ -1,0 +1,28 @@
+A área de mineração de opinião ainda tem muito a avançar. Um passo importante nesse sentido tem a ver com usar os métodos *mais adequados possíveis* para os diferentes tipos de dataset existentes. Como a área ainda é relativamente nova, ainda há muita investigação sobre aquilo que é mais adequado, muitas tentativas diferentes e resultados similares. Mas já é possível perceber um esforço, por parte dos pesquisadores, em considerar aspectos particulares dos datasets na hora de definirem que métodos usarão. E que aspectos de um dataset devem ser considerados na hora de escolher um método? É isso que essa monografia investiga.
+
+De acordo com o que eu andei lendo, pelo menos 4 das classificações a seguir deveriam ser discutidas nessa monografia: formalidade do dataset / quantidade de línguas envolvidas / tamanho dos textos / debate ou artigo? / "fervor" na defesa / nível de abstração do tema / notícia vs. coluna (nível de imparcialidade) / línguas mais ou menos "complicadas semanticamente", de acordo com algum critério (ainda preciso amadurecer isso) / presença de informação inter/hipertextual a ser explorada. E daí a ideia é mostrar aquilo que já andei lendo: as pessoas não ignoram essas questões - ou pelo menos não deviam ignorar, porque elas influenciam muito no desempenho dos 'mineradores'. Para cada classificação dessas, a idea é mostrar o que está sendo utilizado como metodologia, priorizando aquilo que apresenta os melhores resultados e apontando caminhos/críticas. Ao fim de cada classificação, idealmente, seria legal mostrar um experimento que evidenciasse a importância dela. Exemplo: pegar um dataset onde os pontos de vista são defendidos muito fervorosamente e mostrar que um Naïve Bayes bobo classifica os documentos bem - ao passo que, em um dataset menos fervoroso, esse Naïve Bayes já não atinge taxas de acerto tão altas.
+
+Por enquanto, portanto, a estrutura fica mais ou menos assim:
+
+1 - Introdução
+	1.1. Motivação para a área de Opinion Mining - Definição do que é isso, seus sinônimos (Sentiment Analysis) e breve explicação das áreas relacionadas (Data Mining, Machine Learning e Information Theory), leve e breve panorama de como a questão é interdisciplinar e tb é abordada por cientistas sociais e comunicólogos.
+        1.2. Fechando o escopo - A área é imensa e envolve vários subproblemas, como identificação de opinião/fato, sumarização de opinião, análise de perspectivas e pontos de vista (meu caso!!!) e mais. Explicar de onde eu puxei essa taxonomia (Pang e Lee) e o que me levou a fechar nesse subproblema - e só ler artigos diretamente relacionados a isso.
+	1.3. Estrutura da monografia - Explicar o que escrevi ali em cima, justificando e apresentando a estrutura dos capítulos.
+
+2 - Conceitos Básicos
+	Este capítulo visa a apresentar conceitos/métodos básicos utilizados como base para a construção de coisas mais complicadas em alguns artigos ou como metodologia principal da maioria dos outros (sim: quase tudo que li usa basicamente SVMs e polarity lexicons). Aqui, é a hora de apresentar:
+	2.1. Polarity Lexicons - Porque eles são tão usados, jeitos mais ou menos supervisionados de construir um polarity lexicon, exemplos conhecidos, a questão de polarity lexicons multilingua.
+	2.2. SVMs
+	2.3. Modelos Gráficos Generativos - LSPM, Naïve Bayes, LDA: modelos comuns na área de Opinion Mining (ok, o LSPM nem tanto, mas ele é muuuuuiiitooo citado na área, e foi adaptado por algumas pessoas, além de possuir propriedades interessantes), tanto para clusterização quanto para classificação de informação.
+	2.4. Coreference e POS Taggers - Encontrar casamento de pronomes com referentes em um texto (Coreference) ou marcar um texto de acordo com aspectos gramaticais pode ser importante quando se quer entender a "underlying semantics" do dataset.
+	2.5. Pointwise Mutual Information e continhas antigas como as do Wordscores - Coisas antigas, mas que ainda são relativamente usadas (exemplos: estudos em Ciências Sociais dessa década e o opSys!, sistema brasileiro que ainda usa PMI).
+
+
+3 - Trabalhos relacionados
+	Meu trabalho é uma survey em opinion mining. Nada mais natural, portanto, que eu mencione outras surveys na área aqui. Tem a de Pang e Lee, tem a de Bing Liu e mais umas duas que preciso ler.
+
+4 - Classificações
+	Usar 4, 5 ou quantos conseguir daqueles criterios acima para discutir como anda a área nesse sentido, apontando caminhos e priorizando bons resultados (tentando explicar pq uns métodos funcionam melhor que outros).
+
+5 - Conclusão
+	Resumir as conclusões por questão discutida e apontar possibilidades interessantes que ainda não foram muito testadas/tentadas, indicando o quanto a área ainda está muito aberta. :-)

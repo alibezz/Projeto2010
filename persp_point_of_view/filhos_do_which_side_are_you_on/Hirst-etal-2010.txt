@@ -1,0 +1,118 @@
+Party status as a confound in the automatic classification of political speech by ideology
+
+Em vez de perspective, eles usam ideology.
+
+"Our own work on this topic led us to hypothesize that such classifiers
+are sensitive not to expressions of ideology but rather to expressions of attack and defence, opposition and
+government. We test this hypothesis by training on one parliament and testing on another in which party roles
+have been interchanged, and we find that the performance of the classifier completely disintegrates. Moreover,
+some features that are indicative of each party “swap sides” with the change of government. And combining
+ideologically inconsistent opposition parties together in the classifier does not in most cases seriously degrade its
+performance. Our results suggest that the language of attack and defence, of government and opposition, dominates
+and confounds any sensitivity to ideology in these kinds of classifiers."
+
+VER SE EU LI CADA ARTIGO CITADO AÍ! Ele separa por metodologia. Tipo: dá o problema (classificação por perspectiva) e avalia ow andam fazendo de métodos diferentes. Eu foco nos datasets - pra depois falar que métodos são usados.
+
+                                                                               Thus (in contrast to
+the tasks described by Diermeier et al. and Yu et al.), there is no meaningful distinction between
+predicting voting records from parliamentary speech and predicting party affiliation. On one
+hand, it might be argued that this makes the task easier because parliamentary speech is likely
+to be highly partisan. On the other hand, it might be argued that it makes the task more difficult,
+because there is a greater diversity of views with precisely the same voting pattern, and so the
+classification is less straightforward.
+
+
+                                                                                          Each
+document is a concatenation of all the speeches made by a speaker, and no other document
+contains text spoken by that person. Thus no speaker appears in both training and test data. (evitar detecção de writing style em vez de perspectiva ao máximo).
+
+                                                                         And we focused on the
+governing Liberal Party and the opposition conservative parties  *, in order to do a binary
+discrimination, liberal versus conservative; the left-wing parties had relatively few members in
+this Parliament and were excluded from the analysis. *  t the time of this Parliament, the conservative parties were in disarray. The Opposition was the conservative
+Reform Party (which became the Canadian Reform Conservative Alliance in March 2000), but the conservative
+Progressive Conservative Party also held a number of seats.
+
+
+Dados: tudo que cada cara falou num debate + o periodo de perguntas e respostas em uma mesma lingua colado. (havia inglês e francês). Duca de tratamento: Generally, these variations in pre-processing made little difference to the results. In this paper
+we report results for experiments on the texts for all speakers, with words left unstemmed and
+with rare words removed, which usually, though not invariably, gave the best results.
+
+                                    ll our results are well above this baseline, and in fact reach
+almost 97% for oral question period in English when frequent words are retained. The reason
+for the discrepancy between this result and the 89.5% obtained for the same data in French is
+unclear, as the two texts are mutual translations and no such effect was seen with the debates
+texts. 
+
+
+GEEEEEEEEEENIOOOOOOOOOOOOOO:       We also observe that in three cases out of four, combining debates and question period in
+a single classifier is deleterious to accuracy compared to classifying each separately. 
+
+The higher accuracy of classification for question period than for debates suggests that the language
+of question period is in some way more partisan than that of debates. ... fALA DE LINGUAGEM MAIS ATACANTE E TALZ 
+                                                                         It’s possible, therefore,
+that our classifier may be learning – at least in part – not to distinguish ideologies but to
+distinguish questions from answers or attack from defence, which is not the goal of our research.
+
+Interestingly, this tendency for the names of opponents to be discriminating features is the converse of what
+Lin et al. (2006) found in their analysis of an Israeli–Palestinian debate, in which naming one’s own side was
+discriminating.
+
+When frequent words are removed we see this effect less, with a corresponding drop in accuracy
+(second part of Tab. 1), but it does not disappear entirely. In this condition, we certainly see
+reflections of ideology in vocabulary. The liberal lexicon is characterized by words related to
+Québec (French, Francophonie, MAI [Montréal Arts Interculturels], PQ [Parti Québécois])
+and various social issues (housing, violence, humanitarian, youth, society, technology), while
+the conservatives tend to focus on monetary concerns (APEC, taxpayer, dollar, millions, paying,
+premiums), aboriginal affairs (native, Indian, chief), and, to a lesser degree, national defence
+military, marshall). ... So again, it seems that many of
+the features relate not to ideology but to attack and defence – not to the party’s beliefs but to its
+status as government or opposition.
+
+Evenetos que mudam:
+Even if a classifier for political speech were truly using features related to ideology, we would
+expect that at least some of these features would specifically pertain to views of current events
+and therefore, if it is trained on one Parliament, it will not perform as well on a different
+Parliament in which different events are current, as in the results of Diermeier et al. discussed
+in section 1 above. 
+
+
+Treinando com docs de qdo os lados mudam dw poder:
+
+Examining the primary features used in the classification for oral question periods, we observed
+that several words “swapped sides”: four of the top 10 English words that characterized the
+liberals in the 36th Parliament characterized conservatives in the 39th Parliament, and the
+primary word that characterized conservatives in the 36th Parliament was the second word
+that characterized liberals in the 39th; see Tab. 4. This is evidence for our hypothesis that the
+classifier is really picking up features related to government and opposition status.
+
+
+Palavras positivas/negativas apenas:                        if the ‘ideological’ classifier is in reality using (solely or primarily) features
+related to government and opposition status, then training on one Parliament would carry over
+only to other Parliaments in which the parties hold the same status; if they swap roles, then the
+classifier will fail. Indeed, in such a case it might (or should!) perform worse than the majority
+baseline, tending to classify liberals as conservatives and vice versa
+
+
+Treinou em um e testou no outro e Bingo!, deu merda! The results, shown in Tab. 5, are in all cases well below the majority baseline scores, just as we
+hypothesized. Oq se captura tem mais a ver com quem tá no poder do q com ideologia.
+
+
+Liberais são mais positivos, isso serve?
+In the context of our results above, the questions we ask are not just whether liberals can be
+distinguished from conservatives in the Canadian Parliament merely by the emotional content
+of their speeches, but also, if so, whether the feature actually discriminates ideology (in line
+with the stereotype of happy liberals, dour conservatives) or is again confounded by the parties’
+status in the Parliament.   ====>                           Hence, we can see that positive emotion is a characteristic of members
+of the governing party, and negative emotion is a characteristic of members of an opposition
+party; again, party status confounds ideological classification. 
+
+
+                   our results have demonstrated a confound that must be taken into account in
+research on ideological classification of speech in any context.
+
+
+
+
+
+

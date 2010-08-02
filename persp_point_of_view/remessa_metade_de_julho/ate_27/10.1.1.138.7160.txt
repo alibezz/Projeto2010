@@ -1,0 +1,13 @@
+Cultural Orientation: Classifying Subjective Documents by Cociation Analysis
+
+Mais um termo utilizado para o que a gente quer chamar de 'lado', 'perspectiva': cultural orientation é o grau de associação entre um objeto e uma comunidade em um polarized field of discourse.
+
+Blogs: política, popular music. ====> Based on Turney & Littman
+
+Citação legal! "Learn the meaning of a word by the company it keeps." (Firth 1957)
+
+Se apóia em duas áreas do conhecimento: (1) social models for information filtering e (2) opinion mining.
+
+(1) Co-citação: se dois documentos possuem padrões de citação semelhantes talvez tb sejam semelhantes.
+
+(2) Apresenta PMI e a ideia de orientação como PMI(w, POSITIVE) - PMI(w, NEGATIVE).

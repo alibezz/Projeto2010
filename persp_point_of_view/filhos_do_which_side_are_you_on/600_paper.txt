@@ -1,0 +1,20 @@
+Vox Populi Annotation: Measuring Intensity of Ideological Perspectives by Aggregating Group Judgments
+
+A ideia é anotar sentenças de acordo com o quanto elas carregam uma perspectiva. ===> Em tempo: Haghighi crê q as primeiras sentenças são as mais importantes.
+
+                                                             • We quantitatively measured intensity of ideological
+                                                               perspectives by aggregating binary judgments from a
+(2) In the first weeks of the Intifada, for example,
+                                                               group of annotators (Section 2.). Intuitively, strongly
+      Palestinian public protests and civilian
+                                                               one-sided sentences would be more likely to be la-
+      demonstrations were answered brutally by Israel,
+                                                               beled consistently by a majority of annotators, while a
+      which killed tens of unarmed protesters.
+                                                               neutral sentence would be equally likely to be labeled
+Example 3, however, introduces an issue’s general back-        as displaying either perspective. We call this annota-
+ground and expresses less distinctly an ideological perspec-   tion method the Vox Populi Annotation.
+tive:
+
+Mande cada cara dizer se cada sentença é da persp. 0 ou 1. Some as respostas e divida pelo total. se for 0,0,1,0 => 25% na escala (tá mais pra 0). Seja k a média da intensidade da persp. ideológica expressa em uma sentença. Quão mais perto de 0.5 k estiver, mais anotadores são necessários para rejeitar a hipotese de q a sentença foi randomly annotated.
+
