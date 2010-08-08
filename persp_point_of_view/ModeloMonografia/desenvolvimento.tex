@@ -1,53 +1,3 @@
-\chapter{Conceitos} \label{cap:conceitos}
-
-Este trabalho relata o onon ono non ono non ono non ono non ono non on.
-
-\section{Listagens} \label{sec:listagens}
-
-Na listagem \ref{lst:testjUnit} 
-é mostrado o teste do método \texttt{Engine.initialize()}:
-
-\lstset{language=java}
-\lstset{commentstyle=\textit}
-\begin{lstlisting}[frame=trbl, caption=Classe Factory2D,label=lst:testjUnit]{}
-public class EngineTest
-// JUnitDoclet begin extends_implements
-extends TestCase
-// JUnitDoclet end extends_implements
-{
-  //...
-  public void testInitialize() throws Exception {
-   // JUnitDoclet begin method initialize
-   EngineState engineState = (EngineState) PrivateAccessor.
-    getField(engine,"engineState");
-   engine.initialize();
-   assertEquals(engineState, new InitState());
-   // JUnitDoclet end method initialize
-  }
-  ...
-}
-\end{lstlisting}
-
-\section{Figuras} \label{sec:figuras}
-
-É possível usar imagens vetoriais no formato PDF, como pode ser visto
-na figura \ref{fig:ufba}, ou imagens \emph{bitmap} no formato PNG, como
-a da figura \ref{fig:ufba2}.
-
-\begin{figure}
-\centering
-\includegraphics{brasaoUFBA2}
-\caption{Brasão da UFBA (vetorial)}
-\label{fig:ufba}
-\end{figure}
-
-\begin{figure}
-\centering
-\includegraphics[width=0.3\textwidth]{brasaoUFBA}
-\caption{Brasão da UFBA (\emph{bitmap})}
-\label{fig:ufba2}
-\end{figure}
-
 \chapter{Relação entre as características dos \emph{datasets} e as metodologias utilizadas}
 \label{cap:caracsdatasets}
 
@@ -55,15 +5,37 @@ Os \emph{datasets} estudados nesse projeto são oriundos de fontes diversas, inc
 
 Nos trabalhos estudados para este projeto, percebeu-se que as características inerentes a cada \emph{dataset} pouco interferem na decisão dos métodos utilizados na mineração das perspectivas dos documentos. No decorrer deste capítulo, a forte relação que existe entre essas características e a escolha das metodologias será discutida, justificando parcialmente os resultados ruins encontrados em alguns artigos. Adicionalmente, através de experimentos em \emph{datasets} referenciados nesses estudos, ou coletados \emph{online}, este capítulo apontará possibilidades metodológicas que podem conduzir a melhorias nos resultados analisados. \textbf{Devo enfatizar a originalidade disso aqui? Acho q n, né? Fica na problematização.} O capítulo está estruturado da seguinte forma: \textbf{blablabla}. Por fim, na \textbf{Seção Y}, algumas combinações de características comuns em documentos da Web, como alto teor de linguagem opinativa em debates informais \emph{online} \cite{somasundaran}, serão analisadas conjuntamente.
 
-\section{O nível de formalidade na linguagem dos documentos}
+\section{Palavras utilizadas nos documentos}
 
-\textbf{MODO RASCUNHO AINDA}
+Uma hipótese apresentada em \cite{lin-et-al2006}, assumida por parte dos artigos estudados para este projeto, é de que a escolha de palavras em uma discussão reflete os pontos de vista e intenções de seus participantes. O emprego de palavras semanticamente distintas para um mesmo propósito - como \emph{Revolução} ou \emph{Golpe} para o começo do Regime Militar Brasileiro em 1964 -, e também a frequência de seus usos, são elementos chave para a transmissão de posicionamentos diferentes sobre um determinado assunto. Em \cite{lin-et-al2006}, por exemplo, foi observado que várias palavras, como \emph{palestinian} e \emph{israel}, são utilizadas tanto em documentos pró-Palestina quanto pró-Israel. Apesar disso, as frequências distintas no uso dessas palavras evidenciam os diferentes lados da discussão. Esta hipótese encontra respaldo em \cite{teubert2001}, um estudo de Linguística de Corpus \cite{biber-d1998}\cite{halliday2004} que indica que indivíduos defendendo perspectivas diferentes consolidam seus vocabulários através do uso de palavras específicas (\emph{stigma words} e \emph{banner words}), facilitando a identificação de adversários e aliados. 
 
-Explicar que uma diferença fundamental notada entre os datasets observados diz respeito à formalidade da linguagem empregada nos documentos. Enquanto alguns datasets utilizam documentos provenientes de meios onde a norma culta da linguagem impera, e uma revisão ortográfica é utilizada, outros são carregados de gírias, expressões e abreviações típicas da linguagem da Internet e contêm, eventualmente, grafias erradas para uma mesma palavra. <Dar exemplos textuais. Mostrar uma tabelinha, algo assim, indicando o volume de datasets com linguagem informal nos documentos estudados.> 
+\textbf{tabelets do bitterlemons} 
 
-A linguagem informal pode criar alguns desafios para a Mineração de Perspectiva [FECHAR O PROBLEMA EM: IDENTIFICAÇÃO DA PERSPECTIVA PRESENTE EM UM DOCUMENTO], especificamente no que diz respeito ao pré-processamento dos documentos e à escolha do método empregado. No pré-processamento, como indicado em (aaai-politics.pdf e 10.1.1.138.7160.pdf), a correção gramatical das palavras é bastante indicada. Com uma única versão de grafia para cada palavra (a correta), diminui-se a quantidade de ruído que grafias erradas podem causar na classificação.
+Essa hipótese, entretanto, não é comprovada por todos os \emph{datasets} analisados. Em alguns deles, o conhecimento das palavras empregadas em cada lado da discussão, bem como suas frequências, não é suficiente para inferir o perfil ideológico dos autores dos documentos. \cite{agrawal2003} prevê este comportamento, defendendo que o vocabulário usado em dois lados de uma discussão tende a ser basicamente o mesmo, o que contribui para o mau desempenho de classificadores baseados em frequências de palavras exclusivamente. Esta ideia é explorada novamente em \cite{malouf-taking_sides}, a fim de justificar a taxa de acerto de apenas 63.59\% obtida na aplicação de um classificador Naïve Bayes padrão a um \emph{dataset} de debates políticos \emph{online} \cite{www-politics-org}.
 
-Uma característica dos datasets que deveria ser considerada sempre antes de se escolher o método utilizado - mas não é prática entre as pessoas que estudam perspective mining - é a frequência das palavras nos documentos do dataset. Se o léxico empregado pelos autores dos textos muda sensivelmente a depender de sua ideologia/perspectiva defendida/ponto de vista, é possível resolver o problema utilizando classificadores que usam essa frequencia como feature. GASTE TEMPO DANDO ALGUNS EXEMPLOS.  Em datasets informais, entretanto, como aponta Efron, a linguagem empregada por todos os lados da discussão pode ser basicamente a mesma: termos com forte carga de polaridade e gírias/jargões comuns na discussão [EXEMPLO]. Neste caso, é preciso utilizar métodos que utilizem mecanismos mais rebuscados do que a simples frequência/presença das palavras no texto. Alguns autores utilizam métodos mais gramaticais para lidar com datasets informais, como é o caso de , BLE e BLI. Os 2 primeiros criam o conceito de Opinion Frame (DEFINIR O CONCEITO). No primeiro caso, a ideia é associar corretamente opiniões a alvos, e associar alvos iguais utilizando técnicas de co-referência. Segundo Wiebe et al. (pegar a citação corretamente), ter as targets associadas, com as opiniões próximas, é uma boa forma de entender o overall de opiniões de um documento. A estratégia é uma alternativa possível para documentos em que as perspectivas estão muito associadas à linguagem opinativa, e onde essa linguagem é comum para todos os lados. Infelizmente, os resultados alcançados indicam que a tarefa não é trivial: blablablablababla (resolver coreferencia pra linkar targets não é tão simples assim => e dê exemplo). 
+Dado que em boa parte dos artigos estudados neste projeto, como \cite{lin-et-al2006} e \cite{klebanov}, atinge-se taxas de acerto superiores a 80\% com classificadores baseados em frequência de palavras, conclui-se que a mineração de perspectivas em discussões, artigos opinativos e debates requer metodologias diferentes, a depender de como as palavras foram escolhidas pelos autores dos documentos. Nos debates estudados por \cite{hirst-et-al}, expressões de ataque e defesa são mais frequentes do que \emph{stigma words} e, como o método empregado no artigo foi um SVM treinado com frequências de palavras, observou-se que a classificação obtida para os lados do debate não refletia as perspectivas \emph{liberal} ou \emph{conservadora} - mas sim os lados \emph{oposição} (expressões de ataque) e \emph{situação} (expressões de defesa). Estes estudos indicam a possibilidade de que, em debates e discussões nos quais há uma homogeneização do vocabulário empregado - o que pode acontecer quando todos os lados utilizam, em proporções similares, tanto expressões de ataque quanto de defesa -, classificadores baseados exclusivamente nas palavras utilizadas e/ou em suas frequências apresentarão má performance.
+
+\textbf{tabelets cruzando bons desempenhos, classificadores, datasets e artigos.}
+
+A avaliação do desempenho desses classificadores\footnote{\textbf{SVMs e Naive Bayes padrão; LSPM}} nos \emph{datasets} estudados revela que artigos opinativos e notícias consolidaram perspectivas, através da escolha do vocabulário utilizado, melhor do que debates. Apesar disso, uma generalização neste sentido, restringindo o uso desses classificadores a artigos e notícias, não é recomendada por falta de indicativos linguísticos que comprovem essa tendência. Uma estratégia que pode ajudar na escolha ou descarte de um classificador desse tipo é uma pré-análise das palavras que estão contidas nos documentos.
+
+A simples visualização das frequências das palavras do corpus \textbf{explicar que uso corpus e dataset de forma intercambiável em algum lugar dessa monografia}, separadas por perspectiva, não é o mais indicado para analisar a uniformidade do vocabulário empregado. O motivo é que esse tipo de visualização não evidencia a co-ocorrência das palavras nas diferentes perspectivas apresentadas, característica fundamental para avaliar essa uniformidade. O uso de um modelo de tópicos, conforme descrito a seguir, leva a uma interpretação mais imediata... 
+
+Explicar tudinho como foi feito. Mostrar os resultados, discutir como eles batem com classificação dos modelos.
+\textbf{Imagens: mostrar a diferença entre se usar reles frequencias e um modelo do tipo labeled LDA em um pequeno dataset, indicando como dificulta ver no primeiro tipo.} 
+Explicar q isso nunca foi feito e q pessoas q ncontraram merda com essa feature fizeram outras coisas. descrever essas coisas.
+
+
+%Estas hipóteses ilustram  
+%Como indica \cite{}: 
+
+%\textbf{MODO RASCUNHO AINDA}
+
+%Explicar que uma diferença fundamental notada entre os datasets observados diz respeito à formalidade da linguagem empregada nos documentos. Enquanto alguns datasets utilizam documentos provenientes de meios onde a norma culta da linguagem impera, e uma revisão ortográfica é utilizada, outros são carregados de gírias, expressões e abreviações típicas da linguagem da Internet e contêm, eventualmente, grafias erradas para uma mesma palavra. <Dar exemplos textuais. Mostrar uma tabelinha, algo assim, indicando o volume de datasets com linguagem informal nos documentos estudados.> 
+
+%A linguagem informal pode criar alguns desafios para a Mineração de Perspectiva [FECHAR O PROBLEMA EM: IDENTIFICAÇÃO DA PERSPECTIVA PRESENTE EM UM DOCUMENTO], especificamente no que diz respeito ao pré-processamento dos documentos e à escolha do método empregado. No pré-processamento, como indicado em (aaai-politics.pdf e 10.1.1.138.7160.pdf), a correção gramatical das palavras é bastante indicada. Com uma única versão de grafia para cada palavra (a correta), diminui-se a quantidade de ruído que grafias erradas podem causar na classificação.
+
+%Uma característica dos datasets que deveria ser considerada sempre antes de se escolher o método utilizado - mas não é prática entre as pessoas que estudam perspective mining - é a frequência das palavras nos documentos do dataset. Se o léxico empregado pelos autores dos textos muda sensivelmente a depender de sua ideologia/perspectiva defendida/ponto de vista, é possível resolver o problema utilizando classificadores que usam essa frequencia como feature. GASTE TEMPO DANDO ALGUNS EXEMPLOS.  Em datasets informais, entretanto, como aponta Efron, a linguagem empregada por todos os lados da discussão pode ser basicamente a mesma: termos com forte carga de polaridade e gírias/jargões comuns na discussão [EXEMPLO]. Neste caso, é preciso utilizar métodos que utilizem mecanismos mais rebuscados do que a simples frequência/presença das palavras no texto. Alguns autores utilizam métodos mais gramaticais para lidar com datasets informais, como é o caso de , BLE e BLI. Os 2 primeiros criam o conceito de Opinion Frame (DEFINIR O CONCEITO). No primeiro caso, a ideia é associar corretamente opiniões a alvos, e associar alvos iguais utilizando técnicas de co-referência. Segundo Wiebe et al. (pegar a citação corretamente), ter as targets associadas, com as opiniões próximas, é uma boa forma de entender o overall de opiniões de um documento. A estratégia é uma alternativa possível para documentos em que as perspectivas estão muito associadas à linguagem opinativa, e onde essa linguagem é comum para todos os lados. Infelizmente, os resultados alcançados indicam que a tarefa não é trivial: blablablablababla (resolver coreferencia pra linkar targets não é tão simples assim => e dê exemplo). 
 
 %uma diferença fundamental notada entre os \emph{datasets} observados diz respeito à formalidade da linguagem empregada nos documentos. Enquanto alguns datasets utilizam documentos provenientes de meios onde a norma culta da linguagem impera, e uma revisão ortográfica é utilizada, outros são carregados de gírias, expressões e abreviações típicas da linguagem da Internet e contêm, eventualmente, grafias erradas para uma mesma palavra. <Dar exemplos textuais. Mostrar uma tabelinha, algo assim, indicando o volume de datasets com linguagem informal nos documentos estudados.> 
 
