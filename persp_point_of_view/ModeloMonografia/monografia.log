@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2009.5.28)  7 AUG 2010 13:52
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2009.5.28)  9 AUG 2010 12:55
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -602,31 +602,42 @@ LaTeX Warning: Citation `biber-d1998' on page 10 undefined on input line 10.
 LaTeX Warning: Citation `halliday2004' on page 10 undefined on input line 10.
 
 
-LaTeX Warning: Citation `agrawal2003' on page 10 undefined on input line 14.
+LaTeX Warning: Citation `agrawal2003' on page 10 undefined on input line 12.
 
 
 LaTeX Warning: Citation `malouf-taking_sides' on page 10 undefined on input lin
-e 14.
+e 12.
 
 
 LaTeX Warning: Citation `www-politics-org' on page 10 undefined on input line 1
-4.
+2.
 
 
-LaTeX Warning: Citation `lin-et-al2006' on page 10 undefined on input line 16.
+LaTeX Warning: Citation `lin-et-al2006' on page 10 undefined on input line 14.
 
 
-LaTeX Warning: Citation `klebanov' on page 10 undefined on input line 16.
+LaTeX Warning: Citation `klebanov' on page 10 undefined on input line 14.
 
 
-LaTeX Warning: Citation `hirst-et-al' on page 10 undefined on input line 16.
+LaTeX Warning: Citation `hirst-et-al' on page 10 undefined on input line 14.
 
 [10]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 20.
-) (./conclusao.tex [11]
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 16.
+
+
+LaTeX Warning: Citation `top-llda' on page 11 undefined on input line 18.
+
+
+LaTeX Warning: Citation `lin-et-al2006' on page 11 undefined on input line 18.
+
+
+LaTeX Warning: Citation `malouf-taking_sides' on page 11 undefined on input lin
+e 18.
+
+[11]) (./conclusao.tex [12]
 Cap\'{\i }tulo 3.
-) (./apendices.tex [12
+) (./apendices.tex [13
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <20.74> not available
@@ -637,7 +648,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 
 Apendice A.
-) (./monografia.bbl [13
+) (./monografia.bbl [14
 
 ]
 
@@ -653,7 +664,7 @@ tabela-simbolos: agora rode geratss (linux) ou manualmente,
 makeindex -s tabela-siglas.ist -o monografia.sigla monografia.siglax
 makeindex -s tabela-simbolos.ist -o monografia.symbols monografia.symbolsx
 ########################################################################
-[14
+[15
 
 ] (./monografia.aux)
 
@@ -661,10 +672,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5455 strings out of 94834
- 73824 string characters out of 1179181
+ 5457 strings out of 94834
+ 73856 string characters out of 1179181
  128183 words of memory out of 1500000
- 8463 multiletter control sequences out of 10000+50000
+ 8465 multiletter control sequences out of 10000+50000
  78719 words of font info for 101 fonts, out of 1200000 for 2000
  212 hyphenation exceptions out of 8191
  32i,8n,41p,1789b,603s stack positions out of 5000i,500n,6000p,200000b,5000s
@@ -673,9 +684,9 @@ ve/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/t
 imes/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmbi8a.pfb></u
 sr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texli
 ve/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (15 pages, 96054 bytes).
+Output written on monografia.pdf (16 pages, 101581 bytes).
 PDF statistics:
- 74 PDF objects out of 1000 (max. 8388607)
+ 77 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -1,0 +1,6 @@
+a ideia é fazer uma pipeline de experimentos bem simples e compará-los.
+	- naive bayes com unigramas
+	- naive bayes com skip bigrams de tamanho 3
+	- o método da janelinha
+
+Estou usando en nas palavras pra lemma e me livrando de algumas stop words.

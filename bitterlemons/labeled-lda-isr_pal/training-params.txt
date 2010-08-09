@@ -1,0 +1,1 @@
+TrainingParams(MaxIterations(1500),SaveEvery(50,List(LogProbabilityEstimate, DocumentTopicDistributions, DocumentTopicAssignments)))

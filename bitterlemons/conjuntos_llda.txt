@@ -1,0 +1,19 @@
+>>> isr
+['they', 'would', 'which', 'can', 'arafat', 'state', 'two', 'political', 'one', 'were', 'who', 'sharon', 'gaza', 'only', 'its', 'what', 'their', 'even', 'all', 'arab', 'there', 'more', 'other', 'his', 'between', 'peace', 'war', 'into', 'these', 'conflict', 'process', 'security', 'them', 'such', 'government', 'international', 'when', 'over', 'both', 'years', 'agreement', 'plan', 'terrorism', 'after', 'been', 'against', 'israelis', 'jewish', 'settlements', 'new']
+>>> neutr
+['their', 'its', 'would', 'there', 'only', 'between', 'more', 'which', 'been', 'you', 'international', 'process', 'state', 'can', 'even', 'what', 'one', 'were', 'all', 'other', 'these', 'they', 'his', 'sharon', 'people', 'them', 'peace', 'arafat', 'israelis', 'government', 'arab', 'security', 'conflict', 'who', 'two', 'our', 'political', 'also', 'gaza', 'about', 'when', 'think', 'any', 'now', 'some', 'over', 'against', 'states', 'time', 'into']
+>>> pal
+['you', 'all', 'peace', 'occupation', 'some', 'been', 'about', 'would', 'state', 'now', 'more', 'people', 'there', 'only', 'our', 'what', 'israelis', 'they', 'think', 'its', 'one', 'their', 'political', 'international', 'sharon', 'government', 'which', 'between', 'states', 'can', 'authority', 'security', 'any', 'who', 'his', 'were', 'these', 'very', 'because', 'also', 'united', 'time', 'how', 'other', 'when', 'two', 'even', 'them', 'against', 'land']
+>>> set(pal) - set(neutr)
+set(['land', 'because', 'very', 'authority', 'how', 'united', 'occupation'])
+>>> set(isr) - set(neutr)
+set(['both', 'after', 'jewish', 'settlements', 'agreement', 'years', 'plan', 'such', 'new', 'terrorism', 'war'])
+>>> set(isr) - set(pal)
+set(['over', 'arafat', 'such', 'after', 'both', 'process', 'into', 'settlements', 'agreement', 'years', 'arab', 'jewish', 'plan', 'gaza', 'new', 'terrorism', 'war', 'conflict'])
+>>> set(pal) - set(isr)
+set(['land', 'about', 'because', 'people', 'very', 'some', 'authority', 'think', 'states', 'also', 'united', 'how', 'time', 'our', 'you', 'now', 'any', 'occupation'])
+>>> set(neutr) - set(pal)
+set(['arafat', 'process', 'over', 'arab', 'gaza', 'into', 'conflict'])
+>>> set(neutr) - set(isr)
+set(['about', 'people', 'some', 'think', 'states', 'also', 'time', 'our', 'you', 'now', 'any'])
+
