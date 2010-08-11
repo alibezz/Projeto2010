@@ -35,9 +35,16 @@ val text = {
 // define fields from the dataset we are going to slice against
 val persp = {
     pubmed ~>                            // read from the pubmed file
-    Column(1,2) ~>                         // take column one, the year
+    Column(1) ~>                         // take column one, the year
     WhitespaceTokenizer                  // turns label field into an array
 }
+
+val neutr = {
+   pubmed ~>
+   Column(2) ~>
+   WhitespaceTokenizer
+}
+
 val dataset = LabeledLDADataset(text, persp);
 
 // the label set

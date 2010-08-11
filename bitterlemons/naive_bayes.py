@@ -10,9 +10,10 @@ import os
 
 class NaiveBayesSampler(object):
   def __init__(self, a):
-    self.train_docs = a.pdocs()[0]
-    self.test_docs = a.pdocs()[1]
-    self.docs = self.docs_train + self.docs_test
+    pdocs = a.pdocs()
+    self.train_docs = pdocs[0]
+    self.test_docs = pdocs[1]
+    self.docs = self.train_docs + self.test_docs
 
     if not self.docs: 
       self.all_words = 0
@@ -70,7 +71,7 @@ class NaiveBayesSampler(object):
   def get_denominator(self):
       den = np.zeros(2)
       for i in range(self.Ntestdocs):
-        den[self.get_real_label(self.train_dirname, i)] += 1
+        den[self.get_real_label(self.test_dirname, i)] += 1
       return den
 
   def accuracy(self):
@@ -110,4 +111,4 @@ class NaiveBayesSampler(object):
 if __name__=='__main__':
   a = CorpusParser(sys.argv[1], sys.argv[2]) 
   s = NaiveBayesSampler(a)
-  s.sample(200)
+  s.sample(500)

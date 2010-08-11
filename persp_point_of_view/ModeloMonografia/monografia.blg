@@ -24,8 +24,14 @@ Warning--I didn't find a database entry for "halliday2004"
 Warning--I didn't find a database entry for "agrawal2003"
 Warning--I didn't find a database entry for "malouf-taking_sides"
 Warning--I didn't find a database entry for "www-politics-org"
-Warning--I didn't find a database entry for "klebanov"
 Warning--I didn't find a database entry for "top-llda"
+Warning--I didn't find a database entry for "alibezz-naive-bayes"
+Warning--I didn't find a database entry for "aaai-politics"
+Warning--I didn't find a database entry for "efron"
+Warning--I didn't find a database entry for "aaai-politcs"
+Warning--I didn't find a database entry for "malouf-takind_sides"
+Warning--I didn't find a database entry for "drineas"
+Warning--I didn't find a database entry for "hoon"
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
 | Estilo bibliografico abnt-alf.bst versao 1.53           |
@@ -35,7 +41,7 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
 You've used 1 entry,
             6522 wiz_defined-function locations,
-            1187 strings with 9546 characters,
+            1193 strings with 9617 characters,
 and the built_in function-call counts, 970 in all, are:
 = -- 191
 > -- 0
@@ -74,4 +80,4 @@ warning$ -- 0
 while$ -- 2
 width$ -- 0
 write$ -- 8
-(There were 22 warnings)
+(There were 28 warnings)

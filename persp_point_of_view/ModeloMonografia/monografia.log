@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2009.5.28)  9 AUG 2010 12:55
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2009.5.28)  11 AUG 2010 11:53
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -590,54 +590,90 @@ LaTeX Warning: Citation `somasundaran' on page 9 undefined on input line 6.
 LaTeX Warning: Citation `lin-et-al2006' on page 10 undefined on input line 10.
 
 
-LaTeX Warning: Citation `lin-et-al2006' on page 10 undefined on input line 10.
+LaTeX Warning: Citation `teubert2001' on page 10 undefined on input line 11.
 
 
-LaTeX Warning: Citation `teubert2001' on page 10 undefined on input line 10.
+LaTeX Warning: Citation `biber-d1998' on page 10 undefined on input line 11.
 
 
-LaTeX Warning: Citation `biber-d1998' on page 10 undefined on input line 10.
+LaTeX Warning: Citation `halliday2004' on page 10 undefined on input line 11.
 
 
-LaTeX Warning: Citation `halliday2004' on page 10 undefined on input line 10.
-
-
-LaTeX Warning: Citation `agrawal2003' on page 10 undefined on input line 12.
+LaTeX Warning: Citation `agrawal2003' on page 10 undefined on input line 13.
 
 
 LaTeX Warning: Citation `malouf-taking_sides' on page 10 undefined on input lin
-e 12.
+e 13.
 
 
 LaTeX Warning: Citation `www-politics-org' on page 10 undefined on input line 1
-2.
+3.
 
 
-LaTeX Warning: Citation `lin-et-al2006' on page 10 undefined on input line 14.
+LaTeX Warning: Citation `top-llda' on page 10 undefined on input line 17.
 
 
-LaTeX Warning: Citation `klebanov' on page 10 undefined on input line 14.
-
-
-LaTeX Warning: Citation `hirst-et-al' on page 10 undefined on input line 14.
+LaTeX Warning: Citation `alibezz-naive-bayes' on page 10 undefined on input lin
+e 17.
 
 [10]
-LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 16.
+
+LaTeX Warning: Citation `lin-et-al2006' on page 11 undefined on input line 19.
 
 
-LaTeX Warning: Citation `top-llda' on page 11 undefined on input line 18.
+LaTeX Warning: Citation `lin-et-al2006' on page 11 undefined on input line 19.
 
 
-LaTeX Warning: Citation `lin-et-al2006' on page 11 undefined on input line 18.
+LaTeX Warning: Citation `somasundaran' on page 11 undefined on input line 25.
 
 
 LaTeX Warning: Citation `malouf-taking_sides' on page 11 undefined on input lin
-e 18.
+e 39.
 
-[11]) (./conclusao.tex [12]
+
+LaTeX Warning: Citation `aaai-politics' on page 11 undefined on input line 39.
+
+
+LaTeX Warning: Citation `efron' on page 11 undefined on input line 39.
+
+[11]
+
+LaTeX Warning: Citation `malouf-taking_sides' on page 12 undefined on input lin
+e 41.
+
+
+LaTeX Warning: Citation `aaai-politcs' on page 12 undefined on input line 41.
+
+
+LaTeX Warning: Citation `aaai-politics' on page 12 undefined on input line 41.
+
+
+LaTeX Warning: Citation `malouf-takind_sides' on page 12 undefined on input lin
+e 41.
+
+
+LaTeX Warning: Citation `aaai-politcs' on page 12 undefined on input line 41.
+
+
+LaTeX Warning: Citation `malouf-taking_sides' on page 12 undefined on input lin
+e 41.
+
+
+LaTeX Warning: Citation `drineas' on page 12 undefined on input line 41.
+
+
+LaTeX Warning: Citation `hoon' on page 12 undefined on input line 41.
+
+
+LaTeX Warning: Citation `efron' on page 12 undefined on input line 47.
+
+
+LaTeX Warning: Citation `malouf-taking_sides' on page 12 undefined on input lin
+e 48.
+
+[12]) (./conclusao.tex [13]
 Cap\'{\i }tulo 3.
-) (./apendices.tex [13
+) (./apendices.tex [14
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <20.74> not available
@@ -648,7 +684,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 
 Apendice A.
-) (./monografia.bbl [14
+) (./monografia.bbl [15
 
 ]
 
@@ -664,7 +700,7 @@ tabela-simbolos: agora rode geratss (linux) ou manualmente,
 makeindex -s tabela-siglas.ist -o monografia.sigla monografia.siglax
 makeindex -s tabela-simbolos.ist -o monografia.symbols monografia.symbolsx
 ########################################################################
-[15
+[16
 
 ] (./monografia.aux)
 
@@ -672,21 +708,21 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5457 strings out of 94834
- 73856 string characters out of 1179181
- 128183 words of memory out of 1500000
- 8465 multiletter control sequences out of 10000+50000
- 78719 words of font info for 101 fonts, out of 1200000 for 2000
+ 5466 strings out of 94834
+ 74061 string characters out of 1179181
+ 130183 words of memory out of 1500000
+ 8475 multiletter control sequences out of 10000+50000
+ 75916 words of font info for 99 fonts, out of 1200000 for 2000
  212 hyphenation exceptions out of 8191
- 32i,8n,41p,1789b,603s stack positions out of 5000i,500n,6000p,200000b,5000s
+ 32i,8n,41p,2449b,603s stack positions out of 5000i,500n,6000p,200000b,5000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
 ve/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/t
 imes/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmbi8a.pfb></u
 sr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texli
 ve/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (16 pages, 101581 bytes).
+Output written on monografia.pdf (17 pages, 104089 bytes).
 PDF statistics:
- 77 PDF objects out of 1000 (max. 8388607)
+ 80 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
