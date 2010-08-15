@@ -19,6 +19,7 @@ class NaiveBayesSampler(object):
       self.all_words = 0
     else:
       self.all_words = len(self.docs[0])
+    print self.all_words
     self.train_dirname = a.train_dirname()
     self.test_dirname = a.test_dirname()
     self.labels = [] 
