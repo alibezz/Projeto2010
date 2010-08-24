@@ -4,7 +4,7 @@
 import numpy as np
 import random
 import math
-from parse_nb import CorpusParser
+from bob_parse_nb import CorpusParser
 import sys
 import os
 
