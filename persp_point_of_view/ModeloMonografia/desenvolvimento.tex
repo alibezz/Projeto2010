@@ -23,7 +23,7 @@ Este tipo de classificador assume que as informações presentes em um documento
 
 \begin{equation}
 \label{eq1}
-\emph{P}(\emph{c}|\emph{d}) \ensuremath{\propto} \emph{P}(\emph{c})\prod_{k=1}^{\ensuremath{n_d}}\emph{P}(\ensuremath{t_k}|\emph{c})  
+\emph{P}(\emph{c}|\emph{d}) \ensuremath{\propto} \emph{P}(\emph{c})\prod_{k=1}^{\ensuremath{t_d}}\emph{P}(\ensuremath{t_{dk}}|\emph{c})  
 \end{equation} 
 
 onde \emph{P}(\ensuremath{t_k}|\emph{c}) é a probabilidade condicional do termo \ensuremath{t_k}  ocorrer em um documento da classe \emph{c},  \emph{P}(\emph{c}) é a probabilidade a priori de um documento qualquer pertencer à classe \emph{c} e \ensuremath{n_d} é o número de termos em \emph{d} \cite{stanford-IRbook}.
@@ -39,12 +39,67 @@ A hipótese de independência entre os termos, razão pela qual o Naïve Bayes t
 Todos os experimentos com Naïve Bayes conduzidos neste projeto utilizam a implementação disponível em \cite{alibezz-nb}. O número de iterações para a Amostragem de Gibbs foi fixado em 500. %Através do uso de Amostragem de Gibbs, a cada iteração se obtém uma aproximação melhor O número de amostras coletadas envolvendo cada classe foi fixado em 500. 
  
 \subsection{SVMs}
+\label{subsection:SVMs}
 
-\section{Modelos Generativos}
+\section{Modelos Gráficos}
 
-Falar um pouco sobre modelagem de tópicos
+\begin{figure}[t]
+  \centering % este comando é usado para centralizar a figura
+  \includegraphics[width=5cm, height=4cm]{graphical-naive.png}\\
+  \caption{Modelo gráfico correspondente ao classificador Naïve Bayes.}
+  \label{fig:graphical-naive}
+\end{figure}
+
+\begin{figure}[t]
+  \centering % este comando é usado para centralizar a figura
+  \includegraphics[width=5cm, height=4cm]{generative-bishop.png}\\
+  \caption{Modelo gráfico que representa o processo pelo qual objetos são gerados probabilisticamente. A posição e a orientação têm probabilidades independentes a priori, algo facilmente identificável, pois não há arestas entre elas. A distribuição de probabilidade para a imagem depende da identidade do objeto, de sua orientação e de sua posição \cite{bishop}.}
+  \label{fig:generative-bishop}
+\end{figure}
+
+Modelos gráficos utilizam um grafo para representar relações entre variáveis aleatórias, provendo uma maneira simples de se representar distribuições de probabilidade e propriedades de independência condicional \cite{bishop}. Cada vértice corresponde a uma variável aleatória, ou a um conjunto de variáveis aleatórias, e cada aresta corresponde às relações probabilísticas entre dois vértices. Modelos gráficos são categorizados como Redes Bayesianas ou \textbf{Markov Random Fields (traduzir)}. Por questões de escopo, apenas as Redes Bayesianas serão discutidas nesta seção.
+
+Redes Bayesianas, ou Modelos Gráficos Direcionados, utilizam grafos direcionados acíclicos para representar as relações estabelecidas entre variáveis aleatórias. No caso do classificador Naïve Bayes - modelo gráfico que, por conveniência, é discutido mais detalhadamente na seção \ref{subsection:bayes} -, tem-se variáveis aleatórias que representam a classe de cada documento e, para todos os documentos, uma variável aleatória para cada um de seus termos distintos. Este modelo contém dois parâmetros, \ensuremath{\pi} e \ensuremath{\theta}, que ajustam as distribuições de probabilidade das variáveis aleatórias. 
+
+A figura \textbf{X}, correspondente ao classificador Naïve Bayes, contém toda a notação necessária para as discussões deste projeto. Assume-se que o classificador será aplicado a um conjunto \ensuremath{D} contendo \ensuremath{N} documentos, cada um deles com um conjunto de palavras distintas. A classe de cada documento \ensuremath{j}, \ensuremath{C_j}, é uma variável aleatória com distribuição de probabilidade \ensuremath{P(C_j|\pi)}. A relação entre \ensuremath{C_j} e \ensuremath{\pi}, evidenciada em \ensuremath{P(C_j|\pi)}, é representada na figura \textbf{X} pela aresta que sai de \ensuremath{\pi} e incide em \ensuremath{C_j}. \ensuremath{C_j} está no interior de um retângulo rotulado com \ensuremath{N}, o que significa que há \ensuremath{N} variáveis deste tipo, uma para cada documento, com \ensuremath{j} variando de 1 a \ensuremath{N}. 
+
+Cada documento \ensuremath{j}, por sua vez, contém um conjunto de \ensuremath{T_j} termos distintos. A probabilidade associada a cada termo \ensuremath{T_{jk}}, \ensuremath{k} variando de 1 a \ensuremath{T_j}, é condicionada ao valor da variável \ensuremath{C_j}. Desse modo, e considerando o parâmetro \ensuremath{\theta}, tem-se, por documento, \ensuremath{T_j} distribuições de probabilidade do tipo \ensuremath{P(T_{jk}|C_j, \theta)}. Uma vez mais, o rótulo do retângulo mais interno indica o número de variáveis, sintetizadas por um único círculo, que estabelecem o mesmo tipo de relações probabilísticas com \ensuremath{\theta} no modelo. As arestas sempre incidem na variável (ou variáveis) cuja probabilidade está condicionada ao valor da variável - ou parâmetro - de onde elas saem.
+
+Por fim, as variáveis representadas por círculos brancos são latentes - ou seja, seus valores não são observáveis diretamente no conjunto de dados ao qual o modelo é aplicado. As variáveis em cinza, por sua vez, correspondem a dados diretamente observáveis; neste caso, às palavras distintas de cada documento. A \textbf{Joint Distribution} do classificador Naïve Bayes, que corresponde ao produto de todas as distribuições de probabilidade do modelo, pode ser escrita como 
+
+\begin{equation}
+\label{generative:eq1}
+\ensuremath{\prod_{j=1}^{N} \bigg\{P(C_j|\pi)\bigg[\prod_{k=1}^{T_j}P(T_{jk}|C_j)\bigg]\bigg\}}  
+\end{equation} 
+
+Adequando-se a notação, observa-se que a relação \ref{eq1}, apresentada na seção \ref{subsection:naive}, pode ser facilmente obtida via a \textbf{Joint Distribution} \ref{generative:eq1}.
+
+\textbf{Modelos Generativos} 
+
+Uma categoria de modelos gráficos explorada neste projeto são os Modelos Generativos. Modelos deste tipo associam distribuições de probabilidade a todas as variáveis aleatórias envolvidas, permitindo a geração - i.e. simulação - de seus valores. Modelos generativos são úteis para expressar os processos através dos quais os dados observáveis são obtidos, como no seguinte exemplo: dado um conjunto de imagens de objetos, variáveis latentes podem ser utilizadas para representar suas posições e orientações; em seguida, para identificar o objeto contido em uma imagem particular observada, é preciso obter a distribuição de probabilidade a posteriori para objetos, o que envolve integrais sobre todas as posições e orientações possíveis \cite{bishop}. Com um modelo generativo, o valor das variáveis pode ser obtido através de técnicas de amostragem aplicadas à \textbf{Joint Distribution}, como a amostragem de Gibbs apresentada na seção \ref{subsection:naive}. É um mecanismo diferente do empregado em SVMs, por exemplo, em que variáveis observáveis não são associadas a nenhuma distribuição de probabilidade e as categorias são estimadas diretamente, condicionadas a seus valores. SVMs são exemplos de Modelos Discriminativos, e estão apresentados com mais detalhes na seção \ref{subsection:svms}.
+
+Dois modelos generativos foram bastante explorados neste projeto: o classificador Naïve Bayes, apresentado na seção \ref{subsection:naive}, e o modelo de tópicos L-LDA, que consiste em uma alteração do modelo LDA \textbf{explicar as siglas antes}. Estes últimos, discutidos na seção \ref{subsection:LDA}, foram empregados em experimentos e estudos de caso ao longo de todo o projeto, bem como o classificador Naïve Bayes.
+
+
+% são mapeados em categorias baseando-se nesta informação condicionando 
+
+
+%os valores das variáveis latentes são associados a distribuições de probabilidade que as condicionam a variáveis observ condicionados a variáveis observadas explicitamente.
+
+%por exemplo, em que o valor de uma variável aleatória
+
+
+%Discriminative models differ from generative models in that they do not allow one to generate samples from the joint distribution of x and y.
+% Quando uma técnica de amostragem adequada é aplicada ao modelo, a fim de obter valores para suas variáveis, tem-se a simulação de dados cuja distribuição de probabilidade aproxima-se daquela dos dados 
+
+\textbf{figura do bayes}
+\textbf{figura bishop com legenda}    
+
+%=> Falar de modelos generativos e fazer link com o resto da seção.
+% A independência condicional \pi é um hiperparâmetro do modelo, e a caixa mais externa, rotulada com um \ensuremath{N}, indica que \ensuremath{j} varia de 1 a \a relação entre \ensuremath{\pi} e as variáveis   
 
 \subsection{LDA}
+\label{subsection:LDA}
 
 O modelo LDA associa palavras a tópicos com maior ou menor probabilidade, de tal modo que é possível, após o processamento, atribuir um significado a cada um deles apenas observando as relações entre as palavras associadas. Neste sentido, o modelo é útil para identificar e agrupar padrões contidos em documentos de texto. Os tópicos não são, portanto, pré-identificados antes da execução do modelo, requerendo uma interpretação posterior e subjetiva de seus significados. O LDA se apóia na hipótese de que um documento pode tratar de múltiplos tópicos, e suas palavras refletem que tópicos são estes \cite{pnas}. 
 

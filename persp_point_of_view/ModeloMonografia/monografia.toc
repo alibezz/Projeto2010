@@ -7,24 +7,24 @@
 \contentsline {section}{\numberline {2.1}Classificadores}{10}
 \contentsline {subsection}{\numberline {2.1.1}Na\IeC {\"\i }ve Bayes}{10}
 \contentsline {subsection}{\numberline {2.1.2}SVMs}{11}
-\contentsline {section}{\numberline {2.2}Modelos Generativos}{11}
-\contentsline {subsection}{\numberline {2.2.1}LDA}{12}
-\contentsline {subsubsection}{L-LDA}{13}
-\contentsline {subsection}{\numberline {2.2.2}L-LDA}{13}
-\contentsline {chapter}{\numberline {3}Principais trabalhos e \emph {datasets} estudados}{14}
-\contentsline {chapter}{\numberline {4}M\IeC {\'e}todos baseados em frequ\IeC {\^e}ncias de palavras}{15}
-\contentsline {section}{\numberline {4.1}Introdu\IeC {\c c}\IeC {\~a}o}{15}
-\contentsline {section}{\numberline {4.2}Trabalhos Analisados}{16}
-\contentsline {section}{\numberline {4.3}Experimentos com L-LDA e Na\IeC {\"\i }ve Bayes}{16}
-\contentsline {section}{\numberline {4.4}Conclus\IeC {\~a}o}{19}
-\contentsline {chapter}{\numberline {5}Metodologias que usam informa\IeC {\c c}\IeC {\~a}o extra-documento}{21}
-\contentsline {section}{\numberline {5.1}Concord\IeC {\^a}ncia e discord\IeC {\^a}ncia entre documentos}{21}
-\contentsline {section}{\numberline {5.2}Meta-informa\IeC {\c c}\IeC {\~o}es sobre os autores}{21}
-\contentsline {chapter}{\numberline {6}Metodologias que usam rela\IeC {\c c}\IeC {\~o}es intra-documento}{22}
-\contentsline {chapter}{\numberline {7}Estudo de caso: Elei\IeC {\c c}\IeC {\~o}es 2010}{23}
-\contentsline {chapter}{\numberline {8}Trabalhos relacionados}{24}
-\contentsline {chapter}{\numberline {9}Conclus\IeC {\~a}o}{25}
-\contentsline {section}{\numberline {9.1}Dificuldades encontradas}{25}
-\contentsline {section}{\numberline {9.2}Trabalhos futuros}{25}
-\contentsline {chapter}{Ap\^endice{} A{} -$\mskip -\thinmuskip $-{} Resultados experimentais}{26}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{27}
+\contentsline {section}{\numberline {2.2}Modelos Gr\IeC {\'a}ficos}{11}
+\contentsline {subsection}{\numberline {2.2.1}LDA}{14}
+\contentsline {subsubsection}{L-LDA}{15}
+\contentsline {subsection}{\numberline {2.2.2}L-LDA}{15}
+\contentsline {chapter}{\numberline {3}Principais trabalhos e \emph {datasets} estudados}{16}
+\contentsline {chapter}{\numberline {4}M\IeC {\'e}todos baseados em frequ\IeC {\^e}ncias de palavras}{17}
+\contentsline {section}{\numberline {4.1}Introdu\IeC {\c c}\IeC {\~a}o}{17}
+\contentsline {section}{\numberline {4.2}Trabalhos Analisados}{18}
+\contentsline {section}{\numberline {4.3}Experimentos com L-LDA e Na\IeC {\"\i }ve Bayes}{18}
+\contentsline {section}{\numberline {4.4}Conclus\IeC {\~a}o}{21}
+\contentsline {chapter}{\numberline {5}Metodologias que usam informa\IeC {\c c}\IeC {\~a}o extra-documento}{23}
+\contentsline {section}{\numberline {5.1}Concord\IeC {\^a}ncia e discord\IeC {\^a}ncia entre documentos}{23}
+\contentsline {section}{\numberline {5.2}Meta-informa\IeC {\c c}\IeC {\~o}es sobre os autores}{23}
+\contentsline {chapter}{\numberline {6}Metodologias que usam rela\IeC {\c c}\IeC {\~o}es intra-documento}{24}
+\contentsline {chapter}{\numberline {7}Estudo de caso: Elei\IeC {\c c}\IeC {\~o}es 2010}{25}
+\contentsline {chapter}{\numberline {8}Trabalhos relacionados}{26}
+\contentsline {chapter}{\numberline {9}Conclus\IeC {\~a}o}{27}
+\contentsline {section}{\numberline {9.1}Dificuldades encontradas}{27}
+\contentsline {section}{\numberline {9.2}Trabalhos futuros}{27}
+\contentsline {chapter}{Ap\^endice{} A{} -$\mskip -\thinmuskip $-{} Resultados experimentais}{28}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{29}

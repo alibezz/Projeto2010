@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  24 AUG 2010 13:56
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  26 AUG 2010 20:17
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -494,7 +494,11 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <24.88> not available
 ] [3
 
 
-] (./monografia.lof)
+] (./monografia.lof
+
+LaTeX Warning: Citation `bishop' on page  undefined on input line 3.
+
+)
 \tf@lof=\write5
 \openout5 = `monografia.lof'.
 
@@ -507,8 +511,7 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <12> not available
 (Font)              Font shape `T1/ptm/b/sl' tried instead on input line 2.
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
 (Font)              Font shape `T1/ptm/b/it' tried instead on input line 14.
-
-[6
+ [6
 
 ])
 \tf@toc=\write6
@@ -558,66 +561,102 @@ LaTeX Warning: Citation `paul' on page 11 undefined on input line 37.
 
 LaTeX Warning: Citation `alibezz-nb' on page 11 undefined on input line 39.
 
+<graphical-naive.png, id=44, 368.577pt x 268.202pt>
+File: graphical-naive.png Graphic file (type png)
+ <use graphical-naive.png>
+<generative-bishop.png, id=45, 313.17pt x 259.97125pt>
+File: generative-bishop.png Graphic file (type png)
 
-LaTeX Warning: Citation `pnas' on page 11 undefined on input line 49.
+<use generative-bishop.png>
 
-[11]
-
-LaTeX Warning: Citation `pnas' on page 12 undefined on input line 51.
-
-
-LaTeX Warning: Citation `lingpipe-lda' on page 12 undefined on input line 58.
-
-
-LaTeX Warning: Citation `top-lda' on page 12 undefined on input line 58.
+LaTeX Warning: Citation `bishop' on page 11 undefined on input line 56.
 
 
-LaTeX Warning: Reference `tabela:LDA' on page 12 undefined on input line 60.
+LaTeX Warning: Citation `bishop' on page 11 undefined on input line 56.
 
-[12] [13]
+
+LaTeX Warning: Citation `bishop' on page 11 undefined on input line 60.
+
+[11] [12 <./graphical-naive.png> <./generative-bishop.png (PNG copy)>]
+
+LaTeX Warning: Reference `subsection:naive' on page 13 undefined on input line 
+75.
+
+
+LaTeX Warning: Citation `bishop' on page 13 undefined on input line 79.
+
+
+LaTeX Warning: Reference `subsection:naive' on page 13 undefined on input line 
+79.
+
+
+LaTeX Warning: Reference `subsection:svms' on page 13 undefined on input line 7
+9.
+
+
+LaTeX Warning: Reference `subsection:naive' on page 13 undefined on input line 
+81.
+
+[13]
+
+LaTeX Warning: Citation `pnas' on page 14 undefined on input line 104.
+
+
+LaTeX Warning: Citation `pnas' on page 14 undefined on input line 106.
+
+
+LaTeX Warning: Citation `lingpipe-lda' on page 14 undefined on input line 113.
+
+
+LaTeX Warning: Citation `top-lda' on page 14 undefined on input line 113.
+
+
+LaTeX Warning: Reference `tabela:LDA' on page 14 undefined on input line 115.
+
+[14] [15]
 Cap\'{\i }tulo 3.
-[14
+[16
 
 ]
 Cap\'{\i }tulo 4.
 
-LaTeX Warning: Citation `teubert2001' on page 15 undefined on input line 88.
+LaTeX Warning: Citation `teubert2001' on page 17 undefined on input line 143.
 
 
-LaTeX Warning: Citation `teubert2001' on page 15 undefined on input line 88.
+LaTeX Warning: Citation `teubert2001' on page 17 undefined on input line 143.
 
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 102.
-[15
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 157.
+[17
 
-] [16] [17] [18]
+] [18] [19] [20]
 
-LaTeX Warning: Citation `teubert2001' on page 19 undefined on input line 313.
+LaTeX Warning: Citation `teubert2001' on page 21 undefined on input line 368.
 
-[19] [20]
+[21] [22]
 Cap\'{\i }tulo 5.
 
-Overfull \hbox (5.43347pt too wide) in paragraph at lines 366--366
+Overfull \hbox (5.43347pt too wide) in paragraph at lines 421--421
 []\T1/ptm/b/n/17.28 CONCORDÂNCIA E DIS-COR-DÂN-CIA EN-TRE DO-CU-
  []
 
-[21
-
-]
-Cap\'{\i }tulo 6.
-[22
-
-]
-Cap\'{\i }tulo 7.
 [23
 
 ]
+Cap\'{\i }tulo 6.
+[24
+
+]
+Cap\'{\i }tulo 7.
+[25
+
+]
 Cap\'{\i }tulo 8.
-) (./conclusao.tex [24
+) (./conclusao.tex [26
 
 ]
 Cap\'{\i }tulo 9.
-) (./apendices.tex [25
+) (./apendices.tex [27
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <20.74> not available
@@ -628,7 +667,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 
 Apendice A.
-) (./monografia.bbl [26
+) (./monografia.bbl [28
 
 ]
 
@@ -644,7 +683,7 @@ tabela-simbolos: agora rode geratss (linux) ou manualmente,
 makeindex -s tabela-siglas.ist -o monografia.sigla monografia.siglax
 makeindex -s tabela-simbolos.ist -o monografia.symbols monografia.symbolsx
 ########################################################################
-[27
+[29
 
 ] (./monografia.aux)
 
@@ -652,24 +691,25 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5490 strings out of 94101
- 74094 string characters out of 1165810
- 130172 words of memory out of 1500000
- 8570 multiletter control sequences out of 10000+50000
+ 5509 strings out of 94101
+ 74488 string characters out of 1165810
+ 130231 words of memory out of 1500000
+ 8587 multiletter control sequences out of 10000+50000
  88483 words of font info for 120 fonts, out of 1200000 for 2000
  637 hyphenation exceptions out of 8191
  32i,12n,41p,1789b,603s stack positions out of 5000i,500n,6000p,200000b,5000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
-ve/fonts/type1/bluesky/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/blues
-ky/cm/cmsy10.pfb></usr/share/texmf-texlive/fonts/type1/urw/symbol/usyr.pfb></us
-r/share/texmf-texlive/fonts/type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive
-/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/tim
-es/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmbi8a.pfb></usr
-/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></usr/share/texmf-texlive
-/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (28 pages, 139515 bytes).
+ve/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/blue
+sky/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmr10.pfb></
+usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf-tex
+live/fonts/type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/
+symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></us
+r/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texliv
+e/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/t
+imes/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
+Output written on monografia.pdf (30 pages, 169755 bytes).
 PDF statistics:
- 131 PDF objects out of 1000 (max. 8388607)
+ 148 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
- 6 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
