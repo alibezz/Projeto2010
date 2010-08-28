@@ -1,34 +1,37 @@
 \chapter{Técnicas básicas e ferramentas utilizadas}
 
-Neste capítulo, serão descritas técnicas básicas de Aprendizado de Máquina e Processamento de Linguagem Natural importantes para a compreensão dos capítulos seguintes desta monografia. Na seção \textbf{Classificadores}, será discutido o funcionamento dos classificadores Naïve Bayes e \emph{Support Vector Machine} (\textbf{SVM}), comuns em métodos de Mineração de Perspectiva baseados em frequências de palavras. Na seção \textbf{Modelos Generativos}, \textbf{serão discutidos os modelos de tópicos \emph{Latent Dirichlet Allocation} (\textbf{LDA}) e \emph{Labeled Latent Dirichlet Allocation} (\textbf{L-LDA}). O segundo, que consiste em uma pequena modificação do primeiro, é utilizado em parte dos experimentos conduzidos neste projeto.}
+Neste capítulo, serão descritas técnicas básicas de Aprendizado de Máquina e Processamento de Linguagem Natural, importantes para a compreensão dos capítulos seguintes desta monografia. Na seção \textbf{Classificadores}, serão discutidos os funcionamentos dos classificadores Naïve Bayes e \emph{Support Vector Machines} (SVMs), comuns em métodos de Mineração de Perspectiva baseados em frequências de palavras. Na seção \textbf{Modelos Gráficos}, serão discutidas a notação e hipóteses deste tipo de modelo, os \textbf{Modelos Generativos}, uma de suas subcategorias bastante explorada nesta monografia, e dois modelos generativos que, a partir da interpretação de documentos como uma mistura de tópicos, geram agrupamentos de palavras que facilitam a compreensão segmentada do conteúdo de um corpus. Estes modelos são o \emph{Latent Dirichlet Allocation} (LDA) e o \emph{Labeled-Latent Dirichlet Allocation} (L-LDA), utilizados em experimentos conduzidos ao longo de todo o projeto.
+
+%\textbf{serão discutidos os modelos de tópicos \emph{Latent Dirichlet Allocation} (\textbf{LDA}) e \emph{Labeled Latent Dirichlet Allocation} (\textbf{L-LDA}). O segundo, que consiste em uma pequena modificação do primeiro, é utilizado em parte dos experimentos conduzidos neste projeto.}
 
 \section{Classificadores}
-\textbf{Diga algo}
+
+\textbf{Fazer introdução}
 
 \subsection{Naïve Bayes}
 \label{subsection:bayes}
 %\begin{algorithm}
-%\ensuremath{z^{(0)}} %\gets \ensuremath{\langle z_1^{(0)}, \ldots, z_k^{(0)}\rangle}
+%\ensuremath{z^{(0)}} \gets \ensuremath{\langle z_1^{(0)}, \ldots, z_k^{(0)}\rangle}
 %\FOR{\ensuremath{t = 1} to \ensuremath{T} do}
-%  \FOR{\ensuremath{i = 1} to \ensuremath{k} do}
-%    \ensuremath{z_i^{(t + 1)} ~ P(Z_i | z_1^{(t + 1)}, \ldots, z_{i - 1}^{(t + 1)}, z_{i + 1}^{(t)}, \ldots, z_k^{(t)})}
-%  \ENDFOR
+ % \FOR{\ensuremath{i = 1} to \ensuremath{k} do}
+ %   \ensuremath{z_i^{(t + 1)} ~ P(Z_i | z_1^{(t + 1)}, \ldots, z_{i - 1}^{(t + 1)}, z_{i + 1}^{(t)}, \ldots, z_k^{(t)})}
+ % \ENDFOR
 %\ENDFOR
 
 %\end{algorithm}
 
-Dado um conjunto de documentos \ensuremath{D} e um conjunto de classes \ensuremath{C}, o classificador Naïve Bayes estima, através da aplicação do Teorema de Bayes,  a probabilidade de cada \ensuremath{d \in D} ser de cada uma das classes \ensuremath{c \in C}. Com estas probabilidades calculadas, o classificador determina, para todo \ensuremath{d}, qual é a classe \emph{c} a que ele estará associado. Esta classe pode, por exemplo, ser aquela para a qual a probabilidade obtida foi a mais alta \cite{durant-smith} \cite{naive-forty}.
+Dado um conjunto de documentos \ensuremath{D} e um conjunto de classes \ensuremath{C}, o classificador Naïve Bayes estima, através da aplicação do Teorema de Bayes,  a probabilidade de cada \ensuremath{d \in D} ser de cada uma das classes \ensuremath{c \in C}. Com estas probabilidades calculadas, o classificador determina, para todo \ensuremath{d}, qual é a classe \emph{c} a que ele estará associado. Esta classe pode, por exemplo, ser aquela para a qual a probabilidade obtida foi simplesmente a mais alta \cite{durant-smith} \cite{naive-forty}.
 
-Este tipo de classificador assume que as informações presentes em um documento, utilizadas na determinação de sua classe, são independentes entre si. No caso de um documento de texto, assume-se que a presença ou ausência de um termo - uma palavra ou uma sequência de palavras - é independente da presença ou ausência de qualquer outro. Definida esta hipótese, a probabilidade de que um documento \emph{d} seja de uma classe \emph{c} é computada como
+Este tipo de classificador parte da ideia de que as informações presentes em um documento, utilizadas na determinação de sua classe, são independentes entre si. No caso de um documento de texto, assume-se que a presença ou ausência de um termo - uma palavra ou uma sequência de palavras - é independente da presença ou ausência de qualquer outro. Definida esta hipótese, a probabilidade de que um documento \emph{d} seja de uma classe \emph{c} é tal que
 
 \begin{equation}
 \label{eq1}
-\emph{P}(\emph{c}|\emph{d}) \ensuremath{\propto} \emph{P}(\emph{c})\prod_{k=1}^{\ensuremath{t_d}}\emph{P}(\ensuremath{t_{dk}}|\emph{c})  
+\ensuremath{P(c|d) \propto P(c)\prod_{k=1}^{t_d}P(t_k|c)}  
 \end{equation} 
 
-onde \emph{P}(\ensuremath{t_k}|\emph{c}) é a probabilidade condicional do termo \ensuremath{t_k}  ocorrer em um documento da classe \emph{c},  \emph{P}(\emph{c}) é a probabilidade a priori de um documento qualquer pertencer à classe \emph{c} e \ensuremath{n_d} é o número de termos em \emph{d} \cite{stanford-IRbook}.
+onde \ensuremath{P(t_k|c)} é a probabilidade condicional do termo \ensuremath{t_k}  ocorrer em um documento da classe \ensuremath{c},  \ensuremath{P(c)} é a probabilidade a priori de um documento qualquer pertencer à classe \ensuremath{c} e \ensuremath{t_d} é o número de termos em \emph{d} \cite{stanford-IRbook}.
 
-As probabilidades envolvidas na equação \ref{eq1} contêm integrais díficeis ou mesmo impossíveis de se calcular. Para calcular \emph{P}(\emph{c}|\emph{d}), portanto, utiliza-se aproximações obtidas através de técnicas de amostragem. Uma destas técnicas, comum na literatura de Aprendizado de Máquina e empregada neste projeto, é a amostragem de Gibbs. Em uma iteração da amostragem, a técnica condiciona as probabilidades calculadas para um documento \ensuremath{k} às classificações obtidas para os \ensuremath{k - 1} documentos anteriores \cite{resnik-gibbs}. O algoritmo básico da técnica está definido na \textbf{figura X}.
+As probabilidades envolvidas na relação \ref{eq1} contêm integrais díficeis ou mesmo impossíveis de se calcular analiticamente. Para calcular \ensuremath{P(c|d)}, portanto, utiliza-se aproximações obtidas através de técnicas de amostragem. Uma destas técnicas, comum na literatura de Aprendizado de Máquina e empregada neste projeto, é a amostragem de Gibbs. Em uma iteração da amostragem, a técnica condiciona as probabilidades calculadas para um documento \ensuremath{k} às classificações obtidas para os \ensuremath{k - 1} documentos anteriores \cite{resnik-gibbs}. A técnica está descrita, de forma básica, no algoritmo \textbf{X (o algorithm2e.sty tá dando pau)}.
                              % The basic idea in Gibbs sampling is that, rather than probabilistically picking
 %the next state all at once, you make a separate probabilistic choice for each of the k dimensions, where each
 %choice depends on the other k − 1 dimensions.
@@ -36,7 +39,7 @@ As probabilidades envolvidas na equação \ref{eq1} contêm integrais díficeis 
 
 A hipótese de independência entre os termos, razão pela qual o Naïve Bayes tem este nome\footnote{Naïve é uma palavra de origem francesa que significa "ingênua"}, simplifica bastante a estrutura da informação contida nos documentos. Ainda assim, o classificador costuma apresentar boas performances em categorização de textos, sendo utilizado, por exemplo, como base metodológica para alguns filtros de \emph{spam} \cite{paul}. Para melhorar o desempenho do Naïve Bayes, é comum fixar um conjunto de documentos previamente classificados de forma correta e utilizar a informação sobre suas classes na determinação das classes de outros documentos. Ao conjunto de documentos previamente classificados, dá-se o nome de \textbf{conjunto de treinamento}; ao conjunto de documentos a serem classificados, \textbf{conjunto de teste}.
 
-Todos os experimentos com Naïve Bayes conduzidos neste projeto utilizam a implementação disponível em \cite{alibezz-nb}. O número de iterações para a Amostragem de Gibbs foi fixado em 500. %Através do uso de Amostragem de Gibbs, a cada iteração se obtém uma aproximação melhor O número de amostras coletadas envolvendo cada classe foi fixado em 500. 
+Todos os experimentos com Naïve Bayes conduzidos neste projeto utilizam a implementação disponível no repositório \emph{online} de Aline Bessa \cite{alibezz-nb}. O número de iterações para a Amostragem de Gibbs foi fixado em 500. %Através do uso de Amostragem de Gibbs, a cada iteração se obtém uma aproximação melhor O número de amostras coletadas envolvendo cada classe foi fixado em 500. 
  
 \subsection{SVMs}
 \label{subsection:SVMs}
@@ -44,41 +47,43 @@ Todos os experimentos com Naïve Bayes conduzidos neste projeto utilizam a imple
 \section{Modelos Gráficos}
 
 \begin{figure}[t]
-  \centering % este comando é usado para centralizar a figura
+  \centering % este comando é usado para centralizar a Figura
   \includegraphics[width=5cm, height=4cm]{graphical-naive.png}\\
   \caption{Modelo gráfico correspondente ao classificador Naïve Bayes.}
   \label{fig:graphical-naive}
 \end{figure}
 
 \begin{figure}[t]
-  \centering % este comando é usado para centralizar a figura
+  \centering % este comando é usado para centralizar a Figura
   \includegraphics[width=5cm, height=4cm]{generative-bishop.png}\\
-  \caption{Modelo gráfico que representa o processo pelo qual objetos são gerados probabilisticamente. A posição e a orientação têm probabilidades independentes a priori, algo facilmente identificável, pois não há arestas entre elas. A distribuição de probabilidade para a imagem depende da identidade do objeto, de sua orientação e de sua posição \cite{bishop}.}
+  \caption{Modelo gráfico que representa o processo pelo qual objetos são gerados probabilisticamente. A distribuição de probabilidade para a imagem depende da identidade do objeto, de sua orientação e de sua posição \cite{bishop}.}
   \label{fig:generative-bishop}
 \end{figure}
 
-Modelos gráficos utilizam um grafo para representar relações entre variáveis aleatórias, provendo uma maneira simples de se representar distribuições de probabilidade e propriedades de independência condicional \cite{bishop}. Cada vértice corresponde a uma variável aleatória, ou a um conjunto de variáveis aleatórias, e cada aresta corresponde às relações probabilísticas entre dois vértices. Modelos gráficos são categorizados como Redes Bayesianas ou \textbf{Markov Random Fields (traduzir)}. Por questões de escopo, apenas as Redes Bayesianas serão discutidas nesta seção.
+Modelos gráficos consistem na representação, através de um grafo, das relações entre um conjunto finito de variáveis aleatórias, provendo uma maneira simples de se representar distribuições de probabilidade \cite{bishop}. Cada vértice do grafo corresponde a uma variável aleatória (ou a um conjunto de variáveis aleatórias) ou a um parâmetro, e cada aresta reflete a relação entre dois vértices. Modelos gráficos são categorizados como Redes Bayesianas ou \textbf{Markov Random Fields (traduzir)}. Por questões de escopo, apenas as Redes Bayesianas serão discutidas nesta seção.
 
-Redes Bayesianas, ou Modelos Gráficos Direcionados, utilizam grafos direcionados acíclicos para representar as relações estabelecidas entre variáveis aleatórias. No caso do classificador Naïve Bayes - modelo gráfico que, por conveniência, é discutido mais detalhadamente na seção \ref{subsection:bayes} -, tem-se variáveis aleatórias que representam a classe de cada documento e, para todos os documentos, uma variável aleatória para cada um de seus termos distintos. Este modelo contém dois parâmetros, \ensuremath{\pi} e \ensuremath{\theta}, que ajustam as distribuições de probabilidade das variáveis aleatórias. 
+Redes Bayesianas, ou Modelos Gráficos Direcionados, consistem em grafos direcionados acíclicos em que as arestas indicam distribuições de probabilidade condicional envolvendo dois vértices. As arestas sempre incidem no vértice cuja probabilidade está condicionada ao valor do vértice de onde elas saem.  No caso do classificador Naïve Bayes - modelo gráfico que, por conveniência, é discutido mais detalhadamente na seção \ref{subsection:bayes} -, tem-se variáveis aleatórias que representam a classe de cada documento e, para todos os documentos, variáveis aleatórias para cada um de seus termos distintos. Este modelo contém dois parâmetros, \ensuremath{\pi} e \ensuremath{\theta}, que ajustam as distribuições de probabilidade das variáveis aleatórias. 
 
-A figura \textbf{X}, correspondente ao classificador Naïve Bayes, contém toda a notação necessária para as discussões deste projeto. Assume-se que o classificador será aplicado a um conjunto \ensuremath{D} contendo \ensuremath{N} documentos, cada um deles com um conjunto de palavras distintas. A classe de cada documento \ensuremath{j}, \ensuremath{C_j}, é uma variável aleatória com distribuição de probabilidade \ensuremath{P(C_j|\pi)}. A relação entre \ensuremath{C_j} e \ensuremath{\pi}, evidenciada em \ensuremath{P(C_j|\pi)}, é representada na figura \textbf{X} pela aresta que sai de \ensuremath{\pi} e incide em \ensuremath{C_j}. \ensuremath{C_j} está no interior de um retângulo rotulado com \ensuremath{N}, o que significa que há \ensuremath{N} variáveis deste tipo, uma para cada documento, com \ensuremath{j} variando de 1 a \ensuremath{N}. 
+A Figura 2.1, correspondente ao classificador Naïve Bayes, contém toda a notação necessária para as discussões sobre modelos gráficos deste projeto. Assume-se que o classificador será aplicado a um conjunto de documentos \ensuremath{D}. A classe de cada documento \ensuremath{j}, \ensuremath{C_j}, é uma variável aleatória com distribuição de probabilidade \ensuremath{P(C_j|\pi)}. A relação entre \ensuremath{C_j} e \ensuremath{\pi}, evidenciada em \ensuremath{P(C_j|\pi)}, é representada na Figura 2.1 pela aresta que sai de \ensuremath{\pi} e incide em \ensuremath{C_j}. \ensuremath{C_j} está no interior de um retângulo rotulado com \ensuremath{|D|}, o que significa que há \ensuremath{|D|} variáveis deste tipo, uma para cada documento. %, com \ensuremath{j} variando de 1 a \ensuremath{N}. 
 
-Cada documento \ensuremath{j}, por sua vez, contém um conjunto de \ensuremath{T_j} termos distintos. A probabilidade associada a cada termo \ensuremath{T_{jk}}, \ensuremath{k} variando de 1 a \ensuremath{T_j}, é condicionada ao valor da variável \ensuremath{C_j}. Desse modo, e considerando o parâmetro \ensuremath{\theta}, tem-se, por documento, \ensuremath{T_j} distribuições de probabilidade do tipo \ensuremath{P(T_{jk}|C_j, \theta)}. Uma vez mais, o rótulo do retângulo mais interno indica o número de variáveis, sintetizadas por um único círculo, que estabelecem o mesmo tipo de relações probabilísticas com \ensuremath{\theta} no modelo. As arestas sempre incidem na variável (ou variáveis) cuja probabilidade está condicionada ao valor da variável - ou parâmetro - de onde elas saem.
+Cada documento \ensuremath{j}, por sua vez, contém um conjunto de \ensuremath{T_j} termos distintos. A probabilidade associada a cada termo \ensuremath{T_{jk}}, \ensuremath{k} variando de 1 a \ensuremath{T_j}, é condicionada ao valor da variável \ensuremath{C_j}. Desse modo, e considerando o parâmetro \ensuremath{\theta}, tem-se, por documento, \ensuremath{T_j} distribuições de probabilidade do tipo \ensuremath{P(T_{jk}|C_j, \theta)}. Uma vez mais, o rótulo do retângulo mais interno indica o número de variáveis, sintetizadas por um único círculo, que estabelecem o mesmo tipo de relação com \ensuremath{\theta} e \ensuremath{C_j}. %no modelo. 
 
 Por fim, as variáveis representadas por círculos brancos são latentes - ou seja, seus valores não são observáveis diretamente no conjunto de dados ao qual o modelo é aplicado. As variáveis em cinza, por sua vez, correspondem a dados diretamente observáveis; neste caso, às palavras distintas de cada documento. A \textbf{Joint Distribution} do classificador Naïve Bayes, que corresponde ao produto de todas as distribuições de probabilidade do modelo, pode ser escrita como 
 
 \begin{equation}
 \label{generative:eq1}
-\ensuremath{\prod_{j=1}^{N} \bigg\{P(C_j|\pi)\bigg[\prod_{k=1}^{T_j}P(T_{jk}|C_j)\bigg]\bigg\}}  
+\ensuremath{\prod_{j=1}^{|D|} \bigg\{P(C_j|\pi)\bigg[\prod_{k=1}^{T_j}P(T_{jk}|C_j)\bigg]\bigg\}}  
 \end{equation} 
 
-Adequando-se a notação, observa-se que a relação \ref{eq1}, apresentada na seção \ref{subsection:naive}, pode ser facilmente obtida via a \textbf{Joint Distribution} \ref{generative:eq1}.
+Adequando-se a notação, observa-se que a relação \ref{eq1}, apresentada na seção 2.1.1, pode ser facilmente obtida via a \textbf{Joint Distribution} \ref{generative:eq1}.
 
-\textbf{Modelos Generativos} 
+\subsubsection{Modelos Generativos} 
 
-Uma categoria de modelos gráficos explorada neste projeto são os Modelos Generativos. Modelos deste tipo associam distribuições de probabilidade a todas as variáveis aleatórias envolvidas, permitindo a geração - i.e. simulação - de seus valores. Modelos generativos são úteis para expressar os processos através dos quais os dados observáveis são obtidos, como no seguinte exemplo: dado um conjunto de imagens de objetos, variáveis latentes podem ser utilizadas para representar suas posições e orientações; em seguida, para identificar o objeto contido em uma imagem particular observada, é preciso obter a distribuição de probabilidade a posteriori para objetos, o que envolve integrais sobre todas as posições e orientações possíveis \cite{bishop}. Com um modelo generativo, o valor das variáveis pode ser obtido através de técnicas de amostragem aplicadas à \textbf{Joint Distribution}, como a amostragem de Gibbs apresentada na seção \ref{subsection:naive}. É um mecanismo diferente do empregado em SVMs, por exemplo, em que variáveis observáveis não são associadas a nenhuma distribuição de probabilidade e as categorias são estimadas diretamente, condicionadas a seus valores. SVMs são exemplos de Modelos Discriminativos, e estão apresentados com mais detalhes na seção \ref{subsection:svms}.
+Uma categoria de modelos gráficos explorada neste projeto são os Modelos Generativos. Modelos deste tipo associam distribuições de probabilidade a todas as variáveis aleatórias envolvidas, permitindo a geração - i.e. simulação - de seus valores. Modelos generativos são úteis para expressar os processos pelos quais dados observáveis são obtidos, como no seguinte exemplo: dado um conjunto de imagens de objetos, variáveis latentes podem ser utilizadas para representar suas posições e orientações; em seguida, para identificar o objeto contido em uma imagem particular observada, é preciso obter a distribuição de probabilidade a posteriori para objetos, o que envolve integrar sobre todas as posições e orientações possíveis \cite{bishop}. A Figura 2.2 indica as distribuições de probabilidade envolvendo variáveis aleatórias para posição, orientação, imagem e objeto.
 
-Dois modelos generativos foram bastante explorados neste projeto: o classificador Naïve Bayes, apresentado na seção \ref{subsection:naive}, e o modelo de tópicos L-LDA, que consiste em uma alteração do modelo LDA \textbf{explicar as siglas antes}. Estes últimos, discutidos na seção \ref{subsection:LDA}, foram empregados em experimentos e estudos de caso ao longo de todo o projeto, bem como o classificador Naïve Bayes.
+Com um modelo generativo, os valores das variáveis podem ser obtidos através de técnicas de amostragem aplicadas à \textbf{Joint Distribution}, como a amostragem de Gibbs apresentada na seção 2.1.1. É um mecanismo diferente do empregado em SVMs, por exemplo, em que variáveis observáveis não são associadas a nenhuma distribuição de probabilidade e as categorias são estimadas diretamente, condicionadas a seus valores. SVMs estão apresentados com mais detalhes na seção 2.1.2. \textbf{Acho q a monografia n precisa falar de modelos discriminativos.}
+
+Dois modelos generativos são bastante explorados nos capítulos seguintes desta monografia: o classificador Naïve Bayes e o modelo de tópicos L-LDA, que consiste em uma alteração simples no modelo LDA. Estes últimos, discutidos na seção \ref{subsection:LDA}, foram empregados em experimentos e estudos de caso ao longo de todo o projeto. %, bem como o classificador Naïve Bayes.
 
 
 % são mapeados em categorias baseando-se nesta informação condicionando 
@@ -92,8 +97,8 @@ Dois modelos generativos foram bastante explorados neste projeto: o classificado
 %Discriminative models differ from generative models in that they do not allow one to generate samples from the joint distribution of x and y.
 % Quando uma técnica de amostragem adequada é aplicada ao modelo, a fim de obter valores para suas variáveis, tem-se a simulação de dados cuja distribuição de probabilidade aproxima-se daquela dos dados 
 
-\textbf{figura do bayes}
-\textbf{figura bishop com legenda}    
+%\textbf{Figura do bayes}
+%\textbf{Figura bishop com legenda}    
 
 %=> Falar de modelos generativos e fazer link com o resto da seção.
 % A independência condicional \pi é um hiperparâmetro do modelo, e a caixa mais externa, rotulada com um \ensuremath{N}, indica que \ensuremath{j} varia de 1 a \a relação entre \ensuremath{\pi} e as variáveis   
@@ -101,24 +106,68 @@ Dois modelos generativos foram bastante explorados neste projeto: o classificado
 \subsection{LDA}
 \label{subsection:LDA}
 
-O modelo LDA associa palavras a tópicos com maior ou menor probabilidade, de tal modo que é possível, após o processamento, atribuir um significado a cada um deles apenas observando as relações entre as palavras associadas. Neste sentido, o modelo é útil para identificar e agrupar padrões contidos em documentos de texto. Os tópicos não são, portanto, pré-identificados antes da execução do modelo, requerendo uma interpretação posterior e subjetiva de seus significados. O LDA se apóia na hipótese de que um documento pode tratar de múltiplos tópicos, e suas palavras refletem que tópicos são estes \cite{pnas}. 
+O modelo LDA parte da ideia de que um documento pode tratar de múltiplos tópicos, refletidos nas palavras que o compõem \cite{pnas}. Ele associa as palavras dos documentos a tópicos diferentes, com maior ou menor probabilidade, criando agrupamentos de palavras que se relacionam semanticamente. Os tópicos em um LDA são variáveis latentes, cujos significados requerem uma interpretação posterior ao processamento. Esta interpretação baseia-se nas relações semânticas entre as palavras que se associaram mais fortemente a cada um deles, algo relativamente subjetivo. %ser bastante levando  
 
-Dado um conjunto de documentos \ensuremath{D}, o conjunto de todas as palavras distintas em \ensuremath{D} (\ensuremath{W}) e um conjunto de tópicos \ensuremath{T}, o modelo LDA trata cada \ensuremath{d \in D} como uma mistura de tópicos, representada por uma distribuição de probabilidade \ensuremath{\theta^{(d)}} sobre \ensuremath{T}. Cada tópico \ensuremath{t}, por sua vez, é tratado como uma mistura de palavras, representada pela distribuição  \ensuremath{\phi^{(t)}} sobre \ensuremath{W}. A probabilidade da \ensuremath{i}-ésima palavra de \ensuremath{d}, \ensuremath{w_i}, se associar a um tópico \ensuremath{t} é dada, portanto, pelo produto \cite{pnas}
+Para ilustrar como as palavras evidenciam o significado de um tópico, um experimento envolvendo receitas culinárias extraídas do \emph{site} \textbf{allrecipes.com} foi executado. Apenas os ingredientes de cada receita foram considerados. Na Tabela 2.1, constam as cinco palavras mais fortemente associadas a quatro tópicos, de acordo com o LDA. % - ou seja, as cinco palavras para as quais as probabilidades obtidas com a equação \ref{eq2} foram mais altas. %que obtiveram mais alta probabilidade de acordo com \ref{eq2}.
+
+\begin{table}[t]
+\centering
+\label{LDA:1}
+\begin{tabular}{| l | p{7cm} | }
+\hline
+\textbf{Tópico} & \textbf{Palavras} \\ \hline
+\textbf{Tópico 1} & beef, sauce, cheese, oil, pepper \\ \hline
+\textbf{Tópico 2} & chicken, breast, soup, pastum, tomato \\ \hline
+\textbf{Tópico 3} & sugar, flour, butter, powder, milk  \\ \hline
+\textbf{Tópico 4} & oil, potato, bread, egg, pork \\ \hline
+\end{tabular}
+\caption{As cinco palavras mais fortemente associadas a quatro tópicos gerados por um LDA.}
+\end{table}
+
+Considerando que todas as receitas pertencem à culinária tradicional dos Estados Unidos, as palavras listadas na Tabela 2.1, e a forma como se associam em torno de cada tópico, são indicativos do bom funcionamento do LDA. O primeiro tópico pode ser interpretado como \textbf{Ingredientes para Carnes}, ilustrando a base de receitas típicas dos Estados Unidos, como \emph{cheeseburger} e \emph{hamburger}; o segundo, ao associar \emph{breast}, \emph{chicken} e \emph{soup}, remete a receitas de sopas e caldos comuns em climas frios, podendo ser interpretado como \textbf{Ingredientes para Sopas}; o terceiro remete a bolos e tortas ao agrupar cinco ingredientes fundamentais à confeitaria, podendo ser interpretado como \textbf{Ingredientes para Bolos}; o quarto remete a uma gama de receitas pouco saudáveis, como sanduíches com ovos e carne de porco (\emph{bread}, \emph{pork} e \emph{egg}) ou batatas-fritas (\emph{potato} e \emph{oil}), podendo ser interpretado como \textbf{Ingredientes para \emph{Fast-Food}}. É importante frisar que estas interpretações, apesar de subjetivas, indicam perspectivas culinárias distintas e coerentes internamente. Seria diferente de encontrar, por exemplo, um tópico fortemente associado às palavras \emph{sugar}, \emph{pepper} e \emph{potato}, dificilmente encontradas em uma mesma receita típica dos Estados Unidos.
+
+
+%- ou seja, não são identificados antes ou durante o processamento -cujos significados requerem  só podem ser interpretados após o processamento do modelo, observando-se  
+
+% que, após o processamento, sintetizam um significado associado ao
+
+
+%atribuir um significado a cada um deles apenas observando as relações entre as palavras associadas com mais destaque. Para o LDA, os tópicos não são, portanto, pré-identificados antes do processamento, requerendo uma interpretação posterior e subjetiva de seus significados. %Neste sentido, o modelo é útil para identificar padrões contidos em documentos de texto.  
+
+Dado um conjunto de documentos \ensuremath{D}, o conjunto de todas as palavras distintas em \ensuremath{D} (\ensuremath{W}) e um conjunto de tópicos \ensuremath{T}, o modelo LDA trata cada documento como uma mistura de tópicos, representada por uma distribuição de probabilidade sobre \ensuremath{T}, e cada tópico como uma mistura de palavras, representada por uma distribuição sobre \ensuremath{W}. O LDA é, portanto, um modelo generativo, em que o valor de qualquer variável aleatória pode ser inferido através de sua distribuição de probabilidade. A \textbf{Joint Distribution} do modelo é
 
 \begin{equation}
-\label{eq2}
-\ensuremath{P(w_i | t)P(t) = \phi^{(t)}_{w_i}\theta^{(d)}_{t}}
+\label{joint:lda}
+\ensuremath{\prod_{i=1}^{|D|} \bigg\{P(\theta_i|\alpha)\bigg[\prod_{j=1}^{|W|}P(t_j|\theta_i)P(w_j|t_j,\beta)\bigg]\bigg\}}  
 \end{equation}
 
-\ensuremath{P(w_i | t)} indica o quanto a palavra \ensuremath{w_i} se associa a \ensuremath{t}; \ensuremath{P(t)}, por sua vez, funciona como uma medida do quanto o tópico \ensuremath{t} é importante no contexto do documento \ensuremath{d}. O cálculo destas probabilidades também envolve integrais difíceis, ou mesmo impossíveis, de resolver analiticamente, o que implica no uso de técnicas de amostragem e aproximação. A amostragem de Gibbs, descrita superficialmente na seção \ref{subsection:bayes}, é uma alternativa para a inferência dessas probabilidades \cite{lingpipe-lda}, sendo utilizada nos experimentos deste projeto que envolvem o modelo LDA. Para todos os experimentos, a implementação utilizada está disponível em \cite{top-lda} e o número de iterações da amostragem é fixado em 100.
+\begin{figure}[t]
+  \centering % este comando é usado para centralizar a Figura
+  \includegraphics[width=6.5cm, height=4cm]{Latent_Dirichlet_allocation.png}\\
+  \caption{Modelo gráfico que corresponde a um LDA.} %\ref{joint:lda}.}
+  \label{fig:lda}
+\end{figure}
 
-Quando um método de classificação é aplicado a um conjunto de documentos, a interpretação do resultado é imediata: cada documento estará associado a uma única classe. No caso do modelo de tópicos LDA, a interpretação do resultado é mais subjetiva. É preciso observar as palavras que se associam com maior probabilidade a cada tópico, buscando algum tipo de semelhança entre elas, para inferir seus significados. Para ilustrar como as palavras evidenciam o significado de um tópico, um experimento envolvendo receitas culinárias extraídas do \emph{site} \textbf{allrecipes.com} foi executado. Apenas os ingredientes de cada receita foram considerados. Na Tabela \ref{tabela:LDA}, constam as quinze palavras mais fortemente associadas a quatro tópicos - ou seja, as quinze palavras que obtiveram mais alta probabilidade de acordo com \ref{eq2}.
+Para cada documento \ensuremath{d_i}, é fixada uma distribuição de probabilidade sobre tópicos \ensuremath{\theta_i}, condicionada a um parâmetro \ensuremath{\alpha}. Em seguida, para cada uma das \ensuremath{|W|} palavras do corpus, um tópico \ensuremath{t_j} é escolhido, de acordo com \ensuremath{\theta_i}, e uma palavra \ensuremath{w_j} é gerada, condicionada aos valores de \ensuremath{t_j} e do parâmatro \ensuremath{\beta}. Na Figura \ref{fig:lda}, tem-se o modelo gráfico correspondente ao LDA descrito de acordo com a \textbf{Joint Distribution} \ref{joint:lda}. 
 
-\textbf{Análise}
+\ensuremath{P(w_j|t_j,\beta)} reflete o quanto a palavra \ensuremath{w_j} se relaciona com o tópico \ensuremath{t_j}; \ensuremath{P(t_j|\theta_i)}, por sua vez, funciona como uma medida do quanto o tópico \ensuremath{t_j} é importante no contexto do documento \ensuremath{d_i}. O cálculo destas probabilidades também envolve integrais difíceis, ou mesmo impossíveis, de resolver analiticamente, o que implica no uso de técnicas de amostragem e aproximação. A amostragem de Gibbs, descrita superficialmente na seção \ref{subsection:bayes}, é uma alternativa para a geração de valores para variáveis aleatórias contidas no modelo \cite{lingpipe-lda}, sendo utilizada nos experimentos com LDA conduzidos neste projeto. A implementação utilizada para estes experimentos está disponível no repositório \emph{online} de Alexandre Passos \cite{top-lda}, e o número de iterações para coleta de amostras é fixado em 100.
+
+%Quando um método de classificação é aplicado a um conjunto de documentos, a interpretação do resultado é imediata: cada documento estará associado a uma única classe. No caso do modelo de tópicos LDA, a interpretação do resultado é mais subjetiva. É preciso observar as palavras que se associam com maior probabilidade a cada tópico, buscando algum tipo de semelhança entre elas, para inferir seus significados. 
+
+
+% o agrupamento de palavras como \emph{beef}, \emph{sauce} e \emph{cheese} em torno de um mesmo tópico indica o bom funcionamento do LDA%As palavras associadas a cada tópico siderando que as receitas pertencem à culinária tradicional dos Estados Unidos. O primeiro tópico pode ser interpretado como \textbf{Receitas com Carne}, pois associa ingredientes comumente consumidos  
+%\textbf{Análise}
 
 \subsubsection{L-LDA}
 
+O L-LDA é uma variação do LDA em que os tópicos associados aos documentos são identificados previamente. Um bom exemplo para ilustrar a aplicação deste modelo envolve um \emph{blog}, em que cada \emph{post} é marcado com um conjunto específico de \emph{tags}. Se cada \emph{tag} é interpretada como um tópico, é possível informar ao L-LDA em que \emph{posts} cada uma delas está presente, processar os \emph{posts} com o modelo e saber, ao final, quais palavras se associam mais fortemente a cada \emph{tag}. Neste exemplo, portanto, existe um mapeamento direto entre os tópicos e as \emph{tags}, conduzindo a uma interpretação mais imediata do significado de cada agrupamento de palavras.
 
+Experimentos com o L-LDA foram desenvolvidos ao longo deste projeto, associando cada tópico, por exemplo, a uma perspectiva a ser minerada. Após a execução do modelo, as palavras mais fortemente associadas a cada perspectiva ilustram como os assuntos discutidos são enfocados por elas. Quanto mais duas perspectivas se distanciam, mais diferentes são as palavras que se associam com destaque a cada uma delas.
+
+O L-LDA foi discutido pela primeira vez em um artigo de Ramage, Hall, Nallapati e Manning \cite{llda}, aplicado ao problema de atribuição de crédito em páginas do \emph{site del.icio.us}, marcadas com múltiplas \emph{tags}. O artigo parte da hipótese de que, embora um documento possa estar marcado com várias \emph{tags} diferentes, nem sempre elas se aplicam igualmente a todas as palavras nele contidas. A ideia da atribuição de crédito, portanto, consiste em associar cada palavra do documento às \emph{tags} mais apropriadas e vice-versa. Uma aplicação de L-LDA, sugerida neste artigo e bastante empregada neste projeto, envolve, após a associação de palavras a tópicos (neste caso, \emph{tags}), a extração de trechos do documento que as contenham. Isto conduz a uma compreensão melhor de como o conteúdo se associa aos tópicos separadamente. 
+
+A implementação de L-LDA utilizada neste projeto está disponível no repositório \emph{online} de Alexandre Passos \cite{top-llda}. O número de iterações para todos os experimentos, assim como no LDA, foi fixado em 100.
+% do envolvendo uma ou mais palavras associadas a uma \emph{tag} particular. 
 %O resultado de um método de classificação consiste em associar cada documento de um conjunto Diferentemente de métodos de classificação, cujo resultado pode ser interpretado de forma obj
 
 %Assim como discutido na seção \ref{subsection:bayes}, 
@@ -128,11 +177,11 @@ Quando um método de classificação é aplicado a um conjunto de documentos, a 
 
 %onde ti é uma variável latente - ou seja, cujo valor não é observável, mas sim inferido - referente a um tópico, P(wi | ti = j) é a probabilidade de wi se associar ao tópico j e P(ti = j) é a probabilidade de se obter o tópico j na distribuição fixada para o documento \ensuremath{d} \cite{pnas}.
 
- \textbf{Falar das receitas.}
-\textbf{Falar do uso de Gibbs Sampling para inferência}
+ %\textbf{Falar das receitas.}
+%\textbf{Falar do uso de Gibbs Sampling para inferência}
 
 
-\subsection{L-LDA}
+%\subsection{L-LDA}
 
 \chapter{Principais trabalhos e \emph{datasets} estudados}
 
@@ -225,7 +274,7 @@ O primeiro \emph{dataset} estudado é o \textbf{Bitterlemons}\footnote{A descri�
 
 O uso de um tópico genérico ajuda a identificar palavras de \emph{background}, comuns no corpus independentemente de perspectiva. Esta é a diferença fundamental entre o uso de um L-LDA e a simples contagem de palavras em documentos pró-Israel e pró-Palestina. Como esse tipo de contagem não considera palavras de \emph{background}, a visualização de palavras mais específicas para cada perspectiva é prejudicada.
 
-As palavras listadas na Tabela \ref{1}, para as perspectivas Pró-Israel e Pró-Palestina, remetem semanticamente às discussões entre Israel e Palestina. Parte delas, como \emph{palestinian} e \emph{israeli}, se associam às duas perspectivas, ainda que sejam empregadas nos documentos de forma diferente, como ilustrado pelos exemplos contidos na Tabela 4.3. Outras, como \emph{bush} e \emph{occupation}, funcionam como \emph{banner words}, colaborando com a consolidação de pontos de vista diferentes. O exemplo na Tabela 4.4 ilustra a importância do Governo Bush para Israel à época, enquanto o exemplo na tabela 4.5 evidencia a principal luta Palestina do período: a criação de um Estado próprio. A alta frequência de palavras associadas às perspectivas, bem como a presença de \emph{banner words} importantes, configuram um bom cenário para o uso de métodos baseados em frequências de palavras. O desempenho de um Naïve Bayes na classificação deste \emph{dataset} será discutido mais à frente, ainda nesta seção.
+As palavras listadas na Tabela \ref{1}, para as perspectivas Pró-Israel e Pró-Palestina, remetem semanticamente às discussões entre Israel e Palestina. Parte delas, como \emph{palestinian} e \emph{israeli}, se associam às duas perspectivas, ainda que sejam empregadas nos documentos de forma diferente, como ilustrado pelos exemplos contidos na Tabela 4.3. Outras, como \emph{bush} e \emph{occupation}, funcionam como \emph{banner words}, colaborando com a consolidação de pontos de vista diferentes. O exemplo na Tabela 4.4 ilustra a importância do Governo Bush para Israel à época, enquanto o exemplo na tabela 4.5 evidencia a principal luta Palestina do período: a criação de um Estado próprio. A alta frequência de palavras associadas às perspectivas, bem como a presença de \emph{banner words} importantes, conFiguram um bom cenário para o uso de métodos baseados em frequências de palavras. O desempenho de um Naïve Bayes na classificação deste \emph{dataset} será discutido mais à frente, ainda nesta seção.
 
 \begin{table}[t]
 \centering
@@ -352,7 +401,7 @@ As palavras extraídas a partir da aplicação de um L-LDA provêem informaçõe
 %O uso do SVD truncado da matriz de adjacência se deve ao fato de que ele possui menos ruído e evidencia informações estruturais do grafo, como padrões de comunicação entre os vértices, melhor do que a matriz de adjacência \emph{per se} \cite{drineas}. Essa metodologia atinge resultados significativamente melhores que o simples uso de um Naïve Bayes: para participantes com mais de 500 palavras de fala, a taxa de acerto relatada é de 73\% \cite{malouf-taking_sides}.
 
 %\begin{figure}[t]
-%  \centering % este comando é usado para centralizar a figura
+%  \centering % este comando é usado para centralizar a Figura
 %  \includegraphics[width=8cm, height=6cm]{taking-sides-graph.png}\\
 %  \caption{Grafo extraído de \cite{malouf-taking_sides}. Os vértices são usuários e as arestas, citações entre eles. Arestas mais escuras indicam frequência de citação mais alta.}
 %  \label{fig:malouf}
