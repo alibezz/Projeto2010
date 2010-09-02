@@ -1,4 +1,4 @@
 \select@language {brazil}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Modelo gr\IeC {\'a}fico correspondente ao classificador Na\IeC {\"\i }ve Bayes.}}{11}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Modelo gr\IeC {\'a}fico que representa o processo pelo qual objetos s\IeC {\~a}o gerados probabilisticamente. A distribui\IeC {\c c}\IeC {\~a}o de probabilidade para a imagem depende da identidade do objeto, de sua orienta\IeC {\c c}\IeC {\~a}o e de sua posi\IeC {\c c}\IeC {\~a}o \cite {bishop}.}}{11}
+\contentsline {figure}{\numberline {2.1}{\ignorespaces Exemplo de modelo gr\IeC {\'a}fico.}}{11}
+\contentsline {figure}{\numberline {2.2}{\ignorespaces Modelo gr\IeC {\'a}fico Na\IeC {\"\i }ve Bayes.}}{13}
 \contentsline {figure}{\numberline {2.3}{\ignorespaces Modelo gr\IeC {\'a}fico LDA.}}{15}

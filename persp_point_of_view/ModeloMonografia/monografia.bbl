@@ -5,4 +5,36 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{1.53 }
 
+\bibitem[Bishop 2006]{bishop}
+\abntrefinfo{Bishop}{BISHOP}{2006}
+{BISHOP, C. \emph{Pattern Recognition and Machine Learning}. [S.l.]: Springer,
+  2006.
+ISBN 0387310738.}
+
+\bibitem[Carpenter 2010]{gibbs-lingpipe}
+\abntrefinfo{Carpenter}{CARPENTER}{2010}
+{CARPENTER, B. \emph{Integrating out multinomial parameters in latent Dirichlet
+  allocation and naive Bayes for collapsed Gibbs sampling}.
+[S.l.], 2010. Dispon{\'\i}vel em:
+  $<$http://lingpipe-blog.com/2010/07/13/collapsed-gibbs-sampling-for-lda-baye%
+sian-naive-bayes/$>$.}
+
+\bibitem[Griffiths e Steyvers 2004]{pnas}
+\abntrefinfo{Griffiths e Steyvers}{GRIFFITHS; STEYVERS}{2004}
+{GRIFFITHS, T.~L.; STEYVERS, M. Finding scientific topics.
+\emph{Proceedings of the National Academy of Sciences}, v.~101, p. 5228--5235,
+  Abril 2004.}
+
+\bibitem[Ramage e al. 2009]{llda}
+\abntrefinfo{Ramage e al.}{RAMAGE; AL.}{2009}
+{RAMAGE, D.; AL. et. Labeled lda: A supervised topic model for credit
+  attribution in multi-labeled corpora. In:  . [S.l.: s.n.], 2009. p.
+  248--256.}
+
+\bibitem[Resnik e Hardisty 2010]{gibbs}
+\abntrefinfo{Resnik e Hardisty}{RESNIK; HARDISTY}{2010}
+{RESNIK, P.; HARDISTY, E. \emph{Gibbs Sampling for the Uninitiated}.
+[S.l.], Abril 2010. Dispon{\'\i}vel em:
+  $<$http://hdl.handle.net/1903/10058$>$.}
+
 \end{thebibliography}

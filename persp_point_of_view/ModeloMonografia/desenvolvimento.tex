@@ -1,6 +1,6 @@
 \chapter{Técnicas básicas e ferramentas utilizadas}
 
-\textbf{Introduzir o capítulo}
+\textbf{Introduzir o capítulo quando tudo já estiver escrito.}
 %Neste capítulo, serão descritas técnicas básicas de Aprendizado de Máquina e Processamento de Linguagem Natural, importantes para a compreensão dos capítulos seguintes desta monografia. Na seção \textbf{Classificadores}, serão discutidos os funcionamentos dos classificadores Naïve Bayes e \emph{Support Vector Machines} (SVMs), comuns em métodos de Mineração de Perspectiva baseados em frequências de palavras. Na seção \textbf{Modelos Gráficos}, serão discutidas a notação e hipóteses deste tipo de modelo, os \textbf{Modelos Generativos}, uma de suas subcategorias bastante explorada nesta monografia, e dois modelos generativos que, a partir da interpretação de documentos como uma mistura de tópicos, geram agrupamentos de palavras que facilitam a compreensão segmentada do conteúdo de um corpus. Estes modelos são o \emph{Latent Dirichlet Allocation} (LDA) e o \emph{Labeled-Latent Dirichlet Allocation} (L-LDA), utilizados em experimentos conduzidos ao longo de todo o projeto.
 
 %\textbf{serão discutidos os modelos de tópicos \emph{Latent Dirichlet Allocation} (\textbf{LDA}) e \emph{Labeled Latent Dirichlet Allocation} (\textbf{L-LDA}). O segundo, que consiste em uma pequena modificação do primeiro, é utilizado em parte dos experimentos conduzidos neste projeto.}
@@ -8,43 +8,69 @@
 
 \section{Modelos Gráficos}
 
-\begin{figure}[t]
-  \centering % este comando é usado para centralizar a Figura
-  \includegraphics[width=5cm, height=4cm]{graphical-naive.png}\\
-  \caption{Modelo gráfico correspondente ao classificador Naïve Bayes.}
-  \label{fig:graphical-naive}
-\end{figure}
+%\begin{figure}[t]
+%  \centering % este comando é usado para centralizar a Figura
+%  \includegraphics[width=5cm, height=4cm]{graphical-naive.png}\\
+%  \caption{Modelo gráfico do Naïve Bayes.}
+%  \label{fig:graphical-naive}
+%\end{figure}
+
 
 \begin{figure}[t]
   \centering % este comando é usado para centralizar a Figura
-  \includegraphics[width=5cm, height=4cm]{generative-bishop.png}\\
-  \caption{Modelo gráfico que representa o processo pelo qual objetos são gerados probabilisticamente. A distribuição de probabilidade para a imagem depende da identidade do objeto, de sua orientação e de sua posição \cite{bishop}.}
-  \label{fig:generative-bishop}
+  \includegraphics[width=5cm, height=2.1cm]{exemplo-modelo-grafico.png}\\
+  \caption{Exemplo de modelo gráfico.}
+  \label{exemplo:grafico}
 \end{figure}
 
-Modelos gráficos consistem na representação, através de um grafo, das relações entre um conjunto finito de variáveis aleatórias, provendo uma maneira simples de se representar distribuições de probabilidade \cite{bishop}. Cada vértice do grafo corresponde a uma variável aleatória (ou a um conjunto de variáveis aleatórias) ou a um parâmetro, e cada aresta reflete a relação entre dois vértices. Modelos gráficos são categorizados como dirigidos ou não-dirigidos. Por questões de escopo, apenas modelos dirigidos (também conhecidos como Redes Bayesianas) serão discutidos nesta seção.
 
-Em um modelo gráfico dirigido, tem-se um grafo direcionado acíclico que representa a \textbf{Joint Distribution} entre variáveis aleatórias. Cada aresta corresponde a uma distribuição de probabilidade condicional envolvendo dois vértices, incidindo no vértice cuja probabilidade está condicionada ao valor - ou valores - do vértice de onde sai. 
 
-\textbf{********** Pensar num jeito de explicar a notação sem falar de Naïve Bayes. Falar de variáveis latentes e observáveis. *****************}
+%\begin{figure}[t]
+%  \centering % este comando é usado para centralizar a Figura
+%  \includegraphics[width=5cm, height=4cm]{generative-bishop.png}\\
+%  \caption{Modelo gráfico que representa o processo pelo qual objetos são gerados probabilisticamente. A distribuição de probabilidade para a imagem depende da identidade do objeto, de sua orientação e de sua posição \cite{bishop}.}
+%  \label{fig:generative-bishop}
+%\end{figure}
 
-\textbf{                                                                                The
-primary role of the latent variables is to allow a complicated distribution over the
-observed variables to be represented in terms of a model constructed from simpler
-(typically exponential family) conditional distributions.}
+Modelos gráficos consistem na representação, através de um grafo, das relações entre um conjunto finito de variáveis aleatórias, provendo uma maneira simples de se representar distribuições de probabilidade \cite{bishop}. Cada vértice do grafo corresponde a uma variável aleatória (ou a um conjunto de variáveis aleatórias) ou a um parâmetro do modelo, e cada aresta reflete a relação entre dois vértices. Modelos gráficos são categorizados como dirigidos ou não-dirigidos. Por questões de escopo, apenas modelos dirigidos (também conhecidos como Redes Bayesianas) serão discutidos nesta seção.
 
-\subsubsection{Modelos Generativos} 
+Em um modelo gráfico dirigido, tem-se um grafo direcionado acíclico que representa a distribuição de probabilidade conjunta\footnote{Nesta monografia, os termos "distribuição de probabilidade conjunta" e "distribuição conjunta" serão utilizados de forma intercambiável.} para suas variáveis aleatórias. Cada aresta corresponde a uma distribuição de probabilidade condicional, incidindo no vértice cuja distribuição de probabilidade está condicionada ao valor do vértice de onde ela parte. Quando mais de uma variável tem distribuição de probabilidade condicionada aos mesmos vértices, é possível sintetizar a notação representando todas elas com um único vértice. Neste caso, o vértice fica dentro de um retângulo rotulado com o número de variáveis que ele representa. 
 
-Uma categoria de modelos gráficos explorada neste projeto são os modelos generativos. Eles associam distribuições de probabilidade a todas as variáveis aleatórias envolvidas, permitindo a geração - i.e. simulação - de seus valores. Modelos generativos são úteis para expressar os processos pelos quais dados observáveis são obtidos, como no seguinte exemplo: dado um conjunto de imagens de objetos, variáveis latentes podem ser utilizadas para representar suas posições e orientações; em seguida, para identificar o objeto contido em uma imagem particular observada, deve-se obter a distribuição de probabilidade a posteriori para objetos, o que envolve integrar sobre todas as posições e orientações possíveis \cite{bishop}. A Figura \textbf{2.2} indica as distribuições de probabilidade envolvendo variáveis aleatórias para posição, orientação, imagem e objeto. Em um modelo generativo, os valores das variáveis aleatórias podem ser obtidos através de técnicas de amostragem aplicadas à \textbf{Joint Distribution}, como será discutido, no caso particular do modelo Naïve Bayes, na seção \ref{subsection:naive}.
+Por fim, vértices representados com círculos brancos correspondem a variáveis latentes - ou seja, cujos valores não são observáveis diretamente no conjunto de dados ao qual o modelo é aplicado; círculos cinzas, por sua vez, correspondem a variáveis observáveis, cujos valores estão explícitos no conjunto de dados. Variáveis latentes permitem que distribuições de probabilidade muito complexas, envolvendo variáveis observáveis, sejam construídas a partir de distribuições condicionais mais simples \cite{bishop}. A Figura \ref{exemplo:grafico} corresponde a um modelo gráfico com a seguinte distribuição conjunta
+
+\begin{equation}
+\label{eq:fiction}
+\ensuremath{P(x | \alpha)P(y | x)\prod_{i=1}^{n}P(z_i | y, \beta)} 
+\end{equation}
+
+\ensuremath{\alpha} e \ensuremath{\beta} são parâmetros de distribuições de probabilidade, \ensuremath{x} e \ensuremath{y} são variáveis latentes e \ensuremath{z_1, ..., z_n}, sintetizadas na Figura \ref{exemplo:grafico} através do vértice \ensuremath{z}, são variáveis observáveis.
+
+
+%A \textbf{Joint Distribution} do classificador Naïve Bayes, que corresponde ao produto de todas as distribuições de probabilidade do modelo, pode ser escrita como 
+
+% rótulo indica o número de variáveis. % esta represehaja, no modelo, um certo número de variáveis aleatórias que dependem 
+
+ 
+
+%\textbf{********** Pensar num jeito de explicar a notação sem falar de Naïve Bayes. Falar de variáveis latentes e observáveis. *****************}
+
+%\textbf{                                                                                The
+%primary role of the latent variables is to allow a complicated distribution over the
+%observed variables to be represented in terms of a model constructed from simpler
+%(typically exponential family) conditional distributions.}
+
+%\subsubsection{Modelos Generativos} 
+
+Uma categoria de modelos gráficos explorada neste projeto são os \textbf{modelos generativos}. Eles associam distribuições de probabilidade a todas as variáveis aleatórias envolvidas, permitindo a geração - i.e. simulação - de seus valores. Modelos generativos são úteis para expressar os processos pelos quais dados observáveis são obtidos. Em um modelo deste tipo, os valores das variáveis aleatórias podem ser obtidos através de técnicas de amostragem aplicadas à distribuição de probabilidade conjunta. Além do Naïve Bayes, discutido na seção \ref{subsection:naive}, os modelos gráficos generativos \emph{Latent Dirichlet Allocation} (LDA) e \emph{Labeled Latent Dirichlet Allocation} (L-LDA) foram empregados em experimentos ao longo de todo o projeto. Uma discussão sobre eles pode ser encontrada na seção \ref{subsection:LDA}. %, como no seguinte exemplo: dado um conjunto de imagens de objetos, variáveis latentes podem ser utilizadas para representar suas posições e orientações; em seguida, para identificar o objeto contido em uma imagem particular observada, deve-se obter a distribuição de probabilidade a posteriori para objetos, o que envolve integrar sobre todas as posições e orientações possíveis \cite{bishop}. A Figura \textbf{2.2} indica as distribuições de probabilidade envolvendo variáveis aleatórias para posição, orientação, imagem e objeto.  %, como será discutido, no caso particular do modelo Naïve Bayes, na seção \ref{subsection:naive}.
 
 %, como a amostragem de Gibbs apresentada na seção 2.1.1. É um mecanismo diferente do empregado em SVMs, por exemplo, em que variáveis observáveis não são associadas a nenhuma distribuição de probabilidade e as categorias são estimadas diretamente, condicionadas a seus valores. SVMs estão apresentados com mais detalhes na seção 2.1.2. \textbf{Acho q a monografia n precisa falar de modelos discriminativos.}
 
-Além do Naïve Bayes, os modelos gráficos generativos \emph{Latent Dirichlet Allocation} (LDA) e \emph{Labeled Latent Dirichlet Allocation} (L-LDA) foram empregados em experimentos ao longo de todo o projeto. Uma discussão sobre eles pode ser encontrada na seção \ref{subsection:lda}. %  modelo de tópicos L-LDA, que consiste em uma alteração simples no modelo LDA. Estes últimos, discutidos na seção \ref{subsection:LDA}, %, bem como o classificador Naïve Bayes.
+ %  modelo de tópicos L-LDA, que consiste em uma alteração simples no modelo LDA. Estes últimos, discutidos na seção \ref{subsection:LDA}, %, bem como o classificador Naïve Bayes.
 
 \subsection{Naïve Bayes}
 \label{subsection:naive}
 
-O Naïve Bayes é um modelo gráfico generativo que assume a independência condicional das características \ensuremath{F_1, ..., F_n} presentes em um conjunto de documentos \ensuremath{D}. Se \ensuremath{D} é composto de documentos de texto, estas características, por padrão, correspondem a todas as suas palavras distintas. Isto equivale a assumir, portanto, que a presença de uma palavra em um documento qualquer não é informativa sobre a presença de nenhuma outra. 
+O Naïve Bayes é um modelo gráfico generativo que assume a independência condicional das características \ensuremath{F_1, ..., F_k} presentes em um conjunto de documentos \ensuremath{D}. Se \ensuremath{D} é composto de documentos de texto, estas características normalmente correspondem a todas as suas palavras distintas. Isto equivale a assumir, portanto, que a presença de uma palavra em um documento qualquer não é informativa sobre a presença de nenhuma outra. 
 
 A finalidade básica do Naïve Bayes é estimar a probabilidade de um documento \ensuremath{d} pertencer a uma certa classe \ensuremath{c}. Para isto, \ensuremath{d} é representado de forma simplificada, através de um vetor \ensuremath{v_d} em que cada posição corresponde a uma de suas \ensuremath{n} palavras. Com esta representação, a probabilidade de \ensuremath{d} pertencer a uma classe \ensuremath{c} pode ser calculada via Teorema de Bayes como
 
@@ -52,19 +78,19 @@ A finalidade básica do Naïve Bayes é estimar a probabilidade de um documento 
 
 \begin{equation}
 \label{eq1:naive}
-\ensuremath{P(c | v_{d1}, ..., v_{dn}) = \frac{p(c) \times p(v_{d1}, ..., v_{dn} | c)}{p(v_{d1}, ..., v_{dn})} }
+\ensuremath{P(c | v_{d1}, ..., v_{dn}) = \frac{p(c) \times p(v_{d1}, ..., v_{dn} | c)}{p(F_1, ..., F_k)} }
 \end{equation}
 
 Como o Naïve Bayes assume que as palavras dos documentos são condicionalmente independentes, a equação \ref{eq1:naive} pode ser reescrita como 
 
 \begin{equation}
 \label{eq2:naive}
-\ensuremath{P(c | v_{d1}, ..., v_{dn}) = \frac{p(c) \times p(v_{d1} |  c)p(v_{d2} | c)...p(v_{dn - 1} | c)p(v_{dn} | c)}{p(v_{d1}, ..., v_{dn})} = \frac{p(c) \times \prod_{i = 1}^{n} p(v_{di} |  c)}{p(v_{d1}, ..., v_{dn})}}
+\ensuremath{P(c | v_{d1}, ..., v_{dn}) = \frac{p(c) \times p(v_{d1} |  c)p(v_{d2} | c)...p(v_{dn - 1} | c)p(v_{dn} | c)}{p(F_1, ..., F_k)} = \frac{p(c) \times \prod_{i = 1}^{n} p(v_{di} |  c)}{p(F_1, ..., F_k)}}
 \end{equation}
 
-Na \textbf{seção XXX}, a equação \ref{eq2:naive} será retomada para a discussão sobre como construir um classificador a partir do modelo Naïve Bayes.
+%Na \textbf{seção XXX}, a equação \ref{eq2:naive} será retomada para a discussão sobre como construir um classificador a partir do modelo Naïve Bayes.
 
-Como o Naïve Bayes é um modelo generativo, ele permite que se simule a criação de um documento \ensuremath{d}, pertencente a uma classe \ensuremath{c}, através da amostragem de suas variáveis aleatórias. Sem perda de generalidade, assume-se que \ensuremath{c} é uma variável aleatória que pode assumir \ensuremath{m} valores naturais distintos, variando de 0 a \ensuremath{m - 1}. Cada valor corresponde a uma classe diferente, e ele é escolhido de acordo com  
+Como o Naïve Bayes é um modelo generativo, ele permite que se simule a criação de um documento \ensuremath{d}, pertencente a uma classe \ensuremath{c}, através da amostragem de suas variáveis aleatórias. Sem perda de generalidade, assume-se que \ensuremath{c} é uma variável aleatória que pode assumir \ensuremath{m} valores naturais distintos, variando de 0 a \ensuremath{m - 1}. Cada valor corresponde a uma classe diferente, sendo escolhido de acordo com  
 
 \begin{equation}
 \label{eq3:label-naive}
@@ -78,11 +104,11 @@ Antes de iniciar o processo de geração de documentos, define-se um parâmetro 
 \ensuremath{\pi \sim Beta(\alpha, \beta)}
 \end{equation}
 
-\ensuremath{\alpha} e \ensuremath{\beta} são denominados \emph{hiperparâmetros}, pois são parâmetros de uma distribuição a priori para escolha de um parâmetro do modelo - no caso, \ensuremath{\pi} \cite{gibbs}. Após a escolha de uma classe, escolhe-se uma palavra para cada posição \ensuremath{j} do vetor \ensuremath{v_d}, de acordo com uma distribuição de probabilidade sobre \ensuremath{F_1, ..., F_n}
+\ensuremath{\alpha} e \ensuremath{\beta} são denominados \emph{hiperparâmetros}, pois são parâmetros de uma distribuição através da qual se escolhe um dos parâmetros do modelo - no caso, \ensuremath{\pi} \cite{gibbs}. Após uma classe ter sido fixada de acordo com \ref{eq3:label-naive}, seleciona-se uma palavra para cada posição \ensuremath{j} do vetor \ensuremath{v_d}, de acordo com uma distribuição de probabilidade sobre \ensuremath{F_1, ..., F_k}
 
 \begin{equation}
 \label{eq5:multi-naive}
-\ensuremath{v_{dj} \sim Multinomial(F_1, ..., F_n, \theta_c)}
+\ensuremath{v_{dj} \sim Multinomial(F_1, ..., F_k, \theta_c)}
 \end{equation}
 
 A distribuição utilizada depende do valor de \ensuremath{c} amostrado anteriormente, de modo que há \ensuremath{m} parâmetros \ensuremath{\theta_c}. Cada \ensuremath{\theta_c} é escolhido antes do processo de geração dos documentos, de acordo com
@@ -98,10 +124,19 @@ A distribuição conjunta para este modelo generativo é dada por
 
 \begin{equation}
 \label{eq7:joint-naive}
-\ensuremath{P(\pi | \alpha, \beta)\prod_{j = 1}^{|D|}\prod_{i = 0}^{m - 1}P(c = i | \pi)P(\theta_{c = i} | \gamma_{c = i})P(v_d^{(j)} | \theta_{ c = i})} 
+\ensuremath{P(\pi | \alpha, \beta)\prod_{i = 0}^{m - 1}P(\theta_{c = i} | \gamma_{c=i})\prod_{j = 1}^{|D|}P(c_j | \pi)P(v_d^{(j)} | \theta_{c_j}, c_j)}
+%\prod_{i = 0}^{m - 1}P(c = i | \pi)P(\theta_{c = i} | \gamma_{c = i})P(v_d^{(j)} | \theta_{ c = i})} 
 \end{equation}
 
-em que \ensuremath{v_d^{(j)}} é o \ensuremath{j}-ésimo documento de \ensuremath{D}. A figura \textbf{Y} representa esta distribuição conjunta de forma gráfica, com vértices para variáveis aleatórias e relações de probabilidade condicional evidenciadas pelas arestas.
+\begin{figure}[t]
+  \centering % este comando é usado para centralizar a Figura
+  \includegraphics[width=5cm, height=4.5cm]{naive-joint.png}\\
+  \caption{Modelo gráfico Naïve Bayes.}
+  \label{naive:joint}
+\end{figure}
+
+
+em que \ensuremath{c_j} é a classe selecionada para o \ensuremath{j}-ésimo documento de \ensuremath{D} e \ensuremath{v_d^{(j)}} é seu vetor de palavras. A Figura \ref{naive:joint} representa esta distribuição conjunta de forma gráfica, com vértices para variáveis aleatórias e relações de probabilidade condicional evidenciadas pelas arestas.
 
 
 % Caso haja \ensuremath{m} classes, tem-se que a classe de \ensuremath{d
@@ -180,7 +215,6 @@ em que \ensuremath{v_d^{(j)}} é o \ensuremath{j}-ésimo documento de \ensuremat
 \subsection{LDA}
 \label{subsection:LDA}
 
-\textbf{MEXER NAS FIGURAS! MEXER NOS TÓPICOS ILUSTRATIVOS!}
 
 O modelo LDA parte da ideia de que um documento pode tratar de múltiplos tópicos, refletidos nas palavras que o compõem \cite{pnas}. Assim como no modelo Naïve Bayes, palavras podem ser geradas de acordo com distribuições multinomiais específicas. A diferença é que, no LDA, cada palavra é gerada a partir de uma mistura de tópicos; no Naïve Bayes, elas são geradas a partir de um só tópico (classe) \cite{gibbs-lingpipe}.
 
@@ -194,15 +228,15 @@ Para ilustrar como as palavras evidenciam o significado de um tópico, um experi
 \begin{tabular}{| l | p{7cm} | }
 \hline
 \textbf{Tópico} & \textbf{Palavras} \\ \hline
-\textbf{Tópico 1} & beef, sauce, cheese, oil, pepper \\ \hline
-\textbf{Tópico 2} & chicken, breast, soup, pastum, tomato \\ \hline
-\textbf{Tópico 3} & sugar, flour, butter, powder, milk  \\ \hline
-\textbf{Tópico 4} & oil, potato, bread, egg, pork \\ \hline
+\textbf{Tópico 1} & beef, cheese, tomato, sauce, pepper \\ \hline
+\textbf{Tópico 2} & chicken, breast, pastum, broth, tomato \\ \hline
+\textbf{Tópico 3} & flour, sugar, butter, powder, egg  \\ \hline
+\textbf{Tópico 4} & cream, cheese, butter, milk, cake \\ \hline
 \end{tabular}
 \caption{As cinco palavras mais fortemente associadas a quatro tópicos gerados por um LDA.}
 \end{table}
 
-Considerando que todas as receitas pertencem à culinária tradicional dos Estados Unidos, as palavras listadas na Tabela 2.1, e a forma como se associam em torno de cada tópico, são indicativos do bom funcionamento do LDA. O primeiro tópico pode ser interpretado como \textbf{Ingredientes para Carnes}, ilustrando a base de receitas típicas dos Estados Unidos, como \emph{cheeseburger} e \emph{hamburger}; o segundo, ao associar \emph{breast}, \emph{chicken} e \emph{soup}, remete a receitas de sopas e caldos comuns em climas frios, podendo ser interpretado como \textbf{Ingredientes para Sopas}; o terceiro remete a bolos e tortas ao agrupar cinco ingredientes fundamentais à confeitaria, podendo ser interpretado como \textbf{Ingredientes para Bolos}; o quarto remete a uma gama de receitas pouco saudáveis, como sanduíches com ovos e carne de porco (\emph{bread}, \emph{pork} e \emph{egg}) ou batatas-fritas (\emph{potato} e \emph{oil}), podendo ser interpretado como \textbf{Ingredientes para \emph{Fast-Food}}. É importante frisar que estas interpretações, apesar de subjetivas, indicam perspectivas culinárias distintas e coerentes internamente. Seria diferente de encontrar, por exemplo, um tópico fortemente associado às palavras \emph{sugar}, \emph{pepper} e \emph{potato}, dificilmente encontradas em uma mesma receita típica dos Estados Unidos.
+Considerando que todas as receitas pertencem à culinária tradicional dos Estados Unidos, as palavras listadas na Tabela 2.1, e a forma como se associam em torno de cada tópico, são indicativos do bom funcionamento do LDA. O primeiro tópico pode ser interpretado como \textbf{ingredientes para          \emph{cheeseburger}}; o segundo, ao associar \emph{chicken}, \emph{pastum} e \emph{broth}, remete a receitas de sopas e caldos comuns em climas frios, podendo ser interpretado como \textbf{ingredientes para sopa}; o terceiro pode ser interpretado como \textbf{ingredientes para bolo}; o quarto, ao associar \emph{cream}, \emph{cheese} e \emph{cake}, pode ser interpretado como \textbf{ingredientes para \emph{cheesecake}}. É importante frisar que estas interpretações, apesar de subjetivas, indicam perspectivas culinárias distintas e coerentes internamente. Seria diferente de encontrar, por exemplo, um tópico fortemente associado às palavras \emph{sugar}, \emph{pepper} e \emph{potato}, dificilmente encontradas em uma mesma receita típica dos Estados Unidos.
 
 
 %- ou seja, não são identificados antes ou durante o processamento -cujos significados requerem  só podem ser interpretados após o processamento do modelo, observando-se  
@@ -251,15 +285,15 @@ A distribuição conjunta do modelo LDA é dada por
 
 \begin{figure}[t]
   \centering % este comando é usado para centralizar a Figura
-  \includegraphics[width=6.5cm, height=4cm]{Latent_Dirichlet_allocation.png}\\
+  \includegraphics[width=6.5cm, height=3.2cm]{Latent_Dirichlet_allocation.png}\\
   \caption{Modelo gráfico LDA.} %\ref{joint:lda}.}
   \label{fig:lda}
 \end{figure}
 
-A implementação do LDA utilizada para estes experimentos está disponível no repositório \emph{online} de Alexandre Passos \cite{top-lda}, e o número de iterações para coleta de amostras é fixado em 100.
+A implementação do LDA utilizada para estes experimentos está disponível no repositório \emph{online} de Alexandre Passos \cite{top-lda}, e o número de iterações para amostragem de tópicos e palavras foi fixado em 100. 
 
 
-%O cálculo destas probabilidades também envolve integrais difíceis, ou mesmo impossíveis, de resolver analiticamente, o que implica no uso de técnicas de amostragem e aproximação. A amostragem de Gibbs, descrita superficialmente na seção \ref{subsection:bayes}, é uma alternativa para a geração de valores para variáveis aleatórias contidas no modelo \cite{lingpipe-lda}, sendo utilizada nos experimentos com LDA conduzidos neste projeto. 
+%O cálculo destas probabilidades também envolve integrais difíceis, ou mesmo impossíveis, de resolver analiticamente, o que implica no uso de técnicas de amostragem e aproximação. A amostragem de Gibbs, descrita superficialmente na seção \ref{subsection:bayes}, é uma alternativa para a geração de valores para variáveis aleatórias contidas no modelo \cite{gibbs-lingpipe}, sendo utilizada nos experimentos com LDA conduzidos neste projeto. 
 
 %Quando um método de classificação é aplicado a um conjunto de documentos, a interpretação do resultado é imediata: cada documento estará associado a uma única classe. No caso do modelo de tópicos LDA, a interpretação do resultado é mais subjetiva. É preciso observar as palavras que se associam com maior probabilidade a cada tópico, buscando algum tipo de semelhança entre elas, para inferir seus significados. 
 
@@ -279,7 +313,7 @@ O L-LDA foi discutido pela primeira vez em um artigo de Ramage et al. \cite{llda
 
 %Uma aplicação de L-LDA, sugerida neste artigo e bastante empregada neste projeto, envolve, após a associação de palavras a tópicos (neste caso, \emph{tags}), a extração de trechos do documento que as contenham. Isto conduz a uma compreensão melhor de como o conteúdo se associa aos tópicos separadamente. 
 
-A implementação de L-LDA utilizada neste projeto também está disponível no repositório \emph{online} de Alexandre Passos \cite{top-llda}. O número de iterações para todos os experimentos, assim como no LDA, foi fixado em 100.
+A implementação de L-LDA utilizada neste projeto também está disponível no repositório \emph{online} de Alexandre Passos \cite{top-llda}. O número de iterações para amostragem de tópicos e palavras, em todos os experimentos, foi fixado em 100.
 % do envolvendo uma ou mais palavras associadas a uma \emph{tag} particular. 
 %O resultado de um método de classificação consiste em associar cada documento de um conjunto Diferentemente de métodos de classificação, cujo resultado pode ser interpretado de forma obj
 
@@ -299,10 +333,49 @@ A implementação de L-LDA utilizada neste projeto também está disponível no 
 
 \section{Classificadores}
 
-\textbf{Fazer introdução}
+A classificação de documentos de texto de acordo com suas perspectivas é um dos principais objetivos dos trabalhos revisados neste projeto. Grande parte deles utiliza os classificadores Naïve Bayes ou \emph{Support Vector Machines} (SVMs), apresentados respectivamente nas seções \ref{subsection:naive} e \ref{subsection:SVMs}, como parte de suas metodologias. O desempenho destes classificadores é comumente medido através das seguintes métricas: \textbf{taxa de acerto}, \textbf{precisão}, \textbf{rechamada} ou \textbf{métrica F1}.
+
+A taxa de acerto é definida pela razão entre o número de documentos classificados corretamente e todos os documentos avaliados. A precisão, medida para uma classe \ensuremath{c} qualquer, é definida pela razão entre o número de documentos classificados corretamente como \ensuremath{c} e todos os documentos classificados como \ensuremath{c}. A rechamada, medida também para uma classe \ensuremath{c} qualquer, é definida pela razão entre o número de documentos classificados corretamente como \ensuremath{c} e a soma deste valor com o número de documentos classificados erroneamente para todas as demais classes. A métrica F1, também medida para uma classe \ensuremath{c} qualquer, é dada por
+
+\begin{equation}
+\ensuremath{2 \times \frac{precisao \times rechamada}{precisao + rechamada}}
+\end{equation} 
+
+Estas métricas revelam aspectos diferentes do desempenho de um classificador. Por este motivo, é comum encontrar mais de uma delas sendo utilizada no mesmo contexo. Além de medirem desempenho, elas estabelecem critérios objetivos para a comparação entre métodos de classificação, como pode ser visto nos artigos de Lin et al. sobre o conflito Israel-Palestina \cite{lin-et-al2006} e de Efron sobre orientação cultural \cite{efron}. 
 
 \subsection{Naïve Bayes}
 \label{subsection:bayes}
+
+O modelo Naïve Bayes foi apresentado na seção \ref{subsection:naive}. Nesta seção, será discutido como construir um classificador de documentos a partir dele. Esta seção trata de documentos de texto em particular, por se tratarem do objeto básico de estudo deste projeto. 
+
+Sabe-se que, em um Naïve Bayes, assume-se que as as características em um documento são condicionalmente independentes, o que equivale a afirmar, por exemplo, que a presença de uma palavra em um documento de texto não é informativa sobre a presença de nenhuma outra. Apesar desta hipótese simplificar bastante a estrutura linguística de um texto, classificadores construídos a partir do modelo Naïve Bayes, denominados classificadores Naïve Bayes, reportam um bom desempenho em várias tarefas de classificação baseadas em palavras \cite{naive-at-forty} \cite{mccallum-naive}.
+
+Dados um documento \ensuremath{d} pertencente a um conjunto de documentos \ensuremath{D}, todas as palavras distintas de \ensuremath{D}, \ensuremath{F_1, ..., F_k}, uma variável aleatória \ensuremath{c}, que representa as possíveis classes de \ensuremath{d}, e um vetor \ensuremath{v_d}, em que cada posição corresponde a uma de suas \ensuremath{n} palavras, tem-se que
+ 
+\begin{equation}
+\label{eq2:bayes}
+\ensuremath{P(c | v_{d1}, ..., v_{dn}) = \frac{p(c) \times \prod_{i = 1}^{n} p(v_{di} |  c)}{p(F_1, ..., F_k)}}
+\end{equation}
+
+conforme discutido anteriormente na seção \ref{subsection:naive}. Um classificador Naïve Bayes deve rotular o documento \ensuremath{d} com o valor de \ensuremath{c} que maximiza a equação \ref{eq2:bayes}. Como o denominador na equação \ref{eq2:bayes} é o mesmo para todas as classes, ele pode ser ignorado nestes cálculos.
+
+Normalmente, classificadores Naïve Bayes são utilizados de forma semi-supervisionada. Isto significa que eles são submetidos a uma etapa de treinamento, na qual aprendem as classes associadas a alguns documentos, e a uma etapa de classificação, na qual devem simular o processo gerador destes documentos e utilizar esta informação para classificar outros. Basicamente, as informações aprendidas na etapa de treinamento modelam as distribuições das palavras de \ensuremath{D} por classe, gerando parâmetros para as distribuições de probabilidade envolvidas na classificação de outros documentos.\textbf{Tá meio foda clarear isso.} 
+
+Todos os experimentos com um classificador Naïve Bayes conduzidos neste projeto utilizam a implementação disponível no repositório \emph{online} de Aline Bessa \cite{alibezz-nb}. O número de iterações para a amostragem de documentos e classes, em todos os experimentos, foi fixado em 500.
+
+%O número de iterações para amostragem de tópicos e palavras, em todos os experimentos, foi fixado em 100.
+
+% a amostragem da equação \ref{eq:bayes} foi fixado em 500.
+
+% classificando outros                        Dado que tenho exemplos de texto de cada classe. O
+%que posso inferir sobre o processo gerador destes textos
+
+
+%                              e                  o classificador reporta
+%o melhor desempenho em v ́rias tarefas de classifica ̧ ̃o. Este fenˆmeno  ́
+%                        a                         ca
+
+ 
 %\begin{algorithm}
 %\ensuremath{z^{(0)}} \gets \ensuremath{\langle z_1^{(0)}, \ldots, z_k^{(0)}\rangle}
 %\FOR{\ensuremath{t = 1} to \ensuremath{T} do}
@@ -344,10 +417,85 @@ A implementação de L-LDA utilizada neste projeto também está disponível no 
 
 %A hipótese de independência entre os termos, razão pela qual o Naïve Bayes tem este nome\footnote{Naïve é uma palavra de origem francesa que significa "ingênua"}, simplifica bastante a estrutura da informação contida nos documentos. Ainda assim, o classificador costuma apresentar boas performances em categorização de textos, sendo utilizado, por exemplo, como base metodológica para alguns filtros de \emph{spam} \cite{paul}. Para melhorar o desempenho do Naïve Bayes, é comum fixar um conjunto de documentos previamente classificados de forma correta e utilizar a informação sobre suas classes na determinação das classes de outros documentos. Ao conjunto de documentos previamente classificados, dá-se o nome de \textbf{conjunto de treinamento}; ao conjunto de documentos a serem classificados, \textbf{conjunto de teste}.
 
-%Todos os experimentos com Naïve Bayes conduzidos neste projeto utilizam a implementação disponível no repositório \emph{online} de Aline Bessa \cite{alibezz-nb}. O número de iterações para a Amostragem de Gibbs foi fixado em 500. %Através do uso de Amostragem de Gibbs, a cada iteração se obtém uma aproximação melhor O número de amostras coletadas envolvendo cada classe foi fixado em 500. 
+ %Através do uso de Amostragem de Gibbs, a cada iteração se obtém uma aproximação melhor O número de amostras coletadas envolvendo cada classe foi fixado em 500. 
  
 \subsection{SVMs}
 \label{subsection:SVMs}
+
+SVMs são uma família de métodos que utilizam uma abordagem geométrica para classificação. Eles são fundamentalmente utilizados em problemas de classificação envolvendo duas classes, mas podem ser adaptados para problemas mais complexos. Nesta seção, serão apresentados apenas os princípios de funcionamento de SVMs para duas classes, mais comuns na literatura. Para um aprofundamento sobre SVMs aplicados a problemas com mais de duas classes, recomenda-se a leitura do livro de Aprendizado de Máquina de Christopher Bishop \cite{bishop}.
+
+Dado um conjunto de \ensuremath{n} pontos \ensuremath{\{x_i, y_i\}}, onde \ensuremath{x_i} é a representação vetorial de um documento \ensuremath{d} em um espaço euclidiano \ensuremath{\mathbb{R}^M} e \ensuremath{y_i} é sua respectiva classe, \ensuremath{y_i \in \{-1, 1\}}, um SVM deve decidir a classe \ensuremath{y} de um novo documento representado pelo vetor \ensuremath{x}. Para isso, assume-se que há pelo menos um hiperplano \ensuremath{\theta_0} que separa os pontos  com \ensuremath{y_i = 1} daqueles com \ensuremath{y_i = -1}. Um hiperplano \ensuremath{\theta_0} pode ser definido como o conjunto de pontos \textbf{x} que satisfazem
+
+\begin{equation}
+\label{function:svm}
+\textbf{x} \ensuremath{\cdot} \textbf{w} + \ensuremath{b} = 0
+\end{equation}
+
+\textbf{w} é a normal ao hiperplano e \ensuremath{|b|||}\textbf{w}\ensuremath{||} é sua distância perpendicular à origem \cite{mono-puc}. A ideia é escolher os parâmetros \textbf{w} e \ensuremath{b} que maximizem a soma das distâncias dos hiperplanos \ensuremath{\theta_1} (vide equação \ref{theta1:svm}) e \ensuremath{\theta_{-1}} (vide equação \ref{thetamenos1:svm}) ao hiperplano \ensuremath{\theta_0}. 
+
+\begin{equation}
+\label{theta1:svm}
+\textbf{x} \ensuremath{\cdot} \textbf{w} + \ensuremath{b} = 1
+\end{equation}
+
+\begin{equation}
+\label{thetamenos1:svm}
+\textbf{x} \ensuremath{\cdot} \textbf{w} + \ensuremath{b} = -1
+\end{equation}
+
+\ensuremath{\theta_1} e \ensuremath{\theta_{-1}} podem ser encontrados minimizando-se 
+
+\begin{equation}
+\label{optim:svm}
+\ensuremath{\frac{1}{2}||}\textbf{w}\ensuremath{||^2}
+\end{equation}
+
+Para realizar esta otimização mais facilmente, o problema pode ser remodelado com multiplicadores de Lagrange \ensuremath{\{\alpha_i\}}, \ensuremath{1 \leq i \leq n}, levando à Equação \ref{lagrange} \cite{mono-puc}. Busca-se, então, a minimização desta equação com relação a \textbf{w} e \ensuremath{b} e maximização com relação a \ensuremath{\{\alpha_i\}}, com todo \ensuremath{\alpha_i \geq 0}.
+
+\begin{equation}
+\label{lagrange}
+\ensuremath{L(\alpha, b,}\textbf{w}\ensuremath{) = \frac{1}{2} ||}\textbf{w}\ensuremath{||^2 - \sum_{i = 1}^n \alpha_i\big[y_i(x_i \cdot}\textbf{w}\ensuremath{+ b) -1 \big]} %x_i \cdot} \textbf{w} + \ensuremath{b} = 1 para \ensuremath{y_i = 1}
+\end{equation}
+
+Após a obtenção dos valores de \ensuremath{\{\alpha_i\}} que maximizam \ref{lagrange}, a obtenção da classe \ensuremath{y} de um documento representado por um vetor \ensuremath{x} é dada pelo sinal do somatório
+
+\begin{equation}
+\label{result:svm}
+\ensuremath{y(x) = sinal\bigg(\sum_{i = 1}^n \alpha_iy_i(x_i \cdot x) + b\bigg)} %x_i \cdot} \textbf{w} + \ensuremath{b} = 1 para \ensuremath{y_i = 1}
+\end{equation}
+
+Esta solução funciona em casos nos quais os pontos \ensuremath{\{x_i, y_i\}} são linearmente separáveis - ou seja, obedecem à restrição
+
+\begin{equation}
+\label{restr2:svm}
+\ensuremath{y_i(x_i \cdot} \textbf{w} + \ensuremath{b -1) \geq 0,\ i = 1,...,n}
+\end{equation}
+
+Quando esses pontos não são linearmente separáveis, essa metodologia precisa ser ajustada, modelando a classificação errônea de documentos. Isto envolve a introdução de \ensuremath{n} variáveis frouxas \ensuremath{\epsilon_i}\footnote{Do inglês \emph{slack variables}.}, uma para cada ponto \ensuremath{(x_i, y_i)}. \ensuremath{\epsilon_i = 0} se \ensuremath{y(x_i) = y_i} e \ensuremath{\epsilon_i = |y_i - y(x_i)|} em caso contrário \cite{bishop}. O SVM deve, neste caso, minimizar
+
+\begin{equation}
+\label{nonlin:svm}
+\ensuremath{C\sum_{i=1}^n\epsilon_i + \frac{1}{2}||}\textbf{w}\ensuremath{||^2}
+\end{equation}
+
+em que \ensuremath{C} é um parâmetro responsável por controlar o compromisso entre a penalidade das variáveis frouxas e a distância máxima dos hiperplanos \ensuremath{\theta_1} e \ensuremath{\theta_{-1}} ao hiperplano \ensuremath{\theta_0}. Na modelagem com multiplicadores de Lagrange, a Equação \ref{lagrange} deve ser otimizada de tal forma que todo \ensuremath{\alpha_i} deve ser maximizado obedecendo à restrição \ensuremath{0 \leq \alpha_i \leq C}. Desta forma, também se obtém a Equação \ref{result:svm} para determinação da classe de um novo documento.
+
+SVMs não foram utilizados em nenhum experimento deste projeto, mas fazem parte da metodologia de alguns dos trabalhos revisados.
+ 
+%     We shall assume for the moment that the training data set is linearly separable in
+%feature space, so that by definition there exists at least one choice of the parameters
+%w and b such that a function of the form (7.1) satisfies y(xn ) > 0 for points having
+%tn = +1 and y(xn ) < 0 for points having tn = −1, so that tn y(xn ) > 0 for all
+%training data points.
+
+
+%Suppose some given data points each belong to one of two classes, and the goal is to decide which class a new data point will be in. In the case of support vector machines, a data point is viewed as a p-dimensional vector (a list of p numbers), and we want to know whether we can separate such points with a p − 1-dimensional hyperplane. This is called a linear classifier. There are many hyperplanes that might classify the data. One reasonable choice as the best hyperplane is the one that represents the largest separation, or margin, between the two classes. So we choose the hyperplane so that the distance from it to the nearest data point on each side is maximized. If such a hyperplane exists, it is known as the maximum-margin hyperplane and the linear classifier it defines is known as a maximum margin classifier.
+
+% cada documento do corpus é representado como um vetor \ensuremath{x} em um espaço euclidiano \ensuremath{\mathbb{R}^M}. Na etapa de treinamento, \ensuremath{N} documentos, com suas respectivas classes \ensuremath{c_0} ou \ensuremath{c_1}, são apresentadas ao classificador, que deve aprender uma função e a classificação envolve o aprendizado de uma função que corte este hiperplano, dividindo os pontos em duas classes distintas. 
+
+
+
+
 
 \chapter{Principais trabalhos e \emph{datasets} estudados}
 
