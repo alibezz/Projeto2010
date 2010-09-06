@@ -1,0 +1,8 @@
+Trabalho com dois navegadores: Explorer e Firefox. No segundo, as imagens sempre abrem. No primeiro, falha às vezes. Se isso acontecer aí, como resolver? Basta clicar no lugar correspondente à imagem. Ela vai aparecer na sua tela. Clique na seta &#8220;voltar&#8221;, lá no canto superior esquerdo, e pronto: fica tudo certo. Por que está assim? Não tenho a menor idéia. A área técnica já foi acionada.
+
+ 
+ Por Reinaldo Azevedo     Tags: leitores     
+  
+
+     
+    

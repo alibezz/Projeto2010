@@ -1,0 +1,9 @@
+#!/bin/bash
+
+PASTA=$1
+
+mkdir posts-limpos
+
+for FILE in ${PASTA}/*; do
+  sed 's/<[^>]*>//g' $FILE > posts-limpos/$(basename $FILE).txt
+done

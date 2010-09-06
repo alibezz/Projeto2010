@@ -19,17 +19,37 @@ ISBN 0387310738.}
   $<$http://lingpipe-blog.com/2010/07/13/collapsed-gibbs-sampling-for-lda-baye%
 sian-naive-bayes/$>$.}
 
+\bibitem[Efron 2004]{efron}
+\abntrefinfo{Efron}{EFRON}{2004}
+{EFRON, M. Cultural orientation: Classifying subjective documents by cociation
+  analysis.
+\emph{Proceedings of the AAAI Fall Symposium on Style and Meaning in Language,
+  Art, Music, and Design}, p. 41--48, 2004.}
+
 \bibitem[Griffiths e Steyvers 2004]{pnas}
 \abntrefinfo{Griffiths e Steyvers}{GRIFFITHS; STEYVERS}{2004}
 {GRIFFITHS, T.~L.; STEYVERS, M. Finding scientific topics.
 \emph{Proceedings of the National Academy of Sciences}, v.~101, p. 5228--5235,
   Abril 2004.}
 
-\bibitem[Ramage e al. 2009]{llda}
-\abntrefinfo{Ramage e al.}{RAMAGE; AL.}{2009}
-{RAMAGE, D.; AL. et. Labeled lda: A supervised topic model for credit
-  attribution in multi-labeled corpora. In:  . [S.l.: s.n.], 2009. p.
-  248--256.}
+\bibitem[Lin et al. 2006]{lin-et-al2006}
+\abntrefinfo{Lin et al.}{LIN et al.}{2006}
+{LIN, W.-H. et al. Which side are you on? identifying perspectives at the
+  document and sentence levels.
+\emph{CoNLL'06: Proceedings of the Conference on Natural Language Learning
+  (CoNLL)}, 2006.}
+
+\bibitem[Oguri 2006]{mono-puc}
+\abntrefinfo{Oguri}{OGURI}{2006}
+{OGURI, P.
+\emph{Aprendizado de Maquina para o Problema de Sentiment Classification}.
+Disserta\c{c}\~ao (Mestrado) --- Pontificia Universidade Catolica do Rio de
+  Janeiro, Rio de Janeiro, 2006.}
+
+\bibitem[Ramage et al. 2009]{llda}
+\abntrefinfo{Ramage et al.}{RAMAGE et al.}{2009}
+{RAMAGE, D. et al. Labeled lda: A supervised topic model for credit attribution
+  in multi-labeled corpora. In:  . [S.l.: s.n.], 2009. p. 248--256.}
 
 \bibitem[Resnik e Hardisty 2010]{gibbs}
 \abntrefinfo{Resnik e Hardisty}{RESNIK; HARDISTY}{2010}

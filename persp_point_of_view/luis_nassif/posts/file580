@@ -1,0 +1,192 @@
+<h2 class="title">
+	    	 </h2>
+  </div></div>	   
+  <div class="content"> 
+    <style type="text/css">
+#block-block-11{
+ padding-bottom: 10px;
+ margin-bottom: 0px;
+}
+.header_top{
+ display: block;
+ margin: 0 auto;
+ margin-top: 10px;
+ width: 990px;
+}
+.bem-vindo{
+ background: #555;
+ border: 2px solid #777;
+ display: block;
+ padding-left: 10px;
+ padding-top: 5px;
+ padding-bottom: 5px;
+ color: #f1f1f1;
+}
+.bem-vindo a{
+  color: #ffff99;
+}
+.bem-vindo p{
+ line-height: 0.5em;
+}
+.bem-vindo span{
+ font-size: 12px;
+ font-weight: bold;
+ color: #fff;
+}
+</style>
+
+<div class="bem-vindo">
+<span>Bem-vindo ao Brasilianas.org! </span>
+<p>Nossa página está em teste e sua contribuição será valiosa.</p> 
+<p>Participe com sugestões e auxilie na construção.</p>
+<p><a href="/?q=blog/admin/bem-vindo-ao-brasilianasorg">Relacione aqui</a> sugestões e problemas que tenha encontrado.
+Esse espaço também é seu!</p>
+</div>  </div>
+  </div>
+<div class="sep-block">
+ 
+  <div class="block block-block" id="block-block-25">
+  <div class="w1"><div class="w2">
+ 	<h2 class="title">
+	    	 </h2>
+  </div></div>	   
+  <div class="content"> 
+    <br>
+<div align="center">
+<!--/* OpenX Javascript Tag v2.8.5 */-->
+
+<script type='text/javascript'><!--//<![CDATA[
+   var m3_u = (location.protocol=='https:'?'https://banners.brasilianas.org/www/delivery/ajs.php':'http://banners.brasilianas.org/www/delivery/ajs.php');
+   var m3_r = Math.floor(Math.random()*99999999999);
+   if (!document.MAX_used) document.MAX_used = ',';
+   document.write ("<scr"+"ipt type='text/javascript' src='"+m3_u);
+   document.write ("?campaignid=7");
+   document.write ('&amp;cb=' + m3_r);
+   if (document.MAX_used != ',') document.write ("&amp;exclude=" + document.MAX_used);
+   document.write (document.charset ? '&amp;charset='+document.charset : (document.characterSet ? '&amp;charset='+document.characterSet : ''));
+   document.write ("&amp;loc=" + escape(window.location));
+   if (document.referrer) document.write ("&amp;referer=" + escape(document.referrer));
+   if (document.context) document.write ("&context=" + escape(document.context));
+   if (document.mmm_fo) document.write ("&amp;mmm_fo=1");
+   document.write ("'><\/scr"+"ipt>");
+//]]>--></script><noscript><a href='http://banners.brasilianas.org/www/delivery/ck.php?n=a2a80af0&amp;cb=INSERT_RANDOM_NUMBER_HERE' target='_blank'><img src='http://banners.brasilianas.org/www/delivery/avw.php?campaignid=7&amp;cb=INSERT_RANDOM_NUMBER_HERE&amp;n=a2a80af0' border='0' alt='' /></a></noscript>
+</div>  </div>
+  </div>
+<div class="sep-block">
+ 
+  <div class="block block-block" id="block-block-22">
+  <div class="w1"><div class="w2">
+ 	<h2 class="title">
+	    	 </h2>
+  </div></div>	   
+  <div class="content"> 
+    <ul class="login-register">
+<li><a href="/user/register">Cadastre-se</a></li>
+<li><a href="/user">Login</a></li>
+</ul>  </div>
+  </div>
+</div><table border="0" cellpadding="0" cellspacing="0" id="header">
+<tr>
+<td>
+<div class="menus-brasilianas">
+	  <ul class="links" id="navlist"><li class="menu-1093 first"><a href="/" title="Página principal">Home</a></li>
+<li class="menu-1094"><a href="/brasilianas/blog" title="">Blogs</a></li>
+<li class="menu-739"><a href="/membros">Membros</a></li>
+<li class="menu-1754"><a href="/tematicas" title="">Temáticas</a></li>
+<li class="menu-8692"><a href="/grupos">Grupos</a></li>
+<li class="menu-10584"><a href="/forum-geral">Fórum</a></li>
+<li class="menu-890"><a href="/series-tv" title="Série de vídeos do programa">Séries TVs</a></li>
+<li class="menu-18129"><a href="/luisnassif" title="Blog Luis Nassif">Luis Nassif Online</a></li>
+<li class="menu-18130 last"><a href="http://blogln.ning.com" title="">Portal Luis Nassif</a></li>
+</ul></div>
+</td>
+</tr>
+  <tr>
+	<td id="logo">
+            <h1 class='site-name'><a href="/" title="Início">Brasilianas.Org</a></h1>          </td>
+    <td id="menu">
+                </td>
+  </tr>
+  <tr>
+    <td colspan="2"><div></div></td>
+  </tr>
+</table>
+<div class="menus"><div class="sep-block">
+ 
+  <div class="block block-menu" id="block-menu-primary-links">
+  <div class="w1"><div class="w2">
+ 	<h2 class="title">
+	    Menus	 </h2>
+  </div></div>	   
+  <div class="content"> 
+    <ul class="menu"><li class="leaf first dhtml-menu "><a href="/" title="Página principal" id="dhtml_menu-1093">Home</a></li>
+<li class="leaf  dhtml-menu "><a href="/brasilianas/blog" title="" id="dhtml_menu-1094">Blogs</a></li>
+<li class="leaf  dhtml-menu "><a href="/membros" id="dhtml_menu-739">Membros</a></li>
+<li class="leaf  dhtml-menu "><a href="/tematicas" title="" id="dhtml_menu-1754">Temáticas</a></li>
+<li class="leaf  dhtml-menu "><a href="/grupos" id="dhtml_menu-8692">Grupos</a></li>
+<li class="leaf  dhtml-menu "><a href="/forum-geral" id="dhtml_menu-10584">Fórum</a></li>
+<li class="leaf  dhtml-menu "><a href="/series-tv" title="Série de vídeos do programa" id="dhtml_menu-890">Séries TVs</a></li>
+<li class="leaf  dhtml-menu "><a href="/luisnassif" title="Blog Luis Nassif" id="dhtml_menu-18129">Luis Nassif Online</a></li>
+<li class="leaf last dhtml-menu "><a href="http://blogln.ning.com" title="" id="dhtml_menu-18130">Portal Luis Nassif</a></li>
+</ul>  </div>
+  </div>
+<div class="sep-block">
+ 
+  <div class="block block-block" id="block-block-18">
+  <div class="w1"><div class="w2">
+ 	<h2 class="title">
+	    	 </h2>
+  </div></div>	   
+  <div class="content"> 
+    <div class="topo-blog-luisnassif">
+<a href="/luisnassif"><img src="http://brasilianas.org/sites/all/themes/portal_dv/images/luisnassif.gif"></img></a>
+</div>  </div>
+  </div>
+</div><table border="0" cellpadding="0" cellspacing="0" id="content">
+  <tr>
+        <td valign="top">
+            <div id="main">
+		<div class="content_top"><div class="sep-block">
+ 
+  <div class="block block-menu" id="block-menu-menu-conteudos-blog-luis-nassif">
+  <div class="w1"><div class="w2">
+ 	<h2 class="title">
+	    	 </h2>
+  </div></div>	   
+  <div class="content"> 
+    <ul class="menu"><li class="leaf first dhtml-menu "><a href="/blog/luisnassif/posts-mais-recentes" title="" id="dhtml_menu-28784">Posts recentes</a></li>
+<li class="leaf  dhtml-menu "><a href="/blog/luisnassif/posts-mais-lidos" title="" id="dhtml_menu-28785">Mais lidos</a></li>
+<li class="leaf  dhtml-menu "><a href="/blog/luisnassif/posts-mais-comentados" id="dhtml_menu-28789">Mais comentados</a></li>
+<li class="leaf  dhtml-menu "><a href="/blog/luisnassif/posts-mais-votados" id="dhtml_menu-28790">Mais votados</a></li>
+<li class="leaf  dhtml-menu "><a href="/blog/luisnassif/videos" title="" id="dhtml_menu-32007">Vídeos do Blog</a></li>
+<li class="leaf last dhtml-menu "><a href="/blog/luisnassif/comentarios" title="Lista de comentários" id="dhtml_menu-34989">Comentários</a></li>
+</ul>  </div>
+  </div>
+</div>        <div class="breadcrumb"><a href="/">Início</a> » <a href="/categoria/blogs/politica">Política</a></div>				<div class="main-title">
+		<h1 class="title">Eleições</h1>
+		</div>
+		        <div class="tabs"></div>
+                        <div class="main-content">
+        		<div id="blog-luisnassif">
+  <div class="node">
+        <h2 class="title"><a href="/blog/carloslbf/a-folha-nao-perde-uma-oportunidade">A Folha não perde uma oportunidade...</a></h2>
+    <span class="submitted">Enviado por carloslbf, dom, 18/07/2010 - 13:36</span>
+    <!--<div class="taxonomy"><ul class="links inline"><li class="taxonomy_term_829 first"><a href="/categoria/tags-do-blog/anti-lula" rel="tag" title="">anti-Lula</a></li>
+<li class="taxonomy_term_414 active"><a href="/categoria/blogs/politica/eleicoes" rel="tag" title="" class="active">Eleições</a></li>
+<li class="taxonomy_term_3288"><a href="/categoria/tags-do-blog/folha-de-sao-paulo" rel="tag" title="">Folha de São Paulo</a></li>
+<li class="taxonomy_term_7327 last"><a href="/categoria/tags-do-blog/televisao" rel="tag" title="">Televisão</a></li>
+</ul></div> -->
+    <div class="content"><p>Que a Folha de São Paulo&nbsp;é um veículo de ultra-direita, anti-Lula por definição, já&nbsp;não é nenhuma novidade.</p>
+<p>O que me chamou a atenção é&nbsp;o senso de oportunidade do veículo para inserir críticas a Lula.&nbsp;Penso nos jornalistas que lá trabalham, no tamanho da coleira que&nbsp;os editores impõem a quem deseje trabalhar lá. Afinal, não acredito que 100% dos funcionários do&nbsp;referido veículo compactuem da mesma visão política dos donos da FSP.&nbsp;Mas, como todos os mortais, precisam manter o seu sustento. Deve ser um inferno.</p>
+<p>Estava eu lendo uma entrevista com Miguel Falabella e Flavio Marinho, autores&nbsp;do&nbsp;seriado "A Vida Alheia", da TV Globo,&nbsp;programa que tenho assistido com interesse sempre que posso. Eis que, no meio da entrevista,&nbsp;me deparo com esta pérola:</p>
+<p><strong>"FSP - O que vocês acham de quem diz que quem vota no Lula é ignorante?</strong><br /><strong>FALABELLA -</strong> As pessoas sabem perfeitamente o que estão fazendo.</p>
+<p><strong>MARINHO -</strong> Hoje qualquer porteiro tá indo visitar a família de avião no Nordeste. O aeroporto é a nova rodoviária...</p>
+<div class="field field-type-filefield field-field-imagem">
+    <div class="field-items">
+            <div class="field-item odd">
+                    <a href="http://www.advivo.com.br/index.php?q=sites/default/files/imagecache/imagens_blog/imagens/o_oportunista_0.jpg" rel="lightbox[field_imagem][Deve haver um mantra anti-Lula na redação da FSP. Algo como: &quot;Devemos, sempre e em qualquer oportunidade, criticar o Lula&quot;&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/blog/carloslbf/a-folha-nao-perde-uma-oportunidade&quot; id=&quot;node_link_text&quot;&gt;Leia mais&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-imagens-mutirao imagefield-field_imagem imagecache imagecache-field_imagem imagecache-imagens-mutirao imagecache-field_imagem-imagens-mutirao"><img src="http://www.advivo.com.br/index.php?q=sites/default/files/imagecache/imagens-mutirao/imagens/o_oportunista_0.jpg" alt="Deve haver um mantra anti-Lula na redação da FSP. Algo como: &quot;Devemos, sempre e em qualquer oportunidade, criticar o Lula&quot;" title=""  width="288" height="400" /></a>        </div>
+              <div class="field-item even">
+                    <a href="http://www.advivo.com.br/index.php?q=sites/default/files/imagecache/imagens_blog/imagens/folha_anti-Lula.JPG" rel="lightbox[field_imagem][a fatídica pergunta...&lt;br /&gt;&lt;br /&gt;&lt;a href=&quot;/blog/carloslbf/a-folha-nao-perde-uma-oportunidade&quot; id=&quot;node_link_text&quot;&gt;Leia mais&lt;/a&gt;]" class="imagefield imagefield-lightbox2 imagefield-lightbox2-imagens-mutirao imagefield-field_imagem imagecache imagecache-field_imagem imagecache-imagens-mutirao imagecache-field_imagem-imagens-mutirao"><img src="http://www.advivo.com.br/index.php?q=sites/default/files/imagecache/imagens-mutirao/imagens/folha_anti-Lula.JPG" alt="a fatídica pergunta..." title=""  width="500" height="295" /></a>        </div>
+        </div>
+</div>
+<div class="service-links">

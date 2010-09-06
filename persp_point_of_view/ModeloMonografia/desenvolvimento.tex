@@ -347,7 +347,7 @@ Estas métricas revelam aspectos diferentes do desempenho de um classificador. P
 \label{subsection:bayes}
 
 O modelo Naïve Bayes foi apresentado na seção \ref{subsection:naive}. Nesta seção, será discutido como construir um classificador de documentos a partir dele. Esta seção trata de documentos de texto em particular, por se tratarem do objeto básico de estudo deste projeto. 
-
+Ra
 Sabe-se que, em um Naïve Bayes, assume-se que as as características em um documento são condicionalmente independentes, o que equivale a afirmar, por exemplo, que a presença de uma palavra em um documento de texto não é informativa sobre a presença de nenhuma outra. Apesar desta hipótese simplificar bastante a estrutura linguística de um texto, classificadores construídos a partir do modelo Naïve Bayes, denominados classificadores Naïve Bayes, reportam um bom desempenho em várias tarefas de classificação baseadas em palavras \cite{naive-at-forty} \cite{mccallum-naive}.
 
 Dados um documento \ensuremath{d} pertencente a um conjunto de documentos \ensuremath{D}, todas as palavras distintas de \ensuremath{D}, \ensuremath{F_1, ..., F_k}, uma variável aleatória \ensuremath{c}, que representa as possíveis classes de \ensuremath{d}, e um vetor \ensuremath{v_d}, em que cada posição corresponde a uma de suas \ensuremath{n} palavras, tem-se que
@@ -359,7 +359,7 @@ Dados um documento \ensuremath{d} pertencente a um conjunto de documentos \ensur
 
 conforme discutido anteriormente na seção \ref{subsection:naive}. Um classificador Naïve Bayes deve rotular o documento \ensuremath{d} com o valor de \ensuremath{c} que maximiza a equação \ref{eq2:bayes}. Como o denominador na equação \ref{eq2:bayes} é o mesmo para todas as classes, ele pode ser ignorado nestes cálculos.
 
-Normalmente, classificadores Naïve Bayes são utilizados de forma semi-supervisionada. Isto significa que eles são submetidos a uma etapa de treinamento, na qual aprendem as classes associadas a alguns documentos, e a uma etapa de classificação, na qual devem simular o processo gerador destes documentos e utilizar esta informação para classificar outros. Basicamente, as informações aprendidas na etapa de treinamento modelam as distribuições das palavras de \ensuremath{D} por classe, gerando parâmetros para as distribuições de probabilidade envolvidas na classificação de outros documentos.\textbf{Tá meio foda clarear isso.} 
+Normalmente, classificadores Naïve Bayes são utilizados de forma semi-supervisionada. Isto significa que eles são submetidos a uma etapa de treinamento, na qual aprendem as classes associadas a alguns documentos, e a uma etapa de classificação, na qual devem simular o processo gerador destes documentos e utilizar esta informação para classificar outros. Basicamente, as informações aprendidas na etapa de treinamento modelam as distribuições das palavras de \ensuremath{D} por classe, gerando parâmetros para as distribuições de probabilidade envolvidas na classificação de outros documentos. 
 
 Todos os experimentos com um classificador Naïve Bayes conduzidos neste projeto utilizam a implementação disponível no repositório \emph{online} de Aline Bessa \cite{alibezz-nb}. O número de iterações para a amostragem de documentos e classes, em todos os experimentos, foi fixado em 500.
 

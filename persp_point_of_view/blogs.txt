@@ -1,0 +1,14 @@
+Anti-Dilma:
+  - Reinaldo Azevedo (OK - Até 06/09) - 2490 posts
+  - Augusto Nunes (Idem) - 579 posts (direto-ao-ponto) 
+  - Diogo Mainardi (Idem) - 40 posts
+  - ?
+
+Pró-Dilma:
+   - Paulo Henrique Amorim
+   - Luis Nassif (Ok - Até 06/09) - 994 posts (eleicoes)
+   - Rodrigo Vianna (OK - Baixado em 05/09) - 222 textos (palavra-minha e plenos-poderes)
+   - ?
+
+Blogs de jornalistas de notoriedade nacional
+Já limpei de tags. Agora é preciso selecionar os que tem as palavras "Serra", "Dilma", "Marina", "Lula", "PSDB", "PT", "PV"; dizer mínimo de palavras que quer; selecionar quantos pra cada lado. Rodar modelo de classificação.

@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  2 SEP 2010 00:15
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  2 SEP 2010 14:08
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -561,13 +561,6 @@ LaTeX Warning: Citation `top-lda' on page 15 undefined on input line 293.
 
 LaTeX Warning: Citation `top-llda' on page 16 undefined on input line 316.
 
-
-LaTeX Warning: Citation `lin-et-al2006' on page 16 undefined on input line 344.
-
-
-
-LaTeX Warning: Citation `efron' on page 16 undefined on input line 344.
-
 [16]
 
 LaTeX Warning: Citation `naive-at-forty' on page 17 undefined on input line 351
@@ -580,14 +573,7 @@ LaTeX Warning: Citation `mccallum-naive' on page 17 undefined on input line 351
 
 LaTeX Warning: Citation `alibezz-nb' on page 17 undefined on input line 364.
 
-[17]
-
-LaTeX Warning: Citation `mono-puc' on page 18 undefined on input line 434.
-
-
-LaTeX Warning: Citation `mono-puc' on page 18 undefined on input line 453.
-
-[18] [19]
+[17] [18] [19]
 Cap\'{\i }tulo 3.
 [20
 
@@ -661,10 +647,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5835 strings out of 94101
- 78090 string characters out of 1165810
- 131213 words of memory out of 1500000
- 8902 multiletter control sequences out of 10000+50000
+ 5844 strings out of 94101
+ 78231 string characters out of 1165810
+ 131340 words of memory out of 1500000
+ 8911 multiletter control sequences out of 10000+50000
  92169 words of font info for 138 fonts, out of 1200000 for 2000
  637 hyphenation exceptions out of 8191
  32i,12n,41p,1789b,603s stack positions out of 5000i,500n,6000p,200000b,5000s
@@ -678,7 +664,7 @@ usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texl
 ive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/
 times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (34 pages, 226851 bytes).
+Output written on monografia.pdf (34 pages, 238301 bytes).
 PDF statistics:
  168 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
