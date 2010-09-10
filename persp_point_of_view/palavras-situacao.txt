@@ -1,0 +1,26 @@
+serra (1362), lula (796), dilma (539), folha (394), partido (325), imprensa (280), jornal (258), presidente (237), tucanos (226), globo (217), FHC (212)
+
+serra (588), psdb (518), candidato (429), presidente (409), dilma (399), pt (362), campanha (311), governo (295), tucano (293), eleitoral (253), governador (237), candidata (203)
+
+Merging:
+
+serra (1950)
+dilma (938)
+lula (796)
+presidente (646)
+psdb (518)
+candidato (429)
+folha (394)
+pt (362)
+partido (325)
+campanha (311)
+governo (295)
+tucano (293)
+imprensa (280)
+jornal (258)
+eleitoral (253)
+governador (237)
+tucanos (226)
+globo (217)
+FHC (212)
+candidata (203)

@@ -1,0 +1,26 @@
+dilma (821), pt (701), lula (676), partido (410), imprensa (382), serra (355), gente (292), campanha (277), texto (259), candidata (239), fato (239), candidato (237), questão (217), petista (212), petistas (194), entrevista (189), mundo (179), eleitoral (178), democracia (174)
+
+lula (1097), presidente (917), anos (318), rousseff (310), dilma (307), brasil (271), federal (256), casa (206), ministro (194), chefe (178), governo (165), folha (158), fernando (139), celso (132), ministério (129)
+
+Merging:
+
+lula (1773)
+dilma (1128)
+presidente (917)
+pt (701)
+partido (410)
+imprensa (382)
+serra (355)
+rousseff (310)
+gente (292)
+campanha (277)
+brasil (271)
+texto (259)
+federal (256)
+candidata (239)
+fato (239)
+candidato (237)
+questão (217)
+petista (212)
+casa (206)
+petistas (194)

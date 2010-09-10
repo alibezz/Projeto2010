@@ -1,0 +1,1 @@
+10-fold-cross-validation: dentro do filhos: P10. LSPM, p187-durant, citados hirst-et-al (dmin) // o outro citados hirst-et-al diz q o comum é 5 ou 10, mas escolhe 5; aaai-politics
