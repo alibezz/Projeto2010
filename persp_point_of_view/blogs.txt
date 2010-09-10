@@ -1,14 +1,30 @@
 Anti-Dilma:
-  - Reinaldo Azevedo (OK - Até 06/09) - 2490 posts
-  - Augusto Nunes (Idem) - 579 posts (direto-ao-ponto) 
-  - Diogo Mainardi (Idem) - 40 posts
-  - ?
+  - Reinaldo Azevedo (OK - Até 06/09) - 2490 posts => 2377 filtrando palavras abaixo => 14 a 3137 => 150 e 250 (336 posts) => 357 com + palavras (15%)
+  - Augusto Nunes (Idem) - 579 posts (direto-ao-ponto) => 476  => 16 a 1080 => 400 e 800 => 400 a 600 (150 e poucos posts) => 87 com mais palavras (18%)
+  - Diogo Mainardi (Idem) - 40 posts => 32 => 365 a 944 => 400 e 500 (23 posts) => Todos (32 posts)
+  - Carlos Alberto Sardenberg - 33 posts => Todos // 09/09
+
+476
 
 Pró-Dilma:
-   - Paulo Henrique Amorim
-   - Luis Nassif (Ok - Até 06/09) - 994 posts (eleicoes)
-   - Rodrigo Vianna (OK - Baixado em 05/09) - 222 textos (palavra-minha e plenos-poderes)
-   - ?
+   - Paulo Henrique Amorim (Ok - Até 08/09) - 375 posts (politica) => 355 => 40 a 3908 => entre 150 e 600 palavras => 108 posts com + palavras (30%)
+   - Luis Nassif (Ok - Até 06/09) - 994 posts (eleicoes) => 710 => 2 a 627 => maioria entre 100 e 200 palavras (438 posts) => 188 (30%)
+   - Rodrigo Vianna (OK - Baixado em 05/09) - 222 textos (palavra-minha e plenos-poderes) => 181 => 65 a 7045 palavras => entre 400 e 800 (90 posts) => Todos (181)
+   - Leandro Fortes - 34 => Pós-filtragem: 24 (todos) // 09/09
+
+476
 
 Blogs de jornalistas de notoriedade nacional
 Já limpei de tags. Agora é preciso selecionar os que tem as palavras "Serra", "Dilma", "Marina", "Lula", "PSDB", "PT", "PV"; dizer mínimo de palavras que quer; selecionar quantos pra cada lado. Rodar modelo de classificação.
+
+Balanço final (09/09):
+
+Augusto Nunes - 198
+Reinaldo - 236
+Mainardi - 32
+Sardenberg - 33
+===
+Leandro Fortes - 24
+Amorim - 107
+Nassif - 186
+Rodrigo Vianna - 181

@@ -1,0 +1,9 @@
+accuracy: 0,882626263
+recall 0: 0,895959184
+recall 1: 0,869795918
+precision 0: 0,885663467
+precision 1: 0,903733433
+f1 measure 0: 0,883932241
+f1 measure 1: 0,87926039
+
+Legenda: 0 => oposição; 1 => situação
