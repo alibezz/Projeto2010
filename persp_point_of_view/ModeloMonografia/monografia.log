@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  10 SEP 2010 12:22
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  13 SEP 2010 21:35
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -608,15 +608,123 @@ Cap\'{\i }tulo 6.
 
 ]
 Cap\'{\i }tulo 7.
+
+LaTeX Warning: Citation `nassif-blog' on page 29 undefined on input line 15.
+
+
+LaTeX Warning: Citation `ibest' on page 29 undefined on input line 15.
+
+
+LaTeX Warning: Citation `dilma-blog' on page 29 undefined on input line 15.
+
+
+LaTeX Warning: Citation `blog-lula' on page 29 undefined on input line 15.
+
 [29
 
-]) (./trabalhos_relacionados.tex [30]
+]
+
+LaTeX Warning: Citation `afiada' on page 30 undefined on input line 33.
+
+
+LaTeX Warning: Citation `eu-apoio-dilma' on page 30 undefined on input line 33.
+
+
+[30]
+
+LaTeX Warning: Citation `escrevinhador' on page 31 undefined on input line 52.
+
+
+LaTeX Warning: Citation `brasiliaeuvi' on page 31 undefined on input line 68.
+
+
+LaTeX Warning: Citation `blog-leandro' on page 31 undefined on input line 68.
+
+[31]
+
+LaTeX Warning: Citation `reinaldo' on page 32 undefined on input line 90.
+
+
+LaTeX Warning: Citation `bom-pt-mau-brasil' on page 32 undefined on input line 
+90.
+
+
+LaTeX Warning: Citation `augusto-nunes' on page 32 undefined on input line 107.
+
+
+
+LaTeX Warning: Citation `nassif-nunes' on page 32 undefined on input line 107.
+
+
+LaTeX Warning: Citation `dilma13-nunes' on page 32 undefined on input line 107.
+
+
+[32]
+Overfull \hbox (11.76984pt too wide) in paragraph at lines 124--125
+[]\T1/ptm/m/n/10.95 Retirado de \T1/ptm/m/it/10.95 "FHC aceita o con-vite para 
+o du-elo que Lula não pode re-cu-sar." \T1/ptm/m/n/10.95 - 11/02/2010 
+ []
+
+
+LaTeX Warning: Citation `veja-mais-mainardi' on page 33 undefined on input line
+ 127.
+
+
+LaTeX Warning: Citation `diogo-mainardi' on page 33 undefined on input line 127
+.
+
+
+LaTeX Warning: Citation `lula-anta' on page 33 undefined on input line 127.
+
+
+LaTeX Warning: Citation `sardenberg' on page 33 undefined on input line 143.
+
+
+LaTeX Warning: Citation `nassif-sardenberg' on page 33 undefined on input line 
+143.
+
+
+LaTeX Warning: Citation `amorim-sardenberg' on page 33 undefined on input line 
+143.
+
+[33]
+
+LaTeX Warning: Citation `alibezz-github' on page 34 undefined on input line 162
+.
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--169
+[]\T1/ptm/b/n/12 Descarte
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 169--169
+\T1/ptm/b/n/12 de tex-tos
+ []
+
+
+Overfull \hbox (26.08629pt too wide) in paragraph at lines 166--181
+ [][] 
+ []
+
+[34]
+
+LaTeX Warning: Citation `aaai-politics' on page 35 undefined on input line 212.
+
+
+
+LaTeX Warning: Citation `klebanov' on page 35 undefined on input line 212.
+
+
+LaTeX Warning: Citation `durant-smith' on page 35 undefined on input line 214.
+
+[35]) (./trabalhos_relacionados.tex [36]
 Cap\'{\i }tulo 8.
-) (./conclusao.tex [31
+) (./conclusao.tex [37
 
 ]
 Cap\'{\i }tulo 9.
-) (./apendices.tex [32
+) (./apendices.tex [38
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <20.74> not available
@@ -627,7 +735,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 
 Apendice A.
-) (./monografia.bbl [33
+) (./monografia.bbl [39
 
 ])
 +-------------------------------------------------------------------+
@@ -639,7 +747,7 @@ tabela-simbolos: agora rode geratss (linux) ou manualmente,
 makeindex -s tabela-siglas.ist -o monografia.sigla monografia.siglax
 makeindex -s tabela-simbolos.ist -o monografia.symbols monografia.symbolsx
 ########################################################################
-[34
+[40
 
 ] (./monografia.aux)
 
@@ -647,11 +755,11 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5859 strings out of 94101
- 78542 string characters out of 1165810
- 131340 words of memory out of 1500000
- 8911 multiletter control sequences out of 10000+50000
- 92169 words of font info for 138 fonts, out of 1200000 for 2000
+ 5923 strings out of 94101
+ 79745 string characters out of 1165810
+ 133351 words of memory out of 1500000
+ 8974 multiletter control sequences out of 10000+50000
+ 95017 words of font info for 140 fonts, out of 1200000 for 2000
  637 hyphenation exceptions out of 8191
  32i,12n,41p,1793b,603s stack positions out of 5000i,500n,6000p,200000b,5000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
@@ -664,9 +772,9 @@ usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texl
 ive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/
 times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (35 pages, 262289 bytes).
+Output written on monografia.pdf (41 pages, 285010 bytes).
 PDF statistics:
- 171 PDF objects out of 1000 (max. 8388607)
+ 192 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

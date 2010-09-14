@@ -12,6 +12,30 @@ Warning--I didn't find a database entry for "naive-at-forty"
 Warning--I didn't find a database entry for "mccallum-naive"
 Warning--I didn't find a database entry for "alibezz-nb"
 Warning--I didn't find a database entry for "teubert2001"
+Warning--I didn't find a database entry for "nassif-blog"
+Warning--I didn't find a database entry for "ibest"
+Warning--I didn't find a database entry for "dilma-blog"
+Warning--I didn't find a database entry for "blog-lula"
+Warning--I didn't find a database entry for "afiada"
+Warning--I didn't find a database entry for "eu-apoio-dilma"
+Warning--I didn't find a database entry for "escrevinhador"
+Warning--I didn't find a database entry for "brasiliaeuvi"
+Warning--I didn't find a database entry for "blog-leandro"
+Warning--I didn't find a database entry for "reinaldo"
+Warning--I didn't find a database entry for "bom-pt-mau-brasil"
+Warning--I didn't find a database entry for "augusto-nunes"
+Warning--I didn't find a database entry for "nassif-nunes"
+Warning--I didn't find a database entry for "dilma13-nunes"
+Warning--I didn't find a database entry for "veja-mais-mainardi"
+Warning--I didn't find a database entry for "diogo-mainardi"
+Warning--I didn't find a database entry for "lula-anta"
+Warning--I didn't find a database entry for "sardenberg"
+Warning--I didn't find a database entry for "nassif-sardenberg"
+Warning--I didn't find a database entry for "amorim-sardenberg"
+Warning--I didn't find a database entry for "alibezz-github"
+Warning--I didn't find a database entry for "aaai-politics"
+Warning--I didn't find a database entry for "klebanov"
+Warning--I didn't find a database entry for "durant-smith"
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
 | Estilo bibliografico abnt-alf.bst versao 1.53           |
@@ -21,7 +45,7 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
 You've used 9 entries,
             6522 wiz_defined-function locations,
-            1216 strings with 10771 characters,
+            1240 strings with 11058 characters,
 and the built_in function-call counts, 6855 in all, are:
 = -- 629
 > -- 207
@@ -60,4 +84,4 @@ warning$ -- 0
 while$ -- 58
 width$ -- 0
 write$ -- 130
-(There were 8 warnings)
+(There were 32 warnings)
