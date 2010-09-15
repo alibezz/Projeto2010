@@ -32,7 +32,6 @@ Warning--I didn't find a database entry for "lula-anta"
 Warning--I didn't find a database entry for "sardenberg"
 Warning--I didn't find a database entry for "nassif-sardenberg"
 Warning--I didn't find a database entry for "amorim-sardenberg"
-Warning--I didn't find a database entry for "alibezz-github"
 Warning--I didn't find a database entry for "aaai-politics"
 Warning--I didn't find a database entry for "klebanov"
 Warning--I didn't find a database entry for "durant-smith"
@@ -45,7 +44,7 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
 You've used 9 entries,
             6522 wiz_defined-function locations,
-            1240 strings with 11058 characters,
+            1239 strings with 11044 characters,
 and the built_in function-call counts, 6855 in all, are:
 = -- 629
 > -- 207
@@ -84,4 +83,4 @@ warning$ -- 0
 while$ -- 58
 width$ -- 0
 write$ -- 130
-(There were 32 warnings)
+(There were 31 warnings)
