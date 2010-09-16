@@ -1,0 +1,25 @@
+Semana 1 - Setembro: Fechar o capítulo de frequências e começar capítulo intra-documento
+Semana 2 - Setembro: Fechar capítulo intra-documento e fechar parte dos conceitos básicos que tem a ver com o intra-documento
+Semana 3 - Setembro: Fechar capítulo inter-documento e fechar parte dos conceitos básicos que tem a ver com inter-documento
+Semana 4 - Setembro: Falar de todos os datasets explorados e falar de trabalhos relacionados
+Semana 1 - Outubro: Começar parte prática
+Semana 2 - Outubro: Terminar parte prática
+Semana 3 - Outubro: Escrever capítulo da parte prática
+Semana 4 - Outubro: Fechar conclusão e introdução, fazer apêndices
+Semana 1 - Novembro: Entregar pra revisões
+
+===
+Marcar apresentação pro começo de dezembro
+
+Pendências
+  => Mexer nas bibliografias dos repositórios.
+  => Colocar referência pra métricas de classificação.
+  => Encaixar uma imagem na parte de SVMs.
+  => Explicar essa coisa da representação com frequencia tanto em svms qto em naive bayes
+  => Bibliografias pra pq Naive Bayes funciona bem
+
+Semanas 1 e 2 de setembro: estudo de caso
+Semanas 3 e 4: fechamento do capítulo de frequencias, datasets, conceitos básicos e anexos
+Semanas 1 e 2 de outubro: redação de outros capítulos (intra e extra documentos, talvez colapsando pruma coisa só, e trabalhos relacionados)
+Semana 3 de outubro: fechamento de tudo (introdução e conclusão; revisões)
+Semana 4 de outubro => mandar pra revisão

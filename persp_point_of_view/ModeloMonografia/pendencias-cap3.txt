@@ -1,0 +1,26 @@
+1 - dizer as implementações usadas, onde estão
+
+2 - medida mais objetiva
+
+3 - explicar oq eh "fortemente associada"
+4 - consertar o \ref das tabelas
+5 - colocar exemplinhos frasais
+
+Alexandre: você pode, ainda pra esse capítulo, agora que ele ganhou mais liberdade, dar espaço para os conceitos importantes
+  por exemplo
+  pode apontar possíveis banner words identifcadas pelo L-LDA explicitamente
+22:18 pode pegar exemplos no texto em que elas aparecem e marcá-las, mostrando como elas indicam a perspectiva
+ eu: isso eh uma ideia oooootima
+ Alexandre: e pode botar exemplos em que elas não aparecem (mas a perspectiva é diferente) e mostrar como outras coisas apontam a perspectiva
+ eu: isso de tirar trechinhos
+ Alexandre: que aí vc ilustra a mesma idéia de 3 formas diferentes
+  performance de classificador
+  tabela de l-lda
+  e exemplo
+
+
+ 6 - organizar as palavras em ordem alfabética
+
+7 - rascunhar sobre os datasets
+
+ideia: arrancar as palavras do topico generico. tipo: fazer com que elas sirvam de lista de stop-words
