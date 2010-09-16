@@ -12,29 +12,12 @@ Warning--I didn't find a database entry for "naive-at-forty"
 Warning--I didn't find a database entry for "mccallum-naive"
 Warning--I didn't find a database entry for "alibezz-nb"
 Warning--I didn't find a database entry for "teubert2001"
-Warning--I didn't find a database entry for "nassif-blog"
 Warning--I didn't find a database entry for "ibest"
-Warning--I didn't find a database entry for "dilma-blog"
-Warning--I didn't find a database entry for "blog-lula"
-Warning--I didn't find a database entry for "afiada"
-Warning--I didn't find a database entry for "eu-apoio-dilma"
-Warning--I didn't find a database entry for "escrevinhador"
-Warning--I didn't find a database entry for "brasiliaeuvi"
-Warning--I didn't find a database entry for "blog-leandro"
-Warning--I didn't find a database entry for "reinaldo"
 Warning--I didn't find a database entry for "bom-pt-mau-brasil"
-Warning--I didn't find a database entry for "augusto-nunes"
 Warning--I didn't find a database entry for "nassif-nunes"
 Warning--I didn't find a database entry for "dilma13-nunes"
-Warning--I didn't find a database entry for "veja-mais-mainardi"
-Warning--I didn't find a database entry for "diogo-mainardi"
-Warning--I didn't find a database entry for "lula-anta"
-Warning--I didn't find a database entry for "sardenberg"
-Warning--I didn't find a database entry for "nassif-sardenberg"
-Warning--I didn't find a database entry for "amorim-sardenberg"
-Warning--I didn't find a database entry for "aaai-politics"
-Warning--I didn't find a database entry for "klebanov"
-Warning--I didn't find a database entry for "durant-smith"
+Warning--I didn't find a database entry for "alibezz-github"
+Warning--I didn't find a database entry for "omsa"
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
 | Estilo bibliografico abnt-alf.bst versao 1.53           |
@@ -42,45 +25,45 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 | Em caso de duvidas ou problemas com este estilo procure |
 | http://abntex.codigolivre.org.br                        |
 +---------------------------------------------------------+
-You've used 9 entries,
+You've used 13 entries,
             6522 wiz_defined-function locations,
-            1239 strings with 11044 characters,
-and the built_in function-call counts, 6855 in all, are:
-= -- 629
-> -- 207
-< -- 5
-+ -- 119
-- -- 64
-* -- 454
-:= -- 991
-add.period$ -- 29
-call.type$ -- 10
-change.case$ -- 77
-chr.to.int$ -- 12
-cite$ -- 8
-duplicate$ -- 291
-empty$ -- 523
-format.name$ -- 308
-if$ -- 1629
+            1243 strings with 11572 characters,
+and the built_in function-call counts, 10416 in all, are:
+= -- 922
+> -- 337
+< -- 8
++ -- 168
+- -- 104
+* -- 700
+:= -- 1452
+add.period$ -- 48
+call.type$ -- 14
+change.case$ -- 120
+chr.to.int$ -- 16
+cite$ -- 12
+duplicate$ -- 456
+empty$ -- 805
+format.name$ -- 495
+if$ -- 2508
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 148
-newline$ -- 48
-num.names$ -- 40
-pop$ -- 186
+missing$ -- 219
+newline$ -- 65
+num.names$ -- 60
+pop$ -- 281
 preamble$ -- 1
-purify$ -- 33
+purify$ -- 49
 quote$ -- 0
-skip$ -- 436
+skip$ -- 633
 stack$ -- 1
-substring$ -- 277
-swap$ -- 132
-text.length$ -- 4
+substring$ -- 430
+swap$ -- 216
+text.length$ -- 7
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 5
+type$ -- 8
 warning$ -- 0
-while$ -- 58
+while$ -- 88
 width$ -- 0
-write$ -- 130
-(There were 31 warnings)
+write$ -- 193
+(There were 14 warnings)

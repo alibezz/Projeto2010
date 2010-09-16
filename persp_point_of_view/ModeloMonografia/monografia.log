@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  14 SEP 2010 21:06
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  16 SEP 2010 02:32
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -609,48 +609,20 @@ Cap\'{\i }tulo 6.
 ]
 Cap\'{\i }tulo 7.
 
-LaTeX Warning: Citation `nassif-blog' on page 29 undefined on input line 15.
-
-
 LaTeX Warning: Citation `ibest' on page 29 undefined on input line 15.
-
-
-LaTeX Warning: Citation `dilma-blog' on page 29 undefined on input line 15.
-
-
-LaTeX Warning: Citation `blog-lula' on page 29 undefined on input line 15.
 
 [29
 
 ]
+Underfull \hbox (badness 10000) in paragraph at lines 33--33
+[][]\T1/ptm/m/n/10 http://www.conversaafiada.com.br/brasil/2010/07/02/mino-expl
+ica-por-que-apoia-a-dilma-porque-ela-e-
+ []
 
-LaTeX Warning: Citation `afiada' on page 30 undefined on input line 33.
-
-
-LaTeX Warning: Citation `eu-apoio-dilma' on page 30 undefined on input line 33.
-
-
-[30]
-
-LaTeX Warning: Citation `escrevinhador' on page 31 undefined on input line 52.
-
-
-LaTeX Warning: Citation `brasiliaeuvi' on page 31 undefined on input line 68.
-
-
-LaTeX Warning: Citation `blog-leandro' on page 31 undefined on input line 68.
-
-[31]
-
-LaTeX Warning: Citation `reinaldo' on page 32 undefined on input line 90.
-
+[30] [31]
 
 LaTeX Warning: Citation `bom-pt-mau-brasil' on page 32 undefined on input line 
 90.
-
-
-LaTeX Warning: Citation `augusto-nunes' on page 32 undefined on input line 107.
-
 
 
 LaTeX Warning: Citation `nassif-nunes' on page 32 undefined on input line 107.
@@ -660,66 +632,50 @@ LaTeX Warning: Citation `dilma13-nunes' on page 32 undefined on input line 107.
 
 
 [32]
-Overfull \hbox (11.76984pt too wide) in paragraph at lines 124--125
+Overfull \hbox (11.76984pt too wide) in paragraph at lines 122--123
 []\T1/ptm/m/n/10.95 Retirado de \T1/ptm/m/it/10.95 "FHC aceita o con-vite para 
 o du-elo que Lula não pode re-cu-sar." \T1/ptm/m/n/10.95 - 11/02/2010 
  []
 
-
-LaTeX Warning: Citation `veja-mais-mainardi' on page 33 undefined on input line
- 127.
-
-
-LaTeX Warning: Citation `diogo-mainardi' on page 33 undefined on input line 127
-.
-
-
-LaTeX Warning: Citation `lula-anta' on page 33 undefined on input line 127.
-
-
-LaTeX Warning: Citation `sardenberg' on page 33 undefined on input line 143.
-
-
-LaTeX Warning: Citation `nassif-sardenberg' on page 33 undefined on input line 
-143.
-
-
-LaTeX Warning: Citation `amorim-sardenberg' on page 33 undefined on input line 
-143.
-
 [33]
-Underfull \hbox (badness 10000) in paragraph at lines 170--170
-[]\T1/ptm/b/n/12 Descarte
- []
 
-
-Underfull \hbox (badness 10000) in paragraph at lines 170--170
-\T1/ptm/b/n/12 de tex-tos
- []
-
-
-Overfull \hbox (26.08629pt too wide) in paragraph at lines 167--182
- [][] 
- []
+LaTeX Warning: Citation `alibezz-github' on page 34 undefined on input line 158
+.
 
 [34]
 
-LaTeX Warning: Citation `aaai-politics' on page 35 undefined on input line 213.
+LaTeX Warning: Citation `omsa' on page 35 undefined on input line 216.
 
+[35]
 
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-LaTeX Warning: Citation `klebanov' on page 35 undefined on input line 213.
+[36] <situacao.png, id=139, 1270.7475pt x 605.26125pt>
+File: situacao.png Graphic file (type png)
+ <use situacao.png>
 
+LaTeX Warning: `!h' float specifier changed to `!ht'.
 
-LaTeX Warning: Citation `durant-smith' on page 35 undefined on input line 215.
+<oposicao.png, id=140, 1271.75125pt x 642.4pt>
+File: oposicao.png Graphic file (type png)
+ <use oposicao.png>
 
-[35] [36]) (./trabalhos_relacionados.tex [37]
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+<generico.png, id=141, 1260.71pt x 502.87875pt>
+File: generico.png Graphic file (type png)
+ <use generico.png>
+
+LaTeX Warning: `!h' float specifier changed to `!ht'.
+
+[37] [38 <./situacao.png> <./oposicao.png>]) (./trabalhos_relacionados.tex
+[39 <./generico.png>]
 Cap\'{\i }tulo 8.
-) (./conclusao.tex [38
+) (./conclusao.tex [40
 
 ]
 Cap\'{\i }tulo 9.
-) (./apendices.tex [39
+) (./apendices.tex [41
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <20.74> not available
@@ -730,7 +686,7 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 
 Apendice A.
-) (./monografia.bbl [40
+) (./monografia.bbl [42
 
 ])
 +-------------------------------------------------------------------+
@@ -742,7 +698,7 @@ tabela-simbolos: agora rode geratss (linux) ou manualmente,
 makeindex -s tabela-siglas.ist -o monografia.sigla monografia.siglax
 makeindex -s tabela-simbolos.ist -o monografia.symbols monografia.symbolsx
 ########################################################################
-[41
+[43
 
 ] (./monografia.aux)
 
@@ -750,10 +706,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5921 strings out of 94101
- 79701 string characters out of 1165810
- 133351 words of memory out of 1500000
- 8972 multiletter control sequences out of 10000+50000
+ 5929 strings out of 94101
+ 79691 string characters out of 1165810
+ 132674 words of memory out of 1500000
+ 8977 multiletter control sequences out of 10000+50000
  95017 words of font info for 140 fonts, out of 1200000 for 2000
  637 hyphenation exceptions out of 8191
  32i,12n,41p,1793b,603s stack positions out of 5000i,500n,6000p,200000b,5000s
@@ -767,9 +723,9 @@ usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texl
 ive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/
 times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (42 pages, 286403 bytes).
+Output written on monografia.pdf (44 pages, 478415 bytes).
 PDF statistics:
- 195 PDF objects out of 1000 (max. 8388607)
+ 208 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
- 21 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

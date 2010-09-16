@@ -23,13 +23,13 @@
 \contentsline {chapter}{\numberline {6}Metodologias que usam rela\IeC {\c c}\IeC {\~o}es intra-documento}{28}
 \contentsline {chapter}{\numberline {7}Estudo de caso: Elei\IeC {\c c}\IeC {\~o}es 2010}{29}
 \contentsline {section}{\numberline {7.1}Introdu\IeC {\c c}\IeC {\~a}o}{29}
-\contentsline {section}{\numberline {7.2}Sele\IeC {\c c}\IeC {\~a}o e pr\IeC {\'e}-processamento do corpus}{29}
+\contentsline {section}{\numberline {7.2}Constru\IeC {\c c}\IeC {\~a}o de corpus para estudo}{29}
 \contentsline {section}{\numberline {7.3}Identificando perspectivas com um classificador Na\IeC {\"\i }ve Bayes}{35}
 \contentsline {section}{\numberline {7.4}Ilustrando a linguagem por perspectiva}{36}
-\contentsline {section}{\numberline {7.5}Conclus\IeC {\~o}es}{37}
-\contentsline {chapter}{\numberline {8}Trabalhos relacionados}{38}
-\contentsline {chapter}{\numberline {9}Conclus\IeC {\~a}o}{39}
-\contentsline {section}{\numberline {9.1}Dificuldades encontradas}{39}
-\contentsline {section}{\numberline {9.2}Trabalhos futuros}{39}
-\contentsline {chapter}{Ap\^endice{} A{} -$\mskip -\thinmuskip $-{} Resultados experimentais}{40}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{41}
+\contentsline {section}{\numberline {7.5}Conclus\IeC {\~o}es}{39}
+\contentsline {chapter}{\numberline {8}Trabalhos relacionados}{40}
+\contentsline {chapter}{\numberline {9}Conclus\IeC {\~a}o}{41}
+\contentsline {section}{\numberline {9.1}Dificuldades encontradas}{41}
+\contentsline {section}{\numberline {9.2}Trabalhos futuros}{41}
+\contentsline {chapter}{Ap\^endice{} A{} -$\mskip -\thinmuskip $-{} Resultados experimentais}{42}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{43}

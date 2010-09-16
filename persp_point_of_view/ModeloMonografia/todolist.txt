@@ -1,10 +1,45 @@
-=> deixar mais claro no básicos essa coisa da frequencia das palavras na classificação, pro capitulo de frequencias fazer mais sentido.
+Conceitos básicos:
 
-=> botar referencias, no basicos, a naive bayes.
-
+deixar mais claro no básicos essa coisa da frequencia das palavras na classificação, pro capitulo de frequencias fazer mais sentido.
+botar referencias, no basicos, a naive bayes.
 Refazer modelos generativos => naive bayes e introdução de classificadores.
 Escrever pq n usa svm (naive bayes generaliza melhor pra pequenos datasets)
 Escrever melhor sobre a escolha de parametros.
 Escrever que 'mais fortemente associado' quer dizer 'contagem mais alta' ou 'que mais frequentemente se associaram'.
+Escrever, em classificadores, métodos de validação de desempenho.
+explicar que tira a média das amostras ou pega o valor final.
 
-Estudo de caso: fechar frases, citações, tabs. dizer as seções dos blogs/colunas q foram aproveitadas. botar os endereços dos sites em algum lugar. arrumar os 'retirado de'. enfatizar que, qdo digo governo, quero dizer presidencia. arrumar número inicial de sardenberg na tabela. consertar referencia à tabela 7.1. talvez seja bom nomear o corpus. falar que as discrepancias são comuns em foruns etc e q, mesmo assim, estes estudos são conduzidos.
+Estudo de caso: 
+
+fechar frases
+citações - +/-
+tabs. 
+dizer as seções dos blogs/colunas q foram aproveitadas. 
+botar os endereços dos sites em algum lugar. 
+arrumar os 'retirado de'. 
+enfatizar que, qdo digo governo, quero dizer presidencia. 
+
+arrumar tabela inteira. - ok
+
+dizer q as palavras listadas excluem stop words, justificando.
+
+consertar referencia à tabela 7.1. talvez seja bom nomear o corpus. 
+
+falar que as discrepancias são comuns em foruns etc e q, mesmo assim, estes estudos são conduzidos. - ok
+
+expplicar pq escolheu o naive bayes, classificador baseado em frequencia de palavras. - OK
+
+arrumar números - OK
+
+fazer anexo com contagem de palavras pro estudo de caso
+
+escrever intr.
+
+escrever conclusão.
+
+======
+
+Freqs de palavras:
+
+mudar 'frequencias de palavras' para 'escolha de palavras' ou 'uso de palavras' algo assim.
+

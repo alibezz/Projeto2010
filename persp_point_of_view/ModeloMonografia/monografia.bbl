@@ -19,6 +19,12 @@ ISBN 0387310738.}
   $<$http://lingpipe-blog.com/2010/07/13/collapsed-gibbs-sampling-for-lda-baye%
 sian-naive-bayes/$>$.}
 
+\bibitem[Durant e Smith 2006]{durant-smith}
+\abntrefinfo{Durant e Smith}{DURANT; SMITH}{2006}
+{DURANT, K.~T.; SMITH, M.~D. Predicting the political sentiment of web log
+  posts using supervised machine learning techniques coupled with feature
+  selection. In:  . [S.l.: s.n.], 2006. p. 187--206.}
+
 \bibitem[Efron 2004]{efron}
 \abntrefinfo{Efron}{EFRON}{2004}
 {EFRON, M. Cultural orientation: Classifying subjective documents by cociation
@@ -32,12 +38,27 @@ sian-naive-bayes/$>$.}
 \emph{Proceedings of the National Academy of Sciences}, v.~101, p. 5228--5235,
   Abril 2004.}
 
+\bibitem[Klebanov, Beigman e Diermeier 2010]{klebanov}
+\abntrefinfo{Klebanov, Beigman e Diermeier}{KLEBANOV; BEIGMAN; DIERMEIER}{2010}
+{KLEBANOV, B.~B.; BEIGMAN, E.; DIERMEIER, D. Vocabulary choice as an indicator
+  of perspective. In:  . [S.l.: s.n.], 2010. p. 253--257.}
+
 \bibitem[Lin et al. 2006]{lin-et-al2006}
 \abntrefinfo{Lin et al.}{LIN et al.}{2006}
 {LIN, W.-H. et al. Which side are you on? identifying perspectives at the
   document and sentence levels.
 \emph{CoNLL'06: Proceedings of the Conference on Natural Language Learning
   (CoNLL)}, 2006.}
+
+\bibitem[Mainardi 2007]{lula-anta}
+\abntrefinfo{Mainardi}{MAINARDI}{2007}
+{MAINARDI, D. \emph{Lula e\' minha anta}. [S.l.]: Record, 2007.
+ISBN 8501080705.}
+
+\bibitem[Mullen e Malouf 2006]{aaai-politics}
+\abntrefinfo{Mullen e Malouf}{MULLEN; MALOUF}{2006}
+{MULLEN, T.; MALOUF, R. A preliminary investigation into sentiment analysis of
+  informal political discourse. In:  . [S.l.: s.n.], 2006. p. 159--162.}
 
 \bibitem[Oguri 2006]{mono-puc}
 \abntrefinfo{Oguri}{OGURI}{2006}
