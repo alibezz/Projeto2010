@@ -1,3 +1,6 @@
+CORRIGIR RODAPÉÉÉÉÉÉS!!!!!!!!!!!!
+
+
 Conceitos básicos:
 
 deixar mais claro no básicos essa coisa da frequencia das palavras na classificação, pro capitulo de frequencias fazer mais sentido.
@@ -10,24 +13,32 @@ Escrever, em classificadores, métodos de validação de desempenho.
 explicar que tira a média das amostras ou pega o valor final.
 
 Estudo de caso: 
+**** Tem uma duvida de como citar os nomes dos jornalistas.
+**** Duvida sobre o nome da linguagem shell
 
-escrever intr.
+escrever intr. OK 
 
 escrever conclusão.
-fechar frases
+fechar frases  OK
 
-citações - +/-
-tabs. 
-dizer as seções dos blogs/colunas q foram aproveitadas. 
+citações - OK
+ 
+dizer as seções dos blogs/colunas q foram aproveitadas. - OK
+
 botar os endereços dos sites em algum lugar. - OK
-arrumar os 'retirado de'. 
-enfatizar que, qdo digo governo, quero dizer presidencia. 
+
+arrumar os 'retirado de'. (na hora de montar anexo) 
+
+enfatizar que, qdo digo governo, quero dizer presidencia. OK
 
 arrumar tabela inteira. - ok
 
-dizer q as palavras listadas excluem stop words, justificando.
+dizer q as palavras listadas excluem stop words, justificando. - ok
 
-consertar referencia à tabela 7.1. talvez seja bom nomear o corpus. 
+falar como marina nem aparece. (na conclusão)
+
+consertar referencia à tabela 7.1. - ok
+ 
 
 falar que as discrepancias são comuns em foruns etc e q, mesmo assim, estes estudos são conduzidos. - ok
 
@@ -36,7 +47,11 @@ expplicar pq escolheu o naive bayes, classificador baseado em frequencia de pala
 arrumar números - OK
 
 fazer anexo com contagem de palavras pro estudo de caso
+fazer anexo com trechos.
 
+introdução:
+
+explicar que persp. e posic. e ponto de vista dão na msm.
 
 
 ======

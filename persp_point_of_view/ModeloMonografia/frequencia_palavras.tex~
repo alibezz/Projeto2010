@@ -1,6 +1,7 @@
 \chapter{Principais trabalhos e \emph{datasets} estudados}
 
 \chapter{Métodos baseados em frequências de palavras}
+\label{chap3}
 
 \section{Introdução}
 
@@ -89,7 +90,7 @@ O primeiro \emph{dataset} estudado é o \textbf{Bitterlemons}\footnote{A descri�
 
 O uso de um tópico genérico ajuda a identificar palavras de \emph{background}, comuns no corpus independentemente de perspectiva. Esta é a diferença fundamental entre o uso de um L-LDA e a simples contagem de palavras em documentos pró-Israel e pró-Palestina. Como esse tipo de contagem não considera palavras de \emph{background}, a visualização de palavras mais específicas para cada perspectiva é prejudicada.
 
-As palavras listadas na Tabela \ref{1}, para as perspectivas Pró-Israel e Pró-Palestina, remetem semanticamente às discussões entre Israel e Palestina. Parte delas, como \emph{palestinian} e \emph{israeli}, se associam às duas perspectivas, ainda que sejam empregadas nos documentos de forma diferente, como ilustrado pelos exemplos contidos na Tabela 4.3. Outras, como \emph{bush} e \emph{occupation}, funcionam como \emph{banner words}, colaborando com a consolidação de pontos de vista diferentes. O exemplo na Tabela 4.4 ilustra a importância do Governo Bush para Israel à época, enquanto o exemplo na tabela 4.5 evidencia a principal luta Palestina do período: a criação de um Estado próprio. A alta frequência de palavras associadas às perspectivas, bem como a presença de \emph{banner words} importantes, conFiguram um bom cenário para o uso de métodos baseados em frequências de palavras. O desempenho de um Naïve Bayes na classificação deste \emph{dataset} será discutido mais à frente, ainda nesta seção.
+As palavras listadas na Tabela \ref{1}, para as perspectivas Pró-Israel e Pró-Palestina, remetem semanticamente às discussões entre Israel e Palestina. Parte delas, como \emph{palestinian} e \emph{israeli}, se associam às duas perspectivas, ainda que sejam empregadas nos documentos de forma diferente, tcomo ilustrado pelos exemplos contidos na Tabela 4.3. Outras, como \emph{bush} e \emph{occupation}, funcionam como \emph{banner words}, colaborando com a consolidação de pontos de vista diferentes. O exemplo na Tabela 4.4 ilustra a importância do Governo Bush para Israel à época, enquanto o exemplo na tabela 4.5 evidencia a principal luta Palestina do período: a criação de um Estado próprio. A alta frequência de palavras associadas às perspectivas, bem como a presença de \emph{banner words} importantes, conFiguram um bom cenário para o uso de métodos baseados em frequências de palavras. O desempenho de um Naïve Bayes na classificação deste \emph{dataset} será discutido mais à frente, ainda nesta seção.
 
 \begin{table}[t]
 \centering

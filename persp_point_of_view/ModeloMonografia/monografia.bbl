@@ -5,6 +5,11 @@
 \providecommand{\abntbstabout}[1]{}
 \abntbstabout{1.53 }
 
+\bibitem[Azevedo 2008]{bom-pt-mau-brasil}
+\abntrefinfo{Azevedo}{AZEVEDO}{2008}
+{AZEVEDO, R. \emph{O pais dos petralhas}. [S.l.]: Record, 2008.
+ISBN 978-85-01-08232-9.}
+
 \bibitem[Bishop 2006]{bishop}
 \abntrefinfo{Bishop}{BISHOP}{2006}
 {BISHOP, C. \emph{Pattern Recognition and Machine Learning}. [S.l.]: Springer,
@@ -38,6 +43,12 @@ sian-naive-bayes/$>$.}
 \emph{Proceedings of the National Academy of Sciences}, v.~101, p. 5228--5235,
   Abril 2004.}
 
+\bibitem[Hirst, Riabinin e Graham 2010]{hirst-et-al}
+\abntrefinfo{Hirst, Riabinin e Graham}{HIRST; RIABININ; GRAHAM}{2010}
+{HIRST, G.; RIABININ, Y.; GRAHAM, J. Party status as a confound in the
+  automatic classification of political speech by ideology. In:
+  \emph{Proceedings of JADT 2010}. [S.l.: s.n.], 2010. p. 173--182.}
+
 \bibitem[Klebanov, Beigman e Diermeier 2010]{klebanov}
 \abntrefinfo{Klebanov, Beigman e Diermeier}{KLEBANOV; BEIGMAN; DIERMEIER}{2010}
 {KLEBANOV, B.~B.; BEIGMAN, E.; DIERMEIER, D. Vocabulary choice as an indicator
@@ -52,7 +63,7 @@ sian-naive-bayes/$>$.}
 
 \bibitem[Mainardi 2007]{lula-anta}
 \abntrefinfo{Mainardi}{MAINARDI}{2007}
-{MAINARDI, D. \emph{Lula e\' minha anta}. [S.l.]: Record, 2007.
+{MAINARDI, D. \emph{Lula e minha anta}. [S.l.]: Record, 2007.
 ISBN 8501080705.}
 
 \bibitem[Mullen e Malouf 2006]{aaai-politics}
@@ -60,12 +71,24 @@ ISBN 8501080705.}
 {MULLEN, T.; MALOUF, R. A preliminary investigation into sentiment analysis of
   informal political discourse. In:  . [S.l.: s.n.], 2006. p. 159--162.}
 
+\bibitem[Mullen e Malouf 2008]{malouf-taking_sides}
+\abntrefinfo{Mullen e Malouf}{MULLEN; MALOUF}{2008}
+{MULLEN, T.; MALOUF, R. Taking sides: User classification for informal online
+  political discourse.
+\emph{Internet Research}, v.~18, p. 177--190, 2008.}
+
 \bibitem[Oguri 2006]{mono-puc}
 \abntrefinfo{Oguri}{OGURI}{2006}
 {OGURI, P.
 \emph{Aprendizado de Maquina para o Problema de Sentiment Classification}.
 Disserta\c{c}\~ao (Mestrado) --- Pontificia Universidade Catolica do Rio de
   Janeiro, Rio de Janeiro, 2006.}
+
+\bibitem[Pang e Lee 2008]{omsa}
+\abntrefinfo{Pang e Lee}{PANG; LEE}{2008}
+{PANG, B.; LEE, L. \emph{Opinion Mining and Sentiment Analysis}. [S.l.]:
+  Foundations and Trends in Information Retrieval series. Now publishers,
+  2008.}
 
 \bibitem[Ramage et al. 2009]{llda}
 \abntrefinfo{Ramage et al.}{RAMAGE et al.}{2009}
@@ -77,5 +100,11 @@ Disserta\c{c}\~ao (Mestrado) --- Pontificia Universidade Catolica do Rio de
 {RESNIK, P.; HARDISTY, E. \emph{Gibbs Sampling for the Uninitiated}.
 [S.l.], Abril 2010. Dispon{\'\i}vel em:
   $<$http://hdl.handle.net/1903/10058$>$.}
+
+\bibitem[Thomas, Pang e Lee 2006]{get-out-the-vote}
+\abntrefinfo{Thomas, Pang e Lee}{THOMAS; PANG; LEE}{2006}
+{THOMAS, M.; PANG, B.; LEE, L. Get out the vote: {Determining} support or
+  opposition from {Congressional} floor-debate transcripts. In:
+  \emph{Proceedings of EMNLP}. [S.l.: s.n.], 2006. p. 327--335.}
 
 \end{thebibliography}
