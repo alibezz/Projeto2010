@@ -1,7 +1,5 @@
 \chapter{Estudo de caso: Perspectivas sobre o governo brasileiro}
 
-\section{Introdução}
-
 %Onde se motiva o estudo das eleições e fala pq tratará de colunas de jornalistas de notoriedade nacional. TUDO NESTE CAPÍTULO PRECISA SER BEM DIDÁTICO. FALAR DA FOLHA DILMAFACTSBYFOLHA
 
 %mtos trabalhos de mineração de perspectiva tratam de discussão política. aproveitando o fato de que em 2010 se realizam as primeiras eleições para presidente realmente acompanhadas pela Internet, a gente decidiu fazer um estudo de caso neste assunto. Há outras pessoas pensando em coisas parecidas, como a galera do eleitorando, q criou o serviço pra fazer identificação de opinião em tweets. mas oq estamos propondo é fazer um estudo de análise das perspectivas contidas em blogs e colunas de jornalistas de notoriedade nacional, por eles serem muito lidos e contribuírem para a formação de opinião de seus leitores sobre o governo brasileiro, oq tem tudo a ver com a hora da urna. Mostre depois a estrutura da parades. fale de outros corpus e eleitorando
@@ -315,7 +313,7 @@ O bom desempenho do classificador Naïve Bayes indica que o simples processament
 
 A Tabela 7.2 indica que as palavras utilizadas por autores com posicionamentos diferentes muitas vezes são as mesmas, diferindo apenas na forma como são enfatizadas. Os artigos anti-governo, por exemplo, dão muito destaque às palavras \emph{lula} e \emph{dilma}; os pró-governo, por sua vez, também enfatizam estas palavras, mas dão um destaque maior a \emph{serra}, candidato à presidência pelo PSDB. A associação de palavras semelhantes, ainda que em intensidades diferentes, aos tópicos anti e pró governo advém do fato de que os artigos compartilham um tema geral - o governo brasileiro - e, consequentemente, o mesmo vocabulário básico. É diferente do que acontece quando os tópicos correspondem a temas diferentes em vez de perspectivas, como pode ser visto no trabalho de Ramage et al. sobre L-LDA e \emph{tags} de \emph{blogs} \cite{llda}.
 
-As palavras na Tabela 7.2 estão ordenadas de acordo com o número de vezes que se associam aos tópicos, mas isto não é suficiente para compreender o quanto cada perspectiva realmente as enfatiza. Para compreender melhor o uso das palavras pelos diferentes pontos de vista do corpus, elas foram processadas pelo \emph{software} wordle\footnote{http://wordle.net}, resultando nas figuras \ref{situacao}, \ref{oposicao} e \ref{generico}. O tamanho das palavras nas imagens corresponde ao quanto elas se associam a cada tópico\footnote{Os valores correspondentes a cada uma das palavras, por tópico, se encontra no \textbf{ANEXO BLA}.}. As imagens \ref{situacao} e \ref{oposicao} evidenciam o destaque dado aos políticos Lula, Dilma Rousseff e José Serra nos artigos analisados. A imagem \ref{generico} dá certo destaque a Lula e José Serra, mas também enfatiza outros termos, como \emph{governo} e \emph{Brasil}, relacionados mais genericamente ao tema geral dos artigos: a política brasileira.
+As palavras na Tabela 7.2 estão ordenadas de acordo com o número de vezes que se associam aos tópicos, mas isto não é suficiente para compreender o quanto cada perspectiva realmente as enfatiza. Para compreender melhor o uso das palavras pelos diferentes pontos de vista do corpus, elas foram processadas pelo \emph{software} wordle\footnote{http://wordle.net}, resultando nas figuras \ref{situacao}, \ref{oposicao} e \ref{generico}. O tamanho das palavras nas imagens corresponde ao quanto elas se associam a cada tópico\footnote{Os valores correspondentes a cada uma das palavras, por tópico, se encontra no \textbf{ANEXO BLA}.}. As imagens \ref{situacao} e \ref{oposicao} evidenciam o destaque dado aos políticos Lula, Dilma Rousseff e José Serra nos artigos analisados. A imagem \ref{generico} dá certo destaque a Lula e José Serra, mas também enfatiza outros termos, como \emph{governo} e \emph{brasil}, relacionados mais genericamente ao tema geral dos artigos: a política brasileira.
 
 
 \begin{figure}[h]
@@ -397,7 +395,32 @@ As palavras na Tabela 7.2 estão ordenadas de acordo com o número de vezes que 
 %A aplicação do L-LDA, diferentemente da simples contagem de palavras de todos os artigos de cada perspectiva,  em cada texto pela sua escalabilidade: é possível assumir que cada documento possui mais de um tópico, e segmentar as contagens de palavras de acordo com eles.
 
 
-\section{Conclusões}
+\section{Conclusões e estudos futuros}
 \label{estudo:sec4}
-Onde se discute o que tudo isso quer dizer sobre nossa mídia, se fala um pouco da questão da linguística de corpus, como os jornais n necessariamente assumem um ponto de vista, mas contratam colunistas e talz. Amarrar questões futuras.
+
+Este estudo de caso, inicialmente, apresentou todos os passos envolvidos na criação de um corpus sobre a atual política brasileira, dividido entre as perspectivas pró e anti governo. É válido ressaltar que não foi encontrado nenhum outro corpus brasileiro desenvolvido para um estudo de Mineração de Perspectiva. A alta taxa de acerto obtida com um classificador Naïve Bayes, na identificação das perspectivas dos artigos, evidencia que a escolha de palavras feita por seus autores já reflete suficientemente seus pontos de vista, claramente antagônicos. Resultados semelhantes foram obtidos em outros corpora revisados neste projeto, conforme abordado no capítulo \ref{chap3}. %O bom desempenho obtido com o Naïve Bayes, inclusive, sugere sua aplicação a textos políticos de cidadãos comuns. 
+
+
+% Considerando-se a notoriedade dos jornalistas e a popularidade dos veículos em que publicam, os bons resultados obtidos com o Naïve Bayes podem fomentar a discussão sobre a formação de opinião na mídia brasileira \emph{online}. Por uma questão de escopo e objetivo, entretanto, essa discussão não será levantada nesta monografia. %Além disso,
+
+O experimento com o modelo de tópicos L-LDA, por sua vez, proporciona uma análise subjetiva da linguagem dos artigos, evidenciando os diferentes enfoques dados por cada perspectiva. As figuras \ref{situacao} e \ref{oposicao}, referentes, respectivamente, às perspectivas pró e anti governo, apresentam uma característica em comum: ambas enfatizam termos que têm a ver com o lado a que se opõem. No primeiro caso, a palavra \emph{serra}, que corresponde ao candidato à presidência da oposição José Serra, é rapidamente visualizável. De forma análoga, no segundo caso, as palavras \emph{lula} e \emph{dilma}, que correspondem ao atual presidente e sua candidata, recebem mais destaque. Essas figuras também indicam que os artigos pró-governo dão mais enfoque a personalidades relacionadas à situação, como Lula e Dilma Rousseff, do que os anti-governo a personalidades da oposição, como José Serra ou Marina Silva. Essa última, inclusive, candidata à presidência pelo PV, não é mencionada nas palavras listadas na Tabela 7.2, o que indica que os veículos, no período analisado, concentraram seus antagonismos em personalidades políticas dos partidos PT, como Lula e Dilma Rousseff, e PSDB, como José Serra. Por fim, é importante frisar que não foi encontrado nenhum outro estudo de Mineração de Perspectiva que tenha feito uso do modelo de tópicos L-LDA para analisar o emprego de palavras por diferentes perspectivas.
+
+%inclusive viabilizar a criação de uma ferramenta que auxilie a análise de conteúdo político em nível nacional. Se conduzido em uma escala significativa, um estudo assim pode
+
+Futuramente, pretende-se estender este estudo de caso a textos políticos escritos por cidadãos comuns em seus \emph{blogs}, o que pode contribuir para a compreensão de como o brasileiro se posiciona politicamente na Internet. Além disso, o estudo também deve ser ampliado para identificar as perspectivas contidas nos comentários feitos aos artigos do corpus, a fim de se avaliar como eles refletem o posicionamento dos leitores em relação ao conteúdo dos mesmos. Este tipo de análise pode ajudar a compreender o impacto destes artigos em seus leitores e a formação de opinião na mídia brasileira \emph{online}.
+
+%como evidencia a Tabela % adicionalmente, também enfatizam % No segundo caso,  % diferentes perspectivas, bem como 
+ % descoberta automática de seus posicionamentos. %Esta discussão, entretanto, envolve conhecimentos mais apurados de Comunicação e Ciência Política, fugindo do escopo deste projeto. %sendo apenas provocada - e,  fugir do escopo deste projeto, 
+
+%Dado que eles são jornalistas de notoriedade nacional, cujos textos, em parte dos casos, também foram publicados \emph{online} em revistas e jornais de alta circulação (como Veja e O Globo), a alta taxa de acerto obtida neste estudo, que evidencia , 
+
+
+%Apesar do número de veículos analisados ser um tanto pequeno, esses resultados provocam a discussão sobre a formação de opinião na mídia brasileira \emph{online} - não apenas porque os jornalistas possuem muita notoriedade ou escrevem para revistas e jornais de alta circulação, como Veja e O Globo, mas também por eles serem muito lidos e comentados. Muito comumente, artigos dos autores selecionados receberam mais de cem comentários em suas colunas e \emph{blogs}.  % FALAR DE COMO TEM MTO COMMENT NOS BLOGS/COLUNAS MESMO!! Apesar dos veículos escolhidos para este estudo não representarem adequadamente %a mídia política online
+
+%discutir o l-lda, marina silva n aparecer
+
+%trabalhos futuros
+%Onde se discute o que tudo isso quer dizer sobre nossa mídia, se fala um pouco da questão da linguística de corpus, como os jornais n necessariamente assumem um ponto de vista, mas contratam colunistas e talz. Amarrar questões futuras.
+
+
 

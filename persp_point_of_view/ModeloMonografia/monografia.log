@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  17 SEP 2010 00:57
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  19 SEP 2010 12:25
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -611,13 +611,13 @@ Cap\'{\i }tulo 7.
 [29
 
 ] [30]
-Underfull \hbox (badness 10000) in paragraph at lines 70--70
+Underfull \hbox (badness 10000) in paragraph at lines 68--68
 [][]\T1/ptm/m/n/10 http://www.conversaafiada.com.br/brasil/2010/07/02/mino-expl
 ica-por-que-apoia-a-dilma-porque-ela-e-
  []
 
 [31] [32] [33]
-Overfull \hbox (11.76984pt too wide) in paragraph at lines 163--164
+Overfull \hbox (11.76984pt too wide) in paragraph at lines 161--162
 []\T1/ptm/m/n/10.95 Retirado de \T1/ptm/m/it/10.95 "FHC aceita o con-vite para 
 o du-elo que Lula não pode re-cu-sar." \T1/ptm/m/n/10.95 - 11/02/2010 
  []
@@ -699,7 +699,7 @@ usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texl
 ive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/
 times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (47 pages, 482566 bytes).
+Output written on monografia.pdf (47 pages, 484604 bytes).
 PDF statistics:
  217 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)

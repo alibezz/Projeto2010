@@ -1,5 +1,5 @@
 CORRIGIR RODAPÉÉÉÉÉÉS!!!!!!!!!!!!
-
+PARAR DE FAZER \SECTION{INTRODUÇÃO}!!!!!
 
 Conceitos básicos:
 
@@ -18,7 +18,10 @@ Estudo de caso:
 
 escrever intr. OK 
 
-escrever conclusão.
+escrever conclusão. - ok
+
+falar como marina nem aparece. (na conclusão) - ok
+
 fechar frases  OK
 
 citações - OK
@@ -27,7 +30,7 @@ dizer as seções dos blogs/colunas q foram aproveitadas. - OK
 
 botar os endereços dos sites em algum lugar. - OK
 
-arrumar os 'retirado de'. (na hora de montar anexo) 
+
 
 enfatizar que, qdo digo governo, quero dizer presidencia. OK
 
@@ -35,7 +38,6 @@ arrumar tabela inteira. - ok
 
 dizer q as palavras listadas excluem stop words, justificando. - ok
 
-falar como marina nem aparece. (na conclusão)
 
 consertar referencia à tabela 7.1. - ok
  
@@ -46,8 +48,11 @@ expplicar pq escolheu o naive bayes, classificador baseado em frequencia de pala
 
 arrumar números - OK
 
+Anexos:
+
 fazer anexo com contagem de palavras pro estudo de caso
-fazer anexo com trechos.
+fazer anexo com trechos do estudo de caso.
+arrumar os 'retirado de' no anexo do estudo de caso. (na hora de montar anexo) 
 
 introdução:
 

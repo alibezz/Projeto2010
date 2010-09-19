@@ -23,11 +23,10 @@
 \contentsline {section}{\numberline {5.2}Meta-informa\IeC {\c c}\IeC {\~o}es sobre os autores}{27}
 \contentsline {chapter}{\numberline {6}Metodologias que usam rela\IeC {\c c}\IeC {\~o}es intra-documento}{28}
 \contentsline {chapter}{\numberline {7}Estudo de caso: Perspectivas sobre o governo brasileiro}{29}
-\contentsline {section}{\numberline {7.1}Introdu\IeC {\c c}\IeC {\~a}o}{29}
-\contentsline {section}{\numberline {7.2}Construindo um corpus para estudo}{30}
-\contentsline {section}{\numberline {7.3}Identificando perspectivas com um classificador Na\IeC {\"\i }ve Bayes}{36}
-\contentsline {section}{\numberline {7.4}Ilustrando a linguagem por perspectiva}{37}
-\contentsline {section}{\numberline {7.5}Conclus\IeC {\~o}es}{41}
+\contentsline {section}{\numberline {7.1}Construindo um corpus para estudo}{29}
+\contentsline {section}{\numberline {7.2}Identificando perspectivas com um classificador Na\IeC {\"\i }ve Bayes}{36}
+\contentsline {section}{\numberline {7.3}Ilustrando a linguagem por perspectiva}{37}
+\contentsline {section}{\numberline {7.4}Conclus\IeC {\~o}es e estudos futuros}{41}
 \contentsline {chapter}{\numberline {8}Trabalhos relacionados}{42}
 \contentsline {chapter}{\numberline {9}Conclus\IeC {\~a}o}{43}
 \contentsline {section}{\numberline {9.1}Dificuldades encontradas}{43}
