@@ -13,11 +13,10 @@
 \contentsline {subsection}{\numberline {2.2.2}SVMs}{18}
 \contentsline {chapter}{\numberline {3}Principais trabalhos e \emph {datasets} estudados}{20}
 \contentsline {section}{\numberline {3.1}Bitterlemons}{20}
-\contentsline {chapter}{\numberline {4}M\IeC {\'e}todos baseados em frequ\IeC {\^e}ncias de palavras}{21}
-\contentsline {section}{\numberline {4.1}Introdu\IeC {\c c}\IeC {\~a}o}{21}
-\contentsline {section}{\numberline {4.2}Trabalhos Analisados}{22}
-\contentsline {section}{\numberline {4.3}Experimentos com L-LDA e Na\IeC {\"\i }ve Bayes}{22}
-\contentsline {section}{\numberline {4.4}Conclus\IeC {\~a}o}{25}
+\contentsline {chapter}{\numberline {4}M\IeC {\'e}todos baseados no emprego de palavras para identifica\IeC {\c c}\IeC {\~a}o de perspectivas}{21}
+\contentsline {section}{\numberline {4.1}Trabalhos Analisados}{22}
+\contentsline {section}{\numberline {4.2}Experimentos com L-LDA e Na\IeC {\"\i }ve Bayes}{22}
+\contentsline {section}{\numberline {4.3}Conclus\IeC {\~a}o}{25}
 \contentsline {chapter}{\numberline {5}Metodologias que usam informa\IeC {\c c}\IeC {\~a}o extra-documento}{27}
 \contentsline {section}{\numberline {5.1}Concord\IeC {\^a}ncia e discord\IeC {\^a}ncia entre documentos}{27}
 \contentsline {section}{\numberline {5.2}Meta-informa\IeC {\c c}\IeC {\~o}es sobre os autores}{27}

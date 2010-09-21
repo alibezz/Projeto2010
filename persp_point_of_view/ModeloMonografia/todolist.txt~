@@ -1,6 +1,6 @@
 CORRIGIR RODAPÉÉÉÉÉÉS!!!!!!!!!!!!
 PARAR DE FAZER \SECTION{INTRODUÇÃO}!!!!!
-
+====================
 Conceitos básicos:
 
 deixar mais claro no básicos essa coisa da frequencia das palavras na classificação, pro capitulo de frequencias fazer mais sentido.
@@ -11,10 +11,12 @@ Escrever melhor sobre a escolha de parametros.
 Escrever que 'mais fortemente associado' quer dizer 'contagem mais alta' ou 'que mais frequentemente se associaram'.
 Escrever, em classificadores, métodos de validação de desempenho.
 explicar que tira a média das amostras ou pega o valor final.
+================
 
 Estudo de caso: 
 **** Tem uma duvida de como citar os nomes dos jornalistas.
 **** Duvida sobre o nome da linguagem shell
+**** Falar das banner words (n precisa definir, é só falar das palavras diferentes), costurando com freqs
 
 escrever intr. OK 
 
@@ -48,9 +50,18 @@ expplicar pq escolheu o naive bayes, classificador baseado em frequencia de pala
 
 arrumar números - OK
 
+> botar 	mais um trecho anti governo na ilustração com L-LDA. 
+
+> corrigir frase que tem compreender e compreende e generico e tema geral.
+> mudar conc. e estudos fut. p/ conc.
+========================
+
+Anexos:
+
 fazer anexo com contagem de palavras pro estudo de caso
 fazer anexo com trechos do estudo de caso.
 arrumar os 'retirado de' no anexo do estudo de caso. (na hora de montar anexo) 
+==================
 
 introdução:
 
@@ -61,5 +72,20 @@ explicar que persp. e posic. e ponto de vista dão na msm.
 
 Freqs de palavras:
 
-mudar 'frequencias de palavras' para 'escolha de palavras' ou 'uso de palavras' algo assim.
+Título: Métodos baseados em contagem ou presença de palavras para identificação de perspectivas
+Ver se "métodos" é adequado; se não seria melhor "estudos".
+
+Pode falar de linguagem, keywords, enfoques diferentes. Depois, falar q enfoques/usos diferentes podem ser aproveitados por classificadores, como SVM e Naïve Bayes. De fato, classificadores que usam como features apenas os números associados às palavras no texto (0/1 se ela aparece ou n ou, mais sofisticadamente, a contagem de qtas vezes ela aparece) são bastante explorados na mineração de perspectiva. Falar das seções e da escolha do naive bayes.
+
+"Primeiro falando de classificação de
+opiniões, daí pra uso de linguagem e opiniões, o conceito de banner
+words, a idéia de generalizar isso buscando qualquer tipo de diferença
+no uso de palavras e, por fim, chegar onde vc chegou na sua primeira
+frase. Mas a partir dali, tendo o resto em mente, está bom sim,
+estruturalmente."
+
+Retirar a palavra "Introdução" - OK
+Arrumar o título
+Nomear as seções com \ref na introdução
+Fazer imagem para a introdução
 

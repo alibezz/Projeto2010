@@ -1,11 +1,58 @@
 \chapter{Principais trabalhos e \emph{datasets} estudados}
 
-\chapter{Métodos baseados em frequências de palavras}
+\section{Bitterlemons}
+\label{bitter}
+
+\chapter{Métodos baseados no emprego de palavras para identificação de perspectivas}
 \label{chap3}
 
-\section{Introdução}
+A classificação de um documento de acordo com sua perspectiva é o problema mais discutido nos artigos revisados para este projeto. Partindo da hipótese de que documentos escritos sob perspectivas diferentes costumam enfatizar termos distintos \cite{teubert}, classificadores como Naïve Bayes e SVMs podem ser empregados para, considerando apenas as diferentes contagens de palavras em documentos, identificar suas perspectivas. De fato, grande parte dos artigos estudados para esta monografia procedem dessa forma, ainda que combinem os resultados dos classificadores a outros métodos ou utilizem, associadamente, outras características dos documentos. Pela relevância que a contagem de palavras tem na Mineração de Perspectiva, portanto, esse capítulo é totalmente dedicado à revisão e discussão de seu uso na identificação automática da perspectiva de documentos.
+%ou mesmo utilizar palavras com conotações diferentes para um mesmo propósito,
 
-Métodos baseados em frequências de palavras se apóiam na ideia de que é possível identificar a perspectiva de um documento analisando o seu vocabulário. Eles partem da hipótese de que documentos escritos sob perspectivas diferentes costumam dar destaque a termos distintos, mencionando-os com maior ou menor frequência a fim de reforçar ideias particulares \cite{teubert2001}. O emprego de palavras diferentes para um mesmo propósito, outra hipótese linguística assumida por métodos desse tipo, evidencia pontos de vista diferentes sobre um mesmo assunto. Um exemplo popular no Brasil é o uso dos termos \emph{Revolução} ou \emph{Golpe} para o mesmo evento histórico: o começo do Regime Militar Brasileiro. Enquanto o primeiro termo reflete a perspectiva pró-Ditadura, o segundo reflete a anti-Ditadura. Palavras como \emph{Revolução} e \emph{Golpe}, exploradas por diferentes perspectivas, são chamadas de \emph{banner words}, e têm o objetivo de facilitar a identificação entre adversários e aliados ideológicos \cite{teubert2001}.
+Embora seja sempre possível associar contagens de palavras a aspectos temáticos, sintáticos e semânticos dos documentos, conduzindo a representações linguísticas mais complexas de cada um deles, este não é o enfoque dado pelos artigos revisados neste capítulo. Como será discutido nas próximas seções, a simples consideração das palavras utilizadas nos documentos costuma resultar em classificações de boa qualidade. Essa qualidade, entretanto, varia de acordo com o quanto essas contagens mudam de uma perspectiva para outra. Quanto mais elas mudam, mais fácil se torna, para um classificador, aprender a perspectiva dos documentos.  %a diferença nas contagens de palavras  
+
+Variações no uso de contagem de palavras foram encontradas em parte dos trabalhos analisados: alguns deles utilizam valores \emph{booleanos} para indicar a presença (1) ou ausência (0) de palavras nos documentos e outros utilizam a contagem de \textbf{sequências de palavras}, em vez de considerarem cada uma delas separadamente\footnote{Essas outras características aparecem ora combinadas entre si, ora associadas à contagem de palavras padrão, ora separadamente.}. \textbf{BOTAR REFERENCIAS!!!} Esses trabalhos também são discutidos neste capítulo, pois a hipótese linguística assumida por eles é a mesma: textos escritos sob perspectivas diferentes empregam palavras de forma distinta. \textbf{falar da figura}
+
+%Em outras palavras, se as variações no uso de palavras são muito sutis, a tarefa de classificar documentos utilizando e % resultaificação de documentos de acordo com suas perspectivas. %pesar de simplificar bastante a estrutura dos documentos,  %Por se basearem apenas nas palavras dos documentos, portanto, os resultados desses artigos tendem a ser tão melhores quanto maior é a diferença no vocabulário de 
+
+Este capítulo estrutura-se da seguinte forma: na seção \ref{freqs:revisao}, revisa-se artigos que utilizam contagens de palavras, ou variações, como elementos fundamentais de suas metodologias; na seção \ref{freqs:experim}, experimentos com um classificador Naïve Bayes e um modelo de tópicos L-LDA são conduzidos, a fim de se ilustrar as relações existentes entre o desempenho da classificação e o emprego de palavras nos documentos; por fim, a seção \ref{freqs:conc} apresenta considerações sobre as análises apresentadas nas seções anteriores. 
+
+
+
+
+
+% a análise das relações existentes entre classificação baseada em contagens de palavras e a linguagem de diferentes perspectivas;
+
+%Essa hipótese conduz à desconsideração de aspectos temáticos, sintáticos e semânticos dos documentos no momento de representá-los para a classificação. Por este motivo, como será discutido no decorrer deste capítulo,  
+
+
+
+%Essa hipótese também implica na desconsideração do domínio temático dos documentos a serem classificados. Como será discutido no decorrer deste capítulo, a aplicação dessa hipótese conduz a resultados tão melhores quanto maior é a diferença no emprego de palavras por perspectiva. Isto significa que, em casos mais sutis, o descarte de aspectos temáticos, sintáticos e semânticos compromete significativamente a identificação da perspectiva de um documento. Ainda assim, muitos estudos relatam bons resultados considerando apenas essa hipótese - ou seja, baseando suas análises, basicamente, em contagens de palavras.
+
+
+% o modo como palavras são empregadas  em um texto, desconsiderando-se quaisquer aspectos sintáticos ou semânticos, já evidencia pontos de vista distintos de forma suficiente.  %Isto reforça %Ainda assim, muitos estudos relatam bons resultados baseando-se apenas  
+
+%uso de métodos baseados em contagseu uso.
+
+%Neste capítulo, artigos que utilizam métodos baseados em frequências de palavras, e obtêm bons resultados, são revisados na seção \textbf{Trabalhos Analisados}. Experimentos conduzidos com um modelo de tópicos do tipo L-LDA\footnote{Este modelo de tópicos está descrito na seção \textbf{X} desta monografia.} e um classificador Naïve Bayes padrão\footnote{Este classificador está descrito na seção \textbf{X.X} desta monografia.}, apresentados na seção \textbf{Experimentos com L-LDA e Naïve Bayes}, ilustram a relação entre esse tipo de método e os vocabulários de diferentes perspectivas. Por fim, a seção \textbf{Conclusões} 
+
+
+%Outro aspecto descartado por classificadores baseados 
+
+
+% Os estudos apresentados neste capítulo, portanto, desconsideram tais aspectos
+% FALAR DAS VARIAÇÕES: PRESENÇA, BIGRAMAS, TUDO JUNTO E MISTURADO. Variações encontradas em alguns trabalhos consistem em se utilizar os classificadores fixando-se, em vez de contagens de palavras, outras características dos
+
+
+%Para os métodos revisados neste capítulo, a única informação extraída dos documentos é a frequência de suas palavras. Isto significa que a ordem das palavras em um documento, e as relações sintáticas que elas estabelecem entre si, não são consideradas. Os métodos também ignoram informações referentes ao domínio temático do \emph{dataset}. Apesar de simplificar bastante a estrutura linguística dos documentos, essa informação é a mais explorada pelos trabalhos estudados para esta monografia. Este capítulo revisa casos em que ela foi suficiente para, quando interpretada por um classificador, identificar as perspectivas de um corpus com boa taxa de acerto. 
+
+
+
+
+% valores \emph{booleanos} que expressem suas presenças (1) ou ausências (0) no documento. % Trata-se, portanto, de classificar documentos a partir de suas representações como vetores, onde cada entrada corresponde a um número: a quantidade de vezes que certa palavra apareceu no texto (contagem) ou um \emph{booleano} que indique sua presença/ausência no mesmo. % baseada em documentos representados como vetores% explicitamente, %podem ser empregados para, aproveitando-se 
+
+
+% Métodos baseados em frequências de palavras se apóiam na ideia de que é possível identificar a perspectiva de um documento analisando o seu vocabulário. Eles partem da hipótese de que documentos escritos sob perspectivas diferentes costumam dar destaque a termos distintos, mencionando-os com maior ou menor frequência a fim de reforçar ideias particulares \cite{teubert2001}. O emprego de palavras diferentes para um mesmo propósito, outra hipótese linguística assumida por métodos desse tipo, evidencia pontos de vista diferentes sobre um mesmo assunto. Um exemplo popular no Brasil é o uso dos termos \emph{Revolução} ou \emph{Golpe} para o mesmo evento histórico: o começo do Regime Militar Brasileiro. Enquanto o primeiro termo reflete a perspectiva pró-Ditadura, o segundo reflete a anti-Ditadura. Palavras como \emph{Revolução} e \emph{Golpe}, exploradas por diferentes perspectivas, são chamadas de \emph{banner words}, e têm o objetivo de facilitar a identificação entre adversários e aliados ideológicos \cite{teubert2001}.
 
 
 %que indica que indivíduos defendendo perspectivas diferentes consolidam seus vocabulários através do uso de palavras específicas (\emph{stigma words} e \emph{banner words}), facilitando a identificação de adversários e aliados. 
@@ -17,12 +64,9 @@ Métodos baseados em frequências de palavras se apóiam na ideia de que é poss
 
 %diferencia documentos que tratam de um mesmo assunto é exemplo de como o vocabulário de um documento evidencia sua perspectiva sobre um determinado assunto.
 
-Para os métodos revisados neste capítulo, a única informação extraída dos documentos é a frequência de suas palavras. Isto significa que a ordem das palavras em um documento, e as relações sintáticas que elas estabelecem entre si, não são consideradas. Os métodos também ignoram informações referentes ao domínio temático do \emph{dataset}. Apesar de simplificar bastante a estrutura linguística dos documentos, essa informação é a mais explorada pelos trabalhos estudados para esta monografia. Este capítulo revisa casos em que ela foi suficiente para, quando interpretada por um classificador, identificar as perspectivas de um corpus com boa taxa de acerto. 
-
-Neste capítulo, artigos que utilizam métodos baseados em frequências de palavras, e obtêm bons resultados, são revisados na seção \textbf{Trabalhos Analisados}. Experimentos conduzidos com um modelo de tópicos do tipo L-LDA\footnote{Este modelo de tópicos está descrito na seção \textbf{X} desta monografia.} e um classificador Naïve Bayes padrão\footnote{Este classificador está descrito na seção \textbf{X.X} desta monografia.}, apresentados na seção \textbf{Experimentos com L-LDA e Naïve Bayes}, ilustram a relação entre esse tipo de método e os vocabulários de diferentes perspectivas. Por fim, a seção \textbf{Conclusões} encerra a discussão sobre esse tipo de método, apresentando considerações sobre seu uso.
 
 \section{Trabalhos Analisados}
-
+\label{freqs:revisao}
 
 %descritos na seção \textbf{Experimentos com L-LDA e Naïve Bayes}, ilustram esta relação, indicando também o quanto é difícil quantificá-la.
 
@@ -56,6 +100,7 @@ Neste capítulo, artigos que utilizam métodos baseados em frequências de palav
 
 
 \section{Experimentos com L-LDA e Naïve Bayes}
+\label{freqs:experim}
 
 \begin{table}[h]
 \centering
@@ -229,7 +274,7 @@ As palavras extraídas a partir da aplicação de um L-LDA provêem informaçõe
 %Todos os artigos que propuseram metodologias para melhorar a classificação em corpora com vocabulários muito uniformes consideraram algum esquema de citação. Se o corpus for composto de documentos pouco citados na Web, o esquema do artigo de Miles Efron pode não trazer nenhuma melhoria significativa ao problema. Se os autores dos documentos não mencionarem significativamente um ao outro, como aconteceu nos estudos com o \emph{dataset} \textbf{Politics}, a metodologia explorada por Tony Mullen e Robert Malouf não é recomendada. Essa área de pesquisa, portanto, ainda tem alguns problemas em aberto - e, considerando que estes três artigos foram escritos há mais de quatro anos, ela não parece atrair muita atenção. A justificativa para isso, provavelmente, tem a ver com o fato de que uniformidade no vocabulário não é um problema tão comum em Mineração de Perspectiva. No \textbf{capítulo X}, técnicas envolvendo comparação entre documentos, que podem trazer benefícios à classificação de \emph{datasets} difíceis - e neste caso também se enquadram aqueles em que o vocabulário é mais uniforme -, serão discutidas.
 
 \section{Conclusão}
-
+\label{freqs:conc}
 Este capítulo apresentou duas hipóteses linguísticas assumidas por métodos baseados em frequências de palavras: 1) palavras específicas, denominadas \emph{banner words}, costumam ser utilizadas para defender perspectivas diferentes e 2) a quantidade de vezes que uma palavra é mencionada em um documento está diretamente relacionada com seu enfoque \cite{teubert2001}. Como consequência, esses métodos funcionam melhor em \emph{datasets} nos quais o emprego de palavras varia significativamente por perspectiva. %tão melhor quanto mais diferentes forem os empregos de palavras por perspectiva.
 
 %ideia de que pessoas costumam utilizar palavras específicas, denominadas \emph{stigma words} ou \emph{banner words}, para defender perspectivas diferentes. O uso de classificadores baseados na presença ou frequência das palavras, portanto, costuma funcionar bem na identificação dessas perspectivas. Entretanto, em alguns casos, as construções do discurso refletem diferentes perspectivas melhor do que o uso de palavras específicas. Nestes casos, as taxas de acerto desses classificadores são menores do que o desejado. 

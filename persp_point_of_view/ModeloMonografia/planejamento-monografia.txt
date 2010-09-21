@@ -8,7 +8,7 @@ Pendências
   => Explicar essa coisa da representação com frequencia tanto em svms qto em naive bayes
   => Bibliografias pra pq Naive Bayes funciona bem
 
-Semanas 1 e 2 de setembro: estudo de caso
+Semanas 1 e 2 de setembro: estudo de caso - OK!
 Semanas 3 e 4: fechamento do capítulo de frequencias, datasets, conceitos básicos e anexos
 Semanas 1 e 2 de outubro: redação de outros capítulos (intra e extra documentos, talvez colapsando pruma coisa só, e trabalhos relacionados)
 Semana 3 de outubro: fechamento de tudo (introdução e conclusão; revisões)
