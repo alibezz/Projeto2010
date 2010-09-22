@@ -14,21 +14,23 @@
 \contentsline {chapter}{\numberline {3}Principais trabalhos e \emph {datasets} estudados}{20}
 \contentsline {section}{\numberline {3.1}Bitterlemons}{20}
 \contentsline {chapter}{\numberline {4}M\IeC {\'e}todos baseados no emprego de palavras para identifica\IeC {\c c}\IeC {\~a}o de perspectivas}{21}
-\contentsline {section}{\numberline {4.1}Trabalhos Analisados}{22}
-\contentsline {section}{\numberline {4.2}Experimentos com L-LDA e Na\IeC {\"\i }ve Bayes}{22}
-\contentsline {section}{\numberline {4.3}Conclus\IeC {\~a}o}{25}
-\contentsline {chapter}{\numberline {5}Metodologias que usam informa\IeC {\c c}\IeC {\~a}o extra-documento}{27}
-\contentsline {section}{\numberline {5.1}Concord\IeC {\^a}ncia e discord\IeC {\^a}ncia entre documentos}{27}
-\contentsline {section}{\numberline {5.2}Meta-informa\IeC {\c c}\IeC {\~o}es sobre os autores}{27}
-\contentsline {chapter}{\numberline {6}Metodologias que usam rela\IeC {\c c}\IeC {\~o}es intra-documento}{28}
-\contentsline {chapter}{\numberline {7}Estudo de caso: Perspectivas sobre o governo brasileiro}{29}
-\contentsline {section}{\numberline {7.1}Construindo um corpus para estudo}{29}
-\contentsline {section}{\numberline {7.2}Identificando perspectivas com um classificador Na\IeC {\"\i }ve Bayes}{36}
-\contentsline {section}{\numberline {7.3}Ilustrando a linguagem por perspectiva}{37}
-\contentsline {section}{\numberline {7.4}Conclus\IeC {\~o}es e estudos futuros}{41}
-\contentsline {chapter}{\numberline {8}Trabalhos relacionados}{42}
-\contentsline {chapter}{\numberline {9}Conclus\IeC {\~a}o}{43}
-\contentsline {section}{\numberline {9.1}Dificuldades encontradas}{43}
-\contentsline {section}{\numberline {9.2}Trabalhos futuros}{43}
-\contentsline {chapter}{Ap\^endice{} A{} -$\mskip -\thinmuskip $-{} Resultados experimentais}{44}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{45}
+\contentsline {section}{\numberline {4.1}Trabalhos Revisados}{22}
+\contentsline {subsection}{\numberline {4.1.1}\emph {Which side are you on? Identifying perspectives at the document and sentence levels}}{22}
+\contentsline {subsection}{\numberline {4.1.2}\emph {A preliminary investigation into sentiment analysis of informal political discourse}}{24}
+\contentsline {section}{\numberline {4.2}Experimentos com L-LDA e Na\IeC {\"\i }ve Bayes}{25}
+\contentsline {section}{\numberline {4.3}Conclus\IeC {\~o}es}{28}
+\contentsline {chapter}{\numberline {5}Metodologias que usam informa\IeC {\c c}\IeC {\~a}o extra-documento}{30}
+\contentsline {section}{\numberline {5.1}Concord\IeC {\^a}ncia e discord\IeC {\^a}ncia entre documentos}{30}
+\contentsline {section}{\numberline {5.2}Meta-informa\IeC {\c c}\IeC {\~o}es sobre os autores}{30}
+\contentsline {chapter}{\numberline {6}Metodologias que usam rela\IeC {\c c}\IeC {\~o}es intra-documento}{31}
+\contentsline {chapter}{\numberline {7}Estudo de caso: Perspectivas sobre o governo brasileiro}{32}
+\contentsline {section}{\numberline {7.1}Construindo um corpus para estudo}{32}
+\contentsline {section}{\numberline {7.2}Identificando perspectivas com um classificador Na\IeC {\"\i }ve Bayes}{39}
+\contentsline {section}{\numberline {7.3}Ilustrando a linguagem por perspectiva}{40}
+\contentsline {section}{\numberline {7.4}Conclus\IeC {\~o}es e estudos futuros}{44}
+\contentsline {chapter}{\numberline {8}Trabalhos relacionados}{45}
+\contentsline {chapter}{\numberline {9}Conclus\IeC {\~a}o}{46}
+\contentsline {section}{\numberline {9.1}Dificuldades encontradas}{46}
+\contentsline {section}{\numberline {9.2}Trabalhos futuros}{46}
+\contentsline {chapter}{Ap\^endice{} A{} -$\mskip -\thinmuskip $-{} Resultados experimentais}{47}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{48}

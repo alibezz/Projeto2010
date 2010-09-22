@@ -3,19 +3,24 @@
 \section{Bitterlemons}
 \label{bitter}
 
+Falar de tudo e dos pre-processamentos
+
 \chapter{Métodos baseados no emprego de palavras para identificação de perspectivas}
 \label{chap3}
 
-A classificação de um documento de acordo com sua perspectiva é o problema mais discutido nos artigos revisados para este projeto. Partindo da hipótese de que documentos escritos sob perspectivas diferentes costumam enfatizar termos distintos \cite{teubert}, classificadores como Naïve Bayes e SVMs podem ser empregados para, considerando apenas as diferentes contagens de palavras em documentos, identificar suas perspectivas. De fato, grande parte dos artigos estudados para esta monografia procedem dessa forma, ainda que combinem os resultados dos classificadores a outros métodos ou utilizem, associadamente, outras características dos documentos. Pela relevância que a contagem de palavras tem na Mineração de Perspectiva, portanto, esse capítulo é totalmente dedicado à revisão e discussão de seu uso na identificação automática da perspectiva de documentos.
+A classificação de um documento de acordo com sua perspectiva é o problema mais discutido nos artigos revisados para este projeto. Partindo da hipótese de que documentos escritos sob perspectivas diferentes costumam enfatizar termos distintos \cite{teubert}, classificadores podem ser empregados para, considerando apenas as diferentes ocorrências de palavras em documentos, identificar suas perspectivas. O número de ocorrências de uma palavra em um documento é comumente denominado de \textbf{contagem}; sendo assim, métodos baseados em \textbf{contagens de palavras} usam, como informação fundamental, o quanto elas ocorrem em documentos. De fato, grande parte dos artigos estudados para esta monografia classificam textos baseando-se em contagens de palavras, ainda que combinem, eventualmente, os resultados dos classificadores a outros métodos ou utilizem também outras características dos documentos. Pela relevância que a contagem de palavras tem na Mineração de Perspectiva, portanto, esse capítulo é totalmente dedicado à revisão e discussão de seu uso na identificação automática da perspectiva de documentos.
 %ou mesmo utilizar palavras com conotações diferentes para um mesmo propósito,
 
-Embora seja sempre possível associar contagens de palavras a aspectos temáticos, sintáticos e semânticos dos documentos, conduzindo a representações linguísticas mais complexas de cada um deles, este não é o enfoque dado pelos artigos revisados neste capítulo. Como será discutido nas próximas seções, a simples consideração das palavras utilizadas nos documentos costuma resultar em classificações de boa qualidade. Essa qualidade, entretanto, varia de acordo com o quanto essas contagens mudam de uma perspectiva para outra. Quanto mais elas mudam, mais fácil se torna, para um classificador, aprender a perspectiva dos documentos.  %a diferença nas contagens de palavras  
+Embora seja sempre possível associar contagens de palavras a aspectos temáticos, sintáticos e semânticos dos documentos, conduzindo a representações linguísticas mais complexas de cada um deles, este não é o enfoque dado pelos artigos revisados neste capítulo. Como será discutido nas próximas seções, a simples consideração das ocorrências de palavras em documentos costuma resultar em classificações de boa qualidade. Essa qualidade, entretanto, varia de acordo com o quanto essas ocorrências mudam de uma perspectiva para outra. Conforme observado na leitura dos artigos e em experimentos, quanto mais elas mudam, mais fácil se torna, para um classificador, aprender a perspectiva dos documentos.  %a diferença nas contagens de palavras  
 
-Variações no uso de contagem de palavras foram encontradas em parte dos trabalhos analisados: alguns deles utilizam valores \emph{booleanos} para indicar a presença (1) ou ausência (0) de palavras nos documentos e outros utilizam a contagem de \textbf{sequências de palavras}, em vez de considerarem cada uma delas separadamente\footnote{Essas outras características aparecem ora combinadas entre si, ora associadas à contagem de palavras padrão, ora separadamente.}. \textbf{BOTAR REFERENCIAS!!!} Esses trabalhos também são discutidos neste capítulo, pois a hipótese linguística assumida por eles é a mesma: textos escritos sob perspectivas diferentes empregam palavras de forma distinta. \textbf{falar da figura}
+Variações no uso de contagem de palavras foram encontradas em parte dos trabalhos estudados para este projeto: alguns deles utilizam valores \emph{booleanos} para indicar a presença (1) ou ausência (0) de palavras nos documentos, como o estudo de Klebanov, Beigman e Diermeier \cite{klebanov}, e outros empregam  as contagens normalizadas em relação ao corpus, como o trabalho de Hirst, Riabinin e Graham \cite{hirst-et-al}\footnote{Essas outras características aparecem ora combinadas entre si, ora associadas à contagem de palavras padrão, ora separadamente.}. De todo modo, a hipótese linguística assumida por eles, em suas metodologias, é a mesma: textos escritos sob perspectivas diferentes empregam palavras de forma distinta. \textbf{falar da figura}
 
+% Decidiu-se discutir esses trabalhos também neste capítulo, pois
+
+%, e há ainda aqueles que empregam a contagem de \textbf{sequências de palavras}, em vez de considerarem cada uma delas separadamente
 %Em outras palavras, se as variações no uso de palavras são muito sutis, a tarefa de classificar documentos utilizando e % resultaificação de documentos de acordo com suas perspectivas. %pesar de simplificar bastante a estrutura dos documentos,  %Por se basearem apenas nas palavras dos documentos, portanto, os resultados desses artigos tendem a ser tão melhores quanto maior é a diferença no vocabulário de 
 
-Este capítulo estrutura-se da seguinte forma: na seção \ref{freqs:revisao}, revisa-se artigos que utilizam contagens de palavras, ou variações, como elementos fundamentais de suas metodologias; na seção \ref{freqs:experim}, experimentos com um classificador Naïve Bayes e um modelo de tópicos L-LDA são conduzidos, a fim de se ilustrar as relações existentes entre o desempenho da classificação e o emprego de palavras nos documentos; por fim, a seção \ref{freqs:conc} apresenta considerações sobre as análises apresentadas nas seções anteriores. 
+Este capítulo estrutura-se da seguinte forma: na seção \ref{freqs:revisao}, revisa-se artigos que utilizam contagens de palavras, ou variações, como elementos fundamentais de suas metodologias; na seção \ref{freqs:experim}, experimentos com um classificador Naïve Bayes e um modelo de tópicos L-LDA são conduzidos, a fim de se ilustrar as relações existentes entre o desempenho da classificação por perspectiva e o emprego de palavras nos documentos; por fim, a seção \ref{freqs:conc} apresenta considerações sobre as análises apresentadas nas seções \ref{freqs:revisao} e \ref{freqs:experim}. 
 
 
 
@@ -65,8 +70,173 @@ Este capítulo estrutura-se da seguinte forma: na seção \ref{freqs:revisao}, r
 %diferencia documentos que tratam de um mesmo assunto é exemplo de como o vocabulário de um documento evidencia sua perspectiva sobre um determinado assunto.
 
 
-\section{Trabalhos Analisados}
+\section{Trabalhos Revisados}
 \label{freqs:revisao}
+
+%Começar falando que os estudos têm em comum o uso de mét., em partic. NB e SVM, para a classificação de perspectivas de documentos. A forma como eles interp. e fazem uso desses resultados é o que mais profund. os diferencia. Essa seção discute como os artigos escolheram os métodos NB/SVM (1), mostra outros métodos, igualmente interessantes apesar de menos utilizados (2) e apresenta as discussões que eles trazem sobre as dificuldades e utilidades envolvidas na tarefa de classificação (3).
+
+%Todos os trabalhos revisados para este projeto, que utilizam contagem de palavras e/ou alguma variação em suas metodologias, possuem pelo menos uma outra característica em comum: a classificação de documentos de acordo com suas perspectivas. O que varia de um para outro, além dos documentos \emph{per se}, são os classificadores e as discussões levantadas a partir dos resultados obtidos. Os classificadores mais utilizados nesses trabalhos foram Naïve Bayes e SVMs, mas dois artigos sugerem o uso de outros métodos: o trabalho de Lin et al., envolvendo documentos sobre o conflito Israel-Palestina, propõe o modelo LSPM a partir de uma modificação no Naïve Bayes \cite{lin-et-al2006}; e Laver, Benoit e College, por sua vez, apresentam o método Wordscores em um artigo no qual analisam posicionamentos de partidos políticos britânicos e irlandenses \cite{wordscores}. % As discussões levantadas nos estudos, por fim, tratam das dificuldades, aplicações e limitações envolvidas na classificação. %, suas aplicações e limitações. %Diante disso, esta seção revisa trabalhos 
+
+Por questões de escopo, decidiu-se que, dentre os dez trabalhos revisados que tem diretamente a ver com este capítulo, apenas os dois mais citados  serão apresentados nesta seção\footnote{Os números de citações foram verificados no dia 22 de setembro de 2010, com auxílio do Google Scholar (http://scholar.google.com).}: o trabalho de Lin et al. \cite{lin-et-al2006}, envolvendo artigos sobre o conflito Israel-Palestina, e o primeiro artigo de Mullen e Malouf \cite{aaai-politics}, que analisa um fórum de discussão política dos Estados Unidos. Uma síntese dos outros oito encontra-se no \textbf{ANEXO BLI}, e informações referentes a eles são eventualmente mencionadas ao longo desta monografia.
+
+%de Laver, Benoit e College \cite{wordscores},  no qual os autores analisam posicionamentos de partidos políticos britânicos e irlandenses;
+\subsection{\emph{Which side are you on? Identifying perspectives at the document and sentence levels}}
+
+O trabalho de Lin et al. analisa um conjunto de artigos sobre o conflito Israel-Palestina, escritos por especialistas no assunto e disponibilizados no \emph{site} Bitterlemons\footnote{http://www.bitterlemons.org/}. Os artigos, separados entre pró-Israel e pró-Palestina, são escritos por mais de 200 convidados e dois editores. Os autores realizam experimentos com classificadores Naïve Bayes e SVM para classificar os artigos de acordo com suas perspectivas, obtendo taxas de acerto mais altas com o Naïve Bayes (84.85\% a 93.46\% \emph{versus} 81.48\% a 88.22\%). O ponto mais importante deste artigo, entretanto, é a proposição do modelo generativo \emph{Latent Sentence Perspective Model} (\textbf{LSPM}), empregado também para classificação. % de modo semelhante ao Naïve Bayes.
+
+%Este é um dos artigos mais citados pelos trabalhos revisados para esta monografia, e seu corpus já serviu como objeto de análise para outros estudos, incluindo este projeto. 
+%Os autores realizam experimentos com um Naïve Bayes e um SVM, para classificação dos artigos de acordo com suas perspectivas. Nos dois casos, os artigos são representados como vetores - no primeiro, cada entrada corresponde à contagem de uma palavra; no segundo, essas contagens são normalizadas em relação ao resto do documento. O desempenho obtido com o Naïve Bayes foi melhor, e os autores sugerem que isso tem a ver com o tamanho do corpus: em tese, o Naïve Bayes precisa de menos documentos para treinamento, quando comparado com os SVMs, para atingir boa performance \cite{ng-jordan}. 
+
+Diferentemente do Naïve Bayes, o LSPM associa uma variável latente a cada sentença de um documento, cujos valores indicam se ela carrega ou não a perspectiva do documento. O modelo, portanto, parte do pressuposto de que, até mesmo nos textos mais opinativos, é possível encontrar frases neutras que pouco colaboram para a identificação de sua perspectiva. No processo generativo, amostra-se uma classe para o documento; em seguida, para cada uma de suas sentenças, amostra-se um valor que indica se ela carrega (1) ou não (0) a perspectiva correspondente à classe; por fim, as palavras da sentença são geradas, baseando-se nessas duas informações (classe e presença de perspectiva).
+
+O ponto chave do funcionamento desse modelo tem a ver com o fato de que todas as sentenças que não carregam uma perspectiva são tratadas da mesma forma: admite-se que elas poderiam ocorrer em qualquer lado do \emph{dataset}. Isso faz com que as palavras geradas para essas sentenças sejam, na maioria das vezes, comuns em todo o corpus. As sentenças que carregam a perspectiva de seus documentos, por sua vez, tendem a gerar termos mais específicos, evidenciando as particularidades do vocabulário de cada ponto de vista. O modelo é adaptado para classificação de forma semelhante ao Naïve Bayes. A diferença principal é que, em vez de considerar o documento como um todo, apenas as palavras geradas por sentenças com perspectiva contribuem para a decisão de qual é a classe do documento. %considerando apenas as sentenças dos documentos de forma análoga ao Naïve Bayes.
+
+%, independentemente da classe de seus documentos
+
+No trabalho de Lin et al., a taxa de acerto obtida na classificação dos artigos com o LSPM foi ligeiramente superior àquela obtida com o Naïve Bayes -  86.99\% a 94.93\% \emph{versus} 84.85\% a 93.46\%. De todo modo, não foi encontrado nenhum outro artigo que faça uso do LSPM - provavelmente pelas dificuldades envolvidas em sua implementação, quando comparado ao Naïve Bayes. O tutorial de Resnik e Hardisty sobre Naïve Bayes e LSPM sugere algumas equações para a implementação dos modelos \cite{resnik}, mas o próprio Resnik afirmou, em \emph{e-mail} endereçado à autora desta monografia, nunca ter conseguido replicar os resultados apresentados por Lin et al.. Segundo ele, o modelo parece ser extremamente sensível ao valor dos hiperparâmetros escolhidos para as distribuições de probabilidade envolvidas \cite{mail-resnik}. Essas questões fazem do LSPM uma opção de classificador relativamente complexa. % como classificador.
+% de modo que os termos mais específicos de cada perspectiva sejam gerados mais frequentemente em sentenças que a carregam
+
+\subsection{\emph{A preliminary investigation into sentiment analysis of informal political discourse}}
+
+Esse trabalho de Mullen e Malouf analisa um conjunto de \emph{posts} do fórum Politics.com\footnote{http://politics.com}, escrito por cidadãos comuns dos Estados Unidos. Apesar de admitirem a diversidade de posicionamentos contidos no fórum, os autores dividem os documentos em apenas duas perspectivas, por uma questão de simplicidade: liberal e conservadora. Em seguida, eles condensam todos os \emph{posts} de um mesmo usuário em um só texto, resultando em um corpus com poucos documentos (96 liberais e 89 conservadores). Ao aplicar um Naïve Bayes para classificar os documentos de acordo com a orientação política de seus autores, a taxa de acerto obtida foi de 60.37\%. O tamanho do \emph{dataset} é apontado por Mullen e Malouf como um dos principais motivos para a obtenção desse resultado. De acordo com eles, a baixa taxa de acerto sugere que o Naïve Bayes é bastante sensível a uma pequena quantidade de artigos na etapa de treinamento. 
+
+% Apesar disso, este trabalho contribui com algumas discussões interessantes sobre a linguagem dos \emph{posts} e as dificuldades envolvidas na tarefa de classificação.
+
+Os autores discutem também outras hipóteses para o mau desempenho obtido na classificação desse corpus. Por ser composto de \emph{posts} de um fórum, por exemplo, a linguagem do corpus é bastante informal. A probabilidade de se encontrar uma mesma palavra escrita de várias formas é relativamente alta, o que pode criar um certo ruído na classificação dos documentos. Essa hipótese, entretanto, não foi comprovada pelos autores: em alguns experimentos com as palavras corrigidas, a taxa de acerto obtida com o Naïve Bayes foi ligeiramente mais alta (64.48\%); em outros, não (60.37\%). O artigo também sugere que a presença de documentos menores, correspondentes a usuários do fórum que raramente postam, pode contribuir negativamente para o desempenho do Naïve Bayes. A ideia é que, como esses usuários participam muito pouco do fórum, as palavras em seus \emph{posts} não são suficientes para se consolidar uma perspectiva, tornando-os mais difíceis de se classificar. Restringindo a classificação a usuários que postaram no fórum pelo menos 20 vezes, o número de documentos no corpus tornou-se ainda menor, mas a taxa de acerto obtida com o Naïve Bayes foi ligeiramente superior (61.38\%). 
+
+Diante desses resultados, os autores sugerem que os usuários não estão se expressando de forma suficientemente diferente no nível das palavras, comprometendo o desempenho do Naïve Bayes. Uma última observação do artigo indica o que pode estar acontecendo: usuários liberais citam falas de usuários conservadores em 62.2\% de seus \emph{posts}; analogamente, conservadores citam liberais em 77.5\%  de seus \emph{posts}. Embora o artigo não indique a proporção média entre essas citações e o restante dos documentos, é possível que elas estejam interferindo negativamente no aprendizado das perspectivas. A presença das perspectivas liberal e conservadora em um mesmo documento, com uma correspondendo às intenções do usuário e outra sendo citada, pode homogeneizar o uso de palavras no corpus, comprometendo a viabilidade da classificação. Uma discussão interessante sobre esse tipo de problema é apresentada por Polanyi e Zaenen em seu artigo sobre aspectos linguísticos que interferem na análise de sentimento \cite{valence-shifters}.   
+
+
+
+
+%do tempo; os conservadores, de forma análoga, citam os liberais Left users quote right users 62.2% do tempo e right quotes left 77.5% do tempo
+
+%não há evidências suficientes de uma perspectiva em suas palavras
+
+
+
+%são mais difíceis de se classificar. 
+
+% - o que pode criar um ruído na classificação dos documentos. 
+
+
+%, pois uma mesma palavra, dividida em várias \emph{versões} 
+
+
+
+% do que em \emph{datasets}, compostos de artigos ou transcrições de debates. Esse fenômeno é tratado no artigo através da correção/padronização dessas palavras, evitando-se um ruído na classificação dos \emph{posts} \cite{aaai-politics}. 
+
+%corpus de \emph{posts} do fórum Politics.com\footnote{http://politics.com}
+
+%No caso do corpus \textbf{Bitterlemons}, dividido entre pró-Israel e pró-Palestina, há três tipos de sentença: neutra, que pode ocorrer em ambos os lados; pró-Israel, que carrega esta perspectiva; e pró-Palestina, análogo ao tipo pró-Israel. Sentenças pró-Israel ocorrem apenas em documentos classificados como pró-Israel, e o análogo vale para sentenças pró-Palestina. No processo generativo, o tipo neutro, por ocorrer em ambos os pontos de vista, passa a se associar às palavras mais comuns do corpus; palavras mais específicas de cada perspectiva são mais geradas por sentenças pró-Israel ou pró-Palestina. Neste sentido, o LSPM refina a noção de classe explorada pelo Naïve Bayes, admitindo a possibilidade de que determinadas palavras, por serem muito comuns, não adicionam informação relevante à classificação.
+
+
+
+% pode ocorrer em ambos os lados, as palavras associadas a esses tipos de sentença vão assumindo as seguintes características: aquelas mais comuns em ambos os lados% Esses tipos de sentença  
+
+%; no segundo, cada entrada corresponde simplesmente à contagem de uma palavra.
+%As características dos documentos, consideradas na classificação,  são contagens de palavras e/ou suas variações, apresentadas na introdução deste capítulo.
+%importantes obedecendo ao seguinte recorte:  
+
+%\subsection{Os diferentes \emph{datasets}}
+
+%Todos os \emph{datasets} revisados neste capítulo envolvem algum tema diretamente relacionado à política. A preferência por esse domínio temático provavelmente tem a ver com o fato de que, por ser polêmico, ele suscita a defesa clara de pontos de vista antagônicos, favorecendo a mineração de perspectivas. Os documentos são escritos por especialistas, jornalistas, pessoas políticas ou cidadãos comuns. As fontes também variam, envolvendo fóruns, transcrições de debates, \emph{blogs}, artigos e \emph{sites} especializados, o que colabora para a diversidade dos tipos de linguagem estudados. % defesas claras de pontos de vista antagônicos.
+
+
+% Quando este não é o caso, tem-se um tema bastante polêmico, como pena de morte ou aborto. 
+
+
+ %Em fóruns e \emph{blogs} mais informais, é preciso 
+
+%O primeiro artigo de Mullen e Malouf revisado para esta monografia analisa um corpus de \emph{posts} do fórum Politics.com\footnote{http://politics.com}, escrito por cidadãos comuns dos Estados Unidos. Apesar de admitir a diversidade de posicionamentos contidos no fórum, os autores dividem os documentos em apenas duas perspectivas: liberal e conservadora. Por ser muito informal, a probabilidade de se encontrar palavras escritas de várias formas neste corpus é mais alta do que em outros, compostos de artigos ou transcrições de debates. Esse fenômeno é tratado no artigo através da correção/padronização dessas palavras, evitando-se um ruído na classificação dos \emph{posts} \cite{aaai-politics}. \textbf{Ver se bota nome después.}
+
+%A linguagem dos fóruns muitas vezes se aproxima da linguagem falada, envolvendo gírias, expressões irônicas e certo nível de informalidade nas escolhas de palavras e construções sintáticas. Essas características também são encontradas em \emph{datasets} compostos de discursos políticos transcritos, por serem uma representação fiel de falas em discussões. A diferença fundamental entre textos recolhidos em fóruns e transcrições de debates políticos reside no fato de que os segundos apresentam menos erros gramaticais - e, portanto, menos necessidade de correção/padronização de palavras - do que os primeiros. 
+
+%Três trabalhos que exploram debates políticos são revisados neste capítulo: os artigos de Laver, Benoit e College  \cite{wordscores}, envolvendo as políticas britânica e irlandesa; de Hirst, Riabinin e Graham, envolvendo a política canadense \cite{hirst-et-al}; e de Klebanov, Beigman e Diermeier, envolvendo a política dos Estados Unidos \cite{klebanov}. O primeiro analisa uma coleção \textbf{terminar}. O segundo analisa debates ocorridos em plenárias das \emph{English} e \emph{French House of Commons}, órgãos legislativos canadendes, durante os 36\textsuperscript{o}  e 39\textsuperscript{o} parlamentos. No 36\textsuperscript{o} parlamento, os liberais estavam no poder; no 39\textsuperscript{o}, os conservadores. O terceiro analisa debates sobre a legalização do aborto, desenvolvidos na \emph{House of Representatives}, órgão similar à Câmara Federal dos Deputados brasileira, e no Senado dos Estados Unidos. Os debates ocorreram entre os anos de 1995 e 2003, e estão divididos entre pró-escolha e pró-vida. %, órgão próximo    %próximos à Câmara 
+
+%Com conteúdo extraído de mais de 250 \emph{blogs}, o artigo de Durant e Smith explora textos que discutem os posicionamentos de George W. Bush perante a Guerra do Iraque. Os \emph{posts} pertencem a \emph{blogs} de especialistas e cidadãos comuns, listados no \emph{site} The Moderate Voice\footnote{http://themoderatevoice.com/} e separados entre esquerda e direita. O périodo analisado se estendeu de março de 2003 a março de 2005. Baseando-se no fato de que o uso de palavras muda significativamente em um período de dois anos, conforme novos acontecimentos vão sendo discutidos nos \emph{blogs}, Durant e Smith particionaram seu corpus em 25 segmentos, cada um correspondendo ao conteúdo de um mês. Essa estratégia valorizou os acontecimentos políticos particulares de cada mês, que se refletem diretamente na ênfase, dada pelos blogueiros, a determinadas palavras.
+
+
+%Ainda em política:  blog (listas), coluna (bitterlemons) e notícia (métrica).
+%Ainda em política, o trabalho de Lin et al. analisa um conjunto de artigos sobre o conflito Israel-Palestina, escritos por especialistas no assunto e disponibilizados no \emph{site} Bitterlemons.com\footnote{http://www.bitterlemons.org/}. Os artigos, separados entre pró-Israel e pró-Palestina, são escritos por mais de 200 convidados e dois editores. Este é um dos artigos mais citados pelos trabalhos revisados para esta monografia, e o corpus por ele avaliado também já serviu como objeto de análise para outros estudos, incluindo esta monografia. O artigo de Klebanov, Beigman e Diermeier, por exemplo, também apresenta um estudo envolvendo todos os artigos desse corpus escritos por convidados \cite{klebanov}. Esse mesmo artigo, por fim, também explora o conteúdo de \emph{sites} especializados na questão da pena de morte nos Estados Unidos. O corpus, criado por Stephen Greene para sua tese de doutorado, é composto de cinco \emph{sites} pró-pena e três anti-pena \cite{greene-thesis}. %Nem a tese nem o artigo de Klebanov, Beigman e Diermeier informam 
+
+%Klebanov, Beigman e Diermeier também analisam \emph{datasets} com outras temáticas, como legalização do aborto e pena de morte.
+
+% Apesar de não haver um grande compromisso entre os \emph{posts} e a correção gramatical, os autores não relatam nenhum tratamento a erros gramaticais contidos nos textos, relativamente informais. % correspondentes a cada mês, valorizando diferentes destaques a termos
+
+
+
+% cada um deles contendo todos os \emph{posts} escritos em um mês.
+
+  % We chose to partition our slightly greater than two years of data by the month; thus
+%creating twenty-five partitions. We predict the sentiment of political web posts for
+%each of the 25 different time segments. We believe our data and many of our terms to
+%be time-specific so we keep our data time-ordered. We chose our time interval to be a
+%month because we needed an interval large enough to ensure enough postings to cre-
+%ate good-sized datasets yet small enough to limit the number of events discussed
+%within the interval.
+
+
+
+
+
+%We used both the English and French House of Commons Debates (“Hansard”) for the first
+%350 sitting days of the 36th Parliament (1997-09-22 to 2000-05-10). In the 36th Parliament,
+%a majority government was formed by the Liberal Party, led by Jean Chrétien. This data was
+%available in a convenient plain-text form with sentence breaks identified (Germann, 2001), as it
+%has been widely used for research in machine translation.
+
+
+
+%temas polêmicos 
+
+%Para métodos que classificam documentos baseando-se em contagens de palavras ou variações, esse fenômeno pode gerar um ruído indesejado, pois os classificadores atribuirão contagens distintas a \emph{versões} de uma mesma palavra.
+
+%, que analisa as perspectivas contidas no fórum de discussão política Politics.com\footnote{http://politics.com},
+
+
+
+
+%Cada tipo de fonte sustenta determinadas características, que precisam ser devidamente investigadas antes da classificação dos documentos. 
+
+%Em fóruns e \emph{blogs} mais informais, por exemplo,   O primeiro artigo de Mullen e Malouf, que analisa as perspectivas contidas no fórum de discussão política Politics.com\footnote{http://politics.com}, sugere que, nestes casos, seja feita uma correção das palavras antes da etapa de classificação \cite{aaai-politics}.  %interpretarão como duas palavras diferentes - com contagens diferentes. o que pode exigir correções 
+
+
+
+
+%Quão mais informal é a fonte, por exemplo, maior é a probabilidade de se encontrar palavras escritas incorretamente. % palavras escritas maior é a probabilidade de conter uma quantidade significativa de palavras escritas incorretamente, o   
+%predileção por datasets políticos. falar das fonotes diferentes, e de como isso tem certo impacto no pré-processamento e no que se espera da classificação.
+
+%\subsection{Os diferentes classificadores}
+
+%predileção por svms/naive bayes. falar oq cada lado defende. indicar q isso é bobo. apresentar lspm e wordscores.
+
+%\subsection{As diferentes características dos documentos consideradas}
+
+%falar das características usadas, em separado ou em combinado, e as discussões sobre qtas usar e quais usar.
+
+%\subsection{As diferentes discussões}
+
+%Várias coisas. De bias em jornais até estar ou n classificando estilo até a consolidação de uma perspectiva até internacionalização até etc.
+
+
+
+
+
+
+%  perspectivas de partidos Britânicos sobre a política econômica do Reino Unido.
+
+%ESTIMATING THE POLICY POSITIONS OF BRITISH AND IRISH PARTIES ON THE
+ %        LIBERAL-CONSERVATIVE SOCIAL POLICY DIMENSION
+
+%British party positions on economic policy
+%utilizam e %são consideradas 
+
+%Um certo padrão emerge dos estudos: uma preferência por corpora políticos (e falar aí de como eles usam diferentes fontes e aplicam o resultado da classificação para análises diferentes.
+%e por classificadores Naïve Bayes e SVM. 
+%Há casos em que o SVM se sai melhor e há casos em que o Naive Bayes se sai melhor. Argumentar a favor de escolher arbitrariamente e, se insatisfeito com o desempenho, testar outro, pq é isso que algumas pessoas fazem.
+%Discutir as características escolhidas e a redução de features
+%Discutir a classificação efetiva de pontos de vista, n estilos. 
 
 %descritos na seção \textbf{Experimentos com L-LDA e Naïve Bayes}, ilustram esta relação, indicando também o quanto é difícil quantificá-la.
 
@@ -273,8 +443,10 @@ As palavras extraídas a partir da aplicação de um L-LDA provêem informaçõe
 
 %Todos os artigos que propuseram metodologias para melhorar a classificação em corpora com vocabulários muito uniformes consideraram algum esquema de citação. Se o corpus for composto de documentos pouco citados na Web, o esquema do artigo de Miles Efron pode não trazer nenhuma melhoria significativa ao problema. Se os autores dos documentos não mencionarem significativamente um ao outro, como aconteceu nos estudos com o \emph{dataset} \textbf{Politics}, a metodologia explorada por Tony Mullen e Robert Malouf não é recomendada. Essa área de pesquisa, portanto, ainda tem alguns problemas em aberto - e, considerando que estes três artigos foram escritos há mais de quatro anos, ela não parece atrair muita atenção. A justificativa para isso, provavelmente, tem a ver com o fato de que uniformidade no vocabulário não é um problema tão comum em Mineração de Perspectiva. No \textbf{capítulo X}, técnicas envolvendo comparação entre documentos, que podem trazer benefícios à classificação de \emph{datasets} difíceis - e neste caso também se enquadram aqueles em que o vocabulário é mais uniforme -, serão discutidas.
 
-\section{Conclusão}
+\section{Conclusões}
 \label{freqs:conc}
+
+%INTERNACIONALIZÁVEEEEEL!!
 Este capítulo apresentou duas hipóteses linguísticas assumidas por métodos baseados em frequências de palavras: 1) palavras específicas, denominadas \emph{banner words}, costumam ser utilizadas para defender perspectivas diferentes e 2) a quantidade de vezes que uma palavra é mencionada em um documento está diretamente relacionada com seu enfoque \cite{teubert2001}. Como consequência, esses métodos funcionam melhor em \emph{datasets} nos quais o emprego de palavras varia significativamente por perspectiva. %tão melhor quanto mais diferentes forem os empregos de palavras por perspectiva.
 
 %ideia de que pessoas costumam utilizar palavras específicas, denominadas \emph{stigma words} ou \emph{banner words}, para defender perspectivas diferentes. O uso de classificadores baseados na presença ou frequência das palavras, portanto, costuma funcionar bem na identificação dessas perspectivas. Entretanto, em alguns casos, as construções do discurso refletem diferentes perspectivas melhor do que o uso de palavras específicas. Nestes casos, as taxas de acerto desses classificadores são menores do que o desejado. 

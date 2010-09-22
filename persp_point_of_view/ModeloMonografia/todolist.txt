@@ -1,5 +1,7 @@
 CORRIGIR RODAPÉÉÉÉÉÉS!!!!!!!!!!!!
 PARAR DE FAZER \SECTION{INTRODUÇÃO}!!!!!
+REVISAR BIBLIOGRAFIAS!!!!
+
 ====================
 Conceitos básicos:
 
@@ -66,11 +68,11 @@ arrumar os 'retirado de' no anexo do estudo de caso. (na hora de montar anexo)
 introdução:
 
 explicar que persp. e posic. e ponto de vista dão na msm.
-
+filhos/P10-2047 traz boa definição de perspectiva.
 
 ======
 
-Freqs de palavras:
+Freqs de palavras: (vai pra NO MÁXIMO 53 pgs)
 
 Título: Métodos baseados em contagem ou presença de palavras para identificação de perspectivas
 Ver se "métodos" é adequado; se não seria melhor "estudos".
@@ -87,6 +89,11 @@ estruturalmente."
 Retirar a palavra "Introdução" - OK
 Arrumar o título
 Nomear as seções com \ref na introdução - OK
-Botar referencias na introdução 
+Botar referencias na introdução - ok
 Fazer imagem para a introdução
+resolver como citar conteúdo de email.
+terminar tudo q tem a ver com wordscores na revisão. - ok
+nomear todos os corpora, pra citar nas subseções seguintes da parte de revisão.
+Fazer anexo com síntese de outras revisões.
 
+Falar de naive bayes e svms, como cada artigo puxa a sardinha para si e, portanto, não há consenso. sugere-se a faavor do naive bayes q ele se adapta melhor a corpora menores (lin et al) e com menos diferenças linguisticas (durant smith). a favor dos svms, sugere-se QUE: .

@@ -90,16 +90,35 @@ Disserta\c{c}\~ao (Mestrado) --- Pontificia Universidade Catolica do Rio de
   Foundations and Trends in Information Retrieval series. Now publishers,
   2008.}
 
+\bibitem[Polanyi e Zaenen 2004]{valence-shifters}
+\abntrefinfo{Polanyi e Zaenen}{POLANYI; ZAENEN}{2004}
+{POLANYI, L.; ZAENEN, A. Contextual valence shifters. In:  \emph{Proceedings of
+  the AAAI Spring Symposium on Exploring Attitude and Affect in Text: Theories
+  and Applications}. [S.l.: s.n.], 2004.}
+
 \bibitem[Ramage et al. 2009]{llda}
 \abntrefinfo{Ramage et al.}{RAMAGE et al.}{2009}
 {RAMAGE, D. et al. Labeled lda: A supervised topic model for credit attribution
   in multi-labeled corpora. In:  . [S.l.: s.n.], 2009. p. 248--256.}
+
+\bibitem[Resnik e Hardisty 2009]{resnik}
+\abntrefinfo{Resnik e Hardisty}{RESNIK; HARDISTY}{2009}
+{RESNIK, P.; HARDISTY, E. \emph{Gibbs Sampling for the Uninitiated}.
+[S.l.], 2009. Dispon{\'\i}vel em:
+  $<$http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.156.2875$>$.}
 
 \bibitem[Resnik e Hardisty 2010]{gibbs}
 \abntrefinfo{Resnik e Hardisty}{RESNIK; HARDISTY}{2010}
 {RESNIK, P.; HARDISTY, E. \emph{Gibbs Sampling for the Uninitiated}.
 [S.l.], Abril 2010. Dispon{\'\i}vel em:
   $<$http://hdl.handle.net/1903/10058$>$.}
+
+\bibitem[Teubert 2001]{teubert}
+\abntrefinfo{Teubert}{TEUBERT}{2001}
+{TEUBERT, W. A province of a federal superstate, ruled by an unelected
+  bureaucracy - keywords of the euro-sceptic discourse in britain. In:
+  \emph{Attitudes towards Europe: Language in the unification process}. [S.l.:
+  s.n.], 2001. p. 45--86.}
 
 \bibitem[Thomas, Pang e Lee 2006]{get-out-the-vote}
 \abntrefinfo{Thomas, Pang e Lee}{THOMAS; PANG; LEE}{2006}
