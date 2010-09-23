@@ -81,6 +81,7 @@ Por questões de escopo, decidiu-se que, dentre os dez trabalhos revisados que t
 
 %de Laver, Benoit e College \cite{wordscores},  no qual os autores analisam posicionamentos de partidos políticos britânicos e irlandenses;
 \subsection{\emph{Which side are you on? Identifying perspectives at the document and sentence levels}}
+\label{sec:lin-et-al}
 
 O trabalho de Lin et al. analisa um conjunto de artigos sobre o conflito Israel-Palestina, escritos por especialistas no assunto e disponibilizados no \emph{site} Bitterlemons\footnote{http://www.bitterlemons.org/}. Os artigos, separados entre pró-Israel e pró-Palestina, são escritos por mais de 200 convidados e dois editores. Os autores realizam experimentos com classificadores Naïve Bayes e SVM para classificar os artigos de acordo com suas perspectivas, obtendo taxas de acerto mais altas com o Naïve Bayes (84.85\% a 93.46\% \emph{versus} 81.48\% a 88.22\%). O ponto mais importante deste artigo, entretanto, é a proposição do modelo generativo \emph{Latent Sentence Perspective Model} (\textbf{LSPM}), empregado também para classificação. % de modo semelhante ao Naïve Bayes.
 
@@ -89,7 +90,7 @@ O trabalho de Lin et al. analisa um conjunto de artigos sobre o conflito Israel-
 
 Diferentemente do Naïve Bayes, o LSPM associa uma variável latente a cada sentença de um documento, cujos valores indicam se ela carrega ou não a perspectiva do documento. O modelo, portanto, parte do pressuposto de que, até mesmo nos textos mais opinativos, é possível encontrar frases neutras que pouco colaboram para a identificação de sua perspectiva. No processo generativo, amostra-se uma classe para o documento; em seguida, para cada uma de suas sentenças, amostra-se um valor que indica se ela carrega (1) ou não (0) a perspectiva correspondente à classe; por fim, as palavras da sentença são geradas, baseando-se nessas duas informações (classe e presença de perspectiva).
 
-O ponto chave do funcionamento desse modelo tem a ver com o fato de que todas as sentenças que não carregam uma perspectiva são tratadas da mesma forma: admite-se que elas poderiam ocorrer em qualquer lado do \emph{dataset}. Isso faz com que as palavras geradas para essas sentenças sejam, na maioria das vezes, comuns em todo o corpus. As sentenças que carregam a perspectiva de seus documentos, por sua vez, tendem a gerar termos mais específicos, evidenciando as particularidades do vocabulário de cada ponto de vista. O modelo é adaptado para classificação de forma semelhante ao Naïve Bayes. A diferença principal é que, em vez de considerar o documento como um todo, apenas as palavras geradas por sentenças com perspectiva contribuem para a decisão de qual é a classe do documento. %considerando apenas as sentenças dos documentos de forma análoga ao Naïve Bayes.
+O ponto chave do funcionamento desse modelo tem a ver com o fato de que todas as sentenças que não carregam uma perspectiva são tratadas da mesma forma: admite-se que elas poderiam ocorrer em qualquer documento, independentemente de sua classe. Isso faz com que as palavras geradas para essas sentenças sejam, na maioria das vezes, comuns em todo o corpus. As sentenças que carregam a perspectiva de seus documentos, por sua vez, tendem a gerar termos mais específicos, evidenciando as particularidades do vocabulário de cada ponto de vista. O modelo é adaptado para classificação de forma semelhante ao Naïve Bayes. A diferença principal é que, em vez de considerar o documento como um todo, apenas as palavras geradas por sentenças com perspectiva contribuem para a decisão de qual é a classe do documento. %considerando apenas as sentenças dos documentos de forma análoga ao Naïve Bayes.
 
 %, independentemente da classe de seus documentos
 
@@ -97,6 +98,7 @@ No trabalho de Lin et al., a taxa de acerto obtida na classificação dos artigo
 % de modo que os termos mais específicos de cada perspectiva sejam gerados mais frequentemente em sentenças que a carregam
 
 \subsection{\emph{A preliminary investigation into sentiment analysis of informal political discourse}}
+\label{sec:aaai}
 
 Esse trabalho de Mullen e Malouf analisa um conjunto de \emph{posts} do fórum Politics.com\footnote{http://politics.com}, escrito por cidadãos comuns dos Estados Unidos. Apesar de admitirem a diversidade de posicionamentos contidos no fórum, os autores dividem os documentos em apenas duas perspectivas, por uma questão de simplicidade: liberal e conservadora. Em seguida, eles condensam todos os \emph{posts} de um mesmo usuário em um só texto, resultando em um corpus com poucos documentos (96 liberais e 89 conservadores). Ao aplicar um Naïve Bayes para classificar os documentos de acordo com a orientação política de seus autores, a taxa de acerto obtida foi de 60.37\%. O tamanho do \emph{dataset} é apontado por Mullen e Malouf como um dos principais motivos para a obtenção desse resultado. De acordo com eles, a baixa taxa de acerto sugere que o Naïve Bayes é bastante sensível a uma pequena quantidade de artigos na etapa de treinamento. 
 
@@ -272,117 +274,128 @@ Diante desses resultados, os autores sugerem que os usuários não estão se exp
 \section{Experimentos com L-LDA e Naïve Bayes}
 \label{freqs:experim}
 
+Se um classificador utiliza apenas as contagens de palavras dos documentos para identificar suas perspectivas, sua taxa de acerto é tão mais baixa quanto menos essas contagens mudam de uma perspectiva para outra. Apesar dessa relação ser evidente, não se conhece nenhum método para quantificá-la. Como o seu entendimento amplia a compreensão dos resultados obtidos com esses classificadores, esta seção se detém a ilustrá-la através de alguns experimentos. A ideia é comparar a forma como as palavras são usadas em dois \emph{datasets}: no primeiro, a taxa de acerto obtida com um classificador \textbf{Naïve Bayes}, considerando apenas contagens de palavras, deve ser alta; no segundo, baixa. Para a análise do uso das palavras, será utilizado o modelo de tópicos \textbf{L-LDA}. A escolha do Naïve Bayes advém do fato de que os \emph{datasets} explorados nesta seção não são muito grandes, e o desempenho desse classificador, nesses casos, tende a ser superior ao obtido com SVMs \cite{ng-jordan}. O uso do LSPM não foi cogitado, devido aos pontos discutidos na seção \ref{sec:aaai}.
+
+%APRESENTE OS DOIS DATASETS. JUSTIFIQUE PQ REFEZ EXPERIMENTOS OU PQ N ESCOLHEU O AAAI E SIM OUTRO. - OK 
+
+O primeiro \emph{dataset} estudado é o mesmo discutido na seção \ref{sec:lin-et-al}, composto de artigos sobre o conflito Israel-Palestina. A taxa de acerto obtida com um Naïve Bayes aplicado a esse corpus foi alta, variando entre 84.85\% a 93.46\%\footnote{explicar em função de q varia}. Inicialmente, pensou-se em estudar também o corpus discutido na seção \ref{sec:aaai}, composto de \emph{posts} do fórum Politics.com. O Naïve Bayes não classificou muito bem seus documentos,  atingindo taxas de acerto entre 60.37\% e 64.48\%\footnote{explicar em função de q varia}. Infelizmente, não foi possível obtê-lo mediante solicitação aos autores do artigo. Por este motivo, o segundo \emph{dataset} estudado provém de outro trabalho: o artigo de Thomas, Pang e Lee sobre classificação de perspectiva em debates políticos dos Estados Unidos \cite{get-out-the-vote}. Esse corpus é composto de colocações em debates da \emph{House of Representatives}, um dos dois órgãos principais do poder legislativo federal dos Estados Unidos. Os documentos estão divididos de acordo com duas orientações políticas antagônicas: a republicana e a democrata.  É válido ressaltar que, no artigo original, são consideradas outras características dos documentos e o classificador utilizado é um SVM. Foi necessário, portanto, aplicar o Naïve Bayes a esses documentos, considerando apenas as contagens de palavras dos mesmos\footnote{A implementação de Naïve Bayes utilizada está disponível no repositório online de Aline Bessa (http://github.com/alibezz)}. A taxa de acerto obtida, via validação cruzada de dez dobras, foi de 51.45\%.  
+
+%MOSTRE COMO OS MODELOS DE TÓPICOS SÃO USADOS NOS DOIS LADOS - ok
+
+Em ambos os \emph{datasets}, cada documento foi associado a dois tópicos: um genérico, idêntico para todos eles, e outro referente à sua perspectiva. No primeiro corpus, essas perspectivas são pró-Israel ou pró-Palestina; no segundo, republicana ou democrata. Há portanto, em cada corpus, três tópicos diferentes. O uso de um tópico genérico associado a todos os documentos ajuda a identificar palavras muito comuns nos \emph{datasets}, independentemente de perspectiva. Essa é a diferença fundamental entre essa aplicação do L-LDA\footnote{A implementação de L-LDA utilizada está disponível no repositório online de Alexandre Passos (http://github.com/alextp).} e a simples contagem de palavras em documentos, dividida entre duas perspectivas. Esse tipo de contagem não evidencia que palavras são mais marcantes em uma certa perspectiva e quais são muito utilizadas por todas elas - informação que colabora para um maior entendimento das taxas de acerto supracitadas, obtidas com um Naïve Bayes. As dez palavras mais frequentemente associadas a cada tópico por corpus, obtidas com o L-LDA, estão listadas nas Tabelas 4.1 e \ref{freqs:tab2}.
+
 \begin{table}[h]
+\label{tab1}
 \centering
 \begin{tabular}{| l | p{10cm} | }
 \hline
-Tópico & Palavras \\ \hline
-Genérico & israel, palestinian, israeli, palestinians, state, one, two, israelis, political, right \\ \hline
-Pró-Israel & sharon, palestinian, arafat, peace, israeli, prime, bush, minister, american, process \\ \hline
-Pró-Palestina & palestinian, israeli, sharon, peace, occupation, international, political, united, people, violence \\ \hline
+\textbf{Tópico} & \textbf{Palavras} \\ \hline
+\textbf{Genérico} & israel, palestinian, israeli, palestinians, state, one, two, israelis, political, right \\ \hline
+\textbf{Pró-Israel} & sharon, palestinian, arafat, peace, israeli, prime, bush, minister, american, process \\ \hline
+\textbf{Pró-Palestina} & palestinian, israeli, sharon, peace, occupation, international, political, united, people, violence \\ \hline
 \end{tabular}
-\label{1}
-\caption{As dez palavras mais fortemente associadas aos tópicos Pró-Israel, Pró-Palestina e Genérico.}
+\caption{As dez palavras mais frequentemente associadas aos tópicos pró-Israel, pró-Palestina e genérico, de acordo com um L-LDA.}
 \end{table}
 
 
 \begin{table}[h]
+\label{freqs:tab2}
 \centering
 \begin{tabular}{| l | p{10cm} | }
 \hline
-Tópico & Palavras \\ \hline
-Genérico & mr., speaker, bill, all, time, people, today, gentleman, federal, support \\ \hline
-Democrata & bill, security, legislation, states, chairman, country, act, billion, million, law \\ \hline
-Republicano & act, chairman, security, states, bill, legislation, 11, support, 9, system \\ \hline
+\textbf{Tópico} & \textbf{Palavras} \\ \hline
+\textbf{Genérico} & mr., speaker, bill, all, time, people, today, gentleman, federal, support \\ \hline
+\textbf{Democrata} & bill, security, legislation, states, chairman, country, act, billion, million, law \\ \hline
+\textbf{Republicano} & act, chairman, security, states, bill, legislation, 11, support, 9, system \\ \hline
 \end{tabular}
-\label{2}
-\caption{As dez palavras mais fortemente associadas aos tópicos Republicano, Democrata e Genérico.}
+\caption{As dez palavras mais frequentemente associadas aos tópicos republicano, democrata e genérico, de acordo com um L-LDA.}
 \end{table}
 
-Se um método utiliza apenas a frequência das palavras dos documentos para identificar suas perspectivas, é natural que a taxa de acerto seja tão mais baixa quanto menos essas frequências mudam de uma perspectiva para outra. Nesta seção, serão descritos experimentos que evidenciam o vocabulário contido em dois \emph{datasets}, as taxas de acerto obtidas na classificação dos documentos com um Naïve Bayes e a relação entre estas informações.
+%MOSTRE AS PALAVRAS ELENCADAS E DISCUTA
 
-O primeiro \emph{dataset} estudado é o \textbf{Bitterlemons}\footnote{A descrição deste \emph{dataset} encontra-se na seção \textbf{XXX} desta monografia}, composto de artigos pró-Israel e pró-Palestina. Cada documento foi associado a um tópico referente à sua perspectiva e outro genérico, idêntico para todos eles. Um modelo de tópicos do tipo L-LDA foi aplicado aos documentos assim anotados, agrupando palavras genéricas em torno do tópico genérico, pró-Israel em torno do tópico pró-Israel e pró-Palestina em torno do tópico pró-Palestina. As dez palavras mais fortemente associadas a cada um dos tópicos, excluindo-se \emph{stop words}, estão listadas na Tabela \ref{1}.
+As palavras associadas às perspectivas pró-Israel e pró-Palestina, na Tabela 4.1, remetem semanticamente ao conflito travado entre essas duas nações. Parte delas, como \emph{palestinian} e \emph{israeli}, se associam às duas perspectivas, ainda que sejam enfatizadas nos documentos de forma diferente, como ilustrado nas Figuras \textbf{X e Y}. Outras, como \emph{bush} e \emph{occupation}, funcionam como \emph{banner words}, colaborando com a consolidação de pontos de vista diferentes. O exemplo na Tabela 4.4 ilustra a importância do Governo Bush para Israel à época, enquanto o exemplo na tabela 4.5 evidencia a principal luta Palestina do período: a criação de um Estado próprio. A alta frequência de palavras associadas às perspectivas, bem como a presença de \emph{banner words} importantes, conFiguram um bom cenário para o uso de métodos baseados em frequências de palavras. O desempenho de um Naïve Bayes na classificação deste \emph{dataset} será discutido mais à frente, ainda nesta seção.
 
-O uso de um tópico genérico ajuda a identificar palavras de \emph{background}, comuns no corpus independentemente de perspectiva. Esta é a diferença fundamental entre o uso de um L-LDA e a simples contagem de palavras em documentos pró-Israel e pró-Palestina. Como esse tipo de contagem não considera palavras de \emph{background}, a visualização de palavras mais específicas para cada perspectiva é prejudicada.
-
-As palavras listadas na Tabela \ref{1}, para as perspectivas Pró-Israel e Pró-Palestina, remetem semanticamente às discussões entre Israel e Palestina. Parte delas, como \emph{palestinian} e \emph{israeli}, se associam às duas perspectivas, ainda que sejam empregadas nos documentos de forma diferente, tcomo ilustrado pelos exemplos contidos na Tabela 4.3. Outras, como \emph{bush} e \emph{occupation}, funcionam como \emph{banner words}, colaborando com a consolidação de pontos de vista diferentes. O exemplo na Tabela 4.4 ilustra a importância do Governo Bush para Israel à época, enquanto o exemplo na tabela 4.5 evidencia a principal luta Palestina do período: a criação de um Estado próprio. A alta frequência de palavras associadas às perspectivas, bem como a presença de \emph{banner words} importantes, conFiguram um bom cenário para o uso de métodos baseados em frequências de palavras. O desempenho de um Naïve Bayes na classificação deste \emph{dataset} será discutido mais à frente, ainda nesta seção.
-
-\begin{table}[t]
-\centering
-\begin{tabular}{| p{10cm} | }
-\hline
-
-\emph{"The recent \textbf{Israeli} government decision to begin building extensive walls
-around \textbf{Palestinian} is just one more example of how \textbf{Israeli} Prime
-Minister Ariel Sharon is unable to deal with \textbf{Israeli} problems save
-through his narrow security vision."} - Trecho extraído de artigo Pró-Palestina. \\ \hline
-
-\emph{"The first conclusion that the Israeli political and security
-establishment should learn and internalize after 18 months of
-\textbf{Palestinian} Intifada, concerns the intensity of \textbf{Palestinian} blind
-terrorism and guerilla warfare against the State of Israel."} - Trecho extraído de artigo Pró-Israel. \\ \hline
-
-\end{tabular}
-\label{3}
-\caption{Trechos com as palavras \emph{palestinian} e \emph{israeli}, extraídos do \emph{dataset} \textbf{Bitterlemons}.}
-\end{table}
-
-\begin{table}[t]
-\centering
-\begin{tabular}{| p{10cm} | }
-\hline
-
-\emph{"\textbf{Bush}
-and his advisers, who have been critical of Clinton's deep involvement
-in a failed peace process ever since taking office, nevertheless
-understood at the time that peace in the Middle East should be beyond
-politics in America, and that the US could not permit itself to turn its
-back on an Israeli leader who was determined to make peace."} - Trecho extraído de artigo Pró-Israel. \\ \hline
-
-\end{tabular}
-\label{4}
-\caption{Trecho com a palavra \emph{bush}, extraído do \emph{dataset} \textbf{Bitterlemons}.}
-\end{table}
-
-\begin{table}[t]
-\centering
-\begin{tabular}{| p{10cm} | }
-\hline
-\emph{"But just as we were close to a complete
-package that would have ended the \textbf{occupation} and established a
-Palestinian state, Barak permitted Ariel Sharon's provocative visit to
-Al Aqsa mosque, and launched his "revenge" on Palestinians."} - Trecho extraído de artigo Pró-Palestina. \\ \hline
-\end{tabular}
-\label{5}
-\caption{Trecho com a palavra \emph{occupation}, extraído do \emph{dataset} \textbf{Bitterlemons}.}
-\end{table}
-% e  Termos associados ao Governo dos Estados Unidos, como \emph{bush} e \emph{american}, ilustram a relevância da aliança política estabelecida por Israel à época dos documentos. Palavras como \emph{occupation} e \emph{people}, por outro lado, ilustram a principal pauta Palestina no mesmo período: a ocupação da Faixa de Gaza.
-
-%Os artigos deste primeiro \emph{dataset} foram escritos ou pelos editores do \emph{site} ou por convidados, divisão utilizada em \cite{lin-et-al2006} para avaliar o desempenho de um Naïve Bayes. No primeiro cenário, os documentos de treinamento eram os escritos pelos editores e os de teste, aqueles escritos pelos convidados; no segundo, tinha-se a situação inversa.
-
-%As taxas de acerto obtidas com um classificador Naïve Bayes na identificação das perspectivas pró-Israel e pró-Palestina variaram entre 73.47\% e 98.98\%, a depender da divisão entre os conjuntos de treinamento e teste. %disponível em \cite{alibezz-nb}, as taxas de acerto obtidas foram de 73.47\% e 98.98\% para cada um dos cenários, respectivamente\footnote{A taxa de acerto obtida para o primeiro cenário foi significativamente inferior à obtida em \cite{lin-et-al2006} (85.85\%). Provavelmente, isto tem a ver com o número de iterações e as condições iniciais da execução.}. 
-
-O segundo \emph{dataset} estudado é o \textbf{Convote-Menor}, composto de colocações em debates da \emph{House of Representatives}, um dos dois órgãos principais do poder legislativo federal dos Estados Unidos. Os documentos foram marcados como sendo de parlamentares Republicanos ou Democratas, e como representando um posicionamento a favor ou contra a lei em pauta. Para este experimento, apenas a divisão entre Republicanos e Democratas foi considerada. O L-LDA foi aplicado a este \emph{dataset} de forma análoga ao primeiro experimento, e as dez palavras mais fortemente associadas a cada um dos tópicos - Genérico, Republicano e Democrata - estão listadas na Tabela 4.2. \emph{Stop words} também foram excluídas desta listagem.
-
-%Ele é parte de um \emph{dataset} maior estudado pela primeira vez em \cite{thomas-pang-lee}, e está disponível em \cite{alibezz-convote}. A rotulação original dos documentos foi mantida neste \emph{dataset}: cada um deles é marcado com R, caso represente a colocação de um Republicano; ou D, no caso Democrata. Os documentos também são marcados com Y, caso representem a colocação de alguém que votou pela aprovação de uma lei; ou N, em caso contrário. Esta segunda marcação não foi explorada nesta monografia, nem a combinação das duas. O que se analisou, portanto, foi o desempenho do Naïve Bayes, disponível em \cite{alibezz-nb}, na classificação dos documentos como Republicanos ou Democratas.
-
-%O L-LDA foi aplicado a este \emph{dataset} de forma análoga ao primeiro experimento, aproveitando os rótulos R e D, presentes nos documentos, como tópicos, e utilizando também um tópico genérico. As trinta palavras mais fortemente associadas a cada um dos tópicos, em ordem, podem ser conferidas na Tabela abaixo:
-
-As listas de palavras da Tabela 4.2 indicam que o vocabulário do segundo \emph{dataset} não é suficiente para distinguir as perspectivas Republicana e Democrata. Parte das palavras, como \emph{bill}, \emph{legislation}, \emph{states} e \emph{act}, estão mais associadas ao processo legislativo \emph{per se} do que a alguma das perspectivas contidas nos documentos. A alta frequência de palavras como essas, empregadas pelos dois lados do debate, indica um cenário pouco polêmico, com menos \emph{banner words} e divergências. A palavra \emph{security}, por exemplo, fortemente associada às duas perspectivas, é utilizada de forma similar por ambas, como ilustrado na Tabela 4.6. Métodos baseados em frequências de palavras funcionam tão melhor quanto mais distintos forem os vocabulários empregados por cada perspectiva. Por este motivo, é esperado que suas taxas de acerto em \emph{datasets} como este não sejam altas.
-
-\begin{table}[t]
-\centering
-\begin{tabular}{| p{10cm} | }
-\hline
-
-\emph{"Mr. speaker , I wholeheartedly agree that if we want to cut down on illegal immigration , we must improve border \textbf{security}. Just 2 weeks ago, an astute crane operator at the port of Los Angeles discovered 32 Chinese stowaways in a container that had just been unloaded from a Panamanian freighter."} - Trecho de discurso Democrata. \\ \hline
+%MOSTRE IMAGENS E TEXTINHOS E DISCUTA
+ % supracitadas.  %Como esse tipo de contagem não objetiva separar palavras muito comuns em todo o corpus daquelas mais específicas de cada perspectivaconsidera palavras de \emph{background}, a visualização de palavras mais específicas para cada perspectiva é prejudicada. 
 
 
-\emph{"The fence remains incomplete and is an opportunity for aliens to cross the border illegally. This incomplete fence allows border \textbf{security} gaps to remain open.  We must close these gaps because they remain a threat to our national \textbf{security}."} - Trecho de discurso Republicano. \\ \hline
-\end{tabular}
-\label{6}
-\caption{Trechos com a palavra \emph{security}, extraídos do \emph{dataset} \textbf{Convote-Menor}.}
-\end{table}
+%O primeiro \emph{dataset} estudado é o \textbf{Bitterlemons}\footnote{A descrição deste \emph{dataset} encontra-se na seção \textbf{XXX} desta monografia}, composto de artigos pró-Israel e pró-Palestina. Cada documento foi associado a um tópico referente à sua perspectiva e outro genérico, idêntico para todos eles. Um modelo de tópicos do tipo L-LDA foi aplicado aos documentos assim anotados, agrupando palavras genéricas em torno do tópico genérico, pró-Israel em torno do tópico pró-Israel e pró-Palestina em torno do tópico pró-Palestina. As dez palavras mais fortemente associadas a cada um dos tópicos, excluindo-se \emph{stop words}, estão listadas na Tabela \ref{1}.
+
+
+
+
+%O segundo \emph{dataset} estudado é o \textbf{Convote-Menor}, composto de colocações em debates da \emph{House of Representatives}, um dos dois órgãos principais do poder legislativo federal dos Estados Unidos. Os documentos foram marcados como sendo de parlamentares Republicanos ou Democratas, e como representando um posicionamento a favor ou contra a lei em pauta. Para este experimento, apenas a divisão entre Republicanos e Democratas foi considerada. O L-LDA foi aplicado a este \emph{dataset} de forma análoga ao primeiro experimento, e as dez palavras mais fortemente associadas a cada um dos tópicos - Genérico, Republicano e Democrata - estão listadas na Tabela 4.2. \emph{Stop words} também foram excluídas desta listagem.
+
+
+
+% o que faria desse corpus u. A comparação entre a forma como as palavras são empregadas nos dois corpora
+
+%O desempenho obtido com um classificador \textbf{Naïve Bayes} será analisado através da investigação de quais palavras se associam mais frequentemente a cada perspectiva de dois \emph{datasets}. 
+
+
+
+
+%Para a seleção dessas palavras, o modelo \textbf{L-LDA} será utilizado.  %O que pode ser feito  essa relação.  
+
+
+
+
+%mas não foi possível obtê-lo.
+
+
+%Cada documento foi associado a um tópico referente à sua perspectiva e outro genérico, idêntico para todos eles. Um modelo de tópicos do tipo L-LDA foi aplicado aos documentos assim anotados, agrupando palavras genéricas em torno do tópico genérico, pró-Israel em torno do tópico pró-Israel e pró-Palestina em torno do tópico pró-Palestina. As dez palavras mais fortemente associadas a cada um dos tópicos, excluindo-se \emph{stop words}, estão listadas na Tabela \ref{1}.
+
+
+
+
+% e explorada em alguns dos artigos estudados para este projeto, como o de Mullen e Malouf revisado na seção \ref{sec:aaai}
+
+%Se pessoas com pontos de vista diferentes sobre um determinado tema escolhem palavras de forma muito parecida para se expressar, as contagens de palavras de seus textos podem não ser suficientes para diferenciar seus pontos de vista.
+
+
+ %Embora óbvia, não se conhece nenhum método para mensurar essa ideia - ou seja, medir o quanto essas escolhas interferem na identificação das perspectivas de documentos. 
+
+
+%nesse tipo de classificação, 
+
+
+
+%Esta seção pretende ilustrar as relações existentes entre a identificação de perspectivas baseada em contagens de palavras e a forma como elas são empregadas nos documentos.  Este princípio foi ob
+
+
+%Diante deste cenário,  se expressam através 
+
+
+
+%A forma como as pessoas escolhem palavras para defender suas perspectivas interfere em classificadores baseados em contagens de palavras.
+
+
+
+
+%m comum, e em proporções parecidas, 
+
+
+
+%seus textos possuirão contagens de palavras semelhantes
+
+
+ %a respeito de um tema, 
+
+
+
+ %desempenho de um classificador baseado em contagens de palavras se um classificador utiliza contagens de palavras para identificar a             xperimentos com um classificador Naïve Bayes e um modelo de tópicos L-LDA
+%ão conduzidos, a fim de se ilustrar as relações existentes entre o desempenho da classifica-
+%ção por perspectiva e o emprego de palavras nos documentos
+
+
+%Se um método utiliza apenas a frequência das palavras dos documentos para identificar suas perspectivas, é natural que a taxa de acerto seja tão mais baixa quanto menos essas frequências mudam de uma perspectiva para outra. Nesta seção, serão descritos experimentos que evidenciam o vocabulário contido em dois \emph{datasets}, as taxas de acerto obtidas na classificação dos documentos com um Naïve Bayes e a relação entre estas informações.
+
+%O primeiro \emph{dataset} estudado é o \textbf{Bitterlemons}\footnote{A descrição deste \emph{dataset} encontra-se na seção \textbf{XXX} desta monografia}, composto de artigos pró-Israel e pró-Palestina. Cada documento foi associado a um tópico referente à sua perspectiva e outro genérico, idêntico para todos eles. Um modelo de tópicos do tipo L-LDA foi aplicado aos documentos assim anotados, agrupando palavras genéricas em torno do tópico genérico, pró-Israel em torno do tópico pró-Israel e pró-Palestina em torno do tópico pró-Palestina. As dez palavras mais fortemente associadas a cada um dos tópicos, excluindo-se \emph{stop words}, estão listadas na Tabela \ref{1}.
+
+%O uso de um tópico genérico ajuda a identificar palavras de \emph{background}, comuns no corpus independentemente de perspectiva. Esta é a diferença fundamental entre o uso de um L-LDA e a simples contagem de palavras em documentos pró-Israel e pró-Palestina. Como esse tipo de contagem não considera palavras de \emph{background}, a visualização de palavras mais específicas para cada perspectiva é prejudicada.
+
+
+
 
 
 %As palavras \emph{11} e \emph{9}, associadas à perspectiva Republicana,   Tabela \ref{2} também indica uma particularidade Republicana: o enfoque no episódio 11 de Setembro como base para argumentação a favor de novas leis. os dois lados em relação a algumas questões, como segurança.  
@@ -497,4 +510,82 @@ Métodos baseados em frequências de palavras foram explorados pela maioria dos 
 %Uma característica dos datasets que deveria ser considerada sempre antes de se escolher o método utilizado - mas não é prática entre as pessoas que estudam perspective mining - é a frequência das palavras nos documentos do dataset. Se o léxico empregado pelos autores dos textos muda sensivelmente a depender de sua ideologia/perspectiva defendida/ponto de vista, é possível resolver o problema utilizando classificadores que usam essa frequencia como feature. GASTE TEMPO DANDO ALGUNS EXEMPLOS.  Em datasets informais, entretanto, como aponta Efron, a linguagem empregada por todos os lados da discussão pode ser basicamente a mesma: termos com forte carga de polaridade e gírias/jargões comuns na discussão [EXEMPLO]. Neste caso, é preciso utilizar métodos que utilizem mecanismos mais rebuscados do que a simples frequência/presença das palavras no texto. Alguns autores utilizam métodos mais gramaticais para lidar com datasets informais, como é o caso de , BLE e BLI. Os 2 primeiros criam o conceito de Opinion Frame (DEFINIR O CONCEITO). No primeiro caso, a ideia é associar corretamente opiniões a alvos, e associar alvos iguais utilizando técnicas de co-referência. Segundo Wiebe et al. (pegar a citação corretamente), ter as targets associadas, com as opiniões próximas, é uma boa forma de entender o overall de opiniões de um documento. A estratégia é uma alternativa possível para documentos em que as perspectivas estão muito associadas à linguagem opinativa, e onde essa linguagem é comum para todos os lados. Infelizmente, os resultados alcançados indicam que a tarefa não é trivial: blablablablababla (resolver coreferencia pra linkar targets não é tão simples assim => e dê exemplo). 
 
 %uma diferença fundamental notada entre os \emph{datasets} observados diz respeito à formalidade da linguagem empregada nos documentos. Enquanto alguns datasets utilizam documentos provenientes de meios onde a norma culta da linguagem impera, e uma revisão ortográfica é utilizada, outros são carregados de gírias, expressões e abreviações típicas da linguagem da Internet e contêm, eventualmente, grafias erradas para uma mesma palavra. <Dar exemplos textuais. Mostrar uma tabelinha, algo assim, indicando o volume de datasets com linguagem informal nos documentos estudados.> 
+
+\begin{table}[t]
+\centering
+\begin{tabular}{| p{10cm} | }
+\hline
+
+\emph{"The recent \textbf{Israeli} government decision to begin building extensive walls
+around \textbf{Palestinian} is just one more example of how \textbf{Israeli} Prime
+Minister Ariel Sharon is unable to deal with \textbf{Israeli} problems save
+through his narrow security vision."} - Trecho extraído de artigo Pró-Palestina. \\ \hline
+
+\emph{"The first conclusion that the Israeli political and security
+establishment should learn and internalize after 18 months of
+\textbf{Palestinian} Intifada, concerns the intensity of \textbf{Palestinian} blind
+terrorism and guerilla warfare against the State of Israel."} - Trecho extraído de artigo Pró-Israel. \\ \hline
+
+\end{tabular}
+\label{3}
+\caption{Trechos com as palavras \emph{palestinian} e \emph{israeli}, extraídos do \emph{dataset} \textbf{Bitterlemons}.}
+\end{table}
+
+\begin{table}[t]
+\centering
+\begin{tabular}{| p{10cm} | }
+\hline
+
+\emph{"\textbf{Bush}
+and his advisers, who have been critical of Clinton's deep involvement
+in a failed peace process ever since taking office, nevertheless
+understood at the time that peace in the Middle East should be beyond
+politics in America, and that the US could not permit itself to turn its
+back on an Israeli leader who was determined to make peace."} - Trecho extraído de artigo Pró-Israel. \\ \hline
+
+\end{tabular}
+\label{4}
+\caption{Trecho com a palavra \emph{bush}, extraído do \emph{dataset} \textbf{Bitterlemons}.}
+\end{table}
+
+\begin{table}[t]
+\centering
+\begin{tabular}{| p{10cm} | }
+\hline
+\emph{"But just as we were close to a complete
+package that would have ended the \textbf{occupation} and established a
+Palestinian state, Barak permitted Ariel Sharon's provocative visit to
+Al Aqsa mosque, and launched his "revenge" on Palestinians."} - Trecho extraído de artigo Pró-Palestina. \\ \hline
+\end{tabular}
+\label{5}
+\caption{Trecho com a palavra \emph{occupation}, extraído do \emph{dataset} \textbf{Bitterlemons}.}
+\end{table}
+% e  Termos associados ao Governo dos Estados Unidos, como \emph{bush} e \emph{american}, ilustram a relevância da aliança política estabelecida por Israel à época dos documentos. Palavras como \emph{occupation} e \emph{people}, por outro lado, ilustram a principal pauta Palestina no mesmo período: a ocupação da Faixa de Gaza.
+
+%Os artigos deste primeiro \emph{dataset} foram escritos ou pelos editores do \emph{site} ou por convidados, divisão utilizada em \cite{lin-et-al2006} para avaliar o desempenho de um Naïve Bayes. No primeiro cenário, os documentos de treinamento eram os escritos pelos editores e os de teste, aqueles escritos pelos convidados; no segundo, tinha-se a situação inversa.
+
+%As taxas de acerto obtidas com um classificador Naïve Bayes na identificação das perspectivas pró-Israel e pró-Palestina variaram entre 73.47\% e 98.98\%, a depender da divisão entre os conjuntos de treinamento e teste. %disponível em \cite{alibezz-nb}, as taxas de acerto obtidas foram de 73.47\% e 98.98\% para cada um dos cenários, respectivamente\footnote{A taxa de acerto obtida para o primeiro cenário foi significativamente inferior à obtida em \cite{lin-et-al2006} (85.85\%). Provavelmente, isto tem a ver com o número de iterações e as condições iniciais da execução.}. 
+
+%O segundo \emph{dataset} estudado é o \textbf{Convote-Menor}, composto de colocações em debates da \emph{House of Representatives}, um dos dois órgãos principais do poder legislativo federal dos Estados Unidos. Os documentos foram marcados como sendo de parlamentares Republicanos ou Democratas, e como representando um posicionamento a favor ou contra a lei em pauta. Para este experimento, apenas a divisão entre Republicanos e Democratas foi considerada. O L-LDA foi aplicado a este \emph{dataset} de forma análoga ao primeiro experimento, e as dez palavras mais fortemente associadas a cada um dos tópicos - Genérico, Republicano e Democrata - estão listadas na Tabela 4.2. \emph{Stop words} também foram excluídas desta listagem.
+
+%Ele é parte de um \emph{dataset} maior estudado pela primeira vez em \cite{thomas-pang-lee}, e está disponível em \cite{alibezz-convote}. A rotulação original dos documentos foi mantida neste \emph{dataset}: cada um deles é marcado com R, caso represente a colocação de um Republicano; ou D, no caso Democrata. Os documentos também são marcados com Y, caso representem a colocação de alguém que votou pela aprovação de uma lei; ou N, em caso contrário. Esta segunda marcação não foi explorada nesta monografia, nem a combinação das duas. O que se analisou, portanto, foi o desempenho do Naïve Bayes, disponível em \cite{alibezz-nb}, na classificação dos documentos como Republicanos ou Democratas.
+
+%O L-LDA foi aplicado a este \emph{dataset} de forma análoga ao primeiro experimento, aproveitando os rótulos R e D, presentes nos documentos, como tópicos, e utilizando também um tópico genérico. As trinta palavras mais fortemente associadas a cada um dos tópicos, em ordem, podem ser conferidas na Tabela abaixo:
+
+As listas de palavras da Tabela 4.2 indicam que o vocabulário do segundo \emph{dataset} não é suficiente para distinguir as perspectivas Republicana e Democrata. Parte das palavras, como \emph{bill}, \emph{legislation}, \emph{states} e \emph{act}, estão mais associadas ao processo legislativo \emph{per se} do que a alguma das perspectivas contidas nos documentos. A alta frequência de palavras como essas, empregadas pelos dois lados do debate, indica um cenário pouco polêmico, com menos \emph{banner words} e divergências. A palavra \emph{security}, por exemplo, fortemente associada às duas perspectivas, é utilizada de forma similar por ambas, como ilustrado na Tabela 4.6. Métodos baseados em frequências de palavras funcionam tão melhor quanto mais distintos forem os vocabulários empregados por cada perspectiva. Por este motivo, é esperado que suas taxas de acerto em \emph{datasets} como este não sejam altas.
+
+\begin{table}[t]
+\centering
+\begin{tabular}{| p{10cm} | }
+\hline
+
+\emph{"Mr. speaker , I wholeheartedly agree that if we want to cut down on illegal immigration , we must improve border \textbf{security}. Just 2 weeks ago, an astute crane operator at the port of Los Angeles discovered 32 Chinese stowaways in a container that had just been unloaded from a Panamanian freighter."} - Trecho de discurso Democrata. \\ \hline
+
+
+\emph{"The fence remains incomplete and is an opportunity for aliens to cross the border illegally. This incomplete fence allows border \textbf{security} gaps to remain open.  We must close these gaps because they remain a threat to our national \textbf{security}."} - Trecho de discurso Republicano. \\ \hline
+\end{tabular}
+\label{6}
+\caption{Trechos com a palavra \emph{security}, extraídos do \emph{dataset} \textbf{Convote-Menor}.}
+\end{table}
+
 

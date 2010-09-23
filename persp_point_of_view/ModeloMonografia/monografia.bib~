@@ -164,6 +164,13 @@
     pages = "311--331"
 }
 
+@inproceedings{valence-shifters,
+  author = "Livia Polanyi and Annie Zaenen",
+  title = "Contextual valence shifters",
+  booktitle = "Proceedings of the AAAI Spring Symposium on Exploring Attitude and Affect in Text: Theories and Applications",
+  year = 2004
+}
+
 @Techreport{resnik,
     author = "Philip Resnik and Eric Hardisty",
     title = "Gibbs Sampling for the Uninitiated",
