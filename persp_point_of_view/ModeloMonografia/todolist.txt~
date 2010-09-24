@@ -1,7 +1,8 @@
 CORRIGIR RODAPÉÉÉÉÉÉS!!!!!!!!!!!!
 PARAR DE FAZER \SECTION{INTRODUÇÃO}!!!!!
 REVISAR BIBLIOGRAFIAS!!!!
-
+DECIDIR SE VAI OU N FAZER CAPITULO PRA EXLICAR DATASETS
+ARRUMAR TABELAS COMO H OU T
 ====================
 Conceitos básicos:
 
@@ -19,6 +20,7 @@ Estudo de caso:
 **** Tem uma duvida de como citar os nomes dos jornalistas.
 **** Duvida sobre o nome da linguagem shell
 **** Falar das banner words (n precisa definir, é só falar das palavras diferentes), costurando com freqs
+**** rearrumar a parte da citação a trechos e explicação das palavras, + parecido com freqs. Falar de como isso, à luz das taxas de acerto, sugere q os autores se posicionam de forma clara, defendendo suas ideias de modo suficientemente diferente. (1 - palavras iguais em enfases diferentes; 2 - palavras unicas; 3 - essas observações)
 
 escrever intr. OK 
 
@@ -64,7 +66,7 @@ fazer anexo com contagem de palavras pro estudo de caso
 fazer anexo com trechos do estudo de caso.
 arrumar os 'retirado de' no anexo do estudo de caso. (na hora de montar anexo) 
 Fazer anexo com síntese de outras revisões do capitulo de contagens (tipo um tabelão com os artigos).
-
+anexo com contagens do top 10 bitterlemons e convote
 ==================
 
 introdução:
@@ -85,5 +87,9 @@ Botar referencias na introdução - ok
 Fazer imagem para a introdução
 resolver como citar conteúdo de email.
 terminar tudo q tem a ver com wordscores na revisão. - ok
+grifar as percentagens dos datasets comparados.
 nomear todos os corpora, pra citar nas subseções seguintes da parte de revisão.
-dizer que as taxas de acerto variaram de acordo com as divisões entre conjuntos de treinamento e teste, nas duas revisões (consertar footnotes inclusive).
+dizer que as taxas de acerto variaram de acordo com as divisões entre conjuntos de treinamento e teste, nas duas revisões E RETIRAR OS FOOTNOTES NA PARTE DO L-LDA. 
+completar a citação aos trechos de palestina/israel - ok
+falar algumas coisas sobre as listagens genéricas pros dois corpora (overlaps e talz). - ok
+falar de pal./isr. (usos diferentes, mesma palavra) - ok

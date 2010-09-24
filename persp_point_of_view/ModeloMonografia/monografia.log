@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  22 SEP 2010 23:56
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  24 SEP 2010 00:41
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -600,75 +600,76 @@ Underfull \hbox (badness 2495) in paragraph at lines 285--285
 no re-po-si-tó-rio on-line de Ale-xan-dre Pas-sos
  []
 
-
-LaTeX Warning: Reference `1' on page 26 undefined on input line 393.
-
 [26]
 
-LaTeX Warning: Citation `teubert2001' on page 27 undefined on input line 459.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-[27] [28]) (./extra_documento.tex [29]
+[27] [28]
+
+LaTeX Warning: Citation `teubert2001' on page 29 undefined on input line 611.
+
+[29]) (./extra_documento.tex [30]
 Cap\'{\i }tulo 5.
 
 Overfull \hbox (5.43347pt too wide) in paragraph at lines 3--3
 []\T1/ptm/b/n/17.28 CONCORDÂNCIA E DIS-COR-DÂN-CIA EN-TRE DO-CU-
  []
 
-) (./intra_documento.tex [30
+) (./intra_documento.tex [31
 
 ]
 Cap\'{\i }tulo 6.
-) (./estudo_de_caso.tex [31
+) (./estudo_de_caso.tex [32
 
 ]
 Cap\'{\i }tulo 7.
-[32
+[33
 
-] [33]
+] [34]
 Underfull \hbox (badness 10000) in paragraph at lines 68--68
 [][]\T1/ptm/m/n/10 http://www.conversaafiada.com.br/brasil/2010/07/02/mino-expl
 ica-por-que-apoia-a-dilma-porque-ela-e-
  []
 
-[34] [35] [36]
+[35] [36] [37]
 Overfull \hbox (11.76984pt too wide) in paragraph at lines 161--162
 []\T1/ptm/m/n/10.95 Retirado de \T1/ptm/m/it/10.95 "FHC aceita o con-vite para 
 o du-elo que Lula não pode re-cu-sar." \T1/ptm/m/n/10.95 - 11/02/2010 
  []
 
-[37] [38] [39]
+[38] [39] [40]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[40]
+[41]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 316.
- <situacao.png, id=151, 1270.7475pt x 605.26125pt>
+ <situacao.png, id=154, 1270.7475pt x 605.26125pt>
 File: situacao.png Graphic file (type png)
  <use situacao.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<oposicao.png, id=152, 1271.75125pt x 642.4pt>
+<oposicao.png, id=155, 1271.75125pt x 642.4pt>
 File: oposicao.png Graphic file (type png)
  <use oposicao.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<generico.png, id=153, 1260.71pt x 502.87875pt>
+<generico.png, id=156, 1260.71pt x 502.87875pt>
 File: generico.png Graphic file (type png)
  <use generico.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[41] [42 <./situacao.png> <./oposicao.png>] [43 <./generico.png>])
-(./trabalhos_relacionados.tex [44]
+[42] [43 <./situacao.png> <./oposicao.png>] [44 <./generico.png>])
+(./trabalhos_relacionados.tex [45]
 Cap\'{\i }tulo 8.
-) (./conclusao.tex [45
+) (./conclusao.tex [46
 
 ]
 Cap\'{\i }tulo 9.
-) (./apendices.tex [46
+) (./apendices.tex [47
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <20.74> not available
@@ -679,9 +680,9 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 
 Apendice A.
-) (./monografia.bbl [47
+) (./monografia.bbl [48
 
-] [48
+] [49
 
 ])
 +-------------------------------------------------------------------+
@@ -693,19 +694,19 @@ tabela-simbolos: agora rode geratss (linux) ou manualmente,
 makeindex -s tabela-siglas.ist -o monografia.sigla monografia.siglax
 makeindex -s tabela-simbolos.ist -o monografia.symbols monografia.symbolsx
 ########################################################################
-[49] (./monografia.aux)
+[50] (./monografia.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5979 strings out of 94101
- 80559 string characters out of 1165810
- 133354 words of memory out of 1500000
- 9026 multiletter control sequences out of 10000+50000
+ 5975 strings out of 94101
+ 80560 string characters out of 1165810
+ 133310 words of memory out of 1500000
+ 9022 multiletter control sequences out of 10000+50000
  97785 words of font info for 142 fonts, out of 1200000 for 2000
  637 hyphenation exceptions out of 8191
- 32i,12n,41p,1793b,603s stack positions out of 5000i,500n,6000p,200000b,5000s
+ 32i,12n,41p,1797b,603s stack positions out of 5000i,500n,6000p,200000b,5000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
 ve/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/blue
 sky/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmr10.pfb></
@@ -716,9 +717,9 @@ usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texl
 ive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/
 times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (50 pages, 496870 bytes).
+Output written on monografia.pdf (51 pages, 499573 bytes).
 PDF statistics:
- 227 PDF objects out of 1000 (max. 8388607)
+ 230 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 
