@@ -13,12 +13,12 @@
 \contentsline {subsection}{\numberline {2.2.2}SVMs}{18}
 \contentsline {chapter}{\numberline {3}Principais trabalhos e \emph {datasets} estudados}{20}
 \contentsline {section}{\numberline {3.1}Bitterlemons}{20}
-\contentsline {chapter}{\numberline {4}M\IeC {\'e}todos baseados no emprego de palavras para identifica\IeC {\c c}\IeC {\~a}o de perspectivas}{21}
+\contentsline {chapter}{\numberline {4}Classifica\IeC {\c c}\IeC {\~a}o por perspectiva baseada em contagens de palavras}{21}
 \contentsline {section}{\numberline {4.1}Trabalhos Revisados}{22}
 \contentsline {subsection}{\numberline {4.1.1}\emph {Which side are you on? Identifying perspectives at the document and sentence levels}}{22}
-\contentsline {subsection}{\numberline {4.1.2}\emph {A preliminary investigation into sentiment analysis of informal political discourse}}{24}
+\contentsline {subsection}{\numberline {4.1.2}\emph {A preliminary investigation into sentiment analysis of informal political discourse}}{23}
 \contentsline {section}{\numberline {4.2}Experimentos com L-LDA e Na\IeC {\"\i }ve Bayes}{25}
-\contentsline {section}{\numberline {4.3}Conclus\IeC {\~o}es}{30}
+\contentsline {section}{\numberline {4.3}Conclus\IeC {\~o}es}{29}
 \contentsline {chapter}{\numberline {5}Metodologias que usam informa\IeC {\c c}\IeC {\~a}o extra-documento}{31}
 \contentsline {section}{\numberline {5.1}Concord\IeC {\^a}ncia e discord\IeC {\^a}ncia entre documentos}{31}
 \contentsline {section}{\numberline {5.2}Meta-informa\IeC {\c c}\IeC {\~o}es sobre os autores}{31}

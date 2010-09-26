@@ -3,6 +3,7 @@ PARAR DE FAZER \SECTION{INTRODUÇÃO}!!!!!
 REVISAR BIBLIOGRAFIAS!!!!
 DECIDIR SE VAI OU N FAZER CAPITULO PRA EXLICAR DATASETS
 ARRUMAR TABELAS COMO H OU T
+PADRONIZAR NUMERO DE PALAVRAS NOS CAPITULOS Q USAM L-LDA!
 ====================
 Conceitos básicos:
 
@@ -14,13 +15,18 @@ Escrever melhor sobre a escolha de parametros.
 Escrever que 'mais fortemente associado' quer dizer 'contagem mais alta' ou 'que mais frequentemente se associaram'.
 Escrever, em classificadores, métodos de validação de desempenho.
 explicar que tira a média das amostras ou pega o valor final.
+Fazer imagem para a introdução - não, isso fica em conceitos básicos.
 ================
 
 Estudo de caso: 
+
+***** Frisar a questão das contagens de palavras
 **** Tem uma duvida de como citar os nomes dos jornalistas.
 **** Duvida sobre o nome da linguagem shell
 **** Falar das banner words (n precisa definir, é só falar das palavras diferentes), costurando com freqs
 **** rearrumar a parte da citação a trechos e explicação das palavras, + parecido com freqs. Falar de como isso, à luz das taxas de acerto, sugere q os autores se posicionam de forma clara, defendendo suas ideias de modo suficientemente diferente. (1 - palavras iguais em enfases diferentes; 2 - palavras unicas; 3 - essas observações)
+**** explicar pq só usa contagens de palavras, q eh pq normalmente funciona mto bem e pelos trechos parece q se trata dum corpus bem divid. ideol.
+**** retirar menção a bitterlemons como está, citar de outra forma.
 
 escrever intr. OK 
 
@@ -65,7 +71,7 @@ Anexos:
 fazer anexo com contagem de palavras pro estudo de caso
 fazer anexo com trechos do estudo de caso.
 arrumar os 'retirado de' no anexo do estudo de caso. (na hora de montar anexo) 
-Fazer anexo com síntese de outras revisões do capitulo de contagens (tipo um tabelão com os artigos).
+Fazer anexo com síntese de outras revisões do capitulo de contagens (tipo um tabelão com os artigos). fichá-los, papá.
 anexo com contagens do top 10 bitterlemons e convote
 ==================
 
@@ -77,21 +83,62 @@ filhos/P10-2047 traz boa definição de perspectiva.
 ======
 
 Freqs de palavras: (vai pra NO MÁXIMO 53 pgs)
+***** resolver como citar conteúdo de email.
 
 Retirar a palavra "Introdução" - OK
-
-Arrumar o título (Métodos baseados em contagem ou presença de palavras para identificação de perspectivas/ ver se "métodos" é adequado; se não seria melhor "estudos")
-
 Nomear as seções com \ref na introdução - OK
 Botar referencias na introdução - ok
-Fazer imagem para a introdução
-resolver como citar conteúdo de email.
 terminar tudo q tem a ver com wordscores na revisão. - ok
-grifar as percentagens dos datasets comparados.
-nomear todos os corpora, pra citar nas subseções seguintes da parte de revisão.
-dizer que as taxas de acerto variaram de acordo com as divisões entre conjuntos de treinamento e teste, nas duas revisões E RETIRAR OS FOOTNOTES NA PARTE DO L-LDA. 
 completar a citação aos trechos de palestina/israel - ok
 falar algumas coisas sobre as listagens genéricas pros dois corpora (overlaps e talz). - ok
 falar de pal./isr. (usos diferentes, mesma palavra) - ok
-fechar frase sobre o corpus bitterlemons, concluindo a análise.
+enfatizar q o método originalmente utilizado no convote usa outras coisas, mas q usando só palavras E UM SVM, ele atinge dizer q o convote n é revisado ali pq prioriza outras caracs dos documentos, *já q n se encontrou art. ruim com dataset disp. q só usasse cont. de palavras.* FALAR MESMO Q N FAZ PARTE DOS NOVE DESSE CAPÍTULO, O FOCO ALI EH EM OUTRAS FEATURES, E O DESEMPENHO OBTIDO É INCLUSIVE MTO BOM NO ARTIGO. APENAS SE APROVEITOU E SE ESTUDOU. - ok
+evidenciar, na introdução e na conclusão da seção freqs, a autenticidade do uso dos tópicos, do l-lda, e como de fato ajuda nas conclusões. - ok
+botar mais info sobre qtos docs têm por corpus, dizendo q isso é razoável. - ok
+na hora do convote, mesma coisa. - ok
+dizer que as taxas de acerto variaram de acordo com as divisões entre conjuntos de treinamento e teste, nas duas revisões E RETIRAR OS FOOTNOTES NA PARTE DO L-LDA. - ok
+dizer onde os dados do convote tão disponíveis. - ok
+Arrumar o título (Ficou "Classificação por perspectiva baseada em contagens de palavras") - ok
+
 fazer conclusão.
+refazer experimento convote. 
+
+-- maybe
+
+nomear todos os corpora, pra citar nas subseções seguintes da parte de revisão. - supernão.
+ver se coloca mais palavras nas tabelas.
+
+
+=> VOLTAR PRA REVISAR SE ESSA INTENÇÃO ESTÁ SENDO CUMPRIDA
+  começa falando pq q isso eh importante
+tipo, de 12 trabalhos, 9 usam isso
+6 exclusivamente
+e 2 n
+e desses 6, 5 têm ótimo resultado
+e fala q vai revisar trabalhos com isso, mostrar experimentos q ilustrem a relação entre o desempenho e o uso d epalavras, 
+ Alexandre:  ótimo, boa justificativa
+ eu:  q tá mais pra investigação, na verdade
+e q nisso se usa um l-lda e naive bayes
+e explica um pouco sobre pq isso e como n se achou outro trabalho assim
+daí, na hora de revisar
+falar dos 6 ia ficar meio hard
+aí peguei os dois mais citados e fichei os outros e anexei
+sendo q, desses 6, um eh o lspm e o outro é o do desempenho ruim. mas eu reforço a ideia de q ele é o unico, q contagem é massa, e q isso fomenta a discussão levantada com os exp. da seção seguinte
+ok
+na seção seguinte
+o corpus desse bicho do desempenho ruim n tá legal
+ Alexandre:  ok, soa bom
+ eu:  eu pego outro, q inclusive n utiliza só contagem de palavras, justifico pq tou usando ele e n o do desempenho ruim (pedi, n consgeui, n achei)
+e faço a discussão toda
+period.
+o ponto é
+eu tou achando
+q se eu incrementar um pouco a revisão deles dois
+
+
+=====
+
+Outras infos
+
+justificar pq fez experimento, caso n faça nos outros capitulos. - n precisa, justifica nos outros
+
