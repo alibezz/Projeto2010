@@ -4,6 +4,7 @@ REVISAR BIBLIOGRAFIAS!!!!
 DECIDIR SE VAI OU N FAZER CAPITULO PRA EXLICAR DATASETS
 ARRUMAR TABELAS COMO H OU T
 PADRONIZAR NUMERO DE PALAVRAS NOS CAPITULOS Q USAM L-LDA!
+PADRONIZAR SE FALA SÓ DE TAXA DE ACERTO OU SE TB DISCUTE UM POUCO PRECISÃO POR CLASSE E TALZ.
 ====================
 Conceitos básicos:
 
@@ -99,9 +100,10 @@ na hora do convote, mesma coisa. - ok
 dizer que as taxas de acerto variaram de acordo com as divisões entre conjuntos de treinamento e teste, nas duas revisões E RETIRAR OS FOOTNOTES NA PARTE DO L-LDA. - ok
 dizer onde os dados do convote tão disponíveis. - ok
 Arrumar o título (Ficou "Classificação por perspectiva baseada em contagens de palavras") - ok
+refazer experimento convote. - ok
 
-fazer conclusão.
-refazer experimento convote. 
+fazer conclusão. (classif. com contagens rocks, l-lda rocks, qto mais diferente melhor, mas pelos resultados obtidos na revisão, parece q eh bem por aí.)
+
 
 -- maybe
 

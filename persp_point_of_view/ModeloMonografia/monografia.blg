@@ -12,7 +12,6 @@ Warning--I didn't find a database entry for "naive-at-forty"
 Warning--I didn't find a database entry for "mccallum-naive"
 Warning--I didn't find a database entry for "alibezz-nb"
 Warning--I didn't find a database entry for "mail-resnik"
-Warning--I didn't find a database entry for "teubert2001"
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
 | Estilo bibliografico abnt-alf.bst versao 1.53           |
@@ -22,7 +21,7 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
 You've used 22 entries,
             6522 wiz_defined-function locations,
-            1280 strings with 12821 characters,
+            1279 strings with 12810 characters,
 and the built_in function-call counts, 18036 in all, are:
 = -- 1513
 > -- 631
@@ -61,4 +60,4 @@ warning$ -- 0
 while$ -- 152
 width$ -- 0
 write$ -- 332
-(There were 9 warnings)
+(There were 8 warnings)
