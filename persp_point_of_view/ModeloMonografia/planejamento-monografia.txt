@@ -9,7 +9,7 @@ Pendências
   => Bibliografias pra pq Naive Bayes funciona bem
 
 Semanas 1 e 2 de setembro: estudo de caso - OK!
-Semanas 3 e 4: fechamento do capítulo de frequencias, datasets, conceitos básicos e anexos
-Semanas 1 e 2 de outubro: redação de outros capítulos (intra e extra documentos, talvez colapsando pruma coisa só, e trabalhos relacionados)
-Semana 3 de outubro: fechamento de tudo (introdução e conclusão; revisões)
+Semanas 3 e 4 de setembro e 1 de outubro: fechamento do capítulo de frequencias - ok!, conceitos básicos e anexos
+Semana 2 de outubro: redação de outros capítulos (intra e extra documentos, talvez colapsando pruma coisa só) e trabalhos relacionados
+Semana 3 e 4 de outubro: fechamento de tudo (introdução e conclusão; revisões)
 Semana 4 de outubro => mandar pra revisão

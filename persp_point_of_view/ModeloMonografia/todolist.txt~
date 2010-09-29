@@ -5,18 +5,33 @@ DECIDIR SE VAI OU N FAZER CAPITULO PRA EXLICAR DATASETS
 ARRUMAR TABELAS COMO H OU T
 PADRONIZAR NUMERO DE PALAVRAS NOS CAPITULOS Q USAM L-LDA!
 PADRONIZAR SE FALA SÓ DE TAXA DE ACERTO OU SE TB DISCUTE UM POUCO PRECISÃO POR CLASSE E TALZ.
+
 ====================
 Conceitos básicos:
+Melhorar colchetes na lista de palavras na seção que apresenta o modelo naive bayes
+Arrumar o tamanho das letras nas imagens de conceitos básicos
+corrigir coisa do beta ter só duas classes
+padronizar \phi e essas coisas.
+retirar equações desnecessárias.
+Escrever melhor sobre a escolha de parametros.
 
-deixar mais claro no básicos essa coisa da frequencia das palavras na classificação, pro capitulo de frequencias fazer mais sentido.
+{deixar mais claro no básicos essa coisa da frequencia das palavras na classificação, pro capitulo de frequencias fazer mais sentido.
 botar referencias, no basicos, a naive bayes.
 Refazer modelos generativos => naive bayes e introdução de classificadores.
 Escrever pq n usa svm (naive bayes generaliza melhor pra pequenos datasets)
-Escrever melhor sobre a escolha de parametros.
 Escrever que 'mais fortemente associado' quer dizer 'contagem mais alta' ou 'que mais frequentemente se associaram'.
 Escrever, em classificadores, métodos de validação de desempenho.
-explicar que tira a média das amostras ou pega o valor final.
-Fazer imagem para a introdução - não, isso fica em conceitos básicos.
+
+Fazer imagem para a introdução - não, isso fica em conceitos básicos. (é uma imagem comparando contagem com 0 e 1 etc)
+dizer q o naive bayes usado considera apenas contagens de palavras
+brincar mais com isso de contextualizar os conceitos básicos na questão de mineração de perspectiva.}
+
+Pendências pra classificação:
+
+* explicar pra q servem os valores iniciais
+* falar essa coisa da reamostragem, q a ideia é sempre tornar os parâmetros os melhores possíveis.
+* FALAR MTO BEM DESSA COISA DE USAR CONTAGEEEEEEEEENNNNSSSSSS DE PALAVRAS
+explicar na class. do naive bayes pq é interessante q o theta_cj seja igual a principio, explicar como os parâmetros são reamostrados, mostrar todas as distribuições de probabilidade, dizer quais rolam só inicialmente e quais são reamostradas.
 ================
 
 Estudo de caso: 
@@ -28,6 +43,10 @@ Estudo de caso:
 **** rearrumar a parte da citação a trechos e explicação das palavras, + parecido com freqs. Falar de como isso, à luz das taxas de acerto, sugere q os autores se posicionam de forma clara, defendendo suas ideias de modo suficientemente diferente. (1 - palavras iguais em enfases diferentes; 2 - palavras unicas; 3 - essas observações)
 **** explicar pq só usa contagens de palavras, q eh pq normalmente funciona mto bem e pelos trechos parece q se trata dum corpus bem divid. ideol.
 **** retirar menção a bitterlemons como está, citar de outra forma.
+> botar 	mais um trecho anti governo na ilustração com L-LDA. 
+
+> corrigir frase que tem compreender e compreende e generico e tema geral.
+> mudar conc. e estudos fut. p/ conc.
 
 escrever intr. OK 
 
@@ -61,10 +80,6 @@ expplicar pq escolheu o naive bayes, classificador baseado em frequencia de pala
 
 arrumar números - OK
 
-> botar 	mais um trecho anti governo na ilustração com L-LDA. 
-
-> corrigir frase que tem compreender e compreende e generico e tema geral.
-> mudar conc. e estudos fut. p/ conc.
 ========================
 
 Anexos:
@@ -85,6 +100,7 @@ filhos/P10-2047 traz boa definição de perspectiva.
 
 Freqs de palavras: (vai pra NO MÁXIMO 53 pgs)
 ***** resolver como citar conteúdo de email.
+***** botar figura do lspm explicando parametros
 
 Retirar a palavra "Introdução" - OK
 Nomear as seções com \ref na introdução - OK
@@ -101,14 +117,12 @@ dizer que as taxas de acerto variaram de acordo com as divisões entre conjuntos
 dizer onde os dados do convote tão disponíveis. - ok
 Arrumar o título (Ficou "Classificação por perspectiva baseada em contagens de palavras") - ok
 refazer experimento convote. - ok
-
-fazer conclusão. (classif. com contagens rocks, l-lda rocks, qto mais diferente melhor, mas pelos resultados obtidos na revisão, parece q eh bem por aí.)
+fazer conclusão. (classif. com contagens rocks, l-lda rocks, qto mais diferente melhor, mas pelos resultados obtidos na revisão, parece q eh bem por aí.) - ok
 
 
 -- maybe
 
 nomear todos os corpora, pra citar nas subseções seguintes da parte de revisão. - supernão.
-ver se coloca mais palavras nas tabelas.
 
 
 => VOLTAR PRA REVISAR SE ESSA INTENÇÃO ESTÁ SENDO CUMPRIDA

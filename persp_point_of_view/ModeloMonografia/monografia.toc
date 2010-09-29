@@ -6,31 +6,31 @@
 \contentsline {chapter}{\numberline {2}T\IeC {\'e}cnicas b\IeC {\'a}sicas e ferramentas utilizadas}{10}
 \contentsline {section}{\numberline {2.1}Modelos Gr\IeC {\'a}ficos}{10}
 \contentsline {subsection}{\numberline {2.1.1}Na\IeC {\"\i }ve Bayes}{11}
-\contentsline {subsection}{\numberline {2.1.2}LDA}{13}
-\contentsline {subsubsection}{L-LDA}{15}
-\contentsline {section}{\numberline {2.2}Classificadores}{16}
+\contentsline {subsection}{\numberline {2.1.2}LDA}{14}
+\contentsline {subsubsection}{L-LDA}{16}
+\contentsline {section}{\numberline {2.2}Classificadores}{17}
 \contentsline {subsection}{\numberline {2.2.1}Na\IeC {\"\i }ve Bayes}{17}
-\contentsline {subsection}{\numberline {2.2.2}SVMs}{18}
-\contentsline {chapter}{\numberline {3}Principais trabalhos e \emph {datasets} estudados}{20}
-\contentsline {section}{\numberline {3.1}Bitterlemons}{20}
-\contentsline {chapter}{\numberline {4}Classifica\IeC {\c c}\IeC {\~a}o por perspectiva baseada em contagens de palavras}{21}
-\contentsline {section}{\numberline {4.1}Trabalhos Revisados}{22}
-\contentsline {subsection}{\numberline {4.1.1}\emph {Which side are you on? Identifying perspectives at the document and sentence levels}}{22}
-\contentsline {subsection}{\numberline {4.1.2}\emph {A preliminary investigation into sentiment analysis of informal political discourse}}{23}
-\contentsline {section}{\numberline {4.2}Experimentos com L-LDA e Na\IeC {\"\i }ve Bayes}{25}
-\contentsline {section}{\numberline {4.3}Conclus\IeC {\~o}es}{29}
-\contentsline {chapter}{\numberline {5}Metodologias que usam informa\IeC {\c c}\IeC {\~a}o extra-documento}{32}
-\contentsline {section}{\numberline {5.1}Concord\IeC {\^a}ncia e discord\IeC {\^a}ncia entre documentos}{32}
-\contentsline {section}{\numberline {5.2}Meta-informa\IeC {\c c}\IeC {\~o}es sobre os autores}{32}
-\contentsline {chapter}{\numberline {6}Metodologias que usam rela\IeC {\c c}\IeC {\~o}es intra-documento}{33}
-\contentsline {chapter}{\numberline {7}Estudo de caso: Perspectivas sobre o governo brasileiro}{34}
-\contentsline {section}{\numberline {7.1}Construindo um corpus para estudo}{34}
-\contentsline {section}{\numberline {7.2}Identificando perspectivas com um classificador Na\IeC {\"\i }ve Bayes}{41}
-\contentsline {section}{\numberline {7.3}Ilustrando a linguagem por perspectiva}{42}
-\contentsline {section}{\numberline {7.4}Conclus\IeC {\~o}es e estudos futuros}{46}
-\contentsline {chapter}{\numberline {8}Trabalhos relacionados}{47}
-\contentsline {chapter}{\numberline {9}Conclus\IeC {\~a}o}{48}
-\contentsline {section}{\numberline {9.1}Dificuldades encontradas}{48}
-\contentsline {section}{\numberline {9.2}Trabalhos futuros}{48}
-\contentsline {chapter}{Ap\^endice{} A{} -$\mskip -\thinmuskip $-{} Resultados experimentais}{49}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{50}
+\contentsline {subsection}{\numberline {2.2.2}SVMs}{19}
+\contentsline {chapter}{\numberline {3}Principais trabalhos e \emph {datasets} estudados}{22}
+\contentsline {section}{\numberline {3.1}Bitterlemons}{22}
+\contentsline {chapter}{\numberline {4}Classifica\IeC {\c c}\IeC {\~a}o por perspectiva baseada em contagens de palavras}{23}
+\contentsline {section}{\numberline {4.1}Trabalhos Revisados}{24}
+\contentsline {subsection}{\numberline {4.1.1}\emph {Which side are you on? Identifying perspectives at the document and sentence levels}}{24}
+\contentsline {subsection}{\numberline {4.1.2}\emph {A preliminary investigation into sentiment analysis of informal political discourse}}{25}
+\contentsline {section}{\numberline {4.2}Experimentos com L-LDA e Na\IeC {\"\i }ve Bayes}{27}
+\contentsline {section}{\numberline {4.3}Conclus\IeC {\~o}es}{31}
+\contentsline {chapter}{\numberline {5}Metodologias que usam informa\IeC {\c c}\IeC {\~a}o extra-documento}{34}
+\contentsline {section}{\numberline {5.1}Concord\IeC {\^a}ncia e discord\IeC {\^a}ncia entre documentos}{34}
+\contentsline {section}{\numberline {5.2}Meta-informa\IeC {\c c}\IeC {\~o}es sobre os autores}{34}
+\contentsline {chapter}{\numberline {6}Metodologias que usam rela\IeC {\c c}\IeC {\~o}es intra-documento}{35}
+\contentsline {chapter}{\numberline {7}Estudo de caso: Perspectivas sobre o governo brasileiro}{36}
+\contentsline {section}{\numberline {7.1}Construindo um corpus para estudo}{36}
+\contentsline {section}{\numberline {7.2}Identificando perspectivas com um classificador Na\IeC {\"\i }ve Bayes}{43}
+\contentsline {section}{\numberline {7.3}Ilustrando a linguagem por perspectiva}{44}
+\contentsline {section}{\numberline {7.4}Conclus\IeC {\~o}es e estudos futuros}{48}
+\contentsline {chapter}{\numberline {8}Trabalhos relacionados}{49}
+\contentsline {chapter}{\numberline {9}Conclus\IeC {\~a}o}{50}
+\contentsline {section}{\numberline {9.1}Dificuldades encontradas}{50}
+\contentsline {section}{\numberline {9.2}Trabalhos futuros}{50}
+\contentsline {chapter}{Ap\^endice{} A{} -$\mskip -\thinmuskip $-{} Resultados experimentais}{51}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{52}

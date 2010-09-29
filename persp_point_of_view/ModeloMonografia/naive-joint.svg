@@ -34,7 +34,7 @@
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
      inkscape:cx="385.10826"
-     inkscape:cy="607.19329"
+     inkscape:cy="687.62661"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -65,14 +65,20 @@
        x="153.0575"
        y="250.39781"
        rx="7.5921874e-39"
-       ry="8.0598946e-39" />
+       ry="8.0598946e-39"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <text
        xml:space="preserve"
        style="font-size:44px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
        x="82.955032"
        y="257.38"
        id="text3193"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
          sodipodi:role="line"
          id="tspan3195"
          x="82.955032"
@@ -84,48 +90,57 @@
        x="11.428572"
        y="338.79074"
        id="text2485"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
          sodipodi:role="line"
          id="tspan2487"
          x="11.428572"
          y="338.79074"
          style="font-size:36px">β</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
-       x="85"
-       y="334.30942"
-       id="text2489"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan2491"
-         x="85"
-         y="334.30942"
-         style="font-size:36">π</tspan></text>
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.88793826px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 96.42857,266.72069 C 96.42857,305.29766 96.42857,305.86082 96.42857,305.86082"
-       id="path2493" />
+       id="path2493"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 101.29366,300.19975 L 96.2188,306.24051 L 90.687142,300.15751"
-       id="path2495" />
+       id="path2495"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.86184472px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 35.758988,323.1762 C 76.716783,324.88331 76.383793,324.31427 76.383793,324.31427"
-       id="path2497" />
+       id="path2497"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 69.82668,319.20174 L 75.8876,324.2525 L 69.82668,329.80834"
-       id="path2499" />
+       id="path2499"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.00555074px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 114.14859,324.03365 C 177.28922,325.3915 176.77472,324.89021 176.77472,324.89021"
-       id="path2511" />
+       id="path2511"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 171.22064,319.91603 L 177.28156,324.96679 L 171.22064,330.52263"
-       id="path2513" />
+       id="path2513"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        sodipodi:type="arc"
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#020202;stroke-opacity:0.97142855"
@@ -135,7 +150,10 @@
        sodipodi:rx="35.714287"
        sodipodi:ry="34.285713"
        d="M 477.14285,418.07648 A 35.714287,34.285713 0 1 1 405.71427,418.07648 A 35.714287,34.285713 0 1 1 477.14285,418.07648 z"
-       transform="matrix(0.7139304,4.1721652e-3,-4.1207097e-3,0.7228452,-110.21221,18.673021)" />
+       transform="matrix(0.7139304,4.1721652e-3,-4.1207097e-3,0.7228452,-110.21221,18.673021)"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#020202;stroke-width:0.41262019;stroke-opacity:0.97142855"
        id="rect2517"
@@ -144,7 +162,10 @@
        x="265.64468"
        y="435.39481"
        rx="2.5435024e-39"
-       ry="9.2492551e-39" />
+       ry="9.2492551e-39"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        sodipodi:type="arc"
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#020202;stroke-opacity:0.97142855"
@@ -154,14 +175,20 @@
        sodipodi:rx="35.714287"
        sodipodi:ry="34.285713"
        d="M 477.14285,418.07648 A 35.714287,34.285713 0 1 1 405.71427,418.07648 A 35.714287,34.285713 0 1 1 477.14285,418.07648 z"
-       transform="matrix(0.7139304,4.1721652e-3,-4.1207097e-3,0.7228452,-8.426497,171.17303)" />
+       transform="matrix(0.7139304,4.1721652e-3,-4.1207097e-3,0.7228452,-8.426497,171.17303)"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <text
        xml:space="preserve"
        style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
        x="295.71426"
        y="584.505"
        id="text2521"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
          sodipodi:role="line"
          id="tspan2523"
          x="295.71426"
@@ -170,11 +197,17 @@
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.00555074px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 305.25208,563.9299 C 306.59276,500.7889 306.09161,501.30354 306.09161,501.30354"
-       id="path2525" />
+       id="path2525"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 301.0579,506.86993 L 306.09263,500.79568 L 311.66446,506.8419"
-       id="path2527" />
+       id="path2527"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <rect
        style="opacity:1;fill:#ffffff;fill-opacity:1;stroke:#020202;stroke-width:0.36470908;stroke-opacity:0.97142855"
        id="rect2529"
@@ -183,7 +216,10 @@
        x="263.65115"
        y="285.89078"
        rx="3.9710949e-39"
-       ry="4.6282898e-39" />
+       ry="4.6282898e-39"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        sodipodi:type="arc"
        style="opacity:1;fill:#b9b8b7;fill-opacity:1;stroke:#020202;stroke-opacity:0.97142855"
@@ -193,54 +229,78 @@
        sodipodi:rx="35.714287"
        sodipodi:ry="34.285713"
        d="M 477.14285,418.07648 A 35.714287,34.285713 0 1 1 405.71427,418.07648 A 35.714287,34.285713 0 1 1 477.14285,418.07648 z"
-       transform="matrix(0.7040715,4.1128897e-3,-4.0638052e-3,0.7125755,-0.5701552,23.270636)" />
+       transform="matrix(0.7040715,4.1128897e-3,-4.0638052e-3,0.7125755,-0.5701552,23.270636)"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:0.48445117px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 227.46067,323.9287 C 283.92188,323.53741 283.46284,323.66784 283.46284,323.66784"
-       id="path2533" />
+       id="path2533"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 276.97824,318.27826 L 283.03916,323.32902 L 276.97824,328.88486"
-       id="path2535" />
+       id="path2535"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1.17717564px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 306.45402,451.23412 C 307.54762,345.14921 307.13883,346.01388 307.13883,346.01388"
-       id="path2537" />
+       id="path2537"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <path
        style="fill:none;fill-rule:evenodd;stroke:#000000;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
        d="M 301.83958,352.54217 L 306.87431,346.46792 L 312.44614,352.51414"
-       id="path2539" />
+       id="path2539"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90" />
     <text
        xml:space="preserve"
        style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
-       x="371.42859"
-       y="387.36218"
+       x="372.85715"
+       y="388.79074"
        id="text2541"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
          sodipodi:role="line"
          id="tspan2543"
-         x="371.42859"
-         y="387.36218"
+         x="372.85715"
+         y="388.79074"
          style="font-size:18px">|D|</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
-       x="327.85715"
-       y="597.36218"
+       x="324.28571"
+       y="596.64789"
        id="text2545"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
          sodipodi:role="line"
          id="tspan2547"
-         x="327.85715"
-         y="597.36218"
-         style="font-size:18px">m</tspan></text>
+         x="324.28571"
+         y="596.64789"
+         style="font-size:18px">|C|</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
        x="198.57143"
        y="363.79077"
        id="text2553"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
          sodipodi:role="line"
          id="tspan2555"
          x="198.57143"
@@ -249,86 +309,92 @@
     <text
        xml:space="preserve"
        style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
-       x="330.71429"
-       y="346.64792"
-       id="text2561"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan2563"
-         x="330.71429"
-         y="346.64792"
-         style="font-size:12px">(j)</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
        x="317.85715"
        y="356.64789"
        id="text2565"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
          sodipodi:role="line"
          id="tspan2567"
          x="317.85715"
          y="356.64789"
-         style="font-size:16">v</tspan></text>
+         style="font-size:16px">w</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
        x="326.42856"
-       y="360.93362"
-       id="text2569"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan2571"
-         x="326.42856"
-         y="360.93362"
-         style="font-size:14px">d</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
-       x="372.85715"
-       y="358.79074"
-       id="text2573"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan2575"
-         x="372.85715"
-         y="358.79074"
-         style="font-size:18">n</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
-       x="385"
-       y="362.36218"
-       id="text2577"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan2579"
-         x="385"
-         y="362.36218"
-         style="font-size:16px">j</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
-       x="318.57144"
-       y="513.79077"
-       id="text2583"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan2585"
-         x="318.57144"
-         y="513.79077"
-         style="font-size:16">θ</tspan></text>
-    <text
-       xml:space="preserve"
-       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
-       x="327.85712"
-       y="515.93359"
+       y="517.36218"
        id="text2587"
-       sodipodi:linespacing="125%"><tspan
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
          sodipodi:role="line"
          id="tspan2589"
-         x="327.85712"
-         y="515.93359"
+         x="326.42856"
+         y="517.36218"
+         style="font-size:12px">V|c</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
+       x="86.530144"
+       y="335.55582"
+       id="text2583"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan2585"
+         x="86.530144"
+         y="335.55582"
+         style="font-size:32px">θ</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
+       x="104.05637"
+       y="338.32632"
+       id="text2429"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan2431"
+         x="104.05637"
+         y="338.32632"
          style="font-size:14px">c</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
+       x="372.14288"
+       y="363.79074"
+       id="text2433"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan2435"
+         x="372.14288"
+         y="363.79074"
+         style="font-size:16px">|d|</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:10px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans;-inkscape-font-specification:Bitstream Vera Sans"
+       x="315.91742"
+       y="513.03516"
+       id="text2441"
+       sodipodi:linespacing="125%"
+       inkscape:export-filename="/home/alibezz/Desktop/Projeto2010/persp_point_of_view/ModeloMonografia/naive-joint.png"
+       inkscape:export-xdpi="90"
+       inkscape:export-ydpi="90"><tspan
+         sodipodi:role="line"
+         id="tspan2443"
+         x="315.91742"
+         y="513.03516"
+         style="font-size:16px">θ</tspan></text>
   </g>
 </svg>

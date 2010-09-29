@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  27 SEP 2010 13:32
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  29 SEP 2010 05:51
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -555,46 +555,38 @@ File: Latent_Dirichlet_allocation.png Graphic file (type png)
 
 <use Latent_Dirichlet_allocation.png>
 
-LaTeX Warning: Citation `top-lda' on page 15 undefined on input line 293.
+LaTeX Warning: Citation `top-lda' on page 15 undefined on input line 407.
 
 [15 <./Latent_Dirichlet_allocation.png>]
 
-LaTeX Warning: Citation `top-llda' on page 16 undefined on input line 316.
+LaTeX Warning: Citation `top-llda' on page 16 undefined on input line 430.
 
-[16]
+[16] [17] [18]
 
-LaTeX Warning: Citation `naive-at-forty' on page 17 undefined on input line 351
-.
+LaTeX Warning: Citation `alibezz-nb' on page 19 undefined on input line 494.
 
-
-LaTeX Warning: Citation `mccallum-naive' on page 17 undefined on input line 351
-.
-
-
-LaTeX Warning: Citation `alibezz-nb' on page 17 undefined on input line 364.
-
-[17] [18]) (./frequencia_palavras.tex [19]
+[19] [20]) (./frequencia_palavras.tex [21]
 Cap\'{\i }tulo 3.
-[20
+[22
 
 ]
 Cap\'{\i }tulo 4.
-[21
+[23
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/it' tried instead on input line 103.
- [22]
+ [24]
 
-LaTeX Warning: Citation `mail-resnik' on page 23 undefined on input line 117.
+LaTeX Warning: Citation `mail-resnik' on page 25 undefined on input line 117.
 
-[23] [24]
+[25] [26]
 Underfull \hbox (badness 2495) in paragraph at lines 305--305
 [][]\T1/ptm/m/n/10 A im-ple-men-ta-ção de L-LDA uti-li-zada está dis-po-ní-vel 
 no re-po-si-tó-rio on-line de Ale-xan-dre Pas-sos
  []
 
-[25] [26] [27] [28] [29]
+[27] [28] [29] [30] [31]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 639.
 
@@ -603,65 +595,65 @@ Overfull \hbox (8.36821pt too wide) in paragraph at lines 639--640
 as-si-fi-ca-ção (o LSPM), destacando-
  []
 
-[30]) (./extra_documento.tex [31]
+[32]) (./extra_documento.tex [33]
 Cap\'{\i }tulo 5.
 
 Overfull \hbox (5.43347pt too wide) in paragraph at lines 3--3
 []\T1/ptm/b/n/17.28 CONCORDÂNCIA E DIS-COR-DÂN-CIA EN-TRE DO-CU-
  []
 
-) (./intra_documento.tex [32
+) (./intra_documento.tex [34
 
 ]
 Cap\'{\i }tulo 6.
-) (./estudo_de_caso.tex [33
+) (./estudo_de_caso.tex [35
 
 ]
 Cap\'{\i }tulo 7.
-[34
+[36
 
-] [35]
+] [37]
 Underfull \hbox (badness 10000) in paragraph at lines 68--68
 [][]\T1/ptm/m/n/10 http://www.conversaafiada.com.br/brasil/2010/07/02/mino-expl
 ica-por-que-apoia-a-dilma-porque-ela-e-
  []
 
-[36] [37] [38]
+[38] [39] [40]
 Overfull \hbox (11.76984pt too wide) in paragraph at lines 161--162
 []\T1/ptm/m/n/10.95 Retirado de \T1/ptm/m/it/10.95 "FHC aceita o con-vite para 
 o du-elo que Lula não pode re-cu-sar." \T1/ptm/m/n/10.95 - 11/02/2010 
  []
 
-[39] [40] [41]
+[41] [42] [43]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[42] <situacao.png, id=158, 1270.7475pt x 605.26125pt>
+[44] <situacao.png, id=164, 1270.7475pt x 605.26125pt>
 File: situacao.png Graphic file (type png)
  <use situacao.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<oposicao.png, id=159, 1271.75125pt x 642.4pt>
+<oposicao.png, id=165, 1271.75125pt x 642.4pt>
 File: oposicao.png Graphic file (type png)
  <use oposicao.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<generico.png, id=160, 1260.71pt x 502.87875pt>
+<generico.png, id=166, 1260.71pt x 502.87875pt>
 File: generico.png Graphic file (type png)
  <use generico.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[43] [44 <./situacao.png> <./oposicao.png>] [45 <./generico.png>])
-(./trabalhos_relacionados.tex [46]
+[45] [46 <./situacao.png> <./oposicao.png>] [47 <./generico.png>])
+(./trabalhos_relacionados.tex [48]
 Cap\'{\i }tulo 8.
-) (./conclusao.tex [47
+) (./conclusao.tex [49
 
 ]
 Cap\'{\i }tulo 9.
-) (./apendices.tex [48
+) (./apendices.tex [50
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <20.74> not available
@@ -672,9 +664,9 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 
 Apendice A.
-) (./monografia.bbl [49
+) (./monografia.bbl [51
 
-] [50
+] [52
 
 ])
 +-------------------------------------------------------------------+
@@ -686,17 +678,17 @@ tabela-simbolos: agora rode geratss (linux) ou manualmente,
 makeindex -s tabela-siglas.ist -o monografia.sigla monografia.siglax
 makeindex -s tabela-simbolos.ist -o monografia.symbols monografia.symbolsx
 ########################################################################
-[51] (./monografia.aux)
+[53] (./monografia.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5974 strings out of 94101
- 80530 string characters out of 1165810
- 133319 words of memory out of 1500000
- 9021 multiletter control sequences out of 10000+50000
- 97785 words of font info for 142 fonts, out of 1200000 for 2000
+ 5996 strings out of 94101
+ 80635 string characters out of 1165810
+ 133373 words of memory out of 1500000
+ 9024 multiletter control sequences out of 10000+50000
+ 106845 words of font info for 161 fonts, out of 1200000 for 2000
  637 hyphenation exceptions out of 8191
  32i,12n,41p,1986b,603s stack positions out of 5000i,500n,6000p,200000b,5000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
@@ -709,9 +701,9 @@ usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texl
 ive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/
 times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (52 pages, 503130 bytes).
+Output written on monografia.pdf (54 pages, 488465 bytes).
 PDF statistics:
- 233 PDF objects out of 1000 (max. 8388607)
+ 239 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  36 words of extra memory for PDF output out of 10000 (max. 10000000)
 

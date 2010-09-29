@@ -66,6 +66,12 @@ sian-naive-bayes/$>$.}
 {MAINARDI, D. \emph{Lula e minha anta}. [S.l.]: Record, 2007.
 ISBN 8501080705.}
 
+\bibitem[McCallum e Nigam 1998]{mccallum-nigam}
+\abntrefinfo{McCallum e Nigam}{MCCALLUM; NIGAM}{1998}
+{MCCALLUM, A.; NIGAM, K.~P. A comparison of event models for naive bayes text
+  classification. In:  \emph{AAAI-98 Workshop on learning for text
+  categorization}. [S.l.]: AAAI Press, 1998. p. 41--48.}
+
 \bibitem[Mullen e Malouf 2006]{aaai-politics}
 \abntrefinfo{Mullen e Malouf}{MULLEN; MALOUF}{2006}
 {MULLEN, T.; MALOUF, R. A preliminary investigation into sentiment analysis of
@@ -82,6 +88,12 @@ ISBN 8501080705.}
 {NG, A.; JORDAN, M. On discriminative vs. generative classifiers: A comparison
   of logistic regression and naive bayes. In:  \emph{NIPS '02}. [S.l.: s.n.],
   2002. v.~15.}
+
+\bibitem[Nigam 2001]{nigam}
+\abntrefinfo{Nigam}{NIGAM}{2001}
+{NIGAM, K.~P.
+\emph{Using unlabeled data to improve text classification}.
+Disserta\c{c}\~ao (Mestrado) --- Carnegie Mellon University, 2001.}
 
 \bibitem[Oguri 2006]{mono-puc}
 \abntrefinfo{Oguri}{OGURI}{2006}
@@ -112,12 +124,6 @@ Disserta\c{c}\~ao (Mestrado) --- Pontificia Universidade Catolica do Rio de
 {RESNIK, P.; HARDISTY, E. \emph{Gibbs Sampling for the Uninitiated}.
 [S.l.], 2009. Dispon{\'\i}vel em:
   $<$http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.156.2875$>$.}
-
-\bibitem[Resnik e Hardisty 2010]{gibbs}
-\abntrefinfo{Resnik e Hardisty}{RESNIK; HARDISTY}{2010}
-{RESNIK, P.; HARDISTY, E. \emph{Gibbs Sampling for the Uninitiated}.
-[S.l.], Abril 2010. Dispon{\'\i}vel em:
-  $<$http://hdl.handle.net/1903/10058$>$.}
 
 \bibitem[Teubert 2001]{teubert}
 \abntrefinfo{Teubert}{TEUBERT}{2001}

@@ -8,8 +8,6 @@ Warning--I didn't find a database entry for "pesquisa-eua"
 Warning--I didn't find a database entry for "pang-lee-survey"
 Warning--I didn't find a database entry for "top-lda"
 Warning--I didn't find a database entry for "top-llda"
-Warning--I didn't find a database entry for "naive-at-forty"
-Warning--I didn't find a database entry for "mccallum-naive"
 Warning--I didn't find a database entry for "alibezz-nb"
 Warning--I didn't find a database entry for "mail-resnik"
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
@@ -19,45 +17,45 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 | Em caso de duvidas ou problemas com este estilo procure |
 | http://abntex.codigolivre.org.br                        |
 +---------------------------------------------------------+
-You've used 22 entries,
+You've used 23 entries,
             6522 wiz_defined-function locations,
-            1279 strings with 12810 characters,
-and the built_in function-call counts, 18036 in all, are:
-= -- 1513
-> -- 631
-< -- 16
-+ -- 277
-- -- 194
-* -- 1253
-:= -- 2438
-add.period$ -- 86
-call.type$ -- 23
-change.case$ -- 216
-chr.to.int$ -- 31
-cite$ -- 21
-duplicate$ -- 819
-empty$ -- 1415
-format.name$ -- 916
-if$ -- 4361
+            1286 strings with 13029 characters,
+and the built_in function-call counts, 18776 in all, are:
+= -- 1563
+> -- 646
+< -- 17
++ -- 283
+- -- 199
+* -- 1299
+:= -- 2532
+add.period$ -- 90
+call.type$ -- 24
+change.case$ -- 223
+chr.to.int$ -- 32
+cite$ -- 22
+duplicate$ -- 862
+empty$ -- 1488
+format.name$ -- 939
+if$ -- 4537
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 382
-newline$ -- 104
-num.names$ -- 105
-pop$ -- 501
+missing$ -- 402
+newline$ -- 109
+num.names$ -- 110
+pop$ -- 522
 preamble$ -- 1
-purify$ -- 85
+purify$ -- 88
 quote$ -- 0
-skip$ -- 1047
+skip$ -- 1090
 stack$ -- 1
-substring$ -- 699
-swap$ -- 391
-text.length$ -- 13
+substring$ -- 740
+swap$ -- 416
+text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 13
+type$ -- 18
 warning$ -- 0
-while$ -- 152
+while$ -- 161
 width$ -- 0
-write$ -- 332
-(There were 8 warnings)
+write$ -- 348
+(There were 6 warnings)
