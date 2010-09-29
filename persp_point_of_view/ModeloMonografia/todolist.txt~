@@ -7,31 +7,41 @@ PADRONIZAR NUMERO DE PALAVRAS NOS CAPITULOS Q USAM L-LDA!
 PADRONIZAR SE FALA SÓ DE TAXA DE ACERTO OU SE TB DISCUTE UM POUCO PRECISÃO POR CLASSE E TALZ.
 
 ====================
-Conceitos básicos:
-Melhorar colchetes na lista de palavras na seção que apresenta o modelo naive bayes
-Arrumar o tamanho das letras nas imagens de conceitos básicos
-corrigir coisa do beta ter só duas classes
-padronizar \phi e essas coisas.
-retirar equações desnecessárias.
-Escrever melhor sobre a escolha de parametros.
+Conceitos básicos: (n pode passar de 56 páginas!)
+dizer q o naive bayes usado considera apenas contagens de palavras - ok
+corrigir a comparação com processo generativo na parte de class. naive - ok
+arrumar gamma na parte de class. naive - ok
+padronizar \phi e essas coisas. - ok
+retirar equações desnecessárias. - ok
+Escrever melhor sobre a escolha de parametros. - ok
+deixar mais claro no naive essa coisa da contagem de palavras - ok
+explicar pra q servem os valores iniciais - ok
+falar essa coisa da reamostragem, q a ideia é sempre tornar os parâmetros os melhores possíveis. - ok
+FALAR MTO BEM DESSA COISA DE USAR CONTAGEEEEEEEEENNNNSSSSSS DE PALAVRAS -  ok? 
 
-{deixar mais claro no básicos essa coisa da frequencia das palavras na classificação, pro capitulo de frequencias fazer mais sentido.
-botar referencias, no basicos, a naive bayes.
-Refazer modelos generativos => naive bayes e introdução de classificadores.
-Escrever pq n usa svm (naive bayes generaliza melhor pra pequenos datasets)
-Escrever que 'mais fortemente associado' quer dizer 'contagem mais alta' ou 'que mais frequentemente se associaram'.
+geral:
+brincar mais com isso de contextualizar os conceitos básicos na questão de mineração de perspectiva.
+corrigir citações ao github
+Arrumar o tamanho das letras nas imagens de conceitos básicos
+refazer introdução de classificadores.
 Escrever, em classificadores, métodos de validação de desempenho.
 
-Fazer imagem para a introdução - não, isso fica em conceitos básicos. (é uma imagem comparando contagem com 0 e 1 etc)
-dizer q o naive bayes usado considera apenas contagens de palavras
-brincar mais com isso de contextualizar os conceitos básicos na questão de mineração de perspectiva.}
 
-Pendências pra classificação:
+naive - modelo:
+corrigir e diminuir figura na parte modelo bayes (corrigir coisa do beta ter só duas classes)
+Melhorar colchetes na lista de palavras na seção que apresenta o modelo naive bayes
 
-* explicar pra q servem os valores iniciais
-* falar essa coisa da reamostragem, q a ideia é sempre tornar os parâmetros os melhores possíveis.
-* FALAR MTO BEM DESSA COISA DE USAR CONTAGEEEEEEEEENNNNSSSSSS DE PALAVRAS
-explicar na class. do naive bayes pq é interessante q o theta_cj seja igual a principio, explicar como os parâmetros são reamostrados, mostrar todas as distribuições de probabilidade, dizer quais rolam só inicialmente e quais são reamostradas.
+lda - modelo:
+Escrever que 'mais fortemente associado' quer dizer 'contagem mais alta' ou 'que mais frequentemente se associaram'.
+
+svm:
+dizer q o svm é baseado em contagens de palavras.
+Escrever pq n usa svm (naive bayes generaliza melhor pra pequenos datasets)
+
+
+naive - classificação:
+
+
 ================
 
 Estudo de caso: 

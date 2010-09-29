@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  29 SEP 2010 05:51
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  29 SEP 2010 13:03
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -546,26 +546,25 @@ File: exemplo-modelo-grafico.png Graphic file (type png)
 <use exemplo-modelo-grafico.png> [10
 
 ] [11 <./exemplo-modelo-grafico.png>]
-[12] <naive-joint.png, id=57, 313.17pt x 294.701pt>
+<naive-joint.png, id=53, 313.17pt x 294.701pt>
 File: naive-joint.png Graphic file (type png)
  <use naive-joint.png>
-[13 <./naive-joint.png>] [14]
-<Latent_Dirichlet_allocation.png, id=65, 476.179pt x 249.733pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[12] [13 <./naive-joint.png>] [14]
+<Latent_Dirichlet_allocation.png, id=66, 476.179pt x 249.733pt>
 File: Latent_Dirichlet_allocation.png Graphic file (type png)
 
 <use Latent_Dirichlet_allocation.png>
 
-LaTeX Warning: Citation `top-lda' on page 15 undefined on input line 407.
+LaTeX Warning: Citation `top-lda' on page 15 undefined on input line 402.
 
 [15 <./Latent_Dirichlet_allocation.png>]
 
-LaTeX Warning: Citation `top-llda' on page 16 undefined on input line 430.
+LaTeX Warning: Citation `top-llda' on page 16 undefined on input line 425.
 
-[16] [17] [18]
-
-LaTeX Warning: Citation `alibezz-nb' on page 19 undefined on input line 494.
-
-[19] [20]) (./frequencia_palavras.tex [21]
+[16] [17] [18] [19] [20]) (./frequencia_palavras.tex [21]
 Cap\'{\i }tulo 3.
 [22
 
@@ -684,11 +683,11 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 5996 strings out of 94101
- 80635 string characters out of 1165810
- 133373 words of memory out of 1500000
- 9024 multiletter control sequences out of 10000+50000
- 106845 words of font info for 161 fonts, out of 1200000 for 2000
+ 5984 strings out of 94101
+ 80532 string characters out of 1165810
+ 133337 words of memory out of 1500000
+ 9019 multiletter control sequences out of 10000+50000
+ 103108 words of font info for 154 fonts, out of 1200000 for 2000
  637 hyphenation exceptions out of 8191
  32i,12n,41p,1986b,603s stack positions out of 5000i,500n,6000p,200000b,5000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
@@ -701,7 +700,7 @@ usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texl
 ive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/
 times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (54 pages, 488465 bytes).
+Output written on monografia.pdf (54 pages, 499911 bytes).
 PDF statistics:
  239 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)

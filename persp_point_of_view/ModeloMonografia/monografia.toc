@@ -6,9 +6,9 @@
 \contentsline {chapter}{\numberline {2}T\IeC {\'e}cnicas b\IeC {\'a}sicas e ferramentas utilizadas}{10}
 \contentsline {section}{\numberline {2.1}Modelos Gr\IeC {\'a}ficos}{10}
 \contentsline {subsection}{\numberline {2.1.1}Na\IeC {\"\i }ve Bayes}{11}
-\contentsline {subsection}{\numberline {2.1.2}LDA}{14}
-\contentsline {subsubsection}{L-LDA}{16}
-\contentsline {section}{\numberline {2.2}Classificadores}{17}
+\contentsline {subsection}{\numberline {2.1.2}LDA}{13}
+\contentsline {subsubsection}{L-LDA}{15}
+\contentsline {section}{\numberline {2.2}Classificadores}{16}
 \contentsline {subsection}{\numberline {2.2.1}Na\IeC {\"\i }ve Bayes}{17}
 \contentsline {subsection}{\numberline {2.2.2}SVMs}{19}
 \contentsline {chapter}{\numberline {3}Principais trabalhos e \emph {datasets} estudados}{22}
