@@ -6,6 +6,7 @@ Database file #1: abnt-options.bib
 Database file #2: monografia.bib
 Warning--I didn't find a database entry for "pesquisa-eua"
 Warning--I didn't find a database entry for "pang-lee-survey"
+Warning--I didn't find a database entry for "naive-forty"
 Warning--I didn't find a database entry for "top-lda"
 Warning--I didn't find a database entry for "top-llda"
 Warning--I didn't find a database entry for "mail-resnik"
@@ -18,7 +19,7 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
 You've used 23 entries,
             6522 wiz_defined-function locations,
-            1285 strings with 13019 characters,
+            1286 strings with 13030 characters,
 and the built_in function-call counts, 18776 in all, are:
 = -- 1563
 > -- 646
@@ -57,4 +58,4 @@ warning$ -- 0
 while$ -- 161
 width$ -- 0
 write$ -- 348
-(There were 5 warnings)
+(There were 6 warnings)
