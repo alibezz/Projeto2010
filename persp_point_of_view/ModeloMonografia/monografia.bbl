@@ -37,6 +37,12 @@ sian-naive-bayes/$>$.}
 \emph{Proceedings of the AAAI Fall Symposium on Style and Meaning in Language,
   Art, Music, and Design}, p. 41--48, 2004.}
 
+\bibitem[Evans, Hastings e Peacock 2000]{stat-distribs}
+\abntrefinfo{Evans, Hastings e Peacock}{EVANS; HASTINGS; PEACOCK}{2000}
+{EVANS, M.; HASTINGS, N.; PEACOCK, B. \emph{Statistical Distributions}. [S.l.]:
+  Wiley-Interscience, 2000.
+ISBN 0471371246.}
+
 \bibitem[Griffiths e Steyvers 2004]{pnas}
 \abntrefinfo{Griffiths e Steyvers}{GRIFFITHS; STEYVERS}{2004}
 {GRIFFITHS, T.~L.; STEYVERS, M. Finding scientific topics.
@@ -54,6 +60,12 @@ sian-naive-bayes/$>$.}
 {KLEBANOV, B.~B.; BEIGMAN, E.; DIERMEIER, D. Vocabulary choice as an indicator
   of perspective. In:  . [S.l.: s.n.], 2010. p. 253--257.}
 
+\bibitem[Lewis 1998]{naive-forty}
+\abntrefinfo{Lewis}{LEWIS}{1998}
+{LEWIS, D.~D. Naive (bayes) at forty: The independence assumption in
+  information retrieval. In:  \emph{Proceedings of ECML-98, 10th European
+  Conference on Machine Learning}. [S.l.]: Springer Verlag, 1998. p. 4--15.}
+
 \bibitem[Lin et al. 2006]{lin-et-al2006}
 \abntrefinfo{Lin et al.}{LIN et al.}{2006}
 {LIN, W.-H. et al. Which side are you on? identifying perspectives at the
@@ -65,12 +77,6 @@ sian-naive-bayes/$>$.}
 \abntrefinfo{Mainardi}{MAINARDI}{2007}
 {MAINARDI, D. \emph{Lula e minha anta}. [S.l.]: Record, 2007.
 ISBN 8501080705.}
-
-\bibitem[McCallum e Nigam 1998]{mccallum-nigam}
-\abntrefinfo{McCallum e Nigam}{MCCALLUM; NIGAM}{1998}
-{MCCALLUM, A.; NIGAM, K.~P. A comparison of event models for naive bayes text
-  classification. In:  \emph{AAAI-98 Workshop on learning for text
-  categorization}. [S.l.]: AAAI Press, 1998. p. 41--48.}
 
 \bibitem[Mullen e Malouf 2006]{aaai-politics}
 \abntrefinfo{Mullen e Malouf}{MULLEN; MALOUF}{2006}

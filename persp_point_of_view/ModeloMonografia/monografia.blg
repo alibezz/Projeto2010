@@ -6,7 +6,6 @@ Database file #1: abnt-options.bib
 Database file #2: monografia.bib
 Warning--I didn't find a database entry for "pesquisa-eua"
 Warning--I didn't find a database entry for "pang-lee-survey"
-Warning--I didn't find a database entry for "naive-forty"
 Warning--I didn't find a database entry for "top-lda"
 Warning--I didn't find a database entry for "top-llda"
 Warning--I didn't find a database entry for "mail-resnik"
@@ -17,45 +16,45 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 | Em caso de duvidas ou problemas com este estilo procure |
 | http://abntex.codigolivre.org.br                        |
 +---------------------------------------------------------+
-You've used 23 entries,
+You've used 24 entries,
             6522 wiz_defined-function locations,
-            1286 strings with 13030 characters,
-and the built_in function-call counts, 18776 in all, are:
-= -- 1563
-> -- 646
+            1291 strings with 13148 characters,
+and the built_in function-call counts, 19523 in all, are:
+= -- 1612
+> -- 680
 < -- 17
-+ -- 283
-- -- 199
-* -- 1299
-:= -- 2532
-add.period$ -- 90
-call.type$ -- 24
-change.case$ -- 223
-chr.to.int$ -- 32
-cite$ -- 22
-duplicate$ -- 862
-empty$ -- 1488
-format.name$ -- 939
-if$ -- 4537
++ -- 294
+- -- 209
+* -- 1355
+:= -- 2637
+add.period$ -- 94
+call.type$ -- 25
+change.case$ -- 233
+chr.to.int$ -- 33
+cite$ -- 23
+duplicate$ -- 899
+empty$ -- 1549
+format.name$ -- 985
+if$ -- 4715
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 402
-newline$ -- 109
-num.names$ -- 110
-pop$ -- 522
+missing$ -- 422
+newline$ -- 114
+num.names$ -- 115
+pop$ -- 548
 preamble$ -- 1
-purify$ -- 88
+purify$ -- 92
 quote$ -- 0
-skip$ -- 1090
+skip$ -- 1125
 stack$ -- 1
-substring$ -- 740
-swap$ -- 416
+substring$ -- 751
+swap$ -- 432
 text.length$ -- 14
 text.prefix$ -- 0
 top$ -- 0
 type$ -- 18
 warning$ -- 0
-while$ -- 161
+while$ -- 167
 width$ -- 0
-write$ -- 348
-(There were 6 warnings)
+write$ -- 363
+(There were 5 warnings)

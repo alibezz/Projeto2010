@@ -112,6 +112,7 @@ filhos/P10-2047 traz boa definição de perspectiva.
 Freqs de palavras: (vai pra NO MÁXIMO 53 pgs)
 ***** resolver como citar conteúdo de email.
 ***** botar figura do lspm explicando parametros
+***** explicar lspm de modo q n fale de modelo generativo
 
 Retirar a palavra "Introdução" - OK
 Nomear as seções com \ref na introdução - OK

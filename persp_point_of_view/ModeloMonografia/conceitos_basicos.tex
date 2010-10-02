@@ -6,7 +6,7 @@
 %\textbf{serão discutidos os modelos de tópicos \emph{Latent Dirichlet Allocation} (\textbf{LDA}) e \emph{Labeled Latent Dirichlet Allocation} (\textbf{L-LDA}). O segundo, que consiste em uma pequena modificação do primeiro, é utilizado em parte dos experimentos conduzidos neste projeto.}
 
 
-\section{Naïve Bayes}
+\section{Classificador Naïve Bayes}
 \label{subsection:naive}
 
 %Explicar q ele é mto utilizado nos trabalhos pra classificar perspectiva, apresentando o bom desempenho pelo qual ficou conhecido na classificaçẽo de documentos por assunto.
@@ -17,118 +17,67 @@ O Naïve Bayes é um classificador que se baseia no Teorema de Bayes e assume a 
 
 % Mostrar o Teorema de Bayes e falar da prior dos parametros, mostrando a cara das coisas em si
 
-Dado um documento \ensuremath{d_i} pertencente a um corpus \ensuremath{D} com um vocabulário \ensuremath{V}, o Naïve Bayes deve buscar a classe \ensuremath{c_j}, pertencente ao conjunto de classes \ensuremath{C}, que maximize a seguinte aplicação do Naïve Bayes \cite{naive-forty}
+Dado um documento \ensuremath{d_i} pertencente a um corpus \ensuremath{D} com um vocabulário \ensuremath{V}, o Naïve Bayes deve buscar a classe \ensuremath{c_j}, pertencente ao conjunto de classes \ensuremath{C}, que maximize a seguinte aplicação do Teorema de Bayes \cite{naive-forty}
 
 \begin{equation}
 \label{teorema-bayes}
 \ensuremath{P(c_j | d_i) = \frac{P(c_j)P(d_i | c_j)}{P(d_i)}}
 \end{equation}
 
-Como \ensuremath{d_i} equivale a uma lista de palavras \ensuremath{< w_{d_{i,1}}, ..., w_{d_{i,|d_i|}} >}, assumidas como condicionalmente independentes, tem-se que a Equação \ref{teorema-bayes} equivale a \cite{naive-forty}
-
-\begin{equation}
-\label{teorema-bayes}
-\ensuremath{P(c_j | d_i) = \frac{P(c_j)\prod_{k = 1}^{|d_i|}P(w_{d_{i,k}} | c_j)}{P(d_i)}}
-\end{equation}
 
 % Falar q isso daí tem tudo a ver com contagem de palavras, mas tb pode ser um pouco diferente.
 % Falar q normalmente usa uma técnica pra aproximar isso da distribuição real
 
-Na prática, como esse é um problema de maximização e a probabilidade \ensuremath{P(d_i)} independe de qualquer classe, ela pode ser abstraída. Considerando-se o lado direito da equação, tem-se que a probabilidade de se selecionar uma classe \ensuremath{c_j} qualquer\footnote{A classe \ensuremath{c_j} é representada como um natural entre zero e \ensuremath{|C| - 1}.} é dada por uma distribuição binomial \cite{resnik}
+Na prática, como esse é um problema de maximização e a probabilidade \ensuremath{P(d_i)} independe de qualquer classe, ela pode ser abstraída. Considerando-se o lado direito da Equação \ref{teorema-bayes}, tem-se que a probabilidade de se selecionar uma classe \ensuremath{c_j} qualquer é dada por uma distribuição binomial \cite{resnik}
 
 \begin{equation}
 \label{binomial}
 \ensuremath{c_j \sim binomial(|C|, \pi)  \equiv  \dbinom{|C|}{c_j}\pi^{c_j}(1 - \pi)^{|C| - c_j}}
 \end{equation}
 
-\ensuremath{\pi} é um parâmetro da distribuição binomial que normalmente é amostrado antes de se começar o processo de classificação. Ele é amostrado de acordo com uma distribuição beta, definida por dois parâmetros \cite{resnik}
+onde \ensuremath{\pi} é um parâmetro da distribuição binomial. Ele é amostrado de acordo com uma distribuição beta, definida por dois parâmetros \ensuremath{\alpha} e \ensuremath{\beta}, cujos valores devem ser fixados antes de se iniciar o processo de classificação \cite{resnik}
 
 \begin{equation}
 \label{beta}
 \ensuremath{\pi \sim beta(\alpha, \beta) \equiv \frac{1}{B(\alpha, \beta)}\pi^{\alpha - 1}(1 - \pi)^{\beta - 1}}
 \end{equation}
 
-A função \ensuremath{B} é aplicada aos valores \ensuremath{\alpha} e \ensuremath{\beta} para garantir que a distribuição de probabilidade \ensuremath{beta}, quando integrada, soma um\footnote{Toda distribuição de probabilidade, quando integra, deve totalizar exatamente um. \cite{bishop}}. Como essa distribuição é utilizada para modelar o parâmetro \ensuremath{\pi} \ensuremath{antes} de serem feitas observações sobre as classes e palavras de \ensuremath{D}, ela é uma distribuição \textbf{\emph{a priori}} e \ensuremath{\alpha} e \ensuremath{\beta} recebem o %nome de hiperp., diferenciando-se dos demais parâmetros. %A distribuição \ensuremath{beta} está associada ao parâmetro \ensuremath{\pi}, e não considera  Os parâmetros \ensuremath{\alpha} e \ensuremath{\beta} devem ter seus valores escolhidos antes do processo de classificação. 
+A função \ensuremath{B} é aplicada aos valores \ensuremath{\alpha} e \ensuremath{\beta} para garantir que a distribuição de probabilidade beta, quando integrada, some um \cite{stat-distribs}\footnote{Toda distribuição de probabilidade, quando integrada, deve totalizar exatamente um. \cite{stat-distribs}}. Como essa distribuição é utilizada para modelar o parâmetro \ensuremath{\pi} \ensuremath{antes} de serem feitas observações sobre as classes e palavras de \ensuremath{D}, ela é uma distribuição \textbf{\emph{a priori}} e \ensuremath{\alpha} e \ensuremath{\beta} recebem o nome de \textbf{hiperparâmetros} \cite{bishop}. Uma estratégia comum é escolher um mesmo valor para os dois hiperparâmetros, favorecendo uma distribuição uniforme para \ensuremath{\pi} \cite{nigam}. %nome de hiperp., diferenciando-se dos demais parâmetros. %A distribuição \ensuremath{beta} está associada ao parâmetro \ensuremath{\pi}, e não considera  Os parâmetros \ensuremath{\alpha} e \ensuremath{\beta} devem ter seus valores escolhidos antes do processo de classificação. 
 
- % é uma constante de normalização, provenientecuja finalidade é 
-%EXPLICAR HIPERPARAMETROS, SEGUIR ESSE PROCESSO DE MOSTRAR AS DISTRIBUIÇÕES, APRESENTAR CONTAGENS DE PALAVRAS, FALAR DE AMOSTRAGEM. PERIOD
-****
-
-O Naïve Bayes é um modelo gráfico generativo utilizado para a geração de documentos em \emph{datasets} particionados em classes. Ele é estudado em sete dos treze trabalhos revisados para essa monografia, onde funciona como base para a classificação de documentos de acordo com suas perspectivas\footnote{Assume-se, nesses estudos, que cada classe corresponde a uma perspectiva e cada documento se associa a apenas uma classe.}. Trata-se, portanto, de um modelo bastante explorado na área de Mineração de Perspectiva, que normalmente conduz a bons resultados na tarefa de classificação. Por questões de estrutura, nesta seção serão apresentadas apenas as hipóteses, parâmetros e distribuições de probabilidade associadas ao modelo. Na seção \ref{subsection:bayes}, a sua utilização como classificador será discutida em detalhes.
-
-%Ele é utilizado como base para classificação de documentos estudado por sete dos treze muito utilizado nos trabalhos revisados n
-
- Além disso, o modelo também assume que as palavras em qualquer documento ocorrem independentemente umas das outras - ou seja, elas são \textbf{condicionalmente independentes} \cite{nigam}. %Além disso, esse modelo também desconsidera a ordem em que as palavras aparecem nos documentos \cite{nigam}. 
-
-
-No Naïve Bayes, um documento \ensuremath{d_i} é gerado a partir da (1) seleção de uma classe \ensuremath{c_j}, de acordo com as distribuições de probabilidade \ensuremath{P(c_j | \phi)}, e (2) a geração do documento em si, com distribuição de probabilidade \ensuremath{P(d_i | c_j ; \phi)} \cite{mccallum-nigam}. Como \ensuremath{d_i} é uma lista de \ensuremath{|d_i|} palavras, , gerá-lo  corresponde a amostrar cada uma delas. Assumindo-se que elas ocorrem no documento independentemente umas das outras, a probabilidade de se gerar  \ensuremath{d_i}, dado \ensuremath{\phi}, pode ser reescrita como \cite{nigam}  
+Amostrado um valor para \ensuremath{c_j}, e considerando-se o lado direito da Equação \ref{teorema-bayes}, tem-se que \ensuremath{d_i} pode ser amostrado de acordo com uma distribuição multinomial \cite{resnik}
 
 \begin{equation}
-\label{gerando-di}
-\ensuremath{P(d_i | \phi) = \sum_{j = 1}^{|C|}\bigg(P(c_j | \phi)\prod_{k = 1}^{|d_i|}P(w_{d_{i,k}} | c_j ; \theta)\bigg)}
+\label{multinomial}
+\ensuremath{d_i \sim Multinomial(V, \theta_j) \equiv \prod_{k = 1}^{V}\theta_{j,k}^{N(w_k, d_i)}}
 \end{equation}
 
-Existe um parâmetro \ensuremath{\pi} responsável por \emph{regular} a probabilidade de que uma determinada classe seja selecionada na geração de um documento \ensuremath{d_i}. A probabilidade de se obter uma palavra \ensuremath{w_t \in V}, na \ensuremath{k}-ésima posição de \ensuremath{d_i} dada uma classe \ensuremath{c_j}, também depende da \ensuremath{t}-ésima posição de um parâmetro \ensuremath{\theta_j}: \ensuremath{\theta_j^{(t)}}. O conjunto de parâmetros \ensuremath{\phi}, portanto, define distribuições de probabilidade para palavras e classes do corpus \ensuremath{D} \cite{nigam}. Essas relações estão ilustradas na Figura \ref{naive:joint}, que corresponde à distribuição de probabilidade conjunta do modelo Naïve Bayes.
+onde \ensuremath{\theta_j} é um parâmetro da distribuição multinomial definido \textbf{especificamente} para a classe \ensuremath{c_j}. Isso significa que há \ensuremath{|C|} parâmetros \ensuremath{\theta}, um para cada classe. \ensuremath{N(w_k, d_i)}, por sua vez, é o número de vezes que a \ensuremath{k}-ésima palavra do vocabulário \ensuremath{V}, \ensuremath{w_k}, ocorre no documento \ensuremath{d_i} \cite{resnik}\footnote{É possível utilizar, alternativamente, o número de vezes que uma determinada sequência de palavras ocorre, ou ainda um \emph{bit}, representando a ausência (0) ou presença (1) da \ensuremath{k}-ésima palavra de \ensuremath{V} em \ensuremath{d_i}.}. A esse número, dá-se o nome de \textbf{contagem} de \ensuremath{w_k} em \ensuremath{d_i} \cite{nigam}. Todos os parâmetros \ensuremath{\theta}, em particular \ensuremath{\theta_j}, são amostrados por uma distribuição dirichlet definida através de hiperparâmetros \ensuremath{\gamma} - também definidos antes do processo de classificação \cite{resnik}
 
-\begin{figure}[h]
- \centering % este comando é usado para centralizar a Figura
- \includegraphics[width=6cm, height=5.6cm]{naive-joint.png}\\
- \caption{Modelo gráfico Naïve Bayes.}
- \label{naive:joint}
-\end{figure}
-
-Quando se deseja gerar um documento, sem o compromisso de se aproximar as distribuições para as classes e palavras o máximo possível daquelas presentes no corpus, pode-se definir os valores de \ensuremath{\phi} através da simples amostragem dos parâmetros \ensuremath{\phi' = \{\alpha_{1}, ..., \alpha_{|C|}, \gamma_1, ..., \gamma_{|C|}\}}. Os elementos de \ensuremath{\phi'} recebem o nome de \textbf{hiperparâmetros}, por \emph{regularem} distribuições de probabilidade para os parâmetros do modelo. Seus valores devem ser escolhidos antes de se começar o processo de geração de \ensuremath{d_i}. Nesse projeto e em todos os outros estudados para essa monografia, há apenas duas classes em \ensuremath{D}, de modo que a distribuição Beta pode ser utilizada na amostragem de \ensuremath{\pi}
 
 \begin{equation}
-\label{theta_c}
-  \ensuremath{\pi \sim Beta(\alpha, \beta)}  
-\end{equation}
-
-Dada uma classe \ensuremath{c_j}, a sua distribuição de palavras é \emph{regulada} por um parâmetro \ensuremath{\theta_j}, amostrado de acordo com
-
-\begin{equation}
-\label{theta_j}
+\label{dirichlet}
   \ensuremath{\theta_j \sim Dirichlet(\gamma_j)}
 \end{equation}
 
-Com valores para \ensuremath{\phi}, a classe de \ensuremath{d_i} pode ser amostrada de acordo com uma distribuição \ensuremath{Binomial(|C| - 1, \pi)}; cada uma de suas palavras \ensuremath{w_{d_{i,k}}}, por sua vez, corresponde à \ensuremath{k}-ésima posição da amostra obtida através da distribuição \ensuremath{Multinomial(V, |d_i|, \theta_j)}.
-
-Em um contexto de classificação, como será discutido na seção \ref{subsection:bayes}, os valores de \ensuremath{\phi} devem maximizar a probabilidade de se obter os documentos de um corpus \ensuremath{D}. Como não é possível obter, com uma quantidade finita de dados, os valores mais prováveis de  \ensuremath{\phi} para a geração de \ensuremath{D} \cite{nigam}, eles são estimados. Isso conduz a aproximações de \ensuremath{P(c_j | \phi)} e \ensuremath{P(d_i | c_j ; d_i)}.
-
-O modelo Naïve Bayes, apresentado na seção \ref{subsection:naive}, pode ser utilizado como base para a construção de um classificador. É dessa forma que ele é empregado nos trabalhos estudados para este projeto. O cenário da classificação abordado nessa monografia envolve um conjunto de documentos \ensuremath{D'}, cujas classes são conhecidas pelo classificador, e um conjunto de documentos \ensuremath{D''}, para o qual isso não vale. O corpus \ensuremath{D} é a união desses dois conjuntos, sendo \ensuremath{D'} utilizado como \textbf{conjunto de treinamento} e \ensuremath{D''}, como \textbf{conjunto de teste}\footnote{O termo \emph{treinamento} é utilizado, em contraposição a \emph{teste}, porque o classificador não precisa inferir as classes dos documentos desse primeiro conjunto. Apesar disso, embora o termo não transpareça, o classificador também pode utilizar informações do conjunto de teste para adaptar melhor suas inferências às características do corpus. Isso é evidenciado nas relações \ref{classe2} e \ref{palavra}.}.
-
-
- A classificação em si aplica-se apenas ao conjunto de teste. Cada documento deve ser rotulado com apenas uma classe pertencente ao conjunto \ensuremath{C}, e o vocabulário do corpus, bastante explorado na classificação, corresponde ao conjunto \ensuremath{V}. % enquanto o segundo 
-
-Dado o conjunto de parâmetros \ensuremath{\phi} do modelo Naïve Bayes, \ensuremath{\phi = \{\pi, \theta_1, ..., \theta_{|C|}\}}, tem-se que, pelo Teorema de Bayes, a probabilidade da classe de \ensuremath{d_i \in D''}, \ensuremath{y_i}, ser \ensuremath{c_j} é dada por
-
-
-O valor que maximiza a função \ref{teorema-bayes} corresponde à classe amostrada para \ensuremath{d_i}.Como apresentado na seção \ref{subsection:naive}, os valores dos elementos de \ensuremath{\phi} devem, ns classificação, maximizar a probabilidade de se obter o corpus \ensuremath{D} - ou seja, devem maximizar \ensuremath{P(D | \phi)} \cite{nigam}. Como a obtenção exata desses valores não é possível com um conjunto finito de dados, eles são estimados a partir dos hiperparâmetros de suas distribuições e de informações extraídas do corpus \cite{nigam}. A derivação dessas estimativas não será exposta nessa monografia por questões de escopo, podendo ser conferida no relatório de Bob Carpenter \cite{gibbs-lingpipe}. Elas conduzem às aproximações \ref{classe2} e \ref{palavra}. A probabilidade de se obter a classe \ensuremath{c_j} é aproximada, portanto, através de 
-
-% É trivial observar que os dois termos do numerador dessa função correspondem ao processo generativo do documento \ensuremath{d_i}, apresentado na seção \ref{subsection:naive}: primeiramente, fixa-se uma classe de acordo com  \ensuremath{P(c_j | \phi)}; em seguida, geram-se as \ensuremath{|d_i|} palavras do documento, de acordo com \ensuremath{\prod_{k = 1}^{|d_i|}P(w_{d_{i,k}} | c_j; \phi)}. Não é possível, contudo, determinar os valores exatos de \ensuremath{\phi}, que geram o corpus \ensuremath{D}, com um conjunto finito de dados. Consequentemente, seus valores são aproximados 
+Como o Naïve Bayes assume que as palavras de \ensuremath{d_i}, \ensuremath{\langle w_{d_{i,1}}, ..., w_{d_{i,|d_i|}} \rangle}, são condicionalmente independentes, a Equação \ref{teorema-bayes} pode ser reescrita como \cite{naive-forty}
 
 \begin{equation}
-\label{classe2}
-\ensuremath{P(c_j | \phi) \approx \frac{C_j + \alpha_j}{|D| - 1 + \sum_{i = 1}^{|C|}\alpha_i}}
+\label{teorema-bayes2}
+\ensuremath{P(c_j | d_i) = \frac{P(c_j)\prod_{k = 1}^{|d_i|}P(w_{d_{i,k}} | c_j)}{P(d_i)}}
 \end{equation}
 
-onde \ensuremath{C_j} é o número de documentos pertencentes à classe \ensuremath{c_j} e \ensuremath{\{\alpha_1, ..., \alpha_{|C|}\}} são os hiperparâmetros da distribuição a priori \ensuremath{P(\pi | \alpha_1, ..., \alpha_{|C|})}\footnote{Normalmente, as tarefas de classificação envolvem duas classes; nesses casos, essa distribuição equivale a \ensuremath{Beta(\alpha_1, \alpha_2)}. Para casos onde há mais classes, não foram encontradas referências sobre que distribuição utilizar.}. A probabilidade de se obter \ensuremath{w_{d_{i,k}}}, por sua vez, é aproximada através de
+Neste caso, a amostragem de cada palavra \ensuremath{w_{d_{i,k}}} corresponde à \ensuremath{k}-ésima posição da amostragem de \ensuremath{d_i}, via Equação \ref{multinomial}.
+
+Em um cenário de classificação, os valores de todos os parâmetros, classes e documentos devem ser reamostrados iterativamente, a fim de se aproximarem cada vez mais das reais distribuições contidas no corpus. Isso pode ser feito através de alguma técnica de amostragem, como \textbf{Gibbs Sampling} ou \textbf{Expectation-Maximization}. Por questões de escopo, elas não serão apresentadas nessa monografia, podendo ser consultadas no livro de Aprendizado de Máquina de Christopher Bishop \cite{bishop}. Para esse projeto, o Naïve Bayes implementado\footnote{A implementação está disponível no repositório \emph{online} de Aline Bessa: http://github.com/alibezz.} aplica a técnica de Gibbs Sampling, amostrando valores para as classes e documentos até a classificação estabilizar. O número de iterações, fixado em 500, se mostrou mais do que suficiente para estabilizar a classificação em todos os experimentos conduzidos, apresentados nos Capítulos \ref{chap3} e \ref{estudo}. 
+
+% de acordo com as contagens de palavras de todos os documentos \ensuremath{\pi} e \ensuremath{\theta}
+%vc fala que gibbs sampling é um algoritmo iterativo de inferência
+%e que a cada iteração ele escolhe novos valores para as variáveis e parâmetros que aproximam mais a distribuição real
+%reamostrando a atribuição de classes pra cada documento de acordo com as contagens dos outros documentos, et
  
-\begin{equation}
-\label{palavra}
-\ensuremath{P(w_{d_{i,k}} | c_j ; \phi) \approx \frac{\prod_{i = 1}^{N(w_{d_{i,k}}, d_i)}\bigg(\gamma_{j}^{(k)} + N(w_{d_{i,k}}, c_j) - N(w_{d_{i,k}}, d_i) + i\bigg) }{\prod_{l = 1}^{N(w_{d_{i,k}}, d_i)}\bigg(\sum_{n = 1}^{|V|}\gamma_{j}^{(n)} + l + N(w_{d_{i,k}}, c_j) - N(w_{d_{i,k}}, d_i)\bigg)}}
-\end{equation}
+ % é uma constante de normalização, provenientecuja finalidade é 
 
-onde \ensuremath{N(w_{d_{i,k}}, d_i)} é o número de vezes que a palavra correspondente a \ensuremath{w_{d_{i,k}}} ocorre no documento \ensuremath{d_i}; \ensuremath{N(w_{d_{i,k}}, c_j)} é análogo, correspondendo à toda a classe \ensuremath{c_j}; e \ensuremath{\gamma_{j}^{(x)}} é a \ensuremath{x}-ésima posição, \ensuremath{x \in \{1, ..., |V|\}}, do hiperparâmetro \ensuremath{\gamma_j}, associado à distribuição de probabilidade a priori \ensuremath{P(\theta_j | \gamma_j)}\footnote{Essa distribuição equivale à \ensuremath{Dirichlet(\gamma_j)}.}.
-
-Ao número de vezes que uma palavra ocorre em um documento ou classe, dá-se o nome de \textbf{contagem}. Esse classificador é, portanto, um método baseado em \textbf{contagens de palavras}, pois explora essa informação para estimar a classe de cada documento. Quão mais diferentes forem as contagens de palavras por classe, mais diferentes ficam as aproximações para as probabilidades de se obter cada uma delas. Isso aumenta a probabilidade de que a classe escolhida na maximização de \ref{teorema-bayes} seja de fato a classe do documento \ensuremath{d_i}, melhorando a taxa de acerto do classificador. É importante frisar que essas derivações poderiam envolver outras propriedades dos documentos em vez de suas palavras, assumindo-se inclusive independência condicional entre elas. Apesar disso, a maioria dos trabalhos estudados para essa monografia (que empregam Naïve Bayes), bem como os experimentos realizados no Capítulo \ref{estudo}, baseiam-se exclusivamente em \textbf{contagens de palavras}.  
-
-
-As estimativas \ref{classe2} e \ref{palavra} consideram que todo documento do corpus está associado a uma classe. Conforme supracitado, esse não é o cenário da classificação. A saída, nesses casos, é utilizar um método de amostragem que associe uma classe inicial para cada documento de  \ensuremath{D''} - e, em seguida, reamostre essas classes, através de novas maximizações de \ref{teorema-bayes}, até que seus valores se estabilizem. Algumas técnicas de amostragem podem ser utilizadas nessa etapa, como \textbf{Gibbs Sampling} ou \textbf{Expectation-Maximization}. Nenhuma delas, entretanto, será apresentada nessa seção por questões de escopo, podendo ser consultadas no livro de Aprendizado de Máquina de Bishop \cite{bishop}. 
-
-Todos os experimentos com um classificador Naïve Bayes realizados neste projeto foram conduzidos nesse cenário de classificação e utilizaram a implementação disponível no repositório \emph{online} de Aline Bessa\footnote{http://github.com/alibezz}.  A técnica de amostragem empregada foi Gibbs Sampling, por ser simples de implementar e por estabilizar as estimativas para as classes em um número pequeno de iterações. Por esse motivo, o número de iterações fixado para a amostragem foi 500 - mas o classificador, em todos os casos, estabilizou as estimativas antes. %de documentos e classes, em todos os experimentos, foi fixado em 500.
-
-\section{SVMs}
+\section{Classificadores SVM}
 \label{subsection:SVMs}
 
 SVMs são uma família de métodos que utilizam uma abordagem geométrica para classificação. Eles são fundamentalmente utilizados em problemas de classificação envolvendo duas classes, mas podem ser adaptados para problemas mais complexos. Nesta seção, serão apresentados apenas os princípios de funcionamento de SVMs para duas classes, mais comuns na literatura. Para um aprofundamento sobre SVMs aplicados a problemas com mais de duas classes, recomenda-se a leitura do livro de Aprendizado de Máquina de Christopher Bishop \cite{bishop}.

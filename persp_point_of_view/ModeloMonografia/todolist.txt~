@@ -36,6 +36,7 @@ Escrever que 'mais fortemente associado' quer dizer 'contagem mais alta' ou 'que
 
 svm:
 dizer q o svm é baseado em contagens de palavras.
+dizer q quão mais diferentes as contagens, maior o gap, menor a chance de errar.
 Escrever pq n usa svm (naive bayes generaliza melhor pra pequenos datasets)
 
 
@@ -111,6 +112,7 @@ filhos/P10-2047 traz boa definição de perspectiva.
 Freqs de palavras: (vai pra NO MÁXIMO 53 pgs)
 ***** resolver como citar conteúdo de email.
 ***** botar figura do lspm explicando parametros
+***** explicar lspm de modo q n fale de modelo generativo
 
 Retirar a palavra "Introdução" - OK
 Nomear as seções com \ref na introdução - OK
