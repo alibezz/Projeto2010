@@ -68,7 +68,11 @@ Como o Naïve Bayes assume que as palavras de \ensuremath{d_i}, \ensuremath{\lan
 
 Neste caso, a amostragem de cada palavra \ensuremath{w_{d_{i,k}}} corresponde à \ensuremath{k}-ésima posição da amostragem de \ensuremath{d_i}, via Equação \ref{multinomial}.
 
-Em um cenário de classificação, os valores de todos os parâmetros, classes e documentos devem ser reamostrados iterativamente, a fim de se aproximarem cada vez mais das reais distribuições contidas no corpus. Isso pode ser feito através de alguma técnica de amostragem, como \textbf{Gibbs Sampling} ou \textbf{Expectation-Maximization}. Por questões de escopo, elas não serão apresentadas nessa monografia, podendo ser consultadas no livro de Aprendizado de Máquina de Christopher Bishop \cite{bishop}. Para esse projeto, o Naïve Bayes implementado\footnote{A implementação está disponível no repositório \emph{online} de Aline Bessa: http://github.com/alibezz.} aplica a técnica de Gibbs Sampling, amostrando valores para as classes e documentos até a classificação estabilizar. O número de iterações, fixado em 500, se mostrou mais do que suficiente para estabilizar a classificação em todos os experimentos conduzidos, apresentados nos Capítulos \ref{chap3} e \ref{estudo}. 
+Em um cenário de classificação, os valores de todos os parâmetros, classes e documentos devem ser reamostrados iterativamente, a fim de se aproximarem cada vez mais das reais distribuições contidas no corpus. Isso pode ser feito através de alguma técnica de amostragem, como \textbf{Gibbs Sampling} ou \textbf{Expectation-Maximization}. Por questões de escopo, elas não serão apresentadas nessa monografia, podendo ser consultadas no livro de Aprendizado de Máquina de Christopher Bishop \cite{bishop}. De todo modo, é importante saber que essas reamostragens consideram as contagens de palavras de \textbf{todos os documentos}, inferindo a classe de cada um deles de acordo com quais contagens são maiores para cada classe\footnote{Ou seja, quais contagens são maiores considerando todos os documentos que foram classificados, na iteração anterior, como pertencentes a cada classe.} e quais são maiores no documento em si. A ideia é buscar a classe cujo \emph{perfil} das contagens mais se aproxime do \emph{perfil} das contagens do documento.
+
+Na prática, para melhorar o desempenho da classificação, cria-se um \emph{perfil inicial} de contagens para cada classe, informando-se ao Naïve Bayes a classe verdadeira de alguns documentos. Ao conjunto desses documentos, dá-se o nome de \textbf{conjunto de treinamento} \cite{bishop}. O Naïve Bayes não precisa reamostrar as classes dos documentos desse conjunto, pois elas são informadas antes da classificação. Aos documentos cujas classes não são conhecidas dá-se o nome de \textbf{conjunto de teste} \cite{bishop}. A classificação em si, apresentada no parágrafo anterior, só se aplica a esse conjunto, que pode corresponder a \ensuremath{D} ou a parte dele, caso parte de seus documentos façam parte do conjunto de treinamento.
+
+Para esse projeto, o Naïve Bayes implementado\footnote{A implementação está disponível no repositório \emph{online} de Aline Bessa: http://github.com/alibezz.} aplica a técnica de Gibbs Sampling, amostrando valores para as classes e documentos do conjunto de teste até a classificação estabilizar. O número de iterações, fixado em 500, se mostrou mais do que suficiente para estabilizar a classificação em todos os experimentos conduzidos, apresentados nos Capítulos \ref{chap3} e \ref{estudo}. 
 
 % de acordo com as contagens de palavras de todos os documentos \ensuremath{\pi} e \ensuremath{\theta}
 %vc fala que gibbs sampling é um algoritmo iterativo de inferência
@@ -76,30 +80,39 @@ Em um cenário de classificação, os valores de todos os parâmetros, classes e
 %reamostrando a atribuição de classes pra cada documento de acordo com as contagens dos outros documentos, et
  
  % é uma constante de normalização, provenientecuja finalidade é 
-% SEGUIR ESSE PROCESSO DE MOSTRAR AS DISTRIBUIÇÕES, APRESENTAR CONTAGENS DE PALAVRAS, FALAR DE AMOSTRAGEM. PERIOD
+
 \section{Classificadores SVM}
 \label{subsection:SVMs}
 
+%Falar q os docs podem ser repr. onde cada entrada é uma word count, ou tantas outras coisas.
+%Falar no fim pq n usa, pq n generaliza tão bem.
 SVMs são uma família de métodos que utilizam uma abordagem geométrica para classificação. Eles são fundamentalmente utilizados em problemas de classificação envolvendo duas classes, mas podem ser adaptados para problemas mais complexos. Nesta seção, serão apresentados apenas os princípios de funcionamento de SVMs para duas classes, mais comuns na literatura. Para um aprofundamento sobre SVMs aplicados a problemas com mais de duas classes, recomenda-se a leitura do livro de Aprendizado de Máquina de Christopher Bishop \cite{bishop}.
 
-Dado um conjunto de \ensuremath{n} pontos \ensuremath{\{x_i, y_i\}}, onde \ensuremath{x_i} é a representação vetorial de um documento \ensuremath{d} em um espaço euclidiano \ensuremath{\mathbb{R}^M} e \ensuremath{y_i} é sua respectiva classe, \ensuremath{y_i \in \{-1, 1\}}, um SVM deve decidir a classe \ensuremath{y} de um novo documento representado pelo vetor \ensuremath{x}. Para isso, assume-se que há pelo menos um hiperplano \ensuremath{\theta_0} que separa os pontos  com \ensuremath{y_i = 1} daqueles com \ensuremath{y_i = -1}. Um hiperplano \ensuremath{\theta_0} pode ser definido como o conjunto de pontos \textbf{x} que satisfazem
+Dado um conjunto de documentos \ensuremath{D} e um conjunto \ensuremath{M} de elementos de \ensuremath{D}\footnote{Esses elementos podem ser, por exemplo, o vocabulário do corpus \ensuremath{D}, como no Naïve Bayes padrão apresentado na seção \ref{subsection:naive}.}, tem-se que cada documento \ensuremath{d_i \in D} é representado como um vetor \ensuremath{x_i \in \mathbb{R}^{|M|}}. Cada entrada de \ensuremath{x_i} contém um valor associado a um dos elementos de \ensuremath{M}. Se \ensuremath{M} corresponde ao vocabulário de \ensuremath{D}, por exemplo, cada entrada de \ensuremath{x_i} pode corresponder à \textbf{contagem} de uma palavra de \ensuremath{M} em \ensuremath{d_i}. 
+
+ onde \ensuremath{x_i} é a representação vetorial de um documento \ensuremath{d} em um espaço euclidiano \ensuremath{\mathbb{R}^M} e \ensuremath{y_i} é sua respectiva classe, \ensuremath{y_i \in \{-1, 1\}}, um SVM deve decidir a classe \ensuremath{y} de um novo documento representado pelo vetor \ensuremath{x}. Para isso, assume-se que há pelo menos um hiperplano \ensuremath{\theta_0} que separa os pontos  com \ensuremath{y_i = 1} daqueles com \ensuremath{y_i = -1}. Um hiperplano \ensuremath{\theta_0} pode ser definido como o conjunto de pontos \textbf{x} que satisfazem \cite{mono-puc}
 
 \begin{equation}
 \label{function:svm}
-\textbf{x} \ensuremath{\cdot} \textbf{w} + \ensuremath{b} = 0
+\ensuremath{\theta_0 \equiv} \textbf{x} \ensuremath{\cdot} \textbf{w} + \ensuremath{b} = 0
 \end{equation}
 
-\textbf{w} é a normal ao hiperplano e \ensuremath{|b|||}\textbf{w}\ensuremath{||} é sua distância perpendicular à origem \cite{mono-puc}. A ideia é escolher os parâmetros \textbf{w} e \ensuremath{b} que maximizem a soma das distâncias dos hiperplanos \ensuremath{\theta_1} (vide equação \ref{theta1:svm}) e \ensuremath{\theta_{-1}} (vide equação \ref{thetamenos1:svm}) ao hiperplano \ensuremath{\theta_0}. 
+onde \textbf{w} é a normal ao hiperplano \ensuremath{\theta_0} \cite{mono-puc}. Define-se dois hiperplanos paralelos a \ensuremath{\theta_0}, um para cada categoria: \ensuremath{\theta_1} e \ensuremath{\theta_{-1}} \cite{mono-puc}
+
 
 \begin{equation}
 \label{theta1:svm}
-\textbf{x} \ensuremath{\cdot} \textbf{w} + \ensuremath{b} = 1
+\ensuremath{\theta_1 \equiv } \textbf{x} \ensuremath{\cdot} \textbf{w} + \ensuremath{b} = 1
 \end{equation}
 
 \begin{equation}
 \label{thetamenos1:svm}
-\textbf{x} \ensuremath{\cdot} \textbf{w} + \ensuremath{b} = -1
+\ensuremath{\theta_{-1} \equiv } \textbf{x} \ensuremath{\cdot} \textbf{w} + \ensuremath{b} = -1
 \end{equation}
+
+E o objetivo de um classificador SVM é escolher os parâmetros \textbf{w} e \ensuremath{b} que maximizem a soma das distâncias dos hiperplanos \ensuremath{\theta_1} e \ensuremath{\theta_{-1}} ao hiperplano \ensuremath{\theta_0} \cite{mono-puc}.
+ 
+%The dividing hyperplane of our two classes is defined to be w·x - b = 0. The parallel hyperplane for one category is defined as w·x - b = 1 and for the other category is w·x - b = -1. The space between the two parallel hyperplanes is the margin we wish to optimize. Not all of the data being classified is used in identifying the dividing hyperplane, only the closest points to the margin or the points that lie on the two parallel hyperplanes are used. These points are the contributing support vectors of the hyperplane. To include non-contributing points into the equations of the parallel hyperplanes, we rewrite the equations as inequalities, w·x - b >= 1 for one category and w·x -b <= -1 for the other category. The non-contributing data points will vary in distance from the corresponding hyperplane. Our two inequalities can be rewritten as Formula 7 since our ci’s represent the category values (1, -1) of our web posts. The quadratic optimization problem is to minimize the length of w given the constraint in Formula 7. This will identify the largest margin between our left and right voices.                         ci(w·xi - b ) >= 1 for 1 < i < n.
 
 \ensuremath{\theta_1} e \ensuremath{\theta_{-1}} podem ser encontrados minimizando-se 
 

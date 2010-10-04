@@ -27,10 +27,6 @@ refazer introdução de classificadores.
 Escrever, em classificadores, métodos de validação de desempenho.
 
 
-naive - modelo:
-corrigir e diminuir figura na parte modelo bayes (corrigir coisa do beta ter só duas classes)
-Melhorar colchetes na lista de palavras na seção que apresenta o modelo naive bayes
-
 lda - modelo:
 Escrever que 'mais fortemente associado' quer dizer 'contagem mais alta' ou 'que mais frequentemente se associaram'.
 
@@ -38,7 +34,7 @@ svm:
 dizer q o svm é baseado em contagens de palavras.
 dizer q quão mais diferentes as contagens, maior o gap, menor a chance de errar.
 Escrever pq n usa svm (naive bayes generaliza melhor pra pequenos datasets)
-
+botar referencias às equações
 
 naive - classificação:
 
