@@ -68,7 +68,9 @@ Como o Naïve Bayes assume que as palavras de \ensuremath{d_i}, \ensuremath{\lan
 
 Neste caso, a amostragem de cada palavra \ensuremath{w_{d_{i,k}}} corresponde à \ensuremath{k}-ésima posição da amostragem de \ensuremath{d_i}, via Equação \ref{multinomial}.
 
-Em um cenário de classificação, os valores de todos os parâmetros, classes e documentos devem ser reamostrados iterativamente, a fim de se aproximarem cada vez mais das reais distribuições contidas no corpus. Isso pode ser feito através de alguma técnica de amostragem, como \textbf{Gibbs Sampling} ou \textbf{Expectation-Maximization}. Por questões de escopo, elas não serão apresentadas nessa monografia, podendo ser consultadas no livro de Aprendizado de Máquina de Christopher Bishop \cite{bishop}. De todo modo, é importante saber que essas reamostragens consideram as contagens de palavras de \textbf{todos os documentos}, inferindo a classe de cada um deles de acordo com quais contagens são maiores para cada classe\footnote{Ou seja, de acordo com quais contagens são maiores considerando todos os documentos que foram classificados, na iteração anterior, como pertencentes a cada classe.} e quais são maiores no documento em si. A ideia é buscar a classe cujo \emph{perfil} das contagens mais se aproxime do \emph{perfil} das contagens do documento.
+Em um cenário de classificação, os valores de todos os parâmetros, classes e documentos devem ser reamostrados iterativamente, a fim de se aproximarem cada vez mais das reais distribuições contidas no corpus. Isso pode ser feito através de alguma técnica de amostragem, como \textbf{Gibbs Sampling} ou \textbf{Expectation-Maximization}. Por questões de escopo, elas não serão apresentadas nessa monografia, podendo ser consultadas no livro de Aprendizado de Máquina de Christopher Bishop \cite{bishop}. De todo modo, é importante saber que essas reamostragens consideram as contagens de palavras de \textbf{todos os documentos}. A ideia, na classificação de um documento, é buscar a classe cujo \emph{perfil} das contagens mais se aproxime do \emph{perfil} das contagens do documento.
+
+%, inferindo a classe de cada um deles de acordo com quais contagens são maiores para cada classe\footnote{Ou seja, de acordo com quais contagens são maiores considerando todos os documentos que foram classificados, na iteração anterior, como pertencentes a cada classe.} e quais são maiores no documento em si
 
 Na prática, para melhorar o desempenho da classificação, cria-se um \emph{perfil inicial} de contagens para cada classe, informando-se ao Naïve Bayes a classe verdadeira de alguns documentos. Ao conjunto desses documentos, dá-se o nome de \textbf{conjunto de treinamento} \cite{bishop}. O Naïve Bayes não precisa reamostrar as classes dos documentos desse conjunto, pois elas são informadas antes da classificação. Aos documentos cujas classes não são conhecidas, dá-se o nome de \textbf{conjunto de teste} \cite{bishop}. A classificação em si, apresentada no parágrafo anterior, só se aplica a esse segundo conjunto, que pode corresponder a \ensuremath{D} ou a parte dele, caso parte de seus documentos façam parte do conjunto de treinamento.
 
@@ -101,6 +103,8 @@ Dado um conjunto de documentos \ensuremath{D} e um conjunto \ensuremath{M} de el
 \end{equation}
 
 O objetivo inicial de um classificador SVM é escolher os parâmetros \textbf{w} e \ensuremath{b} que maximizem a distância entre esses hiperplanos. Eles podem ser definidos minimizando-se o valor de \cite{mono-puc}
+
+%Os vetores \ensuremath{x} que incidem em algum deles recebem o nome de \textbf{vetores de suporte}\footnote{Do inglês \emph{support vectors}.} \cite{durant-smith}.
 
 \begin{equation}
 \label{optim:svm}
