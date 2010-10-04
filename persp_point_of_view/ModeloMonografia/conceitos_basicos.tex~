@@ -68,9 +68,9 @@ Como o Naïve Bayes assume que as palavras de \ensuremath{d_i}, \ensuremath{\lan
 
 Neste caso, a amostragem de cada palavra \ensuremath{w_{d_{i,k}}} corresponde à \ensuremath{k}-ésima posição da amostragem de \ensuremath{d_i}, via Equação \ref{multinomial}.
 
-Em um cenário de classificação, os valores de todos os parâmetros, classes e documentos devem ser reamostrados iterativamente, a fim de se aproximarem cada vez mais das reais distribuições contidas no corpus. Isso pode ser feito através de alguma técnica de amostragem, como \textbf{Gibbs Sampling} ou \textbf{Expectation-Maximization}. Por questões de escopo, elas não serão apresentadas nessa monografia, podendo ser consultadas no livro de Aprendizado de Máquina de Christopher Bishop \cite{bishop}. De todo modo, é importante saber que essas reamostragens consideram as contagens de palavras de \textbf{todos os documentos}, inferindo a classe de cada um deles de acordo com quais contagens são maiores para cada classe\footnote{Ou seja, quais contagens são maiores considerando todos os documentos que foram classificados, na iteração anterior, como pertencentes a cada classe.} e quais são maiores no documento em si. A ideia é buscar a classe cujo \emph{perfil} das contagens mais se aproxime do \emph{perfil} das contagens do documento.
+Em um cenário de classificação, os valores de todos os parâmetros, classes e documentos devem ser reamostrados iterativamente, a fim de se aproximarem cada vez mais das reais distribuições contidas no corpus. Isso pode ser feito através de alguma técnica de amostragem, como \textbf{Gibbs Sampling} ou \textbf{Expectation-Maximization}. Por questões de escopo, elas não serão apresentadas nessa monografia, podendo ser consultadas no livro de Aprendizado de Máquina de Christopher Bishop \cite{bishop}. De todo modo, é importante saber que essas reamostragens consideram as contagens de palavras de \textbf{todos os documentos}, inferindo a classe de cada um deles de acordo com quais contagens são maiores para cada classe\footnote{Ou seja, de acordo com quais contagens são maiores considerando todos os documentos que foram classificados, na iteração anterior, como pertencentes a cada classe.} e quais são maiores no documento em si. A ideia é buscar a classe cujo \emph{perfil} das contagens mais se aproxime do \emph{perfil} das contagens do documento.
 
-Na prática, para melhorar o desempenho da classificação, cria-se um \emph{perfil inicial} de contagens para cada classe, informando-se ao Naïve Bayes a classe verdadeira de alguns documentos. Ao conjunto desses documentos, dá-se o nome de \textbf{conjunto de treinamento} \cite{bishop}. O Naïve Bayes não precisa reamostrar as classes dos documentos desse conjunto, pois elas são informadas antes da classificação. Aos documentos cujas classes não são conhecidas dá-se o nome de \textbf{conjunto de teste} \cite{bishop}. A classificação em si, apresentada no parágrafo anterior, só se aplica a esse conjunto, que pode corresponder a \ensuremath{D} ou a parte dele, caso parte de seus documentos façam parte do conjunto de treinamento.
+Na prática, para melhorar o desempenho da classificação, cria-se um \emph{perfil inicial} de contagens para cada classe, informando-se ao Naïve Bayes a classe verdadeira de alguns documentos. Ao conjunto desses documentos, dá-se o nome de \textbf{conjunto de treinamento} \cite{bishop}. O Naïve Bayes não precisa reamostrar as classes dos documentos desse conjunto, pois elas são informadas antes da classificação. Aos documentos cujas classes não são conhecidas, dá-se o nome de \textbf{conjunto de teste} \cite{bishop}. A classificação em si, apresentada no parágrafo anterior, só se aplica a esse segundo conjunto, que pode corresponder a \ensuremath{D} ou a parte dele, caso parte de seus documentos façam parte do conjunto de treinamento.
 
 Para esse projeto, o Naïve Bayes implementado\footnote{A implementação está disponível no repositório \emph{online} de Aline Bessa: http://github.com/alibezz.} aplica a técnica de Gibbs Sampling, amostrando valores para as classes e documentos do conjunto de teste até a classificação estabilizar. O número de iterações, fixado em 500, se mostrou mais do que suficiente para estabilizar a classificação em todos os experimentos conduzidos, apresentados nos Capítulos \ref{chap3} e \ref{estudo}. 
 
@@ -88,17 +88,7 @@ Para esse projeto, o Naïve Bayes implementado\footnote{A implementação está 
 %Falar no fim pq n usa, pq n generaliza tão bem.
 SVMs são uma família de métodos que utilizam uma abordagem geométrica para classificação. Eles são fundamentalmente utilizados em problemas de classificação envolvendo duas classes, mas podem ser adaptados para problemas mais complexos. Nesta seção, serão apresentados apenas os princípios de funcionamento de SVMs para duas classes, mais comuns na literatura. Para um aprofundamento sobre SVMs aplicados a problemas com mais de duas classes, recomenda-se a leitura do livro de Aprendizado de Máquina de Christopher Bishop \cite{bishop}.
 
-Dado um conjunto de documentos \ensuremath{D} e um conjunto \ensuremath{M} de elementos de \ensuremath{D}\footnote{Esses elementos podem ser, por exemplo, o vocabulário do corpus \ensuremath{D}, como no Naïve Bayes padrão apresentado na seção \ref{subsection:naive}.}, tem-se que cada documento \ensuremath{d_i \in D} é representado como um vetor \ensuremath{x_i \in \mathbb{R}^{|M|}}. Cada entrada de \ensuremath{x_i} contém um valor associado a um dos elementos de \ensuremath{M}. Se \ensuremath{M} corresponde ao vocabulário de \ensuremath{D}, por exemplo, cada entrada de \ensuremath{x_i} pode corresponder à \textbf{contagem} de uma palavra de \ensuremath{M} em \ensuremath{d_i}. 
-
- onde \ensuremath{x_i} é a representação vetorial de um documento \ensuremath{d} em um espaço euclidiano \ensuremath{\mathbb{R}^M} e \ensuremath{y_i} é sua respectiva classe, \ensuremath{y_i \in \{-1, 1\}}, um SVM deve decidir a classe \ensuremath{y} de um novo documento representado pelo vetor \ensuremath{x}. Para isso, assume-se que há pelo menos um hiperplano \ensuremath{\theta_0} que separa os pontos  com \ensuremath{y_i = 1} daqueles com \ensuremath{y_i = -1}. Um hiperplano \ensuremath{\theta_0} pode ser definido como o conjunto de pontos \textbf{x} que satisfazem \cite{mono-puc}
-
-\begin{equation}
-\label{function:svm}
-\ensuremath{\theta_0 \equiv} \textbf{x} \ensuremath{\cdot} \textbf{w} + \ensuremath{b} = 0
-\end{equation}
-
-onde \textbf{w} é a normal ao hiperplano \ensuremath{\theta_0} \cite{mono-puc}. Define-se dois hiperplanos paralelos a \ensuremath{\theta_0}, um para cada categoria: \ensuremath{\theta_1} e \ensuremath{\theta_{-1}} \cite{mono-puc}
-
+Dado um conjunto de documentos \ensuremath{D} e um conjunto \ensuremath{M} de elementos\footnote{Esses elementos podem ser, por exemplo, o vocabulário do corpus \ensuremath{D}, como no Naïve Bayes padrão apresentado na seção \ref{subsection:naive}.} de \ensuremath{D}, tem-se que cada documento \ensuremath{d \in D} é representado como um vetor \ensuremath{x \in \mathbb{R}^{|M|}}. Cada entrada de \ensuremath{x} contém um valor associado a um dos elementos de \ensuremath{M}. Se \ensuremath{M} corresponde ao vocabulário de \ensuremath{D}, por exemplo, cada entrada de \ensuremath{x} pode corresponder à \textbf{contagem} de uma palavra de \ensuremath{M} em \ensuremath{d}. Sem perda de generalidade, assume-se que \ensuremath{D} divide-se em dois conjuntos: \textbf{treinamento} e \textbf{teste}, de forma semelhante ao apresentado na seção \ref{subsection:naive}. Ainda neste sentido, assume-se também que a classe de cada documento é um inteiro: \ensuremath{1} ou \ensuremath{-1} \cite{mono-puc}. Um SVM deve, portanto, utilizar as representações do conjunto de treinamento em \ensuremath{\mathbb{R}^{|M|}} para construir os hiperplanos \ensuremath{\theta_1} e \ensuremath{\theta_{-1}}, conforme as Equações \ref{theta1:svm} e \ref{thetamenos1:svm} \cite{mono-puc}
 
 \begin{equation}
 \label{theta1:svm}
@@ -110,48 +100,48 @@ onde \textbf{w} é a normal ao hiperplano \ensuremath{\theta_0} \cite{mono-puc}.
 \ensuremath{\theta_{-1} \equiv } \textbf{x} \ensuremath{\cdot} \textbf{w} + \ensuremath{b} = -1
 \end{equation}
 
-E o objetivo de um classificador SVM é escolher os parâmetros \textbf{w} e \ensuremath{b} que maximizem a soma das distâncias dos hiperplanos \ensuremath{\theta_1} e \ensuremath{\theta_{-1}} ao hiperplano \ensuremath{\theta_0} \cite{mono-puc}.
- 
-%The dividing hyperplane of our two classes is defined to be w·x - b = 0. The parallel hyperplane for one category is defined as w·x - b = 1 and for the other category is w·x - b = -1. The space between the two parallel hyperplanes is the margin we wish to optimize. Not all of the data being classified is used in identifying the dividing hyperplane, only the closest points to the margin or the points that lie on the two parallel hyperplanes are used. These points are the contributing support vectors of the hyperplane. To include non-contributing points into the equations of the parallel hyperplanes, we rewrite the equations as inequalities, w·x - b >= 1 for one category and w·x -b <= -1 for the other category. The non-contributing data points will vary in distance from the corresponding hyperplane. Our two inequalities can be rewritten as Formula 7 since our ci’s represent the category values (1, -1) of our web posts. The quadratic optimization problem is to minimize the length of w given the constraint in Formula 7. This will identify the largest margin between our left and right voices.                         ci(w·xi - b ) >= 1 for 1 < i < n.
-
-\ensuremath{\theta_1} e \ensuremath{\theta_{-1}} podem ser encontrados minimizando-se 
+O objetivo inicial de um classificador SVM é escolher os parâmetros \textbf{w} e \ensuremath{b} que maximizem a distância entre esses hiperplanos. Eles podem ser definidos minimizando-se o valor de \cite{mono-puc}
 
 \begin{equation}
 \label{optim:svm}
 \ensuremath{\frac{1}{2}||}\textbf{w}\ensuremath{||^2}
 \end{equation}
 
-Para realizar esta otimização mais facilmente, o problema pode ser remodelado com multiplicadores de Lagrange \ensuremath{\{\alpha_i\}}, \ensuremath{1 \leq i \leq n}, levando à Equação \ref{lagrange} \cite{mono-puc}. Busca-se, então, a minimização desta equação com relação a \textbf{w} e \ensuremath{b} e maximização com relação a \ensuremath{\{\alpha_i\}}, com todo \ensuremath{\alpha_i \geq 0}.
+Para realizar essa otimização mais facilmente, o problema pode ser remodelado com multiplicadores de Lagrange \ensuremath{\{\alpha_i\}}, \ensuremath{1 \leq i \leq n}, levando à Equação \ref{lagrange}. Busca-se, então, a minimização desta equação com relação a \textbf{w} e \ensuremath{b} e maximização com relação a \ensuremath{\{\alpha_i\}}, com todo \ensuremath{\alpha_i \geq 0} \cite{mono-puc}
 
 \begin{equation}
 \label{lagrange}
 \ensuremath{L(\alpha, b,}\textbf{w}\ensuremath{) = \frac{1}{2} ||}\textbf{w}\ensuremath{||^2 - \sum_{i = 1}^n \alpha_i\big[y_i(x_i \cdot}\textbf{w}\ensuremath{+ b) -1 \big]} %x_i \cdot} \textbf{w} + \ensuremath{b} = 1 para \ensuremath{y_i = 1}
 \end{equation}
 
-Após a obtenção dos valores de \ensuremath{\{\alpha_i\}} que maximizam \ref{lagrange}, a obtenção da classe \ensuremath{y} de um documento representado por um vetor \ensuremath{x} é dada pelo sinal do somatório
+onde \ensuremath{n} é a cardinalidade do conjunto de treinamento. Após a obtenção dos valores de \ensuremath{\{\alpha_i\}} que maximizam a Equação \ref{lagrange}, a obtenção da classe \ensuremath{y = 1} ou \ensuremath{y = -1} de um documento do conjunto de teste, representado por um vetor \ensuremath{x_j}, é dada pelo sinal do somatório \cite{mono-puc}
 
 \begin{equation}
 \label{result:svm}
-\ensuremath{y(x) = sinal\bigg(\sum_{i = 1}^n \alpha_iy_i(x_i \cdot x) + b\bigg)} %x_i \cdot} \textbf{w} + \ensuremath{b} = 1 para \ensuremath{y_i = 1}
+\ensuremath{y(x_j) = sinal\bigg(\sum_{i = 1}^n \alpha_iy_i(x_i \cdot x_j) + b\bigg)} %x_i \cdot} \textbf{w} + \ensuremath{b} = 1 para \ensuremath{y_i = 1}
 \end{equation}
 
-Esta solução funciona em casos nos quais os pontos \ensuremath{\{x_i, y_i\}} são linearmente separáveis - ou seja, obedecem à restrição
+Esta solução funciona em casos nos quais as representações do conjunto de treinamento, \ensuremath{\{x_1, ..., x_n\}}, são linearmente separáveis - ou seja, obedecem à restrição \cite{mono-puc}
 
 \begin{equation}
 \label{restr2:svm}
 \ensuremath{y_i(x_i \cdot} \textbf{w} + \ensuremath{b -1) \geq 0,\ i = 1,...,n}
 \end{equation}
 
-Quando esses pontos não são linearmente separáveis, essa metodologia precisa ser ajustada, modelando a classificação errônea de documentos. Isto envolve a introdução de \ensuremath{n} variáveis frouxas \ensuremath{\epsilon_i}\footnote{Do inglês \emph{slack variables}.}, uma para cada ponto \ensuremath{(x_i, y_i)}. \ensuremath{\epsilon_i = 0} se \ensuremath{y(x_i) = y_i} e \ensuremath{\epsilon_i = |y_i - y(x_i)|} em caso contrário \cite{bishop}. O SVM deve, neste caso, minimizar
+Quando esses pontos não são linearmente separáveis, essa metodologia precisa ser ajustada, modelando a classificação errônea de documentos. Isto envolve a introdução de \ensuremath{n} variáveis frouxas\footnote{Do inglês \emph{slack variables}.} \ensuremath{\epsilon_i}, uma para cada ponto \ensuremath{(x_i, y_i)}. \ensuremath{\epsilon_i = 0} se \ensuremath{y(x_i) = y_i} e \ensuremath{\epsilon_i = |y_i - y(x_i)|} em caso contrário \cite{bishop}. O SVM deve, neste caso, minimizar \cite{mono-puc}
 
 \begin{equation}
 \label{nonlin:svm}
 \ensuremath{C\sum_{i=1}^n\epsilon_i + \frac{1}{2}||}\textbf{w}\ensuremath{||^2}
 \end{equation}
 
-em que \ensuremath{C} é um parâmetro responsável por controlar o compromisso entre a penalidade das variáveis frouxas e a distância máxima dos hiperplanos \ensuremath{\theta_1} e \ensuremath{\theta_{-1}} ao hiperplano \ensuremath{\theta_0}. Na modelagem com multiplicadores de Lagrange, a Equação \ref{lagrange} deve ser otimizada de tal forma que todo \ensuremath{\alpha_i} deve ser maximizado obedecendo à restrição \ensuremath{0 \leq \alpha_i \leq C}. Desta forma, também se obtém a Equação \ref{result:svm} para determinação da classe de um novo documento.
+onde \ensuremath{C} é um parâmetro responsável por controlar o compromisso entre a penalidade das variáveis frouxas e a distância máxima dos hiperplanos \ensuremath{\theta_1} e \ensuremath{\theta_{-1}} ao hiperplano \ensuremath{\theta_0} \cite{mono-puc}. Na modelagem com multiplicadores de Lagrange, a Equação \ref{lagrange} deve ser otimizada de tal forma que todo \ensuremath{\alpha_i} deve ser maximizado obedecendo à restrição \ensuremath{0 \leq \alpha_i \leq C}. Desta forma, também se obtém a Equação \ref{result:svm} para determinação da classe de um novo documento.
 
-SVMs não foram utilizados em nenhum experimento deste projeto, mas fazem parte da metodologia de alguns dos trabalhos revisados.
+De acordo com um estudo de Ng e Jordan, o Naïve Bayes atinge bom desempenho com um conjunto de treinamento menor do que aquele requerido pelos SVMs \cite{ng-jordan}. Considerando essa observação e o fato de que alguns dos \emph{datasets} estudados nesse projeto não são muito grandes, todos os experimentos desenvolvidos nos Capítulos \ref{chap3} e \ref{estudo} envolvem apenas o Naïve Bayes. Apesar disso, SVMs fazem parte da metodologia de boa parte dos trabalhos revisados no Capítulo \ref{outros} e nos \textbf{ANEXOS BLA e BLI} - por esse motivo, fez-se necessário apresentá-los nessa seção.
+
+%SVMs não foram utilizados em nenhum experimento deste projeto, mas fazem parte da metodologia de alguns dos trabalhos revisados.
+
+ %Como um dos \emph{datasets} estudados no Capítulo \ref{chap3} e o corpus criado para o estudo de caso do Capítulo \ref{estudo} não contêm um número muito grande de documentos
 
 
 \section{Métricas para mensurar o desempenho dos classificadores}

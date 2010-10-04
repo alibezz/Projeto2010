@@ -31,9 +31,8 @@ lda - modelo:
 Escrever que 'mais fortemente associado' quer dizer 'contagem mais alta' ou 'que mais frequentemente se associaram'.
 
 svm:
-dizer q o svm é baseado em contagens de palavras.
-dizer q quão mais diferentes as contagens, maior o gap, menor a chance de errar.
-Escrever pq n usa svm (naive bayes generaliza melhor pra pequenos datasets)
+dizer q o svm é baseado em contagens de palavras. - ok
+Escrever pq n usa svm (naive bayes generaliza melhor pra pequenos datasets) - ok
 botar referencias às equações
 
 naive - classificação:
