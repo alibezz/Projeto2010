@@ -33,10 +33,10 @@ Escrever que 'mais fortemente associado' quer dizer 'contagem mais alta' ou 'que
 svm:
 dizer q o svm é baseado em contagens de palavras. - ok
 Escrever pq n usa svm (naive bayes generaliza melhor pra pequenos datasets) - ok
-botar referencias às equações
+botar referencias às equações - ok
 
 naive - classificação:
-
+mudar perfil pra proporção ou coisa assim.
 
 ================
 

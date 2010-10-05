@@ -150,15 +150,37 @@ De acordo com um estudo de Ng e Jordan, o Naïve Bayes atinge bom desempenho com
 
 \section{Métricas para mensurar o desempenho dos classificadores}
 
-A classificação de documentos de texto de acordo com suas perspectivas é um dos principais objetivos dos trabalhos revisados neste projeto. Grande parte deles utiliza os classificadores Naïve Bayes ou \emph{Support Vector Machines} (SVMs), apresentados respectivamente nas seções \ref{subsection:naive} e \ref{subsection:SVMs}, como parte de suas metodologias. O desempenho destes classificadores é comumente medido através das seguintes métricas: \textbf{taxa de acerto}, \textbf{precisão}, \textbf{rechamada} ou \textbf{métrica F1}.
-
-A taxa de acerto é definida pela razão entre o número de documentos classificados corretamente e todos os documentos avaliados. A precisão, medida para uma classe \ensuremath{c} qualquer, é definida pela razão entre o número de documentos classificados corretamente como \ensuremath{c} e todos os documentos classificados como \ensuremath{c}. A rechamada, medida também para uma classe \ensuremath{c} qualquer, é definida pela razão entre o número de documentos classificados corretamente como \ensuremath{c} e a soma deste valor com o número de documentos classificados erroneamente para todas as demais classes. A métrica F1, também medida para uma classe \ensuremath{c} qualquer, é dada por
+A classificação de documentos, de acordo com suas perspectivas, é um dos principais objetivos dos trabalhos revisados neste projeto. Para medir a qualidade dessa classificação, dado um conjunto de documentos \ensuremath{D} e um conjunto de classes \ensuremath{C}, normalmente são utilizadas as seguintes métricas: taxa de acerto, precisão, rechamada ou métrica F1. A \textbf{taxa de acerto}\footnote{Do inglês \emph{accuracy}.} é definida por \cite{manning}
 
 \begin{equation}
+\label{accuracy}
+\ensuremath{\frac{\#documentos\mbox{ }classificados\mbox{ }corretamente}{\#total\mbox{ }de\mbox{ }documentos}}
+\end{equation}
+
+A taxa de acerto não evidencia o quanto o classificador está \emph{errando}, apresentando apenas uma medida de seu sucesso. Para este caso, indica-se o uso da \textbf{precisão}. Essa métrica, medida para uma classe \ensuremath{c \in C} qualquer, é definida por \cite{manning}
+
+\begin{equation}
+\label{precision}
+\ensuremath{\frac{\#documentos\mbox{ }classificados\mbox{ }corretamente\mbox{ }como\mbox{ }c}{\#total\mbox{ }de\mbox{ }documentos\mbox{ }classificados\mbox{ }como\mbox{ }c}}
+\end{equation}
+
+A \textbf{rechamada}\footnote{Do inglês \emph{recall}.}, medida também para uma classe \ensuremath{c \in C} qualquer, é definida como \cite{manning}
+
+\begin{equation}
+\label{recall}
+\ensuremath{\frac{\#documentos\mbox{ }classificados\mbox{ }corretamente\mbox{ }como\mbox{ }c}{\#total\mbox{ }de\mbox{ }documentos\mbox{ }pertencentes\mbox{ }a\mbox{ }c}}
+\end{equation}
+
+A rechamada também evidencia o quanto o classificador está \emph{acertando} - mas por classe. A \textbf{métrica F1}\footnote{Do inglês \emph{F1-measure}.}, também medida para uma classe \ensuremath{c \in C} qualquer, é dada por \cite{manning}
+
+\begin{equation}
+\label{f1measure}
 \ensuremath{2 \times \frac{precisao \times rechamada}{precisao + rechamada}}
 \end{equation} 
 
-Estas métricas revelam aspectos diferentes do desempenho de um classificador. Por este motivo, é comum encontrar mais de uma delas sendo utilizada no mesmo contexo. Além de medirem desempenho, elas estabelecem critérios objetivos para a comparação entre métodos de classificação, como pode ser visto nos artigos de Lin et al. sobre o conflito Israel-Palestina \cite{lin-et-al2006} e de Efron sobre orientação cultural \cite{efron}. 
+%Alguns trabalhos, como o estudo de Jiang e Argamon com \emph{blogs} políticos, apresentam precisão como a média aritmética das precisões obtidas para cada classe \cite{jiang-argamon}. 
+
+A métrica F1 pondera os valores obtidos para a precisão e para a rechamada de uma classe \ensuremath{c} qualquer. Essas métricas revelam aspectos diferentes do desempenho de um classificador. Por este motivo, é comum encontrar mais de uma delas sendo utilizada no mesmo contexto. Além de medirem desempenho, elas estabelecem critérios objetivos para a comparação entre métodos de classificação, como pode ser visto nos artigos de Lin et al. sobre o conflito Israel-Palestina \cite{lin-et-al2006} e de Efron sobre orientação cultural \cite{efron}. 
 
 
 \section{Validação cruzada}

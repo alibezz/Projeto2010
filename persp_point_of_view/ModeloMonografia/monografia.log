@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  4 OCT 2010 14:53
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  4 OCT 2010 21:03
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -599,7 +599,7 @@ Cap\'{\i }tulo 2.
 [10
 
 ] [11] [12] [13]
-Overfull \hbox (11.5667pt too wide) in paragraph at lines 149--149
+Overfull \hbox (11.5667pt too wide) in paragraph at lines 151--151
 []\T1/ptm/b/n/17.28 MÉTRICAS PARA MEN-SU-RAR O DE-SEM-PE-NHO DOS
  []
 
@@ -608,34 +608,34 @@ File: Latent_Dirichlet_allocation.png Graphic file (type png)
 
 <use Latent_Dirichlet_allocation.png>
 
-LaTeX Warning: Citation `top-lda' on page 17 undefined on input line 242.
+LaTeX Warning: Citation `top-lda' on page 17 undefined on input line 266.
 
-[17 <./Latent_Dirichlet_allocation.png>]
+[17]
 
-LaTeX Warning: Citation `top-llda' on page 18 undefined on input line 265.
+LaTeX Warning: Citation `top-llda' on page 18 undefined on input line 289.
 
-) (./frequencia_palavras.tex [18]
+[18 <./Latent_Dirichlet_allocation.png>]) (./frequencia_palavras.tex [19]
 Cap\'{\i }tulo 3.
-[19
+[20
 
 ]
 Cap\'{\i }tulo 4.
-[20
+[21
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <14.4> not available
 (Font)              Font shape `T1/ptm/b/it' tried instead on input line 103.
- [21]
+ [22]
 
-LaTeX Warning: Citation `mail-resnik' on page 22 undefined on input line 117.
+LaTeX Warning: Citation `mail-resnik' on page 23 undefined on input line 117.
 
-[22] [23]
+[23] [24]
 Underfull \hbox (badness 2495) in paragraph at lines 305--305
 [][]\T1/ptm/m/n/10 A im-ple-men-ta-ção de L-LDA uti-li-zada está dis-po-ní-vel 
 no re-po-si-tó-rio on-line de Ale-xan-dre Pas-sos
  []
 
-[24] [25] [26] [27] [28]
+[25] [26] [27] [28] [29]
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `T1/ptm/b/n' tried instead on input line 639.
 
@@ -644,65 +644,65 @@ Overfull \hbox (8.36821pt too wide) in paragraph at lines 639--640
 as-si-fi-ca-ção (o LSPM), destacando-
  []
 
-[29]) (./extra_documento.tex [30]
+[30]) (./extra_documento.tex [31]
 Cap\'{\i }tulo 5.
 
 Overfull \hbox (5.43347pt too wide) in paragraph at lines 3--3
 []\T1/ptm/b/n/17.28 CONCORDÂNCIA E DIS-COR-DÂN-CIA EN-TRE DO-CU-
  []
 
-) (./intra_documento.tex [31
+) (./intra_documento.tex [32
 
 ]
 Cap\'{\i }tulo 6.
-) (./estudo_de_caso.tex [32
+) (./estudo_de_caso.tex [33
 
 ]
 Cap\'{\i }tulo 7.
-[33
+[34
 
-] [34]
+] [35]
 Underfull \hbox (badness 10000) in paragraph at lines 68--68
 [][]\T1/ptm/m/n/10 http://www.conversaafiada.com.br/brasil/2010/07/02/mino-expl
 ica-por-que-apoia-a-dilma-porque-ela-e-
  []
 
-[35] [36] [37]
+[36] [37] [38]
 Overfull \hbox (11.76984pt too wide) in paragraph at lines 161--162
 []\T1/ptm/m/n/10.95 Retirado de \T1/ptm/m/it/10.95 "FHC aceita o con-vite para 
 o du-elo que Lula não pode re-cu-sar." \T1/ptm/m/n/10.95 - 11/02/2010 
  []
 
-[38] [39] [40]
+[39] [40] [41]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[41] <situacao.png, id=150, 1270.7475pt x 605.26125pt>
+[42] <situacao.png, id=154, 1270.7475pt x 605.26125pt>
 File: situacao.png Graphic file (type png)
  <use situacao.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<oposicao.png, id=151, 1271.75125pt x 642.4pt>
+<oposicao.png, id=155, 1271.75125pt x 642.4pt>
 File: oposicao.png Graphic file (type png)
  <use oposicao.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<generico.png, id=152, 1260.71pt x 502.87875pt>
+<generico.png, id=156, 1260.71pt x 502.87875pt>
 File: generico.png Graphic file (type png)
  <use generico.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[42] [43 <./situacao.png> <./oposicao.png>] [44 <./generico.png>])
-(./trabalhos_relacionados.tex [45]
+[43] [44 <./situacao.png> <./oposicao.png>] [45 <./generico.png>])
+(./trabalhos_relacionados.tex [46]
 Cap\'{\i }tulo 8.
-) (./conclusao.tex [46
+) (./conclusao.tex [47
 
 ]
 Cap\'{\i }tulo 9.
-) (./apendices.tex [47
+) (./apendices.tex [48
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <20.74> not available
@@ -713,9 +713,9 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 
 Apendice A.
-) (./monografia.bbl [48
+) (./monografia.bbl [49
 
-] [49
+] [50
 
 ])
 +-------------------------------------------------------------------+
@@ -727,16 +727,16 @@ tabela-simbolos: agora rode geratss (linux) ou manualmente,
 makeindex -s tabela-siglas.ist -o monografia.sigla monografia.siglax
 makeindex -s tabela-simbolos.ist -o monografia.symbols monografia.symbolsx
 ########################################################################
-[50] (./monografia.aux)
+[51] (./monografia.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6542 strings out of 94101
- 86644 string characters out of 1165810
- 143573 words of memory out of 1500000
- 9566 multiletter control sequences out of 10000+50000
+ 6551 strings out of 94101
+ 86756 string characters out of 1165810
+ 143722 words of memory out of 1500000
+ 9575 multiletter control sequences out of 10000+50000
  107184 words of font info for 154 fonts, out of 1200000 for 2000
  637 hyphenation exceptions out of 8191
  32i,11n,41p,1986b,605s stack positions out of 5000i,500n,6000p,200000b,5000s
@@ -750,9 +750,9 @@ usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texl
 ive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/
 times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (51 pages, 429360 bytes).
+Output written on monografia.pdf (52 pages, 430595 bytes).
 PDF statistics:
- 226 PDF objects out of 1000 (max. 8388607)
+ 229 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

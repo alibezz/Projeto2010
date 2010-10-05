@@ -78,6 +78,12 @@ ISBN 0471371246.}
 {MAINARDI, D. \emph{Lula e minha anta}. [S.l.]: Record, 2007.
 ISBN 8501080705.}
 
+\bibitem[Manning, Raghavan e Schutze 2008]{manning}
+\abntrefinfo{Manning, Raghavan e Schutze}{MANNING; RAGHAVAN; SCHUTZE}{2008}
+{MANNING, C.; RAGHAVAN, P.; SCHUTZE, H. \emph{An introduction to Information
+  Retrieval}. [S.l.]: Cambridge university Press, 2008.
+ISBN 9780521865715.}
+
 \bibitem[Mullen e Malouf 2006]{aaai-politics}
 \abntrefinfo{Mullen e Malouf}{MULLEN; MALOUF}{2006}
 {MULLEN, T.; MALOUF, R. A preliminary investigation into sentiment analysis of
