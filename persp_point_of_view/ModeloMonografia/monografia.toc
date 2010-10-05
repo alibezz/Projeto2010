@@ -7,7 +7,7 @@
 \contentsline {section}{\numberline {2.1}Classificador Na\IeC {\"\i }ve Bayes}{10}
 \contentsline {section}{\numberline {2.2}Classificadores SVM}{12}
 \contentsline {section}{\numberline {2.3}M\IeC {\'e}tricas para mensurar o desempenho dos classificadores}{15}
-\contentsline {section}{\numberline {2.4}Valida\IeC {\c c}\IeC {\~a}o cruzada}{16}
+\contentsline {section}{\numberline {2.4}Valida\IeC {\c c}\IeC {\~a}o cruzada de \ensuremath {k} dobras}{16}
 \contentsline {section}{\numberline {2.5}LDA}{16}
 \contentsline {subsection}{\numberline {2.5.1}L-LDA}{18}
 \contentsline {chapter}{\numberline {3}Principais trabalhos e \emph {datasets} estudados}{20}

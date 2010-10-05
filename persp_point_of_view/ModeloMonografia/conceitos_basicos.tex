@@ -183,7 +183,14 @@ A rechamada também evidencia o quanto o classificador está \emph{acertando} - 
 A métrica F1 pondera os valores obtidos para a precisão e para a rechamada de uma classe \ensuremath{c} qualquer. Essas métricas revelam aspectos diferentes do desempenho de um classificador. Por este motivo, é comum encontrar mais de uma delas sendo utilizada no mesmo contexto. Além de medirem desempenho, elas estabelecem critérios objetivos para a comparação entre métodos de classificação, como pode ser visto nos artigos de Lin et al. sobre o conflito Israel-Palestina \cite{lin-et-al2006} e de Efron sobre orientação cultural \cite{efron}. 
 
 
-\section{Validação cruzada}
+\section{Validação cruzada de \ensuremath{k} dobras}
+
+A \textbf{validação cruzada de \ensuremath{k} dobras} é uma técnica estatística que evidencia o quanto uma classificação generaliza para um conjunto aleatório de documentos \cite{}. A técnica é associada a classificadores que permitem o uso de conjuntos de treinamento e teste em suas metodologias - caso dos SVMs, do Naïve Bayes e de outros métodos estudados para esse projeto, apresentados nos Capítulos \ref{chap3} e \ref{outros}. Nesse tipo de validação, particiona-se, aleatoriamente, um conjunto de documentos \ensuremath{D} em \emph{k} subconjuntos, denominados \textbf{dobras}\footnote{Para os experimentos realizados neste projeto, cada dobra tem aproximadamente a mesma cardinalidade.}. O conjunto de teste corresponde a uma das \ensuremath{k} dobras e as \ensuremath{k - 1} restantes, unidas, compõem o conjunto de treinamento.
+
+A classificação deve ser executada \ensuremath{k} vezes, com uma dobra diferente como conjunto de teste por vez. As métricas associadas ao desempenho de cada classificação podem ser consideradas conjuntamente, através de uma média aritmética, ou em separado \cite{}. Os resultados obtidos evidenciam o quanto a classificação conserva seu desempenho, independentemente do conjunto de teste selecionado. Para os trabalhos estudados nessa monografia, os valores mais comuns para \ensuremath{k} foram cinco e dez. % É interessante ressaltar que, na validação cruzada de \ensuremath{k} dobras, todos os documentos de \ensuremath{D} são utilizados tanto no conjunto de treinamento quanto no de teste. Além disso,  
+%In K-fold cross-validation, the original sample is randomly partitioned into K subsamples. Of the K subsamples, a single subsample is retained as the validation data for testing the model, and the remaining K − 1 subsamples are used as training data. The cross-validation process is then repeated K times (the folds), with each of the K subsamples used exactly once as the validation data. The K results from the folds then can be averaged (or otherwise combined) to produce a single estimation. The advantage of this method over repeated random sub-sampling is that all observations are used for both training and validation, and each observation is used for validation exactly once. 10-fold cross-validation is commonly used [5].
+
+%AMARRAR COM ISSO DE GENERALIZAR
 
 \section{LDA}
 \label{subsection:LDA}
