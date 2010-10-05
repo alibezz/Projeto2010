@@ -16,13 +16,10 @@ ISBN 978-85-01-08232-9.}
   2006.
 ISBN 0387310738.}
 
-\bibitem[Carpenter 2010]{gibbs-lingpipe}
-\abntrefinfo{Carpenter}{CARPENTER}{2010}
-{CARPENTER, B. \emph{Integrating out multinomial parameters in latent Dirichlet
-  allocation and naive Bayes for collapsed Gibbs sampling}.
-[S.l.], 2010. Dispon{\'\i}vel em:
-  $<$http://lingpipe-blog.com/2010/07/13/collapsed-gibbs-sampling-for-lda-baye%
-sian-naive-bayes/$>$.}
+\bibitem[Blei, Ng e Jordan 2003]{blei}
+\abntrefinfo{Blei, Ng e Jordan}{BLEI; NG; JORDAN}{2003}
+{BLEI, D.; NG, A.~Y.; JORDAN, M.~I. Latent dirichlet allocation.
+\emph{Journal of Machine Learning Research}, v.~3, p. 993--1022, 2003.}
 
 \bibitem[Durant e Smith 2006]{durant-smith}
 \abntrefinfo{Durant e Smith}{DURANT; SMITH}{2006}
@@ -59,6 +56,12 @@ ISBN 0471371246.}
 \abntrefinfo{Klebanov, Beigman e Diermeier}{KLEBANOV; BEIGMAN; DIERMEIER}{2010}
 {KLEBANOV, B.~B.; BEIGMAN, E.; DIERMEIER, D. Vocabulary choice as an indicator
   of perspective. In:  . [S.l.: s.n.], 2010. p. 253--257.}
+
+\bibitem[Kohavi 1995]{ron-kohavi}
+\abntrefinfo{Kohavi}{KOHAVI}{1995}
+{KOHAVI, R. A study of cross-validation and bootstrap for accuracy estimation
+  and model selection. In:  \emph{Proceedings of the 14th international joint
+  conference on Artificial intelligence}. [S.l.: s.n.], 1995. p. 1137--1143.}
 
 \bibitem[Lewis 1998]{naive-forty}
 \abntrefinfo{Lewis}{LEWIS}{1998}
@@ -130,6 +133,11 @@ Disserta\c{c}\~ao (Mestrado) --- Pontificia Universidade Catolica do Rio de
 \abntrefinfo{Ramage et al.}{RAMAGE et al.}{2009}
 {RAMAGE, D. et al. Labeled lda: A supervised topic model for credit attribution
   in multi-labeled corpora. In:  . [S.l.: s.n.], 2009. p. 248--256.}
+
+\bibitem[Refaeilzadeh, Tang e Liu 2009]{payam-leitang}
+\abntrefinfo{Refaeilzadeh, Tang e Liu}{REFAEILZADEH; TANG; LIU}{2009}
+{REFAEILZADEH, P.; TANG, L.; LIU, H. \emph{Cross Validation}. [S.l.]: Springer,
+  2009.}
 
 \bibitem[Resnik e Hardisty 2009]{resnik}
 \abntrefinfo{Resnik e Hardisty}{RESNIK; HARDISTY}{2009}

@@ -4,12 +4,12 @@
 \contentsline {section}{\numberline {1.2}Proposta}{9}
 \contentsline {section}{\numberline {1.3}Estrutura da Monografia}{9}
 \contentsline {chapter}{\numberline {2}T\IeC {\'e}cnicas b\IeC {\'a}sicas e ferramentas utilizadas}{10}
-\contentsline {section}{\numberline {2.1}Classificador Na\IeC {\"\i }ve Bayes}{10}
-\contentsline {section}{\numberline {2.2}Classificadores SVM}{12}
+\contentsline {section}{\numberline {2.1}Na\IeC {\"\i }ve Bayes}{10}
+\contentsline {section}{\numberline {2.2}\emph {Support Vector Machines} (SVMs)}{13}
 \contentsline {section}{\numberline {2.3}M\IeC {\'e}tricas para mensurar o desempenho dos classificadores}{15}
 \contentsline {section}{\numberline {2.4}Valida\IeC {\c c}\IeC {\~a}o cruzada de \ensuremath {k} dobras}{16}
-\contentsline {section}{\numberline {2.5}LDA}{16}
-\contentsline {subsection}{\numberline {2.5.1}L-LDA}{18}
+\contentsline {section}{\numberline {2.5}\emph {Latent Dirichlet Allocation} (LDA)}{16}
+\contentsline {subsection}{\numberline {2.5.1}\emph {Labeled-Latent Dirichlet Allocation} (L-LDA)}{18}
 \contentsline {chapter}{\numberline {3}Principais trabalhos e \emph {datasets} estudados}{20}
 \contentsline {section}{\numberline {3.1}Bitterlemons}{20}
 \contentsline {chapter}{\numberline {4}Classifica\IeC {\c c}\IeC {\~a}o por perspectiva baseada em contagens de palavras}{21}

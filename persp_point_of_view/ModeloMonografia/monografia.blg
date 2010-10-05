@@ -6,8 +6,6 @@ Database file #1: abnt-options.bib
 Database file #2: monografia.bib
 Warning--I didn't find a database entry for "pesquisa-eua"
 Warning--I didn't find a database entry for "pang-lee-survey"
-Warning--I didn't find a database entry for "top-lda"
-Warning--I didn't find a database entry for "top-llda"
 Warning--I didn't find a database entry for "mail-resnik"
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
@@ -16,45 +14,45 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 | Em caso de duvidas ou problemas com este estilo procure |
 | http://abntex.codigolivre.org.br                        |
 +---------------------------------------------------------+
-You've used 25 entries,
+You've used 27 entries,
             6522 wiz_defined-function locations,
-            1296 strings with 13296 characters,
-and the built_in function-call counts, 20474 in all, are:
-= -- 1683
-> -- 731
-< -- 17
-+ -- 314
-- -- 224
-* -- 1431
-:= -- 2761
-add.period$ -- 98
-call.type$ -- 26
-change.case$ -- 247
-chr.to.int$ -- 34
-cite$ -- 24
-duplicate$ -- 941
-empty$ -- 1613
-format.name$ -- 1055
-if$ -- 4942
+            1305 strings with 13476 characters,
+and the built_in function-call counts, 22722 in all, are:
+= -- 1843
+> -- 834
+< -- 21
++ -- 353
+- -- 254
+* -- 1608
+:= -- 3025
+add.period$ -- 105
+call.type$ -- 28
+change.case$ -- 277
+chr.to.int$ -- 39
+cite$ -- 26
+duplicate$ -- 1043
+empty$ -- 1777
+format.name$ -- 1195
+if$ -- 5481
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 443
-newline$ -- 119
-num.names$ -- 120
-pop$ -- 579
+missing$ -- 485
+newline$ -- 127
+num.names$ -- 130
+pop$ -- 645
 preamble$ -- 1
-purify$ -- 97
+purify$ -- 107
 quote$ -- 0
-skip$ -- 1169
+skip$ -- 1289
 stack$ -- 1
-substring$ -- 769
-swap$ -- 452
-text.length$ -- 14
+substring$ -- 879
+swap$ -- 513
+text.length$ -- 17
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 18
+type$ -- 19
 warning$ -- 0
-while$ -- 173
+while$ -- 191
 width$ -- 0
-write$ -- 378
-(There were 5 warnings)
+write$ -- 409
+(There were 3 warnings)

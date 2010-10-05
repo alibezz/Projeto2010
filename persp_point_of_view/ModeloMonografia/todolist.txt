@@ -5,7 +5,7 @@ DECIDIR SE VAI OU N FAZER CAPITULO PRA EXLICAR DATASETS
 ARRUMAR TABELAS COMO H OU T
 PADRONIZAR NUMERO DE PALAVRAS NOS CAPITULOS Q USAM L-LDA!
 PADRONIZAR SE FALA SÓ DE TAXA DE ACERTO OU SE TB DISCUTE UM POUCO PRECISÃO POR CLASSE E TALZ.
-
+TIRAR O .COM DOS SITES, DEIXANDO SÓ NO RODAPÉ!
 ====================
 Conceitos básicos: (n pode passar de 56 páginas!)
 dizer q o naive bayes usado considera apenas contagens de palavras - ok
@@ -20,15 +20,17 @@ falar essa coisa da reamostragem, q a ideia é sempre tornar os parâmetros os m
 FALAR MTO BEM DESSA COISA DE USAR CONTAGEEEEEEEEENNNNSSSSSS DE PALAVRAS -  ok? 
 
 geral:
-brincar mais com isso de contextualizar os conceitos básicos na questão de mineração de perspectiva.
-corrigir citações ao github
-Arrumar o tamanho das letras nas imagens de conceitos básicos
+brincar mais com isso de contextualizar os conceitos básicos na questão de mineração de perspectiva. - ok
+corrigir citações ao github - ok
 refazer introdução de classificadores.
-Escrever, em classificadores, métodos de validação de desempenho.
+Escrever, em classificadores, métodos de validação de desempenho. - ok
+escrever sobre k-folds - ok
 
 
 lda - modelo:
-Escrever que 'mais fortemente associado' quer dizer 'contagem mais alta' ou 'que mais frequentemente se associaram'.
+dizer oq tem a ver. - ok
+mostrar as contas. - ok
+Escrever que 'mais fortemente associado' quer dizer 'contagem mais alta' ou 'que mais frequentemente se associaram'. - ok
 
 svm:
 dizer q o svm é baseado em contagens de palavras. - ok
@@ -36,7 +38,8 @@ Escrever pq n usa svm (naive bayes generaliza melhor pra pequenos datasets) - ok
 botar referencias às equações - ok
 
 naive - classificação:
-mudar perfil pra proporção ou coisa assim.
+mudar perfil pra proporção ou coisa assim. - ok
+consertar formulas - ok
 
 ================
 
