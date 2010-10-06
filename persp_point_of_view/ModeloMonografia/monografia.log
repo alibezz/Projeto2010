@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  6 OCT 2010 00:02
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  6 OCT 2010 00:13
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -608,7 +608,7 @@ Overfull \hbox (11.5667pt too wide) in paragraph at lines 162--162
  []
 
 
-Overfull \vbox (2.0565pt too high) has occurred while \output is active []
+Overfull \vbox (2.25632pt too high) has occurred while \output is active []
 
 
 [15]
@@ -720,11 +720,11 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6557 strings out of 94101
- 86697 string characters out of 1165810
+ 6554 strings out of 94101
+ 86679 string characters out of 1165810
  143816 words of memory out of 1500000
  9584 multiletter control sequences out of 10000+50000
- 114934 words of font info for 167 fonts, out of 1200000 for 2000
+ 113070 words of font info for 164 fonts, out of 1200000 for 2000
  637 hyphenation exceptions out of 8191
  32i,11n,41p,1986b,605s stack positions out of 5000i,500n,6000p,200000b,5000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
@@ -737,7 +737,7 @@ usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texl
 ive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/
 times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (49 pages, 418787 bytes).
+Output written on monografia.pdf (49 pages, 418830 bytes).
 PDF statistics:
  218 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
