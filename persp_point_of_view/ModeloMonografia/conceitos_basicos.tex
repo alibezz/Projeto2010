@@ -1,7 +1,10 @@
-\chapter{Técnicas básicas e ferramentas utilizadas}
+\chapter{Conceitos básicos}
 
-\textbf{Introduzir o capítulo quando tudo já estiver escrito.}
-%Neste capítulo, serão descritas técnicas básicas de Aprendizado de Máquina e Processamento de Linguagem Natural, importantes para a compreensão dos capítulos seguintes desta monografia. Na seção \textbf{Classificadores}, serão discutidos os funcionamentos dos classificadores Naïve Bayes e \emph{Support Vector Machines} (SVMs), comuns em métodos de Mineração de Perspectiva baseados em frequências de palavras. Na seção \textbf{Modelos Gráficos}, serão discutidas a notação e hipóteses deste tipo de modelo, os \textbf{Modelos Generativos}, uma de suas subcategorias bastante explorada nesta monografia, e dois modelos generativos que, a partir da interpretação de documentos como uma mistura de tópicos, geram agrupamentos de palavras que facilitam a compreensão segmentada do conteúdo de um corpus. Estes modelos são o \emph{Latent Dirichlet Allocation} (LDA) e o \emph{Labeled-Latent Dirichlet Allocation} (L-LDA), utilizados em experimentos conduzidos ao longo de todo o projeto.
+
+Este capítulo apresenta conceitos fundamentais para a compreensão do restante desta monografia. Nas seções \ref{subsection:naive} e \ref{subsection:SVMs} são descritos, respectivamente, os classificadores Naïve Bayes e \emph{Support Vector Machines} (SVMs). Eles foram explorados por \textbf{todos} os trabalhos revisados neste projeto que envolvem classificação - inclusive por aqueles que propõem metodologias mais complexas ou mesmo outros classificadores. Na seção \ref{metricas}, são apresentadas métricas para se avaliar o desempenho de um classificador qualquer. Além de indicarem a qualidade da classificação, elas estabelecem critérios objetivos para a comparação entre diferentes metodologias. Na seção \ref{validacao}, a técnica de validação cruzada de \ensuremath{k} dobras é discutida. Ela evidencia como um método de classificação generaliza para diferentes conjuntos de documentos. Dos \textbf{treze} trabalhos estudados para este projeto, que exploram classificadores, \textbf{nove} indicaram o uso da técnica. Por fim, a seção \ref{subsection:LDA} revisa dois modelos que interpretam documentos como misturas de tópicos: o \emph{Latent Dirichlet Allocation} (LDA) e o \emph{Labeled-Latent Dirichlet Allocation} (L-LDA). Esses modelos agregam palavras a tópicos, facilitando a compreensão de como o conteúdo de um corpus qualquer se segmenta. O entendimento do LDA é fundamental para a discussão do L-LDA, e esse último modelo é utilizado em experimentos contidos nos Capítulos \ref{chap3} e \ref{estudo}. 
+
+
+ %\textbf{Modelos Gráficos}, serão discutidas a notação e hipóteses deste tipo de modelo, os \textbf{Modelos Generativos}, uma de suas subcategorias bastante explorada nesta monografia, e dois modelos generativos que, a partir da interpretação de documentos como uma mistura de tópicos, geram agrupamentos de palavras que facilitam a compreensão segmentada do conteúdo de um corpus. Estes modelos são o \emph{Latent Dirichlet Allocation} (LDA) e o \emph{Labeled-Latent Dirichlet Allocation} (L-LDA), utilizados em experimentos conduzidos ao longo de todo o projeto.
 
 %\textbf{serão discutidos os modelos de tópicos \emph{Latent Dirichlet Allocation} (\textbf{LDA}) e \emph{Labeled Latent Dirichlet Allocation} (\textbf{L-LDA}). O segundo, que consiste em uma pequena modificação do primeiro, é utilizado em parte dos experimentos conduzidos neste projeto.}
 
@@ -30,30 +33,30 @@ Dado um documento \ensuremath{d_i} pertencente a um corpus \ensuremath{D} com um
 
 Na prática, como esse é um problema de maximização e a probabilidade \ensuremath{P(d_i)} independe de qualquer classe, ela pode ser abstraída. 
 
-Há \ensuremath{|C|} valores possíveis para a classe de \ensuremath{d_i}, distribuídos de acordo com uma distribuição \ensuremath{Binomial(|C|, \pi)}. O parâmetro \ensuremath{\pi} é um dos valores que uma variável aleatória \ensuremath{\phi} pode assumir, e eles são distribuídos de acordo com uma distribuição \ensuremath{Beta(\alpha, \beta)}. \ensuremath{\alpha} e \ensuremath{\beta} são parâmetros fixados antes de se iniciar o processo de classificação. Diante disso, a probabilidade de se obter o número real \ensuremath{\pi} é dada por  \cite{resnik}
+Há \ensuremath{|C|} valores possíveis para a classe de \ensuremath{d_i}, distribuídos de acordo com uma distribuição \ensuremath{Binomial(|C|, \pi)}. O parâmetro \ensuremath{\pi} é um dos valores que uma variável aleatória \ensuremath{\phi} pode assumir, e eles são distribuídos de acordo com uma distribuição \ensuremath{Beta(\alpha, \beta)}. Os parâmetros \ensuremath{\alpha} e \ensuremath{\beta} são parâmetros fixados antes de se iniciar o processo de classificação. Diante disso, a probabilidade de se obter o número real \ensuremath{\pi} é dada por  \cite{resnik}
 
 \begin{equation}
 \label{beta}
-\ensuremath{P(\pi\mbox{ }|\mbox{ } \alpha,\mbox{ }\beta) = \frac{1}{B(\alpha, \beta)}\pi^{\alpha - 1}(1 - \pi)^{\beta - 1}}
+\ensuremath{P(\phi = \pi\mbox{ }|\mbox{ } \alpha,\mbox{ }\beta) = \frac{1}{B(\alpha, \beta)}\pi^{\alpha - 1}(1 - \pi)^{\beta - 1}}
 \end{equation}
 
-A função \ensuremath{B} é aplicada aos valores \ensuremath{\alpha} e \ensuremath{\beta} para garantir que a distribuição de probabilidade \ensuremath{Beta}, quando integrada, some um \cite{stat-distribs}\footnote{Toda distribuição de probabilidade, quando integrada, deve totalizar exatamente um. \cite{stat-distribs}}. Amostrado o valor \ensuremath{\pi} de acordo com \ensuremath{Beta}, a probabilidade de se obter \ensuremath{c_j} tal que \ensuremath{c = c_j} é dada portanto por \cite{resnik}
+A função \ensuremath{B} é aplicada aos valores \ensuremath{\alpha} e \ensuremath{\beta} para garantir que a distribuição de probabilidade \ensuremath{Beta}, quando integrada, some um \cite{stat-distribs}\footnote{Toda distribuição de probabilidade, quando integrada, deve totalizar exatamente um. \cite{stat-distribs}}. Considerando-se o lado direito da Equação \ref{teorema-bayes}, e o fato de que os valores para \ensuremath{c} são distribuídos de acordo com \ensuremath{Binomial(|C|, \pi)}, tem-se que a probabilidade de se obter \ensuremath{c = c_j}, \ensuremath{P(c = cj)}, pode ser reescrita como \cite{resnik}
 
 \begin{equation}
 \label{binomial}
-\ensuremath{P(c_j\mbox{ } |\mbox{ } \pi,\mbox{ } |C|) =  \dbinom{|C|}{c_j}\pi^{c_j}(1 - \pi)^{|C| - c_j}}
+\ensuremath{P(c = c_j\mbox{ } |\mbox{ } \pi,\mbox{ } |C|) =  \dbinom{|C|}{c_j}\pi^{c_j}(1 - \pi)^{|C| - c_j}}
 \end{equation}
 
 
-Ainda considerando o lado direito da Equação \ref{teorema-bayes}, assume-se que \ensuremath{c_j} foi o valor amostrado e deve-se estimar \ensuremath{P(d_i\mbox{ } |\mbox{ } c = c_j)}. A probabilidade de se obter o documento \ensuremath{d_i}, na prática, não depende de \ensuremath{c_j}, mas de um parâmetro \ensuremath{\theta_j} amostrado \textbf{especificamente} para essa classe. \ensuremath{\theta_j} é um dos valores que uma variável aleatória \ensuremath{\epsilon} pode assumir, e eles são distribuídos de acordo com uma distribuição \ensuremath{Dirichlet(\gamma_j)}. \ensuremath{\gamma_j} é um parâmetro fixado antes de se iniciar o processo de classificação. Sendo assim, a probabilidade de se obter o número real \ensuremath{\theta_j} é dada por \cite{resnik}
+Ainda considerando o lado direito da Equação \ref{teorema-bayes}, assume-se sem perda de generalidade que \ensuremath{c_j} foi o valor amostrado e deve-se estimar \ensuremath{P(d_i\mbox{ } |\mbox{ } c = c_j)}. A probabilidade de se obter o documento \ensuremath{d_i}, na prática, não depende de \ensuremath{c_j}, mas de um parâmetro \ensuremath{\theta_j} amostrado \textbf{especificamente} para essa classe. \ensuremath{\theta_j} é um dos valores que uma variável aleatória \ensuremath{\epsilon} pode assumir, e eles são distribuídos de acordo com uma distribuição \ensuremath{Dirichlet(\gamma_j)}. O parâmetro \ensuremath{\gamma_j} também deve ser fixado antes de se iniciar o processo de classificação. Sendo assim, a probabilidade de se obter o número real \ensuremath{\theta_j} é dada por \cite{resnik}
 
 
 \begin{equation}
 \label{dirichlet}
-  \ensuremath{P(\theta_j\mbox{ } |\mbox{ } \gamma_j) = \frac{1}{B(\gamma_j)}\prod_{k = 1}^{|V|}\theta_{j,k}^{\gamma_{j,k} - 1}}
+  \ensuremath{P(\epsilon = \theta_j\mbox{ } |\mbox{ } \gamma_j) = \frac{1}{B(\gamma_j)}\prod_{k = 1}^{|V|}\theta_{j,k}^{\gamma_{j,k} - 1}}
 \end{equation}
 
-A função \ensuremath{B} também é utilizada para garantir que a distribuição \ensuremath{Dirichlet}, quando integrada, some um \cite{stat-distribs}. Fixado o valor \ensuremath{\theta_j}, tem-se que todos os documentos possíveis de se amostrar para uma classe \ensuremath{c_j} estão distribuídos de acordo com uma distribuição \ensuremath{Multinomial(V, \theta_j)}. O primeiro parâmetro dessa distribuição é \ensuremath{V} porque apenas as palavras dos documentos são consideradas na construção da distribuição. A probabilidade de se obter o documento \ensuremath{d_i}, dado que a classe amostrada foi uma \ensuremath{c_j} qualquer, é dada por \cite{resnik}
+A função \ensuremath{B}, aplicada a \ensuremath{\gamma_j}, também é utilizada para garantir que a distribuição \ensuremath{Dirichlet}, quando integrada, some um \cite{stat-distribs}. Fixado o valor \ensuremath{\theta_j}, tem-se que todos os documentos possíveis de se amostrar para uma classe \ensuremath{c_j} estão distribuídos de acordo com uma distribuição \ensuremath{Multinomial(V, \theta_j)}. O primeiro parâmetro dessa distribuição é \ensuremath{V} porque apenas as palavras dos documentos são consideradas na construção da distribuição. A probabilidade de se obter o documento \ensuremath{d_i}, definida na Equação \ref{teorema-bayes} como \ensuremath{P(d_i\mbox{ }|\mbox{ }c = c_j)}, pode ser reescrita portanto como \cite{resnik}
 
 \begin{equation}
 \label{multinomial}
@@ -62,7 +65,7 @@ A função \ensuremath{B} também é utilizada para garantir que a distribuiçã
 
 \ensuremath{N(w_k, d_i)}, por sua vez, é o número de vezes que a \ensuremath{k}-ésima palavra do vocabulário \ensuremath{V}, \ensuremath{w_k}, ocorre no documento \ensuremath{d_i} \cite{resnik}\footnote{É possível utilizar, alternativamente, um \emph{bit}, representando a ausência (0) ou presença (1) da \ensuremath{k}-ésima palavra de \ensuremath{V} em \ensuremath{d_i}.}. A esse número, dá-se o nome de \textbf{contagem} de \ensuremath{w_k} em \ensuremath{d_i} \cite{nigam}. 
 
-Os parâmetros \ensuremath{\alpha}, \ensuremath{\beta} e os \ensuremath{|C|} \ensuremath{\gamma}, um para cada classe, recebem o nome de \textbf{hiperparâmetros}. Isso se deve ao fato de que eles são diferentes de parâmetros como \ensuremath{\pi} e os \ensuremath{|C|} \ensuremath{\theta}, pois modelam distribuições de probabilidade \ensuremath{antes} de serem feitas observações sobre as classes e palavras de \ensuremath{D}. Essas distribuições - no caso do Naïve Bayes apresentado, \ensuremath{Beta} e \ensuremath{Dirichlet} - recebem o nome de distribuições \textbf{\emph{a priori}} \cite{bishop}. Os valores dos hiperparâmetros são fixados antes de se iniciar o processo de classificação. No caso dos dois primeiros, uma estratégia comum é escolher o mesmo valor para ambos, favorecendo uma distribuição uniforme para a variável aleatória \ensuremath{\phi} \cite{nigam}.
+Os parâmetros \ensuremath{\alpha}, \ensuremath{\beta} e \ensuremath{\gamma_j}, \ensuremath{j \in \{0, ..., |C| - 1\}}, recebem o nome de \textbf{hiperparâmetros}. Isso se deve ao fato de que eles são diferentes de parâmetros como \ensuremath{\pi} e \ensuremath{\theta_j}, \ensuremath{j \in \{0, ..., |C| - 1\}}, pois modelam distribuições de probabilidade \ensuremath{antes} de serem feitas observações sobre as classes e palavras de \ensuremath{D}. Essas distribuições - no caso, \ensuremath{Beta} e \ensuremath{Dirichlet} - recebem o nome de distribuições \textbf{\emph{a priori}} \cite{bishop}. No caso dos hiperparâmetros \ensuremath{\alpha} e \ensuremath{\beta}, uma estratégia comum é escolher o mesmo valor para ambos, favorecendo uma distribuição uniforme para a variável aleatória \ensuremath{\phi} \cite{nigam}. Estratégia semelhante pode ser adotada na escolha das \ensuremath{|V|} entradas de um \ensuremath{\gamma_j} qualquer.
 
 %Como essa distribuição é utilizada para modelar o parâmetro \ensuremath{\pi} e \ensuremath{\alpha} e \ensuremath{\beta} recebem o nome de \textbf{hiperparâmetros} \cite{bishop}. Uma estratégia comum é escolher um mesmo valor para os dois hiperparâmetros, favorecendo uma distribuição uniforme para \ensuremath{\pi} \cite{nigam}. %nome de hiperp., diferenciando-se dos demais parâmetros. %A distribuição \ensuremath{beta} está associada ao parâmetro \ensuremath{\pi}, e não considera  Os parâmetros \ensuremath{\alpha} e \ensuremath{\beta} devem ter seus valores escolhidos antes do processo de classificação. 
 
@@ -157,6 +160,7 @@ De acordo com um estudo de Ng e Jordan, o Naïve Bayes atinge bom desempenho com
 
 
 \section{Métricas para mensurar o desempenho dos classificadores}
+\label{metricas}
 
 A classificação de documentos, de acordo com suas perspectivas, é um dos principais objetivos dos trabalhos revisados neste projeto. Para medir a qualidade dessa classificação, dado um conjunto de documentos \ensuremath{D} e um conjunto de classes \ensuremath{C}, normalmente são utilizadas as seguintes métricas: taxa de acerto, precisão, rechamada ou métrica F1. A \textbf{taxa de acerto}\footnote{Do inglês \emph{accuracy}.} é definida por \cite{manning}
 
@@ -192,6 +196,7 @@ A métrica F1 pondera os valores obtidos para a precisão e para a rechamada de 
 
 
 \section{Validação cruzada de \ensuremath{k} dobras}
+\label{validacao}
 
 A \textbf{validação cruzada de \ensuremath{k} dobras} é uma técnica estatística que pode ser associada a classificadores que utilizam conjuntos de \textbf{treinamento} e \textbf{teste} em suas metodologias - caso dos SVMs e do Naïve Bayes, por exemplo. A ideia é estimar o quanto um certo modelo generaliza para um conjunto aleatório de dados \cite{payam-leitang}; nesse caso, o modelo é um classificador e os dados são documentos de teste. Nesse tipo de validação, divide-se, aleatoriamente, um conjunto de documentos \ensuremath{D} em \emph{k} subconjuntos mutuamente exclusivos, denominados \textbf{dobras}\footnote{Para os experimentos realizados neste projeto, cada dobra tem aproximadamente a mesma cardinalidade.} \cite{ron-kohavi}. O conjunto de teste corresponde a uma das \ensuremath{k} dobras e as \ensuremath{k - 1} restantes, unidas, compõem o conjunto de treinamento.
 
