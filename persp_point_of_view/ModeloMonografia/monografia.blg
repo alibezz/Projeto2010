@@ -4,8 +4,6 @@ The style file: abnt-alf.bst
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: abnt-options.bib
 Database file #2: monografia.bib
-Warning--I didn't find a database entry for "pesquisa-eua"
-Warning--I didn't find a database entry for "bingliu"
 Warning--I didn't find a database entry for "mail-resnik"
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
@@ -14,45 +12,45 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 | Em caso de duvidas ou problemas com este estilo procure |
 | http://abntex.codigolivre.org.br                        |
 +---------------------------------------------------------+
-You've used 27 entries,
+You've used 29 entries,
             6522 wiz_defined-function locations,
-            1305 strings with 13468 characters,
-and the built_in function-call counts, 22722 in all, are:
-= -- 1843
-> -- 834
+            1315 strings with 13825 characters,
+and the built_in function-call counts, 24257 in all, are:
+= -- 1957
+> -- 889
 < -- 21
-+ -- 353
-- -- 254
-* -- 1608
-:= -- 3025
-add.period$ -- 105
-call.type$ -- 28
-change.case$ -- 277
-chr.to.int$ -- 39
-cite$ -- 26
-duplicate$ -- 1043
-empty$ -- 1777
-format.name$ -- 1195
-if$ -- 5481
++ -- 373
+- -- 271
+* -- 1719
+:= -- 3235
+add.period$ -- 115
+call.type$ -- 30
+change.case$ -- 296
+chr.to.int$ -- 41
+cite$ -- 28
+duplicate$ -- 1114
+empty$ -- 1918
+format.name$ -- 1280
+if$ -- 5854
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 485
-newline$ -- 127
-num.names$ -- 130
-pop$ -- 645
+missing$ -- 520
+newline$ -- 137
+num.names$ -- 141
+pop$ -- 693
 preamble$ -- 1
-purify$ -- 107
+purify$ -- 114
 quote$ -- 0
-skip$ -- 1289
+skip$ -- 1369
 stack$ -- 1
-substring$ -- 879
-swap$ -- 513
+substring$ -- 914
+swap$ -- 544
 text.length$ -- 17
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 19
+type$ -- 20
 warning$ -- 0
-while$ -- 191
+while$ -- 204
 width$ -- 0
-write$ -- 409
-(There were 3 warnings)
+write$ -- 441
+(There was 1 warning)

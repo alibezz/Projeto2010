@@ -21,6 +21,13 @@ ISBN 0387310738.}
 {BLEI, D.; NG, A.~Y.; JORDAN, M.~I. Latent dirichlet allocation.
 \emph{Journal of Machine Learning Research}, v.~3, p. 993--1022, 2003.}
 
+\bibitem[comScore e KelseyGroup 2007]{pesquisa-eua}
+\abntrefinfo{comScore e KelseyGroup}{COMSCORE; KELSEYGROUP}{2007}
+{COMSCORE; KELSEYGROUP. \emph{Online consumer-generated reviews have
+  significant impact on offline purchase behavior}. Press Release, 2007.
+Dispon{\'\i}vel em:
+  $<$http://www.comscore.com/press/release.asp?press=1928$>$.}
+
 \bibitem[Durant e Smith 2006]{durant-smith}
 \abntrefinfo{Durant e Smith}{DURANT; SMITH}{2006}
 {DURANT, K.~T.; SMITH, M.~D. Predicting the political sentiment of web log
@@ -75,6 +82,13 @@ ISBN 0471371246.}
   document and sentence levels.
 \emph{CoNLL'06: Proceedings of the Conference on Natural Language Learning
   (CoNLL)}, 2006.}
+
+\bibitem[Liu 2010]{bingliu}
+\abntrefinfo{Liu}{LIU}{2010}
+{LIU, B. Sentiment analysis and subjectivity. In:  INDURKHYA, N.; DAMERAU,
+  F.~J. (Ed.). \emph{Handbook of Natural Language Processing, Second Edition}.
+  [S.l.]: CRC Press, Taylor and Francis Group, 2010.
+ISBN 978-1420085921.}
 
 \bibitem[Mainardi 2007]{lula-anta}
 \abntrefinfo{Mainardi}{MAINARDI}{2007}

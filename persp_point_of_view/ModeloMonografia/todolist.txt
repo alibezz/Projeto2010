@@ -13,6 +13,8 @@ falar da metodologia, estrutura, problemas relacionados (onde fala de outros mé
 
 ====================
 Conceitos básicos: (n pode passar de 56 páginas!)
+
+explicar pq falo de cada coisa. tipo L-LDA foi escolhido pq dá uma ideia refinada da coisa. os classificadores são os mais comuns. coisa e tal.
 dizer q o naive bayes usado considera apenas contagens de palavras - ok
 corrigir a comparação com processo generativo na parte de class. naive - ok
 arrumar gamma na parte de class. naive - ok
@@ -121,6 +123,8 @@ filhos/P10-2047 traz boa definição de perspectiva.
 ======
 
 Freqs de palavras: (vai pra NO MÁXIMO 53 pgs)
+
+***** DIZER PQ SÓ REVISA CONTAGENS
 ***** resolver como citar conteúdo de email.
 ***** botar figura do lspm explicando parametros
 ***** explicar lspm de modo q n fale de modelo generativo
