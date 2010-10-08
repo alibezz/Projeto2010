@@ -13,3 +13,37 @@ Semanas 3 e 4 de setembro e 1 de outubro: fechamento do capítulo de frequencias
 Semana 2 de outubro: redação de outros capítulos (intra e extra documentos, talvez colapsando pruma coisa só) e trabalhos relacionados
 Semana 3 e 4 de outubro: fechamento de tudo (introdução e conclusão; revisões)
 Semana 4 de outubro => mandar pra revisão
+
+Oq deve ser abordado em cada capítulo
+
+1) Introdução
+  Motiva o problema, falando da área. Diz pq oq vc vai estudar é importante.
+  Fecha a proposta (dizer como chegou nessa separação entre métodos baseados em contagens de palavras e outros, definir pq escolheu uma coisa e n outra pra tratar (internacionalizável, mais simples tb). dizer oq vc propõe com essa monografia (a aliança entre l-lda e classificadores pra entender melhor a distribuição da linguagem, um corpus em portugues onde isso funciona bem. falar todos os sinonimos de persp. e dataset = corpus)
+  Fala da metodologia pra buscar trabalhos revisados 
+  Fala de trabalhos parecidos (outras coisas. explicar q de x, y obtém boa taxa de acerto com contagem. dizer quais n obtém, e quais se aproveitam disso pra criar novos métodos.)
+
+2) Conceitos Básicos
+   Fala de Naïve Bayes, dizendo q, por padrão, ele utiliza contagens. (ok) Fala q é mto usado e onde o desempenho é bom, exemplificando. (ok) [1]
+   Fala de SVMs  - fala q esses dois classificadores são base. fala q é mto usado e onde o desempenho é bom, exemplificando. botar imagem. [2]
+   Fala de como aferir desempenho
+   Fala de validação cruzada
+   Fala do *L-LDA* - diz q vai usar pra investigar - refazer brutal.
+   Conclui falando que esses dois classificadores são a base dos estudos, e q em apenas um dos trabalhos revisados é utilizada uma alteração do Naïve Bayes, q origina o LSPM. Fala q vc vai usar o L-LDA pra fazer algo novo, q eh investigar o uso de palavras na classificação por perspectiva. Falar na intro q L-LDA tem tdo a ver com contagens de palavras tb, por isso foi escolhido.
+
+3) Classificação por perspectiva baseada em contagens de palavras
+   Dizer oq vc quer dizer com esse termo, amarrando com o capítulo de conceitos básicos
+   Dizer oq entra nesse capítulo e oq não entra.
+   Enfatizar o bom desempenho de contagem pra classificação, retomando o capítulo de conceitos básicos.
+   Explica a estrutura da revisão e pq investiga a questao da linguagem
+   3.1) Trabalhos revisados (bote tudo)
+   3.2) Investigação do impacto da escolha de palavras nesse tipo de classificação
+   3.3) Conclusões
+
+4) Estudo de caso
+   Enfatiza de novo pq algo internacionalizável é tão bom aqui, quais as contribuições desse estudo de caso etc etc.
+   4.1) Construção do corpus
+   4.2) Classificação
+   4.3) Investigação da linguagem, reiterando capitulo anterior pra bom desempenho
+   4.4) Conclusões
+
+5) Conclusões

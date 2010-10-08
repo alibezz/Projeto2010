@@ -1,29 +1,28 @@
 \select@language {brazil}
 \contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{8}
-\contentsline {section}{\numberline {1.1}Motiva\IeC {\c c}\IeC {\~a}o}{8}
-\contentsline {section}{\numberline {1.2}Proposta}{9}
-\contentsline {section}{\numberline {1.3}Estrutura da Monografia}{9}
+\contentsline {section}{\numberline {1.1}Proposta}{9}
+\contentsline {section}{\numberline {1.2}Estrutura da Monografia}{9}
 \contentsline {chapter}{\numberline {2}Conceitos b\IeC {\'a}sicos}{10}
 \contentsline {section}{\numberline {2.1}Na\IeC {\"\i }ve Bayes}{10}
-\contentsline {section}{\numberline {2.2}\emph {Support Vector Machines} (SVMs)}{13}
-\contentsline {section}{\numberline {2.3}M\IeC {\'e}tricas para mensurar o desempenho dos classificadores}{15}
-\contentsline {section}{\numberline {2.4}Valida\IeC {\c c}\IeC {\~a}o cruzada de \ensuremath {k} dobras}{16}
+\contentsline {section}{\numberline {2.2}\emph {Support Vector Machines} (SVMs)}{14}
+\contentsline {section}{\numberline {2.3}M\IeC {\'e}tricas para mensurar o desempenho dos classificadores}{16}
+\contentsline {section}{\numberline {2.4}Valida\IeC {\c c}\IeC {\~a}o cruzada de \ensuremath {k} dobras}{17}
 \contentsline {section}{\numberline {2.5}\emph {Latent Dirichlet Allocation} (LDA)}{17}
 \contentsline {subsection}{\numberline {2.5.1}\emph {Labeled-Latent Dirichlet Allocation} (L-LDA)}{19}
-\contentsline {chapter}{\numberline {3}Classifica\IeC {\c c}\IeC {\~a}o por perspectiva baseada em contagens de palavras}{20}
-\contentsline {section}{\numberline {3.1}Trabalhos Revisados}{21}
-\contentsline {subsection}{\numberline {3.1.1}\emph {Which side are you on? Identifying perspectives at the document and sentence levels}}{21}
-\contentsline {subsection}{\numberline {3.1.2}\emph {A preliminary investigation into sentiment analysis of informal political discourse}}{22}
-\contentsline {section}{\numberline {3.2}Experimentos com L-LDA e Na\IeC {\"\i }ve Bayes}{24}
-\contentsline {section}{\numberline {3.3}Conclus\IeC {\~o}es}{28}
-\contentsline {chapter}{\numberline {4}Metodologias que usam rela\IeC {\c c}\IeC {\~o}es intra-documento}{31}
-\contentsline {chapter}{\numberline {5}Estudo de caso: Perspectivas sobre o governo brasileiro}{32}
-\contentsline {section}{\numberline {5.1}Construindo um corpus para estudo}{32}
-\contentsline {section}{\numberline {5.2}Identificando perspectivas com um classificador Na\IeC {\"\i }ve Bayes}{39}
-\contentsline {section}{\numberline {5.3}Ilustrando a linguagem por perspectiva}{40}
-\contentsline {section}{\numberline {5.4}Conclus\IeC {\~o}es e estudos futuros}{44}
-\contentsline {chapter}{\numberline {6}Conclus\IeC {\~a}o}{45}
-\contentsline {section}{\numberline {6.1}Dificuldades encontradas}{45}
-\contentsline {section}{\numberline {6.2}Trabalhos futuros}{45}
-\contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Resultados experimentais}{46}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{47}
+\contentsline {chapter}{\numberline {3}Classifica\IeC {\c c}\IeC {\~a}o por perspectiva baseada em contagens de palavras}{21}
+\contentsline {section}{\numberline {3.1}Trabalhos Revisados}{22}
+\contentsline {subsection}{\numberline {3.1.1}\emph {Which side are you on? Identifying perspectives at the document and sentence levels}}{22}
+\contentsline {subsection}{\numberline {3.1.2}\emph {A preliminary investigation into sentiment analysis of informal political discourse}}{23}
+\contentsline {section}{\numberline {3.2}Experimentos com L-LDA e Na\IeC {\"\i }ve Bayes}{25}
+\contentsline {section}{\numberline {3.3}Conclus\IeC {\~o}es}{29}
+\contentsline {chapter}{\numberline {4}Metodologias que usam rela\IeC {\c c}\IeC {\~o}es intra-documento}{32}
+\contentsline {chapter}{\numberline {5}Estudo de caso: Perspectivas sobre o governo brasileiro}{33}
+\contentsline {section}{\numberline {5.1}Construindo um corpus para estudo}{33}
+\contentsline {section}{\numberline {5.2}Identificando perspectivas com um classificador Na\IeC {\"\i }ve Bayes}{40}
+\contentsline {section}{\numberline {5.3}Ilustrando a linguagem por perspectiva}{41}
+\contentsline {section}{\numberline {5.4}Conclus\IeC {\~o}es e estudos futuros}{45}
+\contentsline {chapter}{\numberline {6}Conclus\IeC {\~a}o}{46}
+\contentsline {section}{\numberline {6.1}Dificuldades encontradas}{46}
+\contentsline {section}{\numberline {6.2}Trabalhos futuros}{46}
+\contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Resultados experimentais}{47}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{48}

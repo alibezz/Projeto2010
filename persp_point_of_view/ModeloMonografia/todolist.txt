@@ -6,6 +6,11 @@ ARRUMAR TABELAS COMO H OU T
 PADRONIZAR NUMERO DE PALAVRAS NOS CAPITULOS Q USAM L-LDA!
 PADRONIZAR SE FALA SÓ DE TAXA DE ACERTO OU SE TB DISCUTE UM POUCO PRECISÃO POR CLASSE E TALZ.
 TIRAR O .COM DOS SITES, DEIXANDO SÓ NO RODAPÉ!
+Explicar o q P(a|b) quer dizer.
+====================
+introdução
+falar da metodologia, estrutura, problemas relacionados (onde fala de outros métodos), fechando o escopo na proposta pra classificadores baseados estritamente em contagens de palavras (explicar q essa divisão ficou bem clara qdo vc revisou tudo pra montar a monografia)
+
 ====================
 Conceitos básicos: (n pode passar de 56 páginas!)
 dizer q o naive bayes usado considera apenas contagens de palavras - ok
@@ -18,6 +23,13 @@ deixar mais claro no naive essa coisa da contagem de palavras - ok
 explicar pra q servem os valores iniciais - ok
 falar essa coisa da reamostragem, q a ideia é sempre tornar os parâmetros os melhores possíveis. - ok
 FALAR MTO BEM DESSA COISA DE USAR CONTAGEEEEEEEEENNNNSSSSSS DE PALAVRAS -  ok? 
+
+passar correções de Luciano
+mudar lda direto pra l-lda
+colocar figura nos svms
+explicar pq a tabela tem x palavras, de onde vem essa mania de analisar os textos assim
+botar exemplinhos em naive bayes e svm tb
+falar, em svm, q ele eh meio equivalente ao naive bayes, e dizer noq é q muda.
 
 geral:
 brincar mais com isso de contextualizar os conceitos básicos na questão de mineração de perspectiva. - ok
@@ -40,6 +52,7 @@ botar referencias às equações - ok
 naive - classificação:
 mudar perfil pra proporção ou coisa assim. - ok
 consertar formulas - ok
+explicar oq é independência condicional.
 
 ================
 
@@ -111,6 +124,7 @@ Freqs de palavras: (vai pra NO MÁXIMO 53 pgs)
 ***** resolver como citar conteúdo de email.
 ***** botar figura do lspm explicando parametros
 ***** explicar lspm de modo q n fale de modelo generativo
+***** enfatizar q os artigos revisados nos anexos utilizam metodologia mto semelhante, apenas pré-processando as palavras de forma um pouco diferente, ou selecionando apenas uma parte delas. do pto de vista de usar ou n contagem, n muda mto. 
 
 Retirar a palavra "Introdução" - OK
 Nomear as seções com \ref na introdução - OK
@@ -164,7 +178,4 @@ q se eu incrementar um pouco a revisão deles dois
 
 =====
 
-Outras infos
-
-justificar pq fez experimento, caso n faça nos outros capitulos. - n precisa, justifica nos outros
 
