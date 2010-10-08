@@ -6,7 +6,7 @@ A busca por opiniões sempre desempenhou um papel importante na geração de nov
 
 Neste contexto, a busca por opiniões e comentários em \emph{sites}, \emph{blogs}, fóruns e redes sociais também se popularizou, passando a fazer parte do cotidiano dos consumidores \emph{online}. Uma pesquisa feita nos Estados Unidos revelou que entre 73\% e 87\% dos leitores de resenhas de serviços online, como críticas de restaurantes e albergues, sentem-se fortemente influenciados a consumi-los ou não a depender das opiniões contidas nessas resenhas \cite{pesquisa-eua}. Diante da relevância que opiniões têm na geração de decisões e no processo de consumo, estudos com o intuito de extraí-las da Web e interpretá-las automaticamente tornaram-se mais frequentes na área de Ciência da Computação. Juntos, esses estudos compõem o que ficou conhecido como \textbf{Análise de Sentimento} ou \textbf{Mineração de Opinião}, termos utilizados como sinônimos \cite{omsa} \cite{bingliu}.
 
-De acordo com a \emph{survey} de Pang e Lee, referência mais completa para o estudo da área encontrada até o momento, a Mineração de Opinião envolve o emprego de diversas técnicas computacionais com o intuito de explorar algum dos tópicos abaixo \cite{omsa}:
+De acordo com a \emph{survey} de Pang e Lee, referência mais citada para o estudo da área, a Mineração de Opinião envolve o emprego de diversas técnicas computacionais com o intuito de explorar algum dos tópicos abaixo \cite{omsa}:
 
 \begin{enumerate}
     \item \textbf{Polaridade de sentimento ou graus de polaridade -} Dado um documento opinativo, para o qual se assume que as opiniões se referem basicamente a um único assunto, classifique-o como positivo ou negativo em relação a esse assunto (polaridades opostas) ou localize-o no espectro estabelecido entre duas polaridades opostas;
@@ -17,11 +17,43 @@ De acordo com a \emph{survey} de Pang e Lee, referência mais completa para o es
 
 \end{enumerate}
 
+O item \textbf{Pontos de vista ou perspectivas}, em particular, é de grande aplicabilidade para as Ciências Humanas. Diferentemente dos outros tópicos, mais aplicáveis à compreensão de opiniões \textbf{pontuais} sobre marcas/produtos/pessoas públicas, esse item investiga um fenômeno mais profundo: o posicionamento\footnote{Os termos \emph{posicionamento}, \emph{orientação}, \emph{perspectiva}, \emph{ponto de vista} e \emph{ideologia} são utilizados de forma intercambiável nessa monografia, por serem explorados da mesma forma na literatura revisada para este projeto.} de indivíduos a respeito de temas mais \textbf{abrangentes}. Não se trata, portanto, de investigar opiniões estritamente polarizadas, como \emph{positivo}, \emph{negativo}, \emph{bom} ou \emph{ruim} - mas sim perspectivas e ideologias, como \emph{pró-aborto} ou \emph{anti-pena de morte}. Estas questões motivaram o enfoque dessa monografia para esse item. Em outras palavras, a temática dessa monografia é a \emph{classificação de documentos de acordo com suas perspectivas}.
+
+Como a \emph{survey} de Pang e Lee elenca \textbf{apenas três} trabalhos que envolvem classificação de documentos por perspectiva, um dos objetivos principais dessa monografia foi explorar essa revisão, criando um documento que possa servir como referência para estudos futuros nessa linha. Os trabalhos revisados foram escolhidos de acordo com metodologia apresentada no Capítulo \ref{chap3}, e são apresentados no mesmo. Todos eles classificam documentos baseando-se em como eles usam palavras. A ideia, que remete a estudos de Linguística \cite{teubert}, é de que indivíduos com posicionamentos diferentes utilizam as palavras de formas distintas - e isso é explorado na classificação. 
+
+A revisão executada nesse projeto levou a discussões e experimentos também apresentados no Capítulo \ref{chap3}, que visam à investigação de como o uso das palavras interfere na classificação de documentos por perspectiva. Esses experimentos ilustram aspectos interessantes dos documentos, ampliando a discussão da classificação por perspectiva. Não foi encontrado \textbf{nenhum} outro trabalho que apresente experimentos semelhantes aos apresentados no Capítulo \ref{chap3} - ou seja, além da revisão em si, tudo indica que a execução desses experimentos é uma contribuição inédita para a área de Mineração de Opinião. 
+
+Além da revisão acompanhada de experimentos, esse projeto propõe um estudo de caso envolvendo posicionamentos sobre a política brasileira no Capítulo \ref{estudo}. Além de propor uma classificação por perspectiva, esse capítulo também discute o uso de palavras por cada uma delas. Não foi encontrado nenhum trabalho que classifique documentos brasileiros de acordo com seus pontos de vista, o que faz desse estudo, pelo que tudo indica, o primeiro envolvendo uma temática brasileira. Os resultados são animadores, indicando que a classificação de documentos de acordo com seus pontos de vista também pode ser aplicada, de forma bem sucedida, a \emph{datasets}\footnote{\emph{Datasets} são conjuntos de dados; nesse caso, de documentos.} em português.
+
+
+Nesse trabalho é feita, primeiramente, uma descrição básica dos principais classificadores explorados nessa monografia, no Capítulo \ref{basicos}. A aplicação deles compõe a metodologia básica de todos os trabalhos estudados - o que varia, de fato, são as representações dos documentos e a forma como eles são pré-processados. No Capítulo \ref{basicos} também são apresentadas métricas para se avaliar o desempenho de uma classificação e uma técnica de validação para esse desempenho. Ainda nesse capítulo, por fim, é apresentado um modelo utilizado nos Capítulos \ref{chap3} e \ref{estudo}, com a finalidade de ilustrar o uso de palavras por documentos escritos sob perspectivas diferentes. No Capítulo \ref{chap3}, alguns trabalhos são selecionados e revisados de forma comparativa. Este capítulo também discute a relação entre o uso de palavras nos documentos e o desempenho da classificação. No Capítulo \ref{estudo}, é apresentado um estudo de caso envolvendo a política brasileira. O escopo desse capítulo envolve a construção de um corpus\footnote{Nesta monografia, os termos \emph{corpus} e \emph{dataset} serão utilizados de forma intercambiável.}, a definição dos pontos de vista a serem considerados, a classificação de documentos de acordo com eles, a discussão do uso de palavras e uma série de considerações finais e indicações de estudos futuros. Por fim, no Capítulo \ref{conclusoes}, são apresentadas - ou ratificadas - conclusões a respeito dos conteúdos explorados pelos Capítulos \ref{chap3} e \ref{estudo}. Esse capítulo também discute as principais dificuldades encontradas nesse projeto. As próximas seções apresentam, respectivamente, os objetivos desse trabalho e alguns estudos relacionados.
+
+
+% de documentos escritos em \textbf{português}  revisar artigos que classificam documentos de acordo com suas perspectivas no Capítulo \ref{chap3}, 
+
+%A \emph{survey} de Pang e Lee elenca seis trabalhos relacionados ao item \textbf{Pontos de vista ou perspectivas}, e apenas três deles têm diretamente a ver com classificação de documentos. Os outros envolvem   
+
+%É válido ressaltar que não foi encontrado nenhum trabalho especificamente dedicado à revisão de estudos sobre \textbf{Pontos de vista ou perspectivas}.
+   
+
+
+%one might be seeking something more like “achieving world peace is difficult” than like “mildly positive”. In fact, much of the prior work on perspectives and viewpoints seeks to extract more perspective-related information (e.g., opinion holders). 
+
+
+
+% simples como \emph{bom} ou \emph{ruim}, mas sim pontos de vista razoavelmente complexos, como "eu acho que a paz mundial
+
+%Tais posicionamentos não necessariamente enfocam palavras polarizadas, como \emph{bom} ou \emph{ruim}. 
+
+%a classificação de documentos de acordo com seus pontos de vista colabora com uma compreensão mais profunda de como determinados grupos sociais se posicionam a respeito de determinados temas. Em vez de opiniões pontuais, ode colaborar na análise do impacto sociológico de determinados assuntos. 
+
+
+% Entender o posicionamento de um determinado público, através de seus documentos, a respeito de um determinado tema pode encadear uma série de estudos sobre o impacto desse tema neste grupo social, suas causas, consequências e demais relações. % Os artigos revisados na \emph{survey} de Pang e Lee, bem como outros pesquisados para este projeto, enfocam na compreensão de
 
 %No começo dos anos 2000, os termos \emph{Opinion Mining} e \emph{Sentiment Analysis} são empregados pela primeira vez, referindo-se ao emprego de técnicas computacionais para identificação e avaliação de opiniões e sentimentos em textos \cite{panglee}. Esses termos têm funcionado como sinônimos \cite{bing}, aparecendo paralelamente na literatura. De acordo com \cite{panglee}, o termo \emph{Sentiment Analysis} é empregado pela primeira vez em 2001, nos artigos \textbf{Como citar referências citadas em outro trabalho?}; o termo \emph{Opinion Mining}, em 2003, no artigo \textbf{mesma duvida}. Nesta monografia, os dois termos serão utilizados de forma intercambiável.
 
 
-A ideia de utilizar metodologias computacionais para identificar e analisar opiniões é muito anterior à popularização da Web \textbf{Citar artigos do fim da década de 60 e começo de 70 que provam isso}. Motivos: pouco dado, IR e ML imaturas. Explicar os 3 e como se relacionam com Natural Language Processing.
+%A ideia de utilizar metodologias computacionais para identificar e analisar opiniões é muito anterior à popularização da Web \textbf{Citar artigos do fim da década de 60 e começo de 70 que provam isso}. Motivos: pouco dado, IR e ML imaturas. Explicar os 3 e como se relacionam com Natural Language Processing.
 %\textbf{POPULARIDADE DAS ÁREAS DE ML E IR, SURGIMENTO DE DATASETS DISPONIVEIS POR CONTA DA POPULARIDADE DA INTERNET...}.
 
 %One of the main reasons for the lack of study on opinions is that there was little opinionated text before
@@ -30,47 +62,9 @@ A ideia de utilizar metodologias computacionais para identificar e analisar opin
 
 %Falar das principais tasks da área.
 
-\section{Proposta}
+\section{Objetivo}
+\label{objetivo}
+fomentar estudos, através de uma revisão acompanhada de discussão e um estudo de caso que mostra, passo a passo, como classificar de forma bem básica, mas conseguindo um desempenho legal, e como isso pode ter aplicações hiper legais.
 
-Falar de Mineração de Perspectiva. Definir todos os termos correlatos utilizados, fechar os problemas da área e explicar como isso se diferencia de Opinion Mining clássica, que é basicamente Análise de Polaridade.
-
-%\textbf{explicar que aqui muitas vezes é mais interessante entender posicionamentos globais do que a opinião sobre um único assunto, tópico, etc, e que tb há pesquisas na área de opinion mining que tratam disso; mostrar onde diferem, os problemas} Especificamente no que diz respeito à política, uma pesquisa realizada nos Estados Unidos \cite{rainiehorrigan}, com mais de 2500 usuários de Internet que compartilharam informação sobre as eleições de 2006 \emph{online}, concluiu o seguinte:
-
-%\begin{enumerate}
- % \item Para 28\% deles, um dos principais motivos para realizar esta troca de informações \emph{online} era compreender as perspectivas de suas próprias comunidades; 
-  %\item 34\% deles afirmaram que um dos principais motivos para realizar esta troca de informações \emph{online} era compreender as perspectivas exteriores à suas comunidades; 
-   %\item 27\% deles pesquisaram avaliações políticas de organizações externas \emph{online};
-%  \item 28\% deles afirmaram que a maioria dos \emph{sites} de política que frequentam compartilham com seus pontos de vista;
- % \item 29\% deles afirmaram que a maioria dos \emph{sites} de política que frequentam apresentam pontos de vista que divergem dos seus - indicação de que muitas pessoas não estão buscando apenas uma validação de opiniões pré-existentes\cite{panglee};
-  %\item 8\% deles publicam seus próprios comentários políticos \emph{online}.
-%\end{enumerate}  
-
-%\textbf{Concluir fechando mais o escopo para perspectivas; tentar motivar um pouco para eleições, MAAAAAS falar brevemente de trabalhos que não necessariamente tem a ver com política e que tb tentam capturar perspectivas/pontos de vista}.
-
-%Falar que as bases abrangentes serão discutidas, mas essa mono fecha o escopo em viewpoints, blablabla. Falar que se pretende fazer uma revisão comparativa dos trabalhos, mostrar alguma coisa prática na área com as decisões de projeto devidamente justificadas.
-
-\section{Estrutura da Monografia}
-
-Falar da metodologia de busca dos artigos 
-%Modelo de monografia usando as normas ABNT (Associação Brasileira de Normas
-%%Técnicas) \sigla{ABNT}{Associação Brasileira de Normas Técnicas}
-%e adaptação personalizada 
-%do padrão do Departamento de Ciência da Computação (DCC) da Universidade
-%Federal da Bahia (UFBA).
-%\sigla{DCC}{Departamento de Ciência da Computação}
-%\sigla{UFBA}{Universidade Federal da Bahia}
-%Fontes latex cedidos pela ABNT e disponibilizados por 
-%Maurício Vieira. (Valeu Maurix!). Adaptado por Abelmon Bastos por solicitação
-%da \profa\ Débora Abdalla para o semestre 2005.1.
-%Adaptado por Rodrigo Rocha por solicitação da \profa\ Débora Abdalla no fim
-%do semestre 2007.1.
-
-% use sua propria estrutura
-
-%Problema etc
-
-%Objetivo etc
-
-%Resultados esperados etc
-
-%Estrutura/Organização etc
+\section{Trabalhos Relacionados}
+\label{relacionados}
