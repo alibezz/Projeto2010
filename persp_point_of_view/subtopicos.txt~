@@ -23,6 +23,8 @@ than a fact-based question (e.g., “who is the new Miss America?”).
 Mais fontes do OMSA: 51, 79
 
 Tá: a revisão divide-se em opiniões sobre um assunto/objeto em particular e ponto-de-vista/perspectiva.
+ssectios{Motivação}
+ssection{Motivação}
 
 Para o segundo problema, dá para esgotar o assunto, digamos assim. Mas, para o primeiro, é preciso adotar alguma metodologia nas buscas, pois o assunto é razoavelmente grande.
 
@@ -37,3 +39,5 @@ Tá: eu busquei até ACL '03 e é meio fraquinho.
 Ok: eu fui na ACL Anthology search e busquei por (viewpoint perspective opinion sentiment). Vieram 35 resultados. Além disso, pegar cada um daqueles da pesquisa de Pang & Lee e cruzar o que cita e quem citou. => Este é o escopo! Data: 27 de junho.
 
 A ACL Anthology cobre ACL, EACL, NAACL, COLING
+
+=> Depois dessa limpa com as palavras chave na ACL Anthology, é bom ir nos pesquisadores principais (Jan Wiebe é A bruxa) e na aaai e nips.

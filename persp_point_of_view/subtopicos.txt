@@ -41,3 +41,11 @@ Ok: eu fui na ACL Anthology search e busquei por (viewpoint perspective opinion 
 A ACL Anthology cobre ACL, EACL, NAACL, COLING
 
 => Depois dessa limpa com as palavras chave na ACL Anthology, é bom ir nos pesquisadores principais (Jan Wiebe é A bruxa) e na aaai e nips.
+
+
+10/10/10
+
+emnlp:
+Modeling Perspective using Adaptor Grammars 
+
+Staying Informed: Supervised and Semi-Supervised Multi-View Topical Analysis of Ideological Perspective 

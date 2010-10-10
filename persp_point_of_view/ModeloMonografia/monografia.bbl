@@ -83,7 +83,13 @@ ISBN 0471371246.}
 \emph{CoNLL'06: Proceedings of the Conference on Natural Language Learning
   (CoNLL)}, 2006.}
 
-\bibitem[Liu 2010]{bingliu}
+\bibitem[Liu 2006]{bingliu}
+\abntrefinfo{Liu}{LIU}{2006}
+{LIU, B. Opinion mining. In:  LIU, B. (Ed.). \emph{Web Data Mining: Exploring
+  Hyperlinks, Contents and Usage Data}. [S.l.]: Springer, 2006.
+ISBN 3540378812.}
+
+\bibitem[Liu 2010]{handbook-liu}
 \abntrefinfo{Liu}{LIU}{2010}
 {LIU, B. Sentiment analysis and subjectivity. In:  INDURKHYA, N.; DAMERAU,
   F.~J. (Ed.). \emph{Handbook of Natural Language Processing, Second Edition}.

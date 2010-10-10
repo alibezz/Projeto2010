@@ -15,6 +15,13 @@ falar da metodologia, estrutura, problemas relacionados (onde fala de outros mé
 Conceitos básicos: (n pode passar de 56 páginas!)
 
 explicar pq falo de cada coisa. tipo L-LDA foi escolhido pq dá uma ideia refinada da coisa. os classificadores são os mais comuns. coisa e tal.
+mudar pra L-LDA
+colocar figura nos svms
+explicar pq a tabela tem x palavras, de onde vem essa mania de analisar os textos assim
+falar, em svm, q ele eh meio equivalente ao naive bayes, e dizer noq é q muda.
+mostrar como o uso de palavras mto parecidas pode confundir a classificação.
+
+
 dizer q o naive bayes usado considera apenas contagens de palavras - ok
 corrigir a comparação com processo generativo na parte de class. naive - ok
 arrumar gamma na parte de class. naive - ok
@@ -28,10 +35,6 @@ FALAR MTO BEM DESSA COISA DE USAR CONTAGEEEEEEEEENNNNSSSSSS DE PALAVRAS -  ok?
 
 passar correções de Luciano
 mudar lda direto pra l-lda
-colocar figura nos svms
-explicar pq a tabela tem x palavras, de onde vem essa mania de analisar os textos assim
-botar exemplinhos em naive bayes e svm tb
-falar, em svm, q ele eh meio equivalente ao naive bayes, e dizer noq é q muda.
 
 geral:
 brincar mais com isso de contextualizar os conceitos básicos na questão de mineração de perspectiva. - ok
@@ -117,7 +120,7 @@ anexo com contagens do top 10 bitterlemons e convote
 
 introdução:
 
-explicar que persp. e posic. e ponto de vista dão na msm.
+explicar que persp. e posic. e ponto de vista dão na msm. - ok
 filhos/P10-2047 traz boa definição de perspectiva.
 
 ======
