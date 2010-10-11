@@ -18,7 +18,7 @@ Oq deve ser abordado em cada capítulo
 
 1) Introdução
   Motiva o problema, falando da área. Diz pq oq vc vai estudar é importante. (ok)
-  Fecha a proposta.
+  Fecha a proposta. (ok)
   dizer oq vc propõe com essa monografia (a aliança entre l-lda e classificadores pra entender melhor a distribuição da linguagem, um corpus em portugues onde isso funciona bem. falar todos os sinonimos de persp. e dataset = corpus (ok))
  
 2) Conceitos Básicos

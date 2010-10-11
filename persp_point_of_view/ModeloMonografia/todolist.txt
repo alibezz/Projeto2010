@@ -3,23 +3,27 @@ PARAR DE FAZER \SECTION{INTRODUÇÃO}!!!!!
 REVISAR BIBLIOGRAFIAS!!!!
 DECIDIR SE VAI OU N FAZER CAPITULO PRA EXLICAR DATASETS
 ARRUMAR TABELAS COMO H OU T
-PADRONIZAR NUMERO DE PALAVRAS NOS CAPITULOS Q USAM L-LDA!
+PADRONIZAR NUMERO DE PALAVRAS NOS CAPITULOS Q USAM L-LDA! => 10
 PADRONIZAR SE FALA SÓ DE TAXA DE ACERTO OU SE TB DISCUTE UM POUCO PRECISÃO POR CLASSE E TALZ.
 TIRAR O .COM DOS SITES, DEIXANDO SÓ NO RODAPÉ!
 Explicar o q P(a|b) quer dizer.
+=======
+Glossário
+explicar oq é independência condicional. 
+P(a|b)
+
 ====================
 introdução
-falar da metodologia, estrutura, problemas relacionados (onde fala de outros métodos), fechando o escopo na proposta pra classificadores baseados estritamente em contagens de palavras (explicar q essa divisão ficou bem clara qdo vc revisou tudo pra montar a monografia)
+falar da metodologia, estrutura, problemas relacionados (onde fala de outros métodos)
 
 ====================
 Conceitos básicos: (n pode passar de 56 páginas!)
 
-explicar pq falo de cada coisa. tipo L-LDA foi escolhido pq dá uma ideia refinada da coisa. os classificadores são os mais comuns. coisa e tal.
-mudar pra L-LDA
-colocar figura nos svms
-explicar pq a tabela tem x palavras, de onde vem essa mania de analisar os textos assim
-falar, em svm, q ele eh meio equivalente ao naive bayes, e dizer noq é q muda.
-mostrar como o uso de palavras mto parecidas pode confundir a classificação.
+explicar pq falo de cada coisa. - ok
+corrigir a coisa de q lspm é o unico diferente. retirar isso. - ok
+explicar pq a tabela tem x palavras, de onde vem essa mania de analisar os textos assim - ok
+falar, em svm, q ele eh meio equivalente ao naive bayes, e dizer noq é q muda. - ok
+mostrar como o uso de palavras mto parecidas pode confundir a classificação. - ok
 
 
 dizer q o naive bayes usado considera apenas contagens de palavras - ok
@@ -33,13 +37,10 @@ explicar pra q servem os valores iniciais - ok
 falar essa coisa da reamostragem, q a ideia é sempre tornar os parâmetros os melhores possíveis. - ok
 FALAR MTO BEM DESSA COISA DE USAR CONTAGEEEEEEEEENNNNSSSSSS DE PALAVRAS -  ok? 
 
-passar correções de Luciano
-mudar lda direto pra l-lda
-
 geral:
 brincar mais com isso de contextualizar os conceitos básicos na questão de mineração de perspectiva. - ok
 corrigir citações ao github - ok
-refazer introdução de classificadores.
+refazer introdução de classificadores. - ok
 Escrever, em classificadores, métodos de validação de desempenho. - ok
 escrever sobre k-folds - ok
 
@@ -57,7 +58,6 @@ botar referencias às equações - ok
 naive - classificação:
 mudar perfil pra proporção ou coisa assim. - ok
 consertar formulas - ok
-explicar oq é independência condicional.
 
 ================
 
@@ -127,6 +127,7 @@ filhos/P10-2047 traz boa definição de perspectiva.
 
 Freqs de palavras: (vai pra NO MÁXIMO 53 pgs)
 
+***** mudar pra L-LDA ==> tipo L-LDA foi escolhido pq dá uma ideia refinada da coisa (comparar com contar freqs).
 ***** DIZER PQ SÓ REVISA CONTAGENS
 ***** resolver como citar conteúdo de email.
 ***** botar figura do lspm explicando parametros

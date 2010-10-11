@@ -1,8 +1,11 @@
-\chapter{Conceitos básicos}
+\chapter{Técnicas básicas}
+\label{basicos}
 
-Este capítulo apresenta os principais classificadores explorados nessa monografia, o Naïve Bayes e os \emph{Support Vector Machines}, respectivamente nas seções \ref{subsection:naive} e \ref{subsection:SVMs}. Eles são empregados por todos os trabalhos revisados no Capítulo \ref{chap3}, e apenas um deles utiliza também outro classificador: o artigo de Lin et al. sobre o conflito Israel-Palestina, que propõe o \emph{Latent Sentence Perspective Model}, ou simplesmente \textbf{LSPM} \cite{lin-et-al2006}. Esse último classificador consiste em uma variação simples do Naïve Bayes e, por não ser utilizado em nenhum outro trabalho, é apresentado de forma sucinta na seção \ref{sec:lin-et-al}, referente a esse artigo. O classificador Naïve Bayes também é utilizado em experimentos conduzidos no Capítulo \ref{chap3} e no estudo de caso sobre a mídia e o governo brasileiro, apresentado no Capítulo \ref{estudo}. 
+Este capítulo apresenta os principais classificadores explorados nessa monografia, o Naïve Bayes e os \emph{Support Vector Machines}, respectivamente nas seções \ref{subsection:naive} e \ref{subsection:SVMs}. Eles são empregados por todos os trabalhos revisados no Capítulo \ref{chap3}, ainda que alguns deles proponham o uso de outras técnicas. Como elas são muito particulares de cada trabalho, não serão exploradas neste capítulo. O classificador Naïve Bayes também é utilizado em experimentos conduzidos no Capítulo \ref{chap3} e no estudo de caso sobre a mídia e o governo brasileiro, apresentado no Capítulo \ref{estudo}. 
 
-Na seção \ref{metricas}, são apresentadas métricas para se avaliar o desempenho de um classificador qualquer. Além de indicarem a qualidade da classificação, elas estabelecem critérios objetivos para a comparação entre diferentes metodologias. Na seção \ref{validacao}, a técnica de validação cruzada de \ensuremath{k} dobras é discutida. Ela evidencia como um método de classificação generaliza para diferentes conjuntos de documentos. Todos os trabalhos apresentados no Capítulo \ref{chap3}, e o estudo de caso do Capítulo \ref{estudo}, fazem uso dessa técnica. Por fim, na seção \ref{subsection:LDA}, é apresentado o modelo de tópicos \emph{Latent Dirichlet Allocation}, ou simplesmente \textbf{L-LDA} \cite{llda}. Esse modelo interpreta documentos como misturas de tópicos, agregando palavras a cada um deles com maior ou menor intensidade. Seu uso facilita a compreensão de como o conteúdo de um corpus qualquer se segmenta, algo explorado nos Capítulos \ref{chap3} e \ref{estudo}. A ideia, em ambos os capítulos, é identificar que palavras se associam mais frequentemente a cada perspectiva de um corpus, representada como um tópico. 
+%e apenas um deles utiliza também outro classificador: o artigo de Lin et al. sobre o conflito Israel-Palestina, que propõe o \emph{Latent Sentence Perspective Model}, ou simplesmente \textbf{LSPM} \cite{lin-et-al2006}. Esse último classificador consiste em uma variação simples do Naïve Bayes e, por não ser utilizado em nenhum outro trabalho, é apresentado de forma sucinta na seção \ref{sec:lin-et-al}, referente a esse artigo. 
+
+Na seção \ref{metricas}, são apresentadas métricas para se avaliar o desempenho de um classificador qualquer. Além de indicarem a qualidade da classificação, elas estabelecem critérios objetivos para a comparação entre diferentes metodologias. Na seção \ref{validacao}, a técnica de validação cruzada de \ensuremath{k} dobras é discutida. Ela evidencia como um método de classificação generaliza para diferentes conjuntos de documentos. Todos os trabalhos apresentados no Capítulo \ref{chap3}, e o estudo de caso do Capítulo \ref{estudo}, fazem uso dessa técnica. Por fim, na seção \ref{subsection:LDA}, é apresentado o modelo de tópicos \emph{Labeled-Latent Dirichlet Allocation}, ou simplesmente L-LDA \cite{llda}. Esse modelo interpreta documentos como misturas de tópicos, agregando palavras a cada um deles com maior ou menor intensidade. Seu uso facilita a compreensão de como o conteúdo de um corpus qualquer se segmenta, algo explorado nos Capítulos \ref{chap3} e \ref{estudo}. A ideia, em ambos os capítulos, é identificar que palavras se associam mais frequentemente a cada perspectiva de um corpus, representada como um tópico. 
 
 %Dos \textbf{treze} trabalhos estudados para este projeto, que exploram classificadores, \textbf{nove} indicaram o uso da técnica.
 
@@ -135,23 +138,27 @@ Dado um conjunto de documentos \ensuremath{D} e um conjunto \ensuremath{M} de el
 \ensuremath{\theta_{-1} \equiv } \textbf{x} \ensuremath{\cdot} \textbf{w} + \ensuremath{b} = -1
 \end{equation}
 
-O objetivo inicial de um classificador SVM é escolher os parâmetros \textbf{w} e \ensuremath{b} que maximizem a distância entre esses hiperplanos. Eles podem ser definidos minimizando-se o valor de \cite{mono-puc}
+As representações de documentos que pertencem a \ensuremath{\theta_1} ou \ensuremath{\theta_{-1}} recebem o nome de \emph{vetores suporte}\footnote{Do inglês \emph{support vectors}.} \cite{mono-puc}. O objetivo inicial de um classificador SVM é escolher os parâmetros \textbf{w} e \ensuremath{b} que maximizem a distância entre esses hiperplanos. Para realizar essa otimização, o problema pode ser remodelado com multiplicadores de Lagrange \ensuremath{\{\alpha_i\}}, \ensuremath{1 \leq i \leq n}, levando à Equação \ref{lagrange}. Busca-se, então, a minimização desta equação com relação a \textbf{w} e \ensuremath{b} e maximização com relação a \ensuremath{\{\alpha_i\}}, com todo \ensuremath{\alpha_i \geq 0} \cite{mono-puc}
+
+
+% Eles podem ser definidos minimizando-se o valor de \cite{mono-puc}
 
 %Os vetores \ensuremath{x} que incidem em algum deles recebem o nome de \textbf{vetores de suporte}\footnote{Do inglês \emph{support vectors}.} \cite{durant-smith}.
 
-\begin{equation}
-\label{optim:svm}
-\ensuremath{\frac{1}{2}||}\textbf{w}\ensuremath{||^2}
-\end{equation}
+%\begin{equation}
+%\label{optim:svm}
+%\ensuremath{\frac{1}{2}||}\textbf{w}\ensuremath{||^2}
+%\end{equation}
 
-Para realizar essa otimização mais facilmente, o problema pode ser remodelado com multiplicadores de Lagrange \ensuremath{\{\alpha_i\}}, \ensuremath{1 \leq i \leq n}, levando à Equação \ref{lagrange}. Busca-se, então, a minimização desta equação com relação a \textbf{w} e \ensuremath{b} e maximização com relação a \ensuremath{\{\alpha_i\}}, com todo \ensuremath{\alpha_i \geq 0} \cite{mono-puc}
+%onde A Figura \ref{svm-imagem} ilustra os hiperplanos e a distância entre eles, que deve ser maximizada. 
+
 
 \begin{equation}
 \label{lagrange}
 \ensuremath{L(\alpha, b,}\textbf{w}\ensuremath{) = \frac{1}{2} ||}\textbf{w}\ensuremath{||^2 - \sum_{i = 1}^n \alpha_i\big[y_i(x_i \cdot}\textbf{w}\ensuremath{+ b) -1 \big]} %x_i \cdot} \textbf{w} + \ensuremath{b} = 1 para \ensuremath{y_i = 1}
 \end{equation}
 
-onde \ensuremath{n} é a cardinalidade do conjunto de treinamento. Após a obtenção dos valores de \ensuremath{\{\alpha_i\}} que maximizam a Equação \ref{lagrange}, a obtenção da classe \ensuremath{y = 1} ou \ensuremath{y = -1} de um documento do conjunto de teste, representado por um vetor \ensuremath{x_j}, é dada pelo sinal do somatório \cite{mono-puc}
+onde \ensuremath{n} é a cardinalidade do conjunto de treinamento e \ensuremath{||}\textbf{w}\ensuremath{||} é a norma euclidiana do vetor \textbf{w}. Após a obtenção dos valores de \ensuremath{\{\alpha_i\}} que maximizam a Equação \ref{lagrange}, a obtenção da classe \ensuremath{y = 1} ou \ensuremath{y = -1} de um documento do conjunto de teste, representado por um vetor \ensuremath{x_j}, é dada pelo sinal do somatório \cite{mono-puc}
 
 \begin{equation}
 \label{result:svm}
@@ -165,16 +172,18 @@ Esta solução funciona em casos nos quais as representações do conjunto de tr
 \ensuremath{y_i(x_i \cdot} \textbf{w} + \ensuremath{b -1) \geq 0,\ i = 1,...,n}
 \end{equation}
 
-Quando esses pontos não são linearmente separáveis, essa metodologia precisa ser ajustada, modelando a classificação errônea de documentos. Isto envolve a introdução de \ensuremath{n} variáveis frouxas\footnote{Do inglês \emph{slack variables}.} \ensuremath{\epsilon_i}, uma para cada ponto \ensuremath{(x_i, y_i)}. \ensuremath{\epsilon_i = 0} se \ensuremath{y(x_i) = y_i} e \ensuremath{\epsilon_i = |y_i - y(x_i)|} em caso contrário \cite{bishop}. O SVM deve, neste caso, minimizar \cite{mono-puc}
+Quando esses pontos não são linearmente separáveis, essa metodologia precisa ser ajustada, modelando a classificação errônea de documentos. Isto envolve a introdução de \ensuremath{n} variáveis de folga\footnote{Do inglês \emph{slack variables}.} \ensuremath{\epsilon_i}, uma para cada ponto \ensuremath{(x_i, y_i)}. \ensuremath{\epsilon_i} é igual a zero se \ensuremath{y(x_i) = y_i} e igual a \ensuremath{|y_i - y(x_i)|} em caso contrário \cite{bishop}. O SVM deve, neste caso, buscar o valor de \textbf{w} que minimize \cite{mono-puc}
 
 \begin{equation}
 \label{nonlin:svm}
 \ensuremath{C\sum_{i=1}^n\epsilon_i + \frac{1}{2}||}\textbf{w}\ensuremath{||^2}
 \end{equation}
 
-onde \ensuremath{C} é um parâmetro responsável por controlar o compromisso entre a penalidade das variáveis frouxas e a distância máxima dos hiperplanos \ensuremath{\theta_1} e \ensuremath{\theta_{-1}} ao hiperplano \ensuremath{\theta_0} \cite{mono-puc}. Na modelagem com multiplicadores de Lagrange, a Equação \ref{lagrange} deve ser otimizada de tal forma que todo \ensuremath{\alpha_i} deve ser maximizado obedecendo à restrição \ensuremath{0 \leq \alpha_i \leq C}. Desta forma, também se obtém a Equação \ref{result:svm} para determinação da classe de um novo documento.
+onde \ensuremath{C} é um parâmetro responsável por controlar o compromisso entre a penalidade das variáveis de folga e a distância máxima entre os hiperplanos \ensuremath{\theta_1} e \ensuremath{\theta_{-1}} \cite{mono-puc}. Na modelagem com multiplicadores de Lagrange, a Equação \ref{lagrange} deve ser otimizada de tal forma que todo \ensuremath{\alpha_i} deve ser maximizado obedecendo à restrição \ensuremath{0 \leq \alpha_i \leq C}. Desta forma, também se obtém a Equação \ref{result:svm} para determinação da classe de um novo documento.
 
-De acordo com um estudo de Ng e Jordan, o Naïve Bayes atinge bom desempenho com um conjunto de treinamento menor do que aquele requerido pelos SVMs \cite{ng-jordan}. Considerando essa observação e o fato de que alguns dos \emph{datasets} estudados nesse projeto não são muito grandes, todos os experimentos desenvolvidos nos Capítulos \ref{chap3} e \ref{estudo} envolvem apenas o Naïve Bayes. Apesar disso, SVMs fazem parte da metodologia de boa parte dos trabalhos revisados no Capítulo \ref{outros} e nos \textbf{ANEXOS BLA e BLI} - por esse motivo, fez-se necessário apresentá-los nessa seção.
+Representações muito parecidas para documentos pertencentes a classes diferentes comprometem a determinação de hiperplanos \ensuremath{\theta_1} e \ensuremath{\theta_{-1}} que conduzam a uma boa classificação. Quão mais diferentes forem as representações por classe, menor a probabilidade de que um SVM \emph{se engane} na determinação da classe de um novo documento. Neste sentido, portanto, o SVM se aproxima bastante do Naïve Bayes. De fato, esse princípio permeia a noção de classificação em qualquer nível: dois elementos quaisquer devem ser suficientemente diferentes, em algum aspecto, para pertencerem a classes distintas.
+
+De acordo com um estudo de Ng e Jordan, o Naïve Bayes atinge bom desempenho com um conjunto de treinamento menor do que aquele requerido pelos SVMs \cite{ng-jordan}. Considerando essa observação, e o fato de que alguns dos \emph{datasets} estudados nesse projeto não são muito grandes, todos os experimentos desenvolvidos nos Capítulos \ref{chap3} e \ref{estudo} envolvem apenas o Naïve Bayes. Apesar disso, SVMs são aplicados em boa parte dos trabalhos revisados no Capítulo \ref{chap3} - por esse motivo, foi considerado necessário apresentá-los nessa seção.
 
 %SVMs não foram utilizados em nenhum experimento deste projeto, mas fazem parte da metodologia de alguns dos trabalhos revisados.
 
@@ -229,50 +238,60 @@ A classificação deve ser executada \ensuremath{k} vezes, com uma dobra diferen
 
 %AMARRAR COM ISSO DE GENERALIZAR
 
-\section{\emph{Latent Dirichlet Allocation} (LDA)}
+\section{\emph{Labeled-Latent Dirichlet Allocation} (L-LDA)}
 \label{subsection:LDA}
 
 
-O modelo \emph{Latent Dirichlet Allocation}, ou simplesmente \textbf{LDA}, fundamenta-se na ideia de que um documento pode tratar de \textbf{múltiplos tópicos}, refletidos nas palavras que o compõem \cite{pnas}. A finalidade desse modelo não é classificar documentos, mas sim evidenciar como as palavras se relacionam com seus tópicos. O LDA associa as palavras dos documentos a tópicos diferentes, com maior ou menor probabilidade, criando agrupamentos que compartilham uma semelhança semântica/temática. 
+O modelo \emph{Labeled-Latent Dirichlet Allocation}, ou simplesmente \textbf{L-LDA}, fundamenta-se na ideia de que um documento pode tratar de múltiplos tópicos, refletidos nas palavras que o compõem \cite{pnas}. Esses tópicos, para efeito prático, podem ser assuntos, ideias ou pontos de vista. A finalidade desse modelo não é classificar documentos, mas sim evidenciar como as palavras se relacionam com seus tópicos. O L-LDA associa as palavras dos documentos a tópicos diferentes, com maior ou menor probabilidade, criando agrupamentos que compartilham uma semelhança semântica/temática. 
 
-O LDA interpreta um conjunto de documentos \ensuremath{D} como uma mistura de tópicos, representada por uma distribuição de probabilidade sobre um conjunto de tópicos \ensuremath{T}. Cada tópico, por sua vez, é visto como uma mistura de palavras, representada por uma distribuição sobre o vocabulário de \ensuremath{D}, \ensuremath{V}. Para cada documento \ensuremath{d \in D}, é fixada uma distribuição de probabilidade sobre tópicos  representada por \ensuremath{\theta_d}, dada por \ensuremath{Dirichlet(\alpha)}. De forma análoga, para cada tópico \ensuremath{t \in T} é fixada uma distribuição de probabilidade sobre palavras, representada por \ensuremath{\phi_t} e dada por \ensuremath{Dirichlet(\beta)} \cite{pnas}. Em seguida, para cada palavra de \ensuremath{d}, um tópico \ensuremath{t} específico é escolhido de acordo com a distribuição \ensuremath{Multinomial(T, \theta_d)}. Por fim, uma palavra \ensuremath{w \in V} é amostrada de acordo com a distribuição \ensuremath{Multinomial(V, \phi_t)} \cite{blei}.
+Dado um conjunto de documentos \ensuremath{D} e um conjunto de tópicos \ensuremath{T}, O L-LDA interpreta um documento \ensuremath{d \in D} como uma lista de palavras \ensuremath{\langle w_{d_1}, ..., w_{d_{|d|}} \rangle}, e o associa a uma lista binária representando a presença/ausência de cada tópico de \ensuremath{T}, \ensuremath{\langle l_1, ..., l_{|T|} \rangle}. Cada palavra \ensuremath{w} pertence ao vocabulário de \ensuremath{D}, \ensuremath{V}, e cada \ensuremath{l} funciona como um \emph{bit}, assumindo os valores 0 ou 1 \cite{llda}. Antes de se executar o modelo, portanto, já se sabe quais dos tópicos de \ensuremath{T} se associam a cada documento. 
 
-Na seção \ref{subsection:naive}, como o Naïve Bayes se fundamenta em uma aplicação do Teorema de Bayes, foram apresentadas as probabilidades de se determinar uma classe e um documento específicos, evidenciando a relação entre classificação e contagens de palavras. Na presente seção, considerou-se mais importante enfatizar outros aspectos do LDA. Para um aprofundamento sobre as probabilidades associadas às escolhas de tópicos e palavras, portanto, sugere-se consulta ao artigo de Blei, Ng e Jordan, no qual o LDA é proposto \cite{blei}. Por ora, é suficiente informar que quão maior é a probabilidade de se obter uma palavra \ensuremath{w} dado um tópico \ensuremath{t}, mais forte é a relação entre eles. De forma semelhante, quão maior é a probabilidade de se obter um tópico \ensuremath{t} dada uma distribuição \ensuremath{\theta_d}, mais importante é o tópico no contexto do documento \ensuremath{d} \cite{pnas}.
- 
-No LDA, não se define de antemão a semântica que cada tópico deve ter. Após o processamento, observando-se as palavras que mais frequentemente foram amostradas para cada um deles, é que é possível analisar subjetivamente o significado de todos os tópicos. Para ilustrar como as associações de palavras a um tópico evidenciam seu significado, um experimento envolvendo receitas culinárias extraídas do \emph{site} allrecipes.com\footnote{htpp://allrecipes.com} foi executado. Cada receita é um documento \ensuremath{d \in D} e o vocabulário \ensuremath{V} é a união de todos os ingredientes contidos em \ensuremath{D}. Na Tabela 2.1, constam as cinco palavras mais frequentemente associadas a quatro tópicos, de acordo com o LDA. % - ou seja, as cinco palavras para as quais as probabilidades obtidas com a equação \ref{eq2} foram mais altas. %que obtiveram mais alta probabilidade de acordo com \ref{eq2}.
+% uma distribuição de probabilidade sobre eles, 
 
-\begin{table}[h]
-\centering
-\label{table-lda}
-\begin{tabular}{| l | p{7cm} | }
-\hline
-\textbf{Tópico} & \textbf{Palavras} \\ \hline
-\textbf{Tópico 1} & beef, cheese, tomato, sauce, pepper \\ \hline
-\textbf{Tópico 2} & chicken, breast, pastum, broth, tomato \\ \hline
-\textbf{Tópico 3} & flour, sugar, butter, powder, egg  \\ \hline
-\textbf{Tópico 4} & cream, cheese, butter, milk, cake \\ \hline
-\end{tabular}
-\caption{As cinco palavras mais fortemente associadas a quatro tópicos gerados por um LDA.}
-\end{table}
+O L-LDA representa cada documento \ensuremath{d} como uma mistura de seus tópicos, associando-o a um parâmetro \ensuremath{\theta_d}. Esse parâmetro é amostrado de acordo com uma distribuição de probabilidade \ensuremath{Dirichlet(\alpha)}, onde \ensuremath{\alpha} é um hiperparâmetro escolhido antes da execução do modelo. De forma análoga, cada tópico \ensuremath{t \in T} é interpretado como uma mistura de palavras e se associa a um parâmetro \ensuremath{\phi_t}. Esse parâmetro é amostrado de acordo com uma distribuição \ensuremath{Dirichlet(\beta)}, onde \ensuremath{\beta} é um hiperparâmetro também escolhido antes da execução do modelo \cite{pnas}. Em seguida, para cada palavra de \ensuremath{d}, um dos tópicos associados ao documento é amostrado de acordo com a distribuição de probabilidade \ensuremath{Multinomial(T_d, \theta_d)}. \ensuremath{T_d} é o subconjunto de \ensuremath{T} que corresponde exatamente aos tópicos relacionados a \ensuremath{d}. Por fim, considerando-se que o tópico escolhido foi um \ensuremath{t_i}, uma palavra \ensuremath{w \in V} é amostrada de acordo com a distribuição \ensuremath{Multinomial(V, \phi_{t_i})} \cite{blei}.
 
-Considerando que todas as receitas pertencem à culinária tradicional dos Estados Unidos, as palavras listadas na Tabela 2.1 indicam um bom funcionamento do LDA. O primeiro tópico pode ser interpretado como \textbf{ingredientes para          \emph{cheeseburger}}; o segundo, ao associar \emph{chicken}, \emph{pastum} e \emph{broth}, remete a receitas de sopas e caldos comuns em climas frios, podendo ser interpretado como \textbf{ingredientes para sopa}; o terceiro pode ser interpretado como \textbf{ingredientes para bolo}; o quarto, ao associar \emph{cream}, \emph{cheese} e \emph{cake}, pode ser interpretado como \textbf{ingredientes para \emph{cheesecake}}. É importante frisar que estas interpretações, apesar de subjetivas, indicam perspectivas culinárias distintas e coerentes internamente. Seria diferente de encontrar, por exemplo, um tópico fortemente associado às palavras \emph{sugar}, \emph{pepper} e \emph{potato}, dificilmente encontradas em uma mesma receita típica dos Estados Unidos.
+Na seção \ref{subsection:naive}, como o Naïve Bayes se fundamenta em uma aplicação do Teorema de Bayes, foram apresentadas as probabilidades de se determinar uma classe e um documento específicos, evidenciando a relação entre classificação e contagens de palavras naquele contexto. As probabilidades associadas às escolhas de tópicos e palavras, neste cenário, são semelhantes àquelas apresentadas na seção \ref{subsection:naive} e, portanto, não serão exploradas na presente seção. Para um aprofundamento sobre o assunto, portanto, sugere-se consulta ao artigo de Ramage et al., no qual o L-LDA é proposto \cite{llda}. Por ora, é suficiente informar que quão maior é a probabilidade de se obter uma palavra \ensuremath{w} dado um tópico \ensuremath{t}, mais forte é a relação entre eles. De forma semelhante, quão maior é a probabilidade de se amostrar um tópico \ensuremath{t} associado a \ensuremath{d}, dada uma distribuição \ensuremath{\theta_d}, mais importante é o tópico no contexto desse documento \cite{pnas}.
+
+A saída da execução de um L-LDA é uma tabela que indica quantas vezes cada palavra de \ensuremath{D} foi amostrada para cada tópico de \ensuremath{T}. Essa informação também pode ser obtida separadamente por documento, indicando como os tópicos segmentam seus conteúdos. Como o número de palavras associadas a cada tópico costuma ser bastante extenso, arbitra-se um valor \ensuremath{k} para cada um deles e, na prática, visualiza-se apenas as \ensuremath{k} palavras mais frequentemente associadas. No trabalho de Ramage et al., onde o L-LDA é proposto, os valores de \ensuremath{k} variam entre 9 e 12 \cite{llda}. Para os experimentos conduzidos nos Capítulos \ref{chap3} e \ref{estudo}, fixa-se um mesmo \ensuremath{k} para todos os tópicos: 10.  
+
+O L-LDA foi proposto em 2009, mas até o momento já foi citado por pelo menos quinze outros trabalhos científicos\footnote{Essa verificação foi feita em 11 de Outubro de 2010, com o apoio do \emph{Google Scholar}.}. Trata-se, portanto, de um modelo novo que está se popularizando. Analisando o objetivo desses trabalhos, concluiu-se que todos eles associam tópicos a assuntos. O artigo de Ramage et al., inclusive, que propõe o modelo, associa tópicos a \ensuremath{tags} de \emph{blogs}, como \emph{books} ou \emph{religion}. Nos Capítulos \ref{chap3} e \ref{estudo}, tópicos representam pontos de vista, de modo que cada documento é rotulado com apenas um deles. Há também um outro tópico, neutro, associado a todos os documentos. Como ele se relaciona com todos os elementos de \ensuremath{D}, a tendência é que as palavras menos marcantes, por perspectiva, se associem mais frequentemente a ele.  É válido ressaltar que esse uso do L-LDA não foi encontrado em \textbf{nenhum} trabalho revisado para esta monografia. 
+
+No L-LDA, assim como no Naïve Bayes, alguma técnica de amostragem deve ser utilizada para, iterativamente, aproximar as distribuições de probabilidade apresentadas nessa seção o máximo possível daquelas presentes no corpus. A implementação do L-LDA utilizada nos Capítulos \ref{chap3} e \ref{estudo} também utiliza Gibbs Sampling e está disponível no repositório \emph{online} de Alexandre Passos\footnote{http://github.com/alextp}. O número de iterações para o modelo foi fixado em 100, valor suficiente para estabilizar as amostragens de tópicos e palavras.
 
 
-No LDA, assim como no Naïve Bayes, alguma técnica de amostragem deve ser utilizada para, iterativamente, aproximar as distribuições de probabilidade apresentadas nessa seção o máximo possível daquelas presentes no corpus. A implementação do LDA utilizada na obtenção da Tabela 2.1 utiliza Gibbs Sampling e está disponível no repositório \emph{online} de Alexandre Passos\footnote{http://github.com/alextp}. O número de iterações para o modelo foi fixado em 100, número suficiente para estabilizar as amostragens de tópicos e palavras.
+%A implementação de L-LDA utilizada neste projeto utiliza Gibbs Sampling como técnica de amostragem e também está disponível no repositório \emph{online} de Alexandre Passos. O número de iterações para o modelo, em todos os experimentos dos , foi fixado em 100. Esse valor se mostrou suficiente para estabilizar as amostragens de tópicos e palavras.
 
-\subsection{\emph{Labeled-Latent Dirichlet Allocation} (L-LDA)}
+  
+%No LDA, não se define de antemão a semântica que cada tópico deve ter. Após o processamento, observando-se as palavras que mais frequentemente foram amostradas para cada um deles, é que é possível analisar subjetivamente o significado de todos os tópicos. Para ilustrar como as associações de palavras a um tópico evidenciam seu significado, um experimento envolvendo receitas culinárias extraídas do \emph{site} allrecipes.com\footnote{htpp://allrecipes.com} foi executado. Cada receita é um documento \ensuremath{d \in D} e o vocabulário \ensuremath{V} é a união de todos os ingredientes contidos em \ensuremath{D}. Na Tabela 2.1, constam as cinco palavras mais frequentemente associadas a quatro tópicos, de acordo com o LDA. % - ou seja, as cinco palavras para as quais as probabilidades obtidas com a equação \ref{eq2} foram mais altas. %que obtiveram mais alta probabilidade de acordo com \ref{eq2}.
 
-O modelo \emph{Labeled-Latent Dirichlet Allocation}, ou simplesmente L-LDA, é uma variação do LDA em que se restringe o número de tópicos associados a cada documento. Ou seja, as distribuições fixadas para os tópicos de cada documento não necessariamente abrangem todos os tópicos \ensuremath{t \in T}. Além disso, os tópicos presentes em cada documento são identificados antes da execução do modelo, o que diminui a subjetividade envolvida na interpretação de seus significados após o processamento. 
+%\begin{table}[h]
+%\centering
+%\label{table-lda}
+%\begin{tabular}{| l | p{7cm} | }
+%\hline
+%\textbf{Tópico} & \textbf{Palavras} \\ \hline
+%\textbf{Tópico 1} & beef, cheese, tomato, sauce, pepper \\ \hline
+%\textbf{Tópico 2} & chicken, breast, pastum, broth, tomato \\ \hline
+%\textbf{Tópico 3} & flour, sugar, butter, powder, egg  \\ \hline
+%\textbf{Tópico 4} & cream, cheese, butter, milk, cake \\ \hline
+%\end{tabular}
+%\caption{As cinco palavras mais fortemente associadas a quatro tópicos gerados por um LDA.}
+%\end{table}
 
-Um bom exemplo para ilustrar a aplicação deste modelo envolve um \emph{blog}, em que cada \emph{post} é marcado com um conjunto específico de \emph{tags}. Se cada \emph{tag} é interpretada como um tópico, é possível informar ao L-LDA em que \emph{posts} cada uma delas está presente, processar os \emph{posts} com o modelo e saber, após o processamento, quais palavras se associam mais fortemente a cada \emph{tag}. Neste exemplo, existe um mapeamento direto entre os tópicos e as \emph{tags}, conduzindo a uma interpretação mais imediata do significado de cada agrupamento de palavras.
+%Considerando que todas as receitas pertencem à culinária tradicional dos Estados Unidos, as palavras listadas na Tabela 2.1 indicam um bom funcionamento do LDA. O primeiro tópico pode ser interpretado como \textbf{ingredientes para          \emph{cheeseburger}}; o segundo, ao associar \emph{chicken}, \emph{pastum} e \emph{broth}, remete a receitas de sopas e caldos comuns em climas frios, podendo ser interpretado como \textbf{ingredientes para sopa}; o terceiro pode ser interpretado como \textbf{ingredientes para bolo}; o quarto, ao associar \emph{cream}, \emph{cheese} e \emph{cake}, pode ser interpretado como \textbf{ingredientes para \emph{cheesecake}}. É importante frisar que estas interpretações, apesar de subjetivas, indicam perspectivas culinárias distintas e coerentes internamente. Seria diferente de encontrar, por exemplo, um tópico fortemente associado às palavras \emph{sugar}, \emph{pepper} e \emph{potato}, dificilmente encontradas em uma mesma receita típica dos Estados Unidos.
 
-Experimentos com o L-LDA foram desenvolvidos ao longo deste projeto nos Capítulos \ref{chap3} e \ref{estudo}, associando cada tópico, por exemplo, a uma perspectiva a ser minerada. Após a execução do modelo, as palavras mais frequentemente associadas a cada perspectiva ilustram como os assuntos discutidos são enfocados por elas. Quanto mais duas perspectivas se distanciam, mais diferentes são as palavras que se associam com destaque a cada uma delas. É válido ressaltar que esse uso do L-LDA não foi encontrado em \textbf{nenhum} trabalho revisado para esta monografia.
 
-O L-LDA foi discutido pela primeira vez em um artigo de Ramage et al. \cite{llda}, aplicado ao problema de atribuição de crédito em páginas do \emph{site} del.icio.us\footnote{http://www.delicious.com/}, marcadas com múltiplas \emph{tags}. O artigo parte da hipótese de que, embora um documento possa estar marcado com várias \emph{tags} diferentes, nem sempre elas se aplicam igualmente a todas as palavras nele contidas. A ideia da atribuição de crédito, portanto, consiste em associar cada palavra do documento às \emph{tags} mais apropriadas e vice-versa. 
+
+%\subsection{\emph{Labeled-Latent Dirichlet Allocation} (L-LDA)}
+
+%O modelo \emph{Labeled-Latent Dirichlet Allocation}, ou simplesmente L-LDA, é uma variação do LDA em que se restringe o número de tópicos associados a cada documento. Ou seja, as distribuições fixadas para os tópicos de cada documento não necessariamente abrangem todos os tópicos \ensuremath{t \in T}. Além disso, os tópicos presentes em cada documento são identificados antes da execução do modelo, o que diminui a subjetividade envolvida na interpretação de seus significados após o processamento. 
+
+%Um bom exemplo para ilustrar a aplicação deste modelo envolve um \emph{blog}, em que cada \emph{post} é marcado com um conjunto específico de \emph{tags}. Se cada \emph{tag} é interpretada como um tópico, é possível informar ao L-LDA em que \emph{posts} cada uma delas está presente, processar os \emph{posts} com o modelo e saber, após o processamento, quais palavras se associam mais fortemente a cada \emph{tag}. Neste exemplo, existe um mapeamento direto entre os tópicos e as \emph{tags}, conduzindo a uma interpretação mais imediata do significado de cada agrupamento de palavras.
+
+
+%O L-LDA foi discutido pela primeira vez em um artigo de Ramage et al. \cite{llda}, aplicado ao problema de atribuição de crédito em páginas do \emph{site} del.icio.us\footnote{http://www.delicious.com/}, marcadas com múltiplas \emph{tags}. O artigo parte da hipótese de que, embora um documento possa estar marcado com várias \emph{tags} diferentes, nem sempre elas se aplicam igualmente a todas as palavras nele contidas. A ideia da atribuição de crédito, portanto, consiste em associar cada palavra do documento às \emph{tags} mais apropriadas e vice-versa. 
 
 %Uma aplicação de L-LDA, sugerida neste artigo e bastante empregada neste projeto, envolve, após a associação de palavras a tópicos (neste caso, \emph{tags}), a extração de trechos do documento que as contenham. Isto conduz a uma compreensão melhor de como o conteúdo se associa aos tópicos separadamente. 
-
-A implementação de L-LDA utilizada neste projeto utiliza Gibbs Sampling como técnica de amostragem e também está disponível no repositório \emph{online} de Alexandre Passos. O número de iterações para o modelo, em todos os experimentos dos Capítulos \ref{chap3} e \ref{estudo}, foi fixado em 100. Esse valor se mostrou suficiente para estabilizar as amostragens de tópicos e palavras.
 
 %\ensuremath{P(w_j|t_j,\beta)} reflete o quanto a palavra \ensuremath{w_j} se relaciona com o tópico \ensuremath{t_j}; \ensuremath{P(t_j|\theta_i)}, por sua vez, funciona como uma medida do quanto o tópico \ensuremath{t_j} é importante no contexto do documento \ensuremath{d_i} \cite{pnas}. Na Figura \ref{fig:lda}, tem-se o modelo gráfico do LDA correspondente à distribuição conjunta \ref{joint:lda}. 
 
