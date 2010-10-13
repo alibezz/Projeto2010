@@ -6,8 +6,8 @@ Database file #1: abnt-options.bib
 Database file #2: monografia.bib
 Warning--I didn't find a database entry for "aaai2010"
 Warning--I didn't find a database entry for "alice-oh"
-Warning--I didn't find a database entry for "email"
 Warning--I didn't find a database entry for "jiang-argamon"
+Warning--I didn't find a database entry for "greene"
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
 | Estilo bibliografico abnt-alf.bst versao 1.53           |
@@ -17,7 +17,7 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
 You've used 30 entries,
             6522 wiz_defined-function locations,
-            1323 strings with 13936 characters,
+            1323 strings with 13937 characters,
 and the built_in function-call counts, 25206 in all, are:
 = -- 2023
 > -- 926

@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  13 OCT 2010 13:21
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  13 OCT 2010 19:25
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -626,107 +626,106 @@ t/12 po-li-ti-cal\T1/ptm/m/n/12 , \T1/ptm/m/it/12 stance\T1/ptm/m/n/12 ,
 
 LaTeX Warning: Citation `alice-oh' on page 24 undefined on input line 23.
 
-[24]
-Overfull \hbox (18.39308pt too wide) in paragraph at lines 30--30
-[]\T1/ptm/b/n/14.4 POSICIONAMENTOS SO-BRE O CON-FLITO ISRAEL-PALESTINA 
+[24] [25]
+Overfull \hbox (7.40819pt too wide) in paragraph at lines 43--44
+[]\T1/ptm/m/n/12 O tra-ba-lho de \T1/ptm/b/n/12 Du-rant e Smith \T1/ptm/m/n/12 
+cons-trói um cor-pus so-bre os po-si-ci-o-na-men-tos do ex-Presidente
  []
 
+[26] [27]
 
-LaTeX Warning: Citation `email' on page 25 undefined on input line 36.
-
-[25] [26]
-LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 46.
-
-
-LaTeX Warning: Citation `jiang-argamon' on page 27 undefined on input line 48.
-
-[27]
-Overfull \hbox (24.06432pt too wide) in paragraph at lines 57--57
-[]\T1/ptm/b/n/14.4 POSICIONAMENTOS SO-BRE O PRE-SI-DENTE BUSH E A GUERRA
- []
-
-
-LaTeX Warning: Reference `sec:aaai' on page 28 undefined on input line 81.
+LaTeX Warning: Citation `jiang-argamon' on page 28 undefined on input line 65.
 
 [28]
 
-LaTeX Warning: Reference `sec:lin-et-al' on page 29 undefined on input line 85.
+LaTeX Warning: Citation `greene' on page 29 undefined on input line 69.
+
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <14.4> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 76.
+
+LaTeX Warning: Reference `sec:aaai' on page 29 undefined on input line 88.
+
+[29]
+
+LaTeX Warning: Reference `sec:lin-et-al' on page 30 undefined on input line 92.
 
 
 
-LaTeX Warning: Reference `sec:aaai' on page 29 undefined on input line 85.
+LaTeX Warning: Reference `sec:aaai' on page 30 undefined on input line 92.
 
 
-LaTeX Warning: Reference `outros' on page 29 undefined on input line 85.
+LaTeX Warning: Reference `outros' on page 30 undefined on input line 92.
 
-
-Underfull \hbox (badness 2495) in paragraph at lines 89--89
+[30]
+Underfull \hbox (badness 2495) in paragraph at lines 96--96
 [][]\T1/ptm/m/n/10 A im-ple-men-ta-ção de L-LDA uti-li-zada está dis-po-ní-vel 
 no re-po-si-tó-rio on-line de Ale-xan-dre Pas-sos
  []
 
-[29] [30] [31] [32]
+[31]
 
-LaTeX Warning: Reference `outros' on page 33 undefined on input line 415.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-[33]
+[32] [33] [34]
+
+LaTeX Warning: Reference `outros' on page 35 undefined on input line 422.
+
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 420.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 427.
 
-Overfull \hbox (8.36821pt too wide) in paragraph at lines 420--421
+Overfull \hbox (8.36821pt too wide) in paragraph at lines 427--428
 []\T1/ptm/m/n/12 O pri-meiro, de Lin et al., apre-senta um novo mo-delo para cl
 as-si-fi-ca-ção (o LSPM), destacando-
  []
 
-[34]) (./estudo_de_caso.tex [35]
+[35]) (./estudo_de_caso.tex [36]
 Cap\'{\i }tulo 4.
-[36
+[37
 
-] [37]
+] [38]
 Underfull \hbox (badness 10000) in paragraph at lines 68--68
 [][]\T1/ptm/m/n/10 http://www.conversaafiada.com.br/brasil/2010/07/02/mino-expl
 ica-por-que-apoia-a-dilma-porque-ela-e-
  []
 
-[38] (/usr/share/texmf-texlive/tex/latex/ucs/data/uni-32.def
+[39] (/usr/share/texmf-texlive/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2004/10/17 UCS: Unicode data U+2000..U+20FF
-) [39] [40]
+) [40] [41]
 Overfull \hbox (11.76984pt too wide) in paragraph at lines 161--162
 []\T1/ptm/m/n/10.95 Retirado de \T1/ptm/m/it/10.95 "FHC aceita o con-vite para 
 o du-elo que Lula não pode re-cu-sar." \T1/ptm/m/n/10.95 - 11/02/2010 
  []
 
-[41] [42]
+[42] [43]
 
-LaTeX Warning: Reference `bitter' on page 43 undefined on input line 230.
+LaTeX Warning: Reference `bitter' on page 44 undefined on input line 230.
 
-[43]
+[44]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[44] <situacao.png, id=158, 1270.7475pt x 605.26125pt>
+[45] <situacao.png, id=161, 1270.7475pt x 605.26125pt>
 File: situacao.png Graphic file (type png)
  <use situacao.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<oposicao.png, id=159, 1271.75125pt x 642.4pt>
+<oposicao.png, id=162, 1271.75125pt x 642.4pt>
 File: oposicao.png Graphic file (type png)
  <use oposicao.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<generico.png, id=160, 1260.71pt x 502.87875pt>
+<generico.png, id=163, 1260.71pt x 502.87875pt>
 File: generico.png Graphic file (type png)
  <use generico.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[45] [46 <./situacao.png> <./oposicao.png>] [47 <./generico.png>])
-(./conclusao.tex [48]
+[46] [47 <./situacao.png> <./oposicao.png>] [48 <./generico.png>])
+(./conclusao.tex [49]
 Cap\'{\i }tulo 5.
-) (./apendices.tex [49
+) (./apendices.tex [50
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <20.74> not available
@@ -737,9 +736,9 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 
 Apendice A.
-) (./monografia.bbl [50
+) (./monografia.bbl [51
 
-] [51
+] [52
 
 ])
 +-------------------------------------------------------------------+
@@ -751,19 +750,19 @@ tabela-simbolos: agora rode geratss (linux) ou manualmente,
 makeindex -s tabela-siglas.ist -o monografia.sigla monografia.siglax
 makeindex -s tabela-simbolos.ist -o monografia.symbols monografia.symbolsx
 ########################################################################
-[52] (./monografia.aux)
+[53] (./monografia.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6571 strings out of 94101
- 86900 string characters out of 1165810
- 143979 words of memory out of 1500000
- 9604 multiletter control sequences out of 10000+50000
+ 6573 strings out of 94101
+ 86921 string characters out of 1165810
+ 146004 words of memory out of 1500000
+ 9606 multiletter control sequences out of 10000+50000
  113070 words of font info for 164 fonts, out of 1200000 for 2000
  637 hyphenation exceptions out of 8191
- 32i,11n,41p,2109b,605s stack positions out of 5000i,500n,6000p,200000b,5000s
+ 32i,11n,41p,2430b,605s stack positions out of 5000i,500n,6000p,200000b,5000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
 ve/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/blue
 sky/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmr10.pfb></
@@ -774,9 +773,9 @@ usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texl
 ive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/
 times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (53 pages, 431588 bytes).
+Output written on monografia.pdf (54 pages, 436106 bytes).
 PDF statistics:
- 230 PDF objects out of 1000 (max. 8388607)
+ 233 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 
