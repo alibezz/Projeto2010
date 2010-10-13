@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  11 OCT 2010 18:06
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  13 OCT 2010 09:37
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -610,86 +610,98 @@ Overfull \hbox (14.79982pt too wide) in paragraph at lines 241--241
 
 [20] [21]) (./frequencia_palavras.tex [22]
 Cap\'{\i }tulo 3.
+
+LaTeX Warning: Citation `aaai2010' on page 23 undefined on input line 11.
+
 [23
 
 ]
-LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <14.4> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 112.
- [24]
+Overfull \hbox (3.58932pt too wide) in paragraph at lines 19--20
+[]\T1/ptm/m/n/12 Busca, na \T1/ptm/m/it/12 ACL Antho-logy[] \T1/ptm/m/n/12 pe-l
+as pa-la-vras \T1/ptm/m/it/12 pers-pec-tive\T1/ptm/m/n/12 , \T1/ptm/m/it/12 vi-
+ew-point\T1/ptm/m/n/12 , \T1/ptm/m/it/12 po-li-tics\T1/ptm/m/n/12 , \T1/ptm/m/i
+t/12 po-li-ti-cal\T1/ptm/m/n/12 , \T1/ptm/m/it/12 stance\T1/ptm/m/n/12 ,
+ []
 
-LaTeX Warning: Citation `mail-resnik' on page 25 undefined on input line 126.
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <14.4> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 42.
+[24]
+
+LaTeX Warning: Citation `mail-resnik' on page 25 undefined on input line 56.
 
 [25] [26]
 
-LaTeX Warning: Reference `outros' on page 27 undefined on input line 310.
+LaTeX Warning: Reference `outros' on page 27 undefined on input line 240.
 
-
-Underfull \hbox (badness 2495) in paragraph at lines 314--314
+[27]
+Underfull \hbox (badness 2495) in paragraph at lines 244--244
 [][]\T1/ptm/m/n/10 A im-ple-men-ta-ção de L-LDA uti-li-zada está dis-po-ní-vel 
 no re-po-si-tó-rio on-line de Ale-xan-dre Pas-sos
  []
 
-[27] [28] [29] [30]
 
-LaTeX Warning: Reference `outros' on page 31 undefined on input line 643.
+LaTeX Warning: `h' float specifier changed to `ht'.
 
-[31]
+[28] [29] [30] [31]
+
+LaTeX Warning: Reference `outros' on page 32 undefined on input line 573.
+
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 648.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 578.
 
-Overfull \hbox (8.36821pt too wide) in paragraph at lines 648--649
+Overfull \hbox (8.36821pt too wide) in paragraph at lines 578--579
 []\T1/ptm/m/n/12 O pri-meiro, de Lin et al., apre-senta um novo mo-delo para cl
 as-si-fi-ca-ção (o LSPM), destacando-
  []
 
-[32]) (./estudo_de_caso.tex [33]
+[32] [33]) (./estudo_de_caso.tex [34]
 Cap\'{\i }tulo 4.
-[34
+[35
 
-] [35]
+] [36]
 Underfull \hbox (badness 10000) in paragraph at lines 68--68
 [][]\T1/ptm/m/n/10 http://www.conversaafiada.com.br/brasil/2010/07/02/mino-expl
 ica-por-que-apoia-a-dilma-porque-ela-e-
  []
 
-[36] (/usr/share/texmf-texlive/tex/latex/ucs/data/uni-32.def
+[37] (/usr/share/texmf-texlive/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2004/10/17 UCS: Unicode data U+2000..U+20FF
-) [37] [38]
+) [38] [39]
 Overfull \hbox (11.76984pt too wide) in paragraph at lines 161--162
 []\T1/ptm/m/n/10.95 Retirado de \T1/ptm/m/it/10.95 "FHC aceita o con-vite para 
 o du-elo que Lula não pode re-cu-sar." \T1/ptm/m/n/10.95 - 11/02/2010 
  []
 
-[39] [40]
+[40] [41]
 
-LaTeX Warning: Reference `bitter' on page 41 undefined on input line 230.
+LaTeX Warning: Reference `bitter' on page 42 undefined on input line 230.
 
-[41]
+[42]
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[42] <situacao.png, id=152, 1270.7475pt x 605.26125pt>
+[43] <situacao.png, id=155, 1270.7475pt x 605.26125pt>
 File: situacao.png Graphic file (type png)
  <use situacao.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<oposicao.png, id=153, 1271.75125pt x 642.4pt>
+<oposicao.png, id=156, 1271.75125pt x 642.4pt>
 File: oposicao.png Graphic file (type png)
  <use oposicao.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-<generico.png, id=154, 1260.71pt x 502.87875pt>
+<generico.png, id=157, 1260.71pt x 502.87875pt>
 File: generico.png Graphic file (type png)
  <use generico.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[43] [44 <./situacao.png> <./oposicao.png>] [45 <./generico.png>])
-(./conclusao.tex [46]
+[44] [45 <./situacao.png> <./oposicao.png>] [46 <./generico.png>])
+(./conclusao.tex [47]
 Cap\'{\i }tulo 5.
-) (./apendices.tex [47
+) (./apendices.tex [48
 
 ]
 LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <20.74> not available
@@ -700,9 +712,9 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 
 Apendice A.
-) (./monografia.bbl [48
+) (./monografia.bbl [49
 
-] [49
+] [50
 
 ])
 +-------------------------------------------------------------------+
@@ -714,16 +726,16 @@ tabela-simbolos: agora rode geratss (linux) ou manualmente,
 makeindex -s tabela-siglas.ist -o monografia.sigla monografia.siglax
 makeindex -s tabela-simbolos.ist -o monografia.symbols monografia.symbolsx
 ########################################################################
-[50] (./monografia.aux)
+[51] (./monografia.aux)
 
 LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6564 strings out of 94101
- 86827 string characters out of 1165810
+ 6566 strings out of 94101
+ 86859 string characters out of 1165810
  143970 words of memory out of 1500000
- 9597 multiletter control sequences out of 10000+50000
+ 9599 multiletter control sequences out of 10000+50000
  113070 words of font info for 164 fonts, out of 1200000 for 2000
  637 hyphenation exceptions out of 8191
  32i,11n,41p,2109b,605s stack positions out of 5000i,500n,6000p,200000b,5000s
@@ -737,9 +749,9 @@ usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texl
 ive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/
 times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (51 pages, 426446 bytes).
+Output written on monografia.pdf (52 pages, 428161 bytes).
 PDF statistics:
- 224 PDF objects out of 1000 (max. 8388607)
+ 227 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

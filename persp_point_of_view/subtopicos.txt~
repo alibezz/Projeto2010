@@ -28,7 +28,7 @@ ssection{Motivação}
 
 Para o segundo problema, dá para esgotar o assunto, digamos assim. Mas, para o primeiro, é preciso adotar alguma metodologia nas buscas, pois o assunto é razoavelmente grande.
 
-Tá: parece que as duas areas são somehow grandes. Uma ideia inicial é varrer os principais congressos/simposios da area nos ultimos 5 anos buscando pelas palavras 'opinion', 'perspective' 'point of view', 'sentiment'. EMNLP, ACL, NAACL, AAAI (Sorry, Top), CONNL. Em 2009, surge uma palavrinha nova na ACL: 'stance'.
+Tá: parece que as duas areas são somehow grandes. Uma ideia inicial é varrer os principais congressos/simposios da area nos ultimos 5 anos buscando pelas palavras 'opinion', 'perspective' 'point of view', 'sentiment'. EMNLP (ok), ACL, NAACL (ok), AAAI (ok), CONNL. Em 2009, surge uma palavrinha nova na ACL: 'stance'.
 
 ACL '07: Achei algumas coisas de opinion mining, mas mais pra positive/negative reviews
 ACL '06: Tem aquele monte de artigos juntos dum satélite de sentiment and subjectivity analysis
@@ -41,3 +41,17 @@ Ok: eu fui na ACL Anthology search e busquei por (viewpoint perspective opinion 
 A ACL Anthology cobre ACL, EACL, NAACL, COLING
 
 => Depois dessa limpa com as palavras chave na ACL Anthology, é bom ir nos pesquisadores principais (Jan Wiebe é A bruxa) e na aaai e nips.
+
+
+10/10/10
+
+emnlp:
+Modeling Perspective using Adaptor Grammars 
+
+Staying Informed: Supervised and Semi-Supervised Multi-View Topical Analysis of Ideological Perspective 
+
+aaai 2010: => traz uma track chamada sentiment and perspective
+
+What Is an Opinion About? Exploring political standpoints using opinion scoring model
+
+

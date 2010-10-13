@@ -4,6 +4,7 @@ The style file: abnt-alf.bst
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: abnt-options.bib
 Database file #2: monografia.bib
+Warning--I didn't find a database entry for "aaai2010"
 Warning--I didn't find a database entry for "mail-resnik"
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
@@ -14,7 +15,7 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
 You've used 30 entries,
             6522 wiz_defined-function locations,
-            1319 strings with 13923 characters,
+            1320 strings with 13931 characters,
 and the built_in function-call counts, 24941 in all, are:
 = -- 2005
 > -- 907
@@ -53,4 +54,4 @@ warning$ -- 0
 while$ -- 211
 width$ -- 0
 write$ -- 458
-(There was 1 warning)
+(There were 2 warnings)

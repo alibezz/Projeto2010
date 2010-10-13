@@ -15,7 +15,8 @@ P(a|b)
 ====================
 introdução
 falar da metodologia, estrutura, problemas relacionados (onde fala de outros métodos)
-
+justificar, na introdução, por que a sua monografia vale
+dizer que problema você acha que ela resolve ou ajuda a entender
 ====================
 Conceitos básicos: (n pode passar de 56 páginas!)
 
