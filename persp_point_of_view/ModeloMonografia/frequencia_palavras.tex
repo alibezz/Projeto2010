@@ -14,222 +14,65 @@ A \emph{survey} de Pang e Lee, uma das principais referências para este projeto
 
 \begin{enumerate}
 \item Consideração dos três trabalhos indicados na \emph{survey} de Pang e Lee;
-\item Busca por trabalhos citados nesses artigos;
-\item Busca por trabalhos que citam os artigos separados nos itens anteriores;
-\item Busca, na \emph{ACL Anthology}\footnote{A \emph{Association of Computational Linguistics}, \emph{ACL}, mantém o maior arquivo digital envolvendo trabalhos de Linguística Computacional, o que inclui Mineração de Opinião (http://aclweb.org/anthology-new/).} pelas palavras \emph{perspective}, \emph{viewpoint}, \emph{politics}, \emph{political}, \emph{stance}, \emph{ideology} e \emph{ideological}, pois elas se mostraram relevantes no contexto dos artigos separados nos itens anteriores;
-\item Busca, nos \emph{sites} dos eventos \emph{EMNLP\footnote{Empirical Methods in Natural Language Processing Conference.}, NAACL\footnote{North American Chapter of the Association for Computational Linguistics Conference.}, AAAI\footnote{Association for the Advancement of Artificial Intelligence Conference.}} e \emph{CoNNL\footnote{Computational Natural Language Learning Conference.}}, realizados entre 2000 e 2010, pelas mesmas palavras do item anterior. Esses eventos foram selecionados pela relevância na área de Mineração de Opinião. 
+\item Busca, no \emph{Google Scholar}, por trabalhos citados nesses artigos;
+\item Busca, no \emph{Google Scholar}, por trabalhos que citam os artigos coletados nos itens anteriores;
+\item Busca, na \emph{ACL Anthology}\footnote{A \emph{Association of Computational Linguistics}, \emph{ACL}, mantém o maior arquivo digital envolvendo trabalhos de Linguística Computacional, o que inclui Mineração de Opinião (http://aclweb.org/anthology-new/).} pelas palavras \emph{perspective}, \emph{viewpoint}, \emph{politics}, \emph{political}, \emph{stance}, \emph{ideology} e \emph{ideological}. Estas palavras foram escolhidas por (1) funcionarem como sinônimos nos artigos coletados anteriormente ou (2) pela relevância em suas temáticas, escritos por especialistas;
+\item Busca nos \emph{sites} dos eventos \emph{EMNLP\footnote{\emph{Empirical Methods in Natural Language Processing Conference.}}, NAACL\footnote{\emph{North American Chapter of the Association for Computational Linguistics Conference.}}, AAAI\footnote{\emph{Association for the Advancement of Artificial Intelligence Conference.}}} e \emph{CoNNL\footnote{\emph{Computational Natural Language Learning Conference.}}}, realizados entre 2000 e 2010, pelas mesmas palavras do item anterior. Esses eventos foram selecionados pela relevância na área de Mineração de Opinião. 
 \end{enumerate}
 
-Nem todos os trabalhos coletados, de acordo com essa metodologia, tinham necessariamente a ver com classificação. Por este motivo, foi feita uma filtragem que resultou em 16 trabalhos a serem revisados. Na seção \ref{freqs:revisao}, essa revisão é apresentada. Quase todos os trabalhos consideram, ainda que não exclusivamente, as contagens de palavras dos documentos na classificação. Além disso, eles divergem bastante quanto à escolha de outras características dos documentos. Por estes motivos, a seção \ref{freqs:experim} discute a relação entre a classificação baseada em contagens de palavras e o emprego delas por diferentes perspectivas. Por fim, na seção \ref{freqs:conc}, apresentam-se conclusões sobre os conteúdos expostos nas seções \ref{freqs:revisao} e \ref{freqs:experim}. 
+Nem todos os trabalhos coletados, de acordo com essa metodologia, tinham necessariamente a ver com classificação por perspectiva. Alguns, como a tese de Alice Oh, se propõem modelar computacionalmente o conceito de perspectiva \cite{alice-oh}; outros, como o artigo de Laver et al., se propõem a criar uma escala ideológica e comparar documentos de acordo com ela \cite{wordscores}.  Por este motivo, foi feita uma filtragem que resultou em 14 trabalhos a serem revisados. Na seção \ref{freqs:revisao}, essa revisão é apresentada. Quase todos os trabalhos consideram, ainda que não exclusivamente, as contagens de palavras dos documentos na classificação. Além disso, eles divergem bastante quanto à escolha de outras características dos documentos. Por estes motivos, a seção \ref{freqs:experim} discute a relação entre a classificação baseada em contagens de palavras e o emprego delas por diferentes perspectivas. Por fim, na seção \ref{freqs:conc}, apresentam-se conclusões sobre os conteúdos expostos nas seções \ref{freqs:revisao} e \ref{freqs:experim}. 
 
 \section{Trabalhos Revisados}
 \label{freqs:revisao}
 
-%Começar falando que os estudos têm em comum o uso de mét., em partic. NB e SVM, para a classificação de perspectivas de documentos. A forma como eles interp. e fazem uso desses resultados é o que mais profund. os diferencia. Essa seção discute como os artigos escolheram os métodos NB/SVM (1), mostra outros métodos, igualmente interessantes apesar de menos utilizados (2) e apresenta as discussões que eles trazem sobre as dificuldades e utilidades envolvidas na tarefa de classificação (3).
+Todos os trabalhos revisados nesta seção apresentam uma metodologia em comum: eles organizam um corpus de documentos, definem em que perspectivas ele se divide, decidem como os documentos serão representados e pré-processados e, em seguida, classificam-nos utilizando alguma técnica - na maioria dos casos, SVMs ou Naïve Bayes. Por questões de escopo, portanto, esses serão os pontos enfocados nesta seção. Inicialmente, os principais pontos de cada trabalho serão apresentados em subseções específicas. Por fim, na subseção \ref{compara}, será apresentada uma comparação entre eles, considerando os pontos enfocados por esta revisão. %Os trabalhos serão apresentados de maneira comparativa, de acordo com estes pontos, a fim de evidenciar as diferentes decisões de projeto que cada um toma. De todo modo, para prevenir uma visão muito fragmentada de cada um deles, foi construída a Tabela \ref{freqs:todos}, na qual cada trabalho pode ser visto, de forma  
 
-%Todos os trabalhos revisados para este projeto, que utilizam contagem de palavras e/ou alguma variação em suas metodologias, possuem pelo menos uma outra característica em comum: a classificação de documentos de acordo com suas perspectivas. O que varia de um para outro, além dos documentos \emph{per se}, são os classificadores e as discussões levantadas a partir dos resultados obtidos. Os classificadores mais utilizados nesses trabalhos foram Naïve Bayes e SVMs, mas dois artigos sugerem o uso de outros métodos: o trabalho de Lin et al., envolvendo documentos sobre o conflito Israel-Palestina, propõe o modelo LSPM a partir de uma modificação no Naïve Bayes \cite{lin-et-al2006}; e Laver, Benoit e College, por sua vez, apresentam o método Wordscores em um artigo no qual analisam posicionamentos de partidos políticos britânicos e irlandenses \cite{wordscores}. % As discussões levantadas nos estudos, por fim, tratam das dificuldades, aplicações e limitações envolvidas na classificação. %, suas aplicações e limitações. %Diante disso, esta seção revisa trabalhos 
+\subsection{Posicionamentos sobre o conflito Israel-Palestina}
 
-%Para não tornar a leitura desse capítulo cansativa, e não diminuir o nível de detalhamento das revisões apresebtadas nessa seção, decidiu-se que, dentre os seis trabalhos estudados que classificam documentos baseando-se apenas em contagens de palavras, apenas os dois mais citados serão introduzidos nesta seção\footnote{Os números de citações foram verificados no dia 22 de setembro de 2010, com auxílio do Google Scholar (http://scholar.google.com).}. Os outros 
+O trabalho de Lin et al. classifica artigos, escritos por especialistas, sobre o conflito Israel-Palestina \cite{lin-et-al2006}. Os artigos foram extraídos do \emph{site} Bitterlemons\footnote{http://www.bitterlemons.org/} e estão divididos entre \emph{Palestinian} ou \emph{Israeli}. Os primeiros defendem pontos de vista pró-Palestina; os segundos, pró-Israel. Essa divisão é explorada mais à frente, de modo que o objetivo desse trabalho é classificar os documentos como pró-Palestina ou pró-Israel.
 
-Dentre os seis trabalhos que se baseiam exclusivamente em contagens de palavras, o artigo de Lin et Al. é o único a utilizar um classificador diferente de um Naïve Bayes ou SVM, introduzindo o método \emph{Latent Sentence Perspective Model} (LSPM) \cite{lin-et-al2006}. O artigo de Mullen e Malouf, por sua vez, é o \textbf{único} que não atinge uma boa taxa de acerto na classificação \cite{aaai-politics}. Esses artigos são apresentados, nessa ordem, nas subseções \ref{sec:lin-et-al} e \ref{sec:aaai}. %O primeiro deles visa a classificar %De certa forma, isso fomenta as discussões sobre escolha de palavras e classificação, apresentadas na seção \ref{freqs:experim}.
+Inicialmente, os documentos são representados como listas de palavras reduzidas a seus radicais. Isso significa, por exemplo, que as palavras \emph{political} e \emph{politics} são representadas através de um mesmo termo, pois possuem o mesmo radical \emph{politic}. Os classificadores Naïve Bayes e um SVM são então aplicados, explorando as contagens desses radicais em cada documento. A taxa de acerto obtida com o SVM variou entre 81.48\% e 97.24\%; com o Naïve Bayes, ela variou entre 84.85\% e 99.09\%. Essas variações advêm de diferentes divisões entre os conjuntos de treinamento e teste.
 
-%, dentre seis artigos que classificam documentos baseando-se apenas em contagens de palavras,
-%Cinco dos seis trabalhos que classificam documentos baseando-se apenas em contagens de palavras obtêm bons resultados. Dentre aqueles apresentados nessa seção, entretanto, um é justamente aquele que não atinge uma boa taxa de acerto. De certa forma, isso fomenta as discussões sobre escolha de palavras e classificação, apresentadas na seção \ref{freqs:experim}. O outro, além de apresentar bons resultados, é o único a utilizar um classificador diferente de Naïve Bayes ou SVMs: ele introduz um novo método, denominado \emph{Latent Sentence Perspective Model} (LSPM).%  O critério para escolhê-los foi o número de citações por outros trabalhos, por uma questão de relevância para a área de Mineração de Perspectiva. % decidiu-se que os dois artigos revisados seriam os mais citados,  - e%cl % para classificadizer q cont. de palavras é massa e mtas vezes funciona.dar exemplos. como n há espaço e vc quer fomentar a discussão sobre qdo dá errado, vc escolheu dois pra revisar em detalhes: um q desse errado e outro certo. a partir disso, escolheu os mais citados q obedecessem a esses critérios.
+Por fim, o trabalho de Lin et al. propõe um novo classificador, denominado \emph{Latent Sentence Perspective Model}, ou simplesmente \textbf{LSPM}. Ele consiste em uma variação do Naïve Bayes que, em vez de considerar documentos como listas de palavras, os representa como listas de senteças. A hipótese assumida por ele é a seguinte: nem todas as sentenças carregam um ponto de vista, de modo que o classificador, antes de definir a classe de um documento, deve selecionar quais delas carregam palavras relevantes. As sentenças com termos mais comuns, considerando o corpus como um todo, não contribuem diretamente para a classificação. A taxa de acerto obtida com o LSPM variou entre  86.99\% e 94.93\%, também como consequência de diferentes divisões entre os conjuntos de treinamento e teste. Para essas divisões, as taxas de acerto obtidas com o Naïve Bayes foram de 84.85\% e 93.46\%. O SVM não foi comparado diretamente com o LSPM. Lin et al. concluem, diante dessas comparações, que o LSPM apresenta desempenho superior ao do Naïve Bayes. Nenhum outro trabalho revisado, entretanto, faz uso desse classificador. O tutorial de Resnik e Hardisty sobre Naïve Bayes e LSPM sugere algumas equações para a implementação deste último \cite{resnik}, mas o próprio Resnik afirmou, em \emph{e-mail} endereçado à autora desta monografia, nunca ter conseguido replicar os resultados apresentados por Lin et al. \cite{email}. Aparentemente, portanto, o LSPM não é tão simples de implementar quanto o Naïve Bayes.
+ 
+\subsection{Posicionamentos em um fórum de discussão política}
 
-%Por questões de escopo, decidiu-se que, dentre os dez trabalhos revisados que tem diretamente a ver com este capítulo, apenas os dois mais citados  serão apresentados nesta seção\footnote{Os números de citações foram verificados no dia 22 de setembro de 2010, com auxílio do Google Scholar (http://scholar.google.com).}: o trabalho de Lin et al. \cite{lin-et-al2006}, envolvendo artigos sobre o conflito Israel-Palestina, e o primeiro artigo de Mullen e Malouf \cite{aaai-politics}, que analisa um fórum de discussão política dos Estados Unidos. Uma síntese dos outros oito encontra-se no \textbf{ANEXO BLI}, e informações referentes a eles são eventualmente mencionadas ao longo desta monografia.
+Mullen e Malouf propõem dois trabalhos que analisam um conjunto de \emph{posts} do fórum de discussão política Politics\footnote{http://politics.com}, escrito por cidadãos comuns dos Estados Unidos \cite{aaai-politics} \cite{malouf-taking_sides}. Em ambos, apesar de admitirem a diversidade de posicionamentos contidos no fórum, os autores dividem os documentos em apenas duas perspectivas, por uma questão de simplicidade: liberal e conservadora. Os documentos devem ser classificados, portanto, como alinhados com uma dessas duas ideologias.
 
-%de Laver, Benoit e College \cite{wordscores},  no qual os autores analisam posicionamentos de partidos políticos britânicos e irlandenses;
-\subsection{\emph{Which side are you on? Identifying perspectives at the document and sentence levels}}
-\label{sec:lin-et-al}
+No primeiro trabalho \cite{aaai-politics}, eles tratam cada documento como a união de todos os \emph{posts} de um mesmo usuário. Cada documento é representado como uma lista de palavras, e um Naïve Bayes é aplicado considerando suas contagens em cada documento. A taxa de acerto obtida, via validação cruzada de dez dobras, foi de 60.37\%. O tamanho do \emph{dataset} (apenas 185 documentos) e o uso parecido de palavras por ambas as ideologias foram apontados como alguns dos principais motivos para a obtenção desse resultado. Mullen e Malouf também sugerem que a presença de documentos menores, correspondentes a usuários do fórum que raramente postam, pode contribuir negativamente para o desempenho do Naïve Bayes. A ideia é que, como esses usuários participam muito pouco do fórum, as palavras em seus \emph{posts} não são suficientes para se consolidar uma perspectiva, tornando-os mais difíceis de se classificar. Restringindo a classificação a usuários que postaram no fórum pelo menos 20 vezes, a taxa de acerto obtida com o Naïve Bayes foi ligeiramente superior (61.38\%). Uma última observação desse trabalho indica o que pode estar acontecendo: usuários liberais citam falas de usuários conservadores em 62.2\% de seus \emph{posts}; analogamente, conservadores citam liberais em 77.5\%  de seus \emph{posts}. Embora o artigo não indique a proporção média entre essas citações e o restante dos documentos, é possível que elas estejam interferindo negativamente no aprendizado das perspectivas. A presença das perspectivas liberal e conservadora em um mesmo documento, com uma correspondendo às intenções do usuário e outra sendo citada, pode homogeneizar o uso de palavras no corpus, comprometendo a viabilidade da classificação.
 
-O trabalho de Lin et al. analisa um conjunto de artigos sobre o conflito Israel-Palestina, escrito por especialistas no assunto e disponibilizado no \emph{site} Bitterlemons\footnote{http://www.bitterlemons.org/}. O corpus contém \textbf{594} artigos separados entre pró-Israel (297) e pró-Palestina (297),  feitos pelos editores do \emph{site} e mais de 200 convidados entre os anos 2001 e 2005. Os autores realizam experimentos com classificadores Naïve Bayes e SVM para classificar os artigos de acordo com suas perspectivas, obtendo taxas de acerto mais altas com o Naïve Bayes (84.85\% a 93.46\% \emph{versus} 81.48\% a 88.22\%). Todas as taxas de acerto obtidas nesse trabalho variam de acordo com divisões entre os conjuntos de treinamento e teste: ora é feita validação cruzada de dez dobras, ora os autores alternam os conjuntos entre os artigos escritos por editores e convidados. O ponto mais importante do estudo de Lin et al., entretanto, é a proposição do modelo generativo \emph{Latent Sentence Perspective Model} (\textbf{LSPM}), empregado também para classificação. % de modo semelhante ao Naïve Bayes.
+Essa forma de interação entre os participantes do fórum é explorada pelo segundo trabalho de Mullen e Malouf \cite{malouf-taking_sides}, com o intuito de melhorar a classificação. Para isto, cria-se um grafo de co-citação em que cada vértice representa um participante e cada citação em uma fala a outra é indicada por uma aresta entre seus autores. Os participantes são agrupados de acordo com seus padrões de citação e, em seguida, as falas de cada grupo obtido são tratadas como um único documento. Aplica-se um Naïve Bayes a esta nova coleção de documentos, também explorando apenas suas contagens de palavras, e os resultados obtidos são propagados para todos os participantes de cada grupo. Essa metodologia atinge resultados significativamente melhores que aqueles obtidos no trabalho anterior: para participantes com mais de 500 palavras de fala no fórum, a taxa de acerto relatada é de 73\%. É válido salientar que, muito provavelmente, o sucesso dessa técnica é consequência do fato de que usuários alinhados ideologicamente não se citam muito. Se, além de citar seus oponentes, eles também se citassem, os padrões de citação seriam sempre muito parecidos, inviabilizando os agrupamentos adequados no grafo.
 
-%Este é um dos artigos mais citados pelos trabalhos revisados para esta monografia, e seu corpus já serviu como objeto de análise para outros estudos, incluindo este projeto. 
-%Os autores realizam experimentos com um Naïve Bayes e um SVM, para classificação dos artigos de acordo com suas perspectivas. Nos dois casos, os artigos são representados como vetores - no primeiro, cada entrada corresponde à contagem de uma palavra; no segundo, essas contagens são normalizadas em relação ao resto do documento. O desempenho obtido com o Naïve Bayes foi melhor, e os autores sugerem que isso tem a ver com o tamanho do corpus: em tese, o Naïve Bayes precisa de menos documentos para treinamento, quando comparado com os SVMs, para atingir boa performance \cite{ng-jordan}. 
+\subsection{Posicionamentos em \emph{blogs} políticos}
 
-Diferentemente do Naïve Bayes, o LSPM associa uma variável latente a cada sentença de um documento, cujos valores indicam se ela carrega ou não a perspectiva do documento. O modelo, portanto, parte do pressuposto de que, até mesmo nos textos mais opinativos, é possível encontrar frases neutras que pouco colaboram para a identificação de sua perspectiva. No processo generativo, amostra-se uma classe para o documento; em seguida, para cada uma de suas sentenças, amostra-se um valor que indica se ela carrega (1) ou não (0) a perspectiva correspondente à classe; por fim, as palavras da sentença são geradas, baseando-se nessas duas informações (classe e presença de perspectiva).
+O trabalho de Jiang e Argamon constrói um corpus de documentos extraídos de \emph{blogs} sobre política escritos em inglês \cite{jiang-argamon}. Os \emph{blogs} foram escolhidos de acordo com cinco catálogos \emph{online}: BlogCatalog, Blogorama, eTalkingHead, Campaigns and Elections e Best of the Web Blogs\footnote{http://blogcatalog.com, http://blogarama.com, http://etalkinghead.com, http://campaignsandelections.com e http://blogs.botw.org.}. Cada \emph{blog} é associado à perspectiva liberal ou conservadora, divisão explorada mais à frente na classificação. Os documentos que constituem o corpus são apenas as páginas iniciais de cada um deles. A finalidade desse trabalho, portanto, é determinar o posicionamento político desses \emph{blogs}, considerando seu conteúdo mais imediato - suas páginas iniciais.
 
-O ponto chave do funcionamento desse modelo tem a ver com o fato de que todas as sentenças que não carregam uma perspectiva são tratadas da mesma forma: admite-se que elas poderiam ocorrer em qualquer documento, independentemente de sua classe. Isso faz com que as palavras geradas para essas sentenças sejam, na maioria das vezes, comuns em todo o corpus. As sentenças que carregam a perspectiva de seus documentos, por sua vez, tendem a gerar termos mais específicos, evidenciando as particularidades do vocabulário de cada ponto de vista. O modelo é adaptado para classificação de forma semelhante ao Naïve Bayes. A diferença principal é que, em vez de considerar o documento como um todo, apenas as palavras geradas por sentenças com perspectiva contribuem para a decisão de qual é a classe do documento. %considerando apenas as sentenças dos documentos de forma análoga ao Naïve Bayes.
+Inicialmente, Jiang e Argamon aplicam um SVM às páginas, considerando apenas a presença/ausência de palavras nos documentos. A taxa de acerto obtida foi de 81.92\% via validação cruzada de dez dobras. Em seguida, as páginas foram reduzidas a suas sentenças subjetivas, através de uma seleção baseada no dicionário semântico \emph{General Inquirer}\footnote{http://www.wjh.harvard.edu/~inquirer/}. Para uma sentença ser escolhida, ela deveria conter pelo menos duas palavras categorizadas, segundo o dicionário, como pertencentes às categorias \emph{Dor}, \emph{Hostilidade}, \emph{Prazer} ou \emph{Virtude}, dentre outras. A taxa de acerto, neste cenário, subiu para 83.28\%. 
 
-%, independentemente da classe de seus documentos
+Esse trabalho, por fim, busca extrair as expressões opinativas que mais se relacionam aos pontos de vista liberal e conservador, baseando-se nas sentenças subjetivas e em consultas ao dicionário \emph{General Inquirer}. O SVM é aplicado considerando a presença/ausência de palavras e, adicionalmente, a presença/ausência das expressões opinativas separadas para cada lado. A taxa de acerto neste cenário foi de 84.96\%. Apesar de melhorarem a taxa de acerto obtida inicialmente, essas metodologias são completamente dependentes da língua em que o corpus está escrito. Elas não são facilmente adaptáveis a línguas que não dispõem de dicionários como o \emph{General Inquirer} \emph{online}. %As metodologias empregadas são completamente dependentes da linguagem do corpus, por utilizarem dicionários desenvolvidos para o inglês. % português.
 
-No trabalho de Lin et al., a taxa de acerto obtida na classificação dos artigos com o LSPM foi ligeiramente superior àquela obtida com o Naïve Bayes -  86.99\% a 94.93\% \emph{versus} 84.85\% a 93.46\%. De todo modo, não foi encontrado nenhum outro artigo que faça uso do LSPM - provavelmente pelas dificuldades envolvidas em sua implementação, quando comparado ao Naïve Bayes. O tutorial de Resnik e Hardisty sobre Naïve Bayes e LSPM sugere algumas equações para a implementação dos modelos \cite{resnik}, mas o próprio Resnik afirmou, em \emph{e-mail} endereçado à autora desta monografia, nunca ter conseguido replicar os resultados apresentados por Lin et al.. Segundo ele, o modelo parece ser extremamente sensível ao valor dos hiperparâmetros escolhidos para as distribuições de probabilidade envolvidas \cite{mail-resnik}. Essas questões fazem do LSPM uma opção de classificador relativamente complexa. % como classificador.
-% de modo que os termos mais específicos de cada perspectiva sejam gerados mais frequentemente em sentenças que a carregam
 
-\subsection{\emph{A preliminary investigation into sentiment analysis of informal political discourse}}
-\label{sec:aaai}
+\subsection{Posicionamentos sobre o Presidente Bush e a Guerra do Iraque}
 
-O trabalho de Mullen e Malouf analisa um conjunto de \emph{posts} do fórum Politics.com\footnote{http://politics.com}, escrito por cidadãos comuns dos Estados Unidos. Apesar de admitirem a diversidade de posicionamentos contidos no fórum, os autores dividem os documentos em apenas duas perspectivas, por uma questão de simplicidade: liberal e conservadora. Em seguida, eles condensam todos os \emph{posts} de um mesmo usuário em um só texto, resultando em um corpus com apenas \textbf{185} documentos (96 liberais e 89 conservadores). Ao aplicar um Naïve Bayes para classificar os documentos de acordo com a orientação política de seus autores, a taxa de acerto obtida foi de 60.37\%, via validação cruzada de dez dobras. O tamanho do \emph{dataset} é apontado por Mullen e Malouf como um dos principais motivos para a obtenção desse resultado. De acordo com eles, a baixa taxa de acerto sugere que o Naïve Bayes é bastante sensível a uma pequena quantidade de artigos na etapa de treinamento. 
 
-% Apesar disso, este trabalho contribui com algumas discussões interessantes sobre a linguagem dos \emph{posts} e as dificuldades envolvidas na tarefa de classificação.
+\subsection{Posicionamentos sobre a Pena de Morte}
+%tese e artigo de greene
 
-Os autores discutem também outras hipóteses para o mau desempenho obtido na classificação desse corpus. Por ser composto de \emph{posts} de um fórum, por exemplo, a linguagem do corpus é bastante informal. A probabilidade de se encontrar uma mesma palavra escrita de várias formas é relativamente alta, o que pode criar um certo ruído na classificação dos documentos. Essa hipótese, entretanto, não foi comprovada pelos autores: em alguns experimentos com as palavras corrigidas, a taxa de acerto obtida com o Naïve Bayes foi ligeiramente mais alta (64.48\%); em outros, não (60.37\%). O artigo também sugere que a presença de documentos menores, correspondentes a usuários do fórum que raramente postam, pode contribuir negativamente para o desempenho do Naïve Bayes. A ideia é que, como esses usuários participam muito pouco do fórum, as palavras em seus \emph{posts} não são suficientes para se consolidar uma perspectiva, tornando-os mais difíceis de se classificar. Restringindo a classificação a usuários que postaram no fórum pelo menos 20 vezes, o número de documentos no corpus tornou-se ainda menor, mas a taxa de acerto obtida com o Naïve Bayes foi ligeiramente superior (61.38\%). 
+\subsection{Posicionamentos de congressistas sobre a legislação dos Estados Unidos}
+%convote e disagree
 
-Diante desses resultados, os autores sugerem que os usuários não estão se expressando de forma suficientemente diferente no nível das palavras, comprometendo o desempenho do Naïve Bayes. Uma última observação do artigo indica o que pode estar acontecendo: usuários liberais citam falas de usuários conservadores em 62.2\% de seus \emph{posts}; analogamente, conservadores citam liberais em 77.5\%  de seus \emph{posts}. Embora o artigo não indique a proporção média entre essas citações e o restante dos documentos, é possível que elas estejam interferindo negativamente no aprendizado das perspectivas. A presença das perspectivas liberal e conservadora em um mesmo documento, com uma correspondendo às intenções do usuário e outra sendo citada, pode homogeneizar o uso de palavras no corpus, comprometendo a viabilidade da classificação. Uma discussão interessante sobre esse tipo de problema é apresentada por Polanyi e Zaenen em seu artigo sobre aspectos linguísticos que interferem na análise de sentimento \cite{valence-shifters}.   
+\subsection{Posicionamentos em \emph{sites} de música e política}
 
+\subsection{Posicionamentos em debates \emph{online}}
 
+\subsection{Análise de discursos políticos e suas reais ideologias}
 
+\subsection{Análise da relação entre a defesa de uma perspectiva e a escolha de palavras}
 
-%do tempo; os conservadores, de forma análoga, citam os liberais Left users quote right users 62.2% do tempo e right quotes left 77.5% do tempo
 
-%não há evidências suficientes de uma perspectiva em suas palavras
-
-
-
-%são mais difíceis de se classificar. 
-
-% - o que pode criar um ruído na classificação dos documentos. 
-
-
-%, pois uma mesma palavra, dividida em várias \emph{versões} 
-
-
-
-% do que em \emph{datasets}, compostos de artigos ou transcrições de debates. Esse fenômeno é tratado no artigo através da correção/padronização dessas palavras, evitando-se um ruído na classificação dos \emph{posts} \cite{aaai-politics}. 
-
-%corpus de \emph{posts} do fórum Politics.com\footnote{http://politics.com}
-
-%No caso do corpus \textbf{Bitterlemons}, dividido entre pró-Israel e pró-Palestina, há três tipos de sentença: neutra, que pode ocorrer em ambos os lados; pró-Israel, que carrega esta perspectiva; e pró-Palestina, análogo ao tipo pró-Israel. Sentenças pró-Israel ocorrem apenas em documentos classificados como pró-Israel, e o análogo vale para sentenças pró-Palestina. No processo generativo, o tipo neutro, por ocorrer em ambos os pontos de vista, passa a se associar às palavras mais comuns do corpus; palavras mais específicas de cada perspectiva são mais geradas por sentenças pró-Israel ou pró-Palestina. Neste sentido, o LSPM refina a noção de classe explorada pelo Naïve Bayes, admitindo a possibilidade de que determinadas palavras, por serem muito comuns, não adicionam informação relevante à classificação.
-
-
-
-% pode ocorrer em ambos os lados, as palavras associadas a esses tipos de sentença vão assumindo as seguintes características: aquelas mais comuns em ambos os lados% Esses tipos de sentença  
-
-%; no segundo, cada entrada corresponde simplesmente à contagem de uma palavra.
-%As características dos documentos, consideradas na classificação,  são contagens de palavras e/ou suas variações, apresentadas na introdução deste capítulo.
-%importantes obedecendo ao seguinte recorte:  
-
-%\subsection{Os diferentes \emph{datasets}}
-
-%Todos os \emph{datasets} revisados neste capítulo envolvem algum tema diretamente relacionado à política. A preferência por esse domínio temático provavelmente tem a ver com o fato de que, por ser polêmico, ele suscita a defesa clara de pontos de vista antagônicos, favorecendo a mineração de perspectivas. Os documentos são escritos por especialistas, jornalistas, pessoas políticas ou cidadãos comuns. As fontes também variam, envolvendo fóruns, transcrições de debates, \emph{blogs}, artigos e \emph{sites} especializados, o que colabora para a diversidade dos tipos de linguagem estudados. % defesas claras de pontos de vista antagônicos.
-
-
-% Quando este não é o caso, tem-se um tema bastante polêmico, como pena de morte ou aborto. 
-
-
- %Em fóruns e \emph{blogs} mais informais, é preciso 
-
-%O primeiro artigo de Mullen e Malouf revisado para esta monografia analisa um corpus de \emph{posts} do fórum Politics.com\footnote{http://politics.com}, escrito por cidadãos comuns dos Estados Unidos. Apesar de admitir a diversidade de posicionamentos contidos no fórum, os autores dividem os documentos em apenas duas perspectivas: liberal e conservadora. Por ser muito informal, a probabilidade de se encontrar palavras escritas de várias formas neste corpus é mais alta do que em outros, compostos de artigos ou transcrições de debates. Esse fenômeno é tratado no artigo através da correção/padronização dessas palavras, evitando-se um ruído na classificação dos \emph{posts} \cite{aaai-politics}. \textbf{Ver se bota nome después.}
-
-%A linguagem dos fóruns muitas vezes se aproxima da linguagem falada, envolvendo gírias, expressões irônicas e certo nível de informalidade nas escolhas de palavras e construções sintáticas. Essas características também são encontradas em \emph{datasets} compostos de discursos políticos transcritos, por serem uma representação fiel de falas em discussões. A diferença fundamental entre textos recolhidos em fóruns e transcrições de debates políticos reside no fato de que os segundos apresentam menos erros gramaticais - e, portanto, menos necessidade de correção/padronização de palavras - do que os primeiros. 
-
-%Três trabalhos que exploram debates políticos são revisados neste capítulo: os artigos de Laver, Benoit e College  \cite{wordscores}, envolvendo as políticas britânica e irlandesa; de Hirst, Riabinin e Graham, envolvendo a política canadense \cite{hirst-et-al}; e de Klebanov, Beigman e Diermeier, envolvendo a política dos Estados Unidos \cite{klebanov}. O primeiro analisa uma coleção \textbf{terminar}. O segundo analisa debates ocorridos em plenárias das \emph{English} e \emph{French House of Commons}, órgãos legislativos canadendes, durante os 36\textsuperscript{o}  e 39\textsuperscript{o} parlamentos. No 36\textsuperscript{o} parlamento, os liberais estavam no poder; no 39\textsuperscript{o}, os conservadores. O terceiro analisa debates sobre a legalização do aborto, desenvolvidos na \emph{House of Representatives}, órgão similar à Câmara Federal dos Deputados brasileira, e no Senado dos Estados Unidos. Os debates ocorreram entre os anos de 1995 e 2003, e estão divididos entre pró-escolha e pró-vida. %, órgão próximo    %próximos à Câmara 
-
-%Com conteúdo extraído de mais de 250 \emph{blogs}, o artigo de Durant e Smith explora textos que discutem os posicionamentos de George W. Bush perante a Guerra do Iraque. Os \emph{posts} pertencem a \emph{blogs} de especialistas e cidadãos comuns, listados no \emph{site} The Moderate Voice\footnote{http://themoderatevoice.com/} e separados entre esquerda e direita. O périodo analisado se estendeu de março de 2003 a março de 2005. Baseando-se no fato de que o uso de palavras muda significativamente em um período de dois anos, conforme novos acontecimentos vão sendo discutidos nos \emph{blogs}, Durant e Smith particionaram seu corpus em 25 segmentos, cada um correspondendo ao conteúdo de um mês. Essa estratégia valorizou os acontecimentos políticos particulares de cada mês, que se refletem diretamente na ênfase, dada pelos blogueiros, a determinadas palavras.
-
-
-%Ainda em política:  blog (listas), coluna (bitterlemons) e notícia (métrica).
-%Ainda em política, o trabalho de Lin et al. analisa um conjunto de artigos sobre o conflito Israel-Palestina, escritos por especialistas no assunto e disponibilizados no \emph{site} Bitterlemons.com\footnote{http://www.bitterlemons.org/}. Os artigos, separados entre pró-Israel e pró-Palestina, são escritos por mais de 200 convidados e dois editores. Este é um dos artigos mais citados pelos trabalhos revisados para esta monografia, e o corpus por ele avaliado também já serviu como objeto de análise para outros estudos, incluindo esta monografia. O artigo de Klebanov, Beigman e Diermeier, por exemplo, também apresenta um estudo envolvendo todos os artigos desse corpus escritos por convidados \cite{klebanov}. Esse mesmo artigo, por fim, também explora o conteúdo de \emph{sites} especializados na questão da pena de morte nos Estados Unidos. O corpus, criado por Stephen Greene para sua tese de doutorado, é composto de cinco \emph{sites} pró-pena e três anti-pena \cite{greene-thesis}. %Nem a tese nem o artigo de Klebanov, Beigman e Diermeier informam 
-
-%Klebanov, Beigman e Diermeier também analisam \emph{datasets} com outras temáticas, como legalização do aborto e pena de morte.
-
-% Apesar de não haver um grande compromisso entre os \emph{posts} e a correção gramatical, os autores não relatam nenhum tratamento a erros gramaticais contidos nos textos, relativamente informais. % correspondentes a cada mês, valorizando diferentes destaques a termos
-
-
-
-% cada um deles contendo todos os \emph{posts} escritos em um mês.
-
-  % We chose to partition our slightly greater than two years of data by the month; thus
-%creating twenty-five partitions. We predict the sentiment of political web posts for
-%each of the 25 different time segments. We believe our data and many of our terms to
-%be time-specific so we keep our data time-ordered. We chose our time interval to be a
-%month because we needed an interval large enough to ensure enough postings to cre-
-%ate good-sized datasets yet small enough to limit the number of events discussed
-%within the interval.
-
-
-
-
-
-%We used both the English and French House of Commons Debates (“Hansard”) for the first
-%350 sitting days of the 36th Parliament (1997-09-22 to 2000-05-10). In the 36th Parliament,
-%a majority government was formed by the Liberal Party, led by Jean Chrétien. This data was
-%available in a convenient plain-text form with sentence breaks identified (Germann, 2001), as it
-%has been widely used for research in machine translation.
-
-
-
-%temas polêmicos 
-
-%Para métodos que classificam documentos baseando-se em contagens de palavras ou variações, esse fenômeno pode gerar um ruído indesejado, pois os classificadores atribuirão contagens distintas a \emph{versões} de uma mesma palavra.
-
-%, que analisa as perspectivas contidas no fórum de discussão política Politics.com\footnote{http://politics.com},
-
-
-
-
-%Cada tipo de fonte sustenta determinadas características, que precisam ser devidamente investigadas antes da classificação dos documentos. 
-
-%Em fóruns e \emph{blogs} mais informais, por exemplo,   O primeiro artigo de Mullen e Malouf, que analisa as perspectivas contidas no fórum de discussão política Politics.com\footnote{http://politics.com}, sugere que, nestes casos, seja feita uma correção das palavras antes da etapa de classificação \cite{aaai-politics}.  %interpretarão como duas palavras diferentes - com contagens diferentes. o que pode exigir correções 
-
-
-
-
-%Quão mais informal é a fonte, por exemplo, maior é a probabilidade de se encontrar palavras escritas incorretamente. % palavras escritas maior é a probabilidade de conter uma quantidade significativa de palavras escritas incorretamente, o   
-%predileção por datasets políticos. falar das fonotes diferentes, e de como isso tem certo impacto no pré-processamento e no que se espera da classificação.
-
-%\subsection{Os diferentes classificadores}
-
-%predileção por svms/naive bayes. falar oq cada lado defende. indicar q isso é bobo. apresentar lspm e wordscores.
-
-%\subsection{As diferentes características dos documentos consideradas}
-
-%falar das características usadas, em separado ou em combinado, e as discussões sobre qtas usar e quais usar.
-
-%\subsection{As diferentes discussões}
-
-%Várias coisas. De bias em jornais até estar ou n classificando estilo até a consolidação de uma perspectiva até internacionalização até etc.
-
-
-
-
-
-
-%  perspectivas de partidos Britânicos sobre a política econômica do Reino Unido.
-
-%ESTIMATING THE POLICY POSITIONS OF BRITISH AND IRISH PARTIES ON THE
- %        LIBERAL-CONSERVATIVE SOCIAL POLICY DIMENSION
-
-%British party positions on economic policy
-%utilizam e %são consideradas 
-
-%Um certo padrão emerge dos estudos: uma preferência por corpora políticos (e falar aí de como eles usam diferentes fontes e aplicam o resultado da classificação para análises diferentes.
-%e por classificadores Naïve Bayes e SVM. 
-%Há casos em que o SVM se sai melhor e há casos em que o Naive Bayes se sai melhor. Argumentar a favor de escolher arbitrariamente e, se insatisfeito com o desempenho, testar outro, pq é isso que algumas pessoas fazem.
-%Discutir as características escolhidas e a redução de features
-%Discutir a classificação efetiva de pontos de vista, n estilos. 
-
-%descritos na seção \textbf{Experimentos com L-LDA e Naïve Bayes}, ilustram esta relação, indicando também o quanto é difícil quantificá-la.
-
-% e também a frequência de seus usos, são elementos chave para a transmissão de posicionamentos diferentes sobre um determinado assunto. %Em \cite{lin-et-al2006}, por exemplo, foi observado que várias palavras, como \emph{palestinian} e \emph{israel}, são utilizadas tanto em documentos pró-Palestina quanto pró-Israel. Apesar disso, as frequências distintas no uso dessas palavras evidenciam os diferentes lados da discussão. 
-%Essa ideia encontra respaldo em \cite{teubert2001}, um estudo de Linguística de Corpus \cite{biber-d1998}\cite{halliday2004} que indica que indivíduos defendendo perspectivas diferentes consolidam seus vocabulários através do uso de palavras específicas (\emph{stigma words} e \emph{banner words}), facilitando a identificação de adversários e aliados. 
-
-
-% Classificadores baseados em frequências de palavras apresentam uma característica importante em comum: a representação dos documentos como \emph{bags of words}. Nesta representação, documentos são sacolas (\emph{bags}) de palavras, e a ordem entre elas, bem como suas relações gramaticais, são ignoradas. A única informação referente à linguagem do documento, utilizada na classificação, diz respeito à frequência de cada palavra distinta da \emph{bag}. Apesar de estruturalmente simples, a representação \emph{bag of words}, produzida sem informações sintáticas ou semânticas e sem informações sobre o domínio dos documentos, tem se mostrado muito conveniente na área de Mineração de Perspectiva. Grande parte dos artigos estudados utiliza, mesmo que não exclusivamente, algum método de classificação baseado em frequências de palavras, como Naïve Bayes ou SVM padrão. 
-
-%ocorrência de cada palavra no texto é considerada um evento independente uma palavra \emph{x} em um textoprobabilidade de duas palavras ocorrência de duas palavras quaisquer em um documento também é considerada independente, A informação realmente relevante provém da freq. ou pres. das palavras, consideradas independentes entre si. 
-
-%- Falar de presença e frequencia
-%-
-
-%\emph{Bags of words}, mesmo desconsiderando aspectos semânticos e sintáticos dos documentos, apresentam
-
-%Aspectos semânticos e sintáticos dos documentos, portanto, são desconsideradosde representação de documento. Este modelo assume que o documento 
-
-
-
-
-
-
-
-%Uma ideia apresentada em \cite{lin-et-al2006}, assumida por parte dos artigos estudados para este projeto, é de que a escolha de palavras em um documento reflete os pontos de vista e intenções de seu autor. O emprego de palavras semanticamente distintas para um mesmo propósito - como \emph{Revolução} ou \emph{Golpe} para o começo do Regime Militar Brasileiro em 1964 -, e também a frequência de seus usos, são elementos chave para a transmissão de posicionamentos diferentes sobre um determinado assunto. %Em \cite{lin-et-al2006}, por exemplo, foi observado que várias palavras, como \emph{palestinian} e \emph{israel}, são utilizadas tanto em documentos pró-Palestina quanto pró-Israel. Apesar disso, as frequências distintas no uso dessas palavras evidenciam os diferentes lados da discussão. 
-%Essa ideia encontra respaldo em \cite{teubert2001}, um estudo de Linguística de Corpus \cite{biber-d1998}\cite{halliday2004} que indica que indivíduos defendendo perspectivas diferentes consolidam seus vocabulários através do uso de palavras específicas (\emph{stigma words} e \emph{banner words}), facilitando a identificação de adversários e aliados. 
-
-%A ideia, entretanto, não é de grande utilidade para alguns \emph{datasets} estudados. Neles, o conhecimento das palavras empregadas para cada perspectiva, bem como suas frequências, não é suficiente para inferir o perfil ideológico dos autores dos documentos. \cite{agrawal2003} prevê este comportamento, defendendo que o vocabulário usado em dois lados de uma discussão tende a ser basicamente o mesmo, o que contribui para o mau desempenho de classificadores baseados na presença e/ou frequência das palavras exclusivamente, como Naïve Bayes e SVM padrão\footnote{Estes classificadores estão descritos na seção \textbf{XX} desta monografia.}. Esta ideia é explorada novamente em \cite{malouf-taking_sides}, a fim de justificar a taxa de acerto de apenas 63.59\% obtida na aplicação de um classificador Naïve Bayes a um \emph{dataset} de debates políticos \emph{online}.
-
-%Diante dessas observações, este capítulo discute a relação entre o vocabulário de um corpus e o desempenho de classificadores baseados na presença ou frequencia de suas palavras. Experimentos com um modelo de tópicos do tipo L-LDA\footnote{Este modelo de tópicos está descrito na seção \textbf{X} desta monografia.} e um classificador Naïve Bayes padrão, descritos na seção \textbf{Experimentos com L-LDA e Naïve Bayes}, ilustram esta relação, indicando também o quanto é difícil quantificá-la. Na seção \textbf{Aumentando as taxas de acerto: técnicas empregadas na literatura}, é apresentada uma revisão, e posterior discussão, de artigos que tratam a questão do vocabulário dos corpora, propondo técnicas para classificá-los melhor quando as palavras são utilizadas muito uniformemente. A seção \textbf{Conclusão} resume as discussões e ideias apresentadas nas seções anteriores.
-
-
+\subsection{Comparações}
+\label{compara}
+  
 \section{Experimentos com L-LDA e Naïve Bayes}
 \label{freqs:experim}
 
@@ -546,10 +389,7 @@ As palavras das Tabelas 4.1 e \ref{freqs:tab2} foram representadas graficamente 
 
 %Dos artigos estudados para este projeto, três associaram o mau desempenho obtido com Naïve Bayes e SVM padrão à homogeneização do vocabulário contido no corpus: dois de Tony Mullen e Robert Malouf sobre citações entre documentos \cite{malouf-taking_sides} e \cite{aaai-politics} e um de Miles Efron envolvendo citações a \emph{sites}\cite{efron}. Não foi possível executar experimentos com o L-LDA em nenhum dos \emph{datasets} utilizados nesses trabalhos, pois eles não estão disponíveis na Web nem conseguiram ser obtidos mediante pedido, por \emph{e-mail}, aos autores dos artigos. Por este motivo, esta seção se limitará a descrever as técnicas utilizadas nesses trabalhos para melhorar as taxas de acerto na classificação dos corpora.
 
-%Em dois artigos \cite{malouf-taking_sides} e \cite{aaai-politcs}, o \emph{dataset} estudado é o \textbf{Politics}: um conjunto de debates políticos dos Estados Unidos. Os dois trabalhos visavam a classificar discursos de 185 participantes da discussão de acordo com suas orientações políticas: Esquerda ou Direita. Cada participante era representado por um único documento, resultante da concatenação de todas as suas falas nos debates. Aplicando um Naïve Bayes na coleção de documentos, as taxas de acerto obtidas foram de 60.37\% \cite{aaai-politics} e 63.59\% \cite{malouf-taking_sides}. A análise do \emph{dataset} indica que 62.2\% das falas de Esquerda mencionam trechos de falas de Direita; quanto às falas de Direita, 77.5\% delas mencionam falas de Esquerda \cite{aaai-politics}. Essa forma de interação entre os participantes é explorada com o intuito de melhorar a identificação da perspectiva dos documentos \cite{malouf-taking_sides}. Para isto, cria-se um grafo de co-citação em que cada vértice representa um participante e cada citação em uma fala a outra é indicada por uma aresta entre seus autores. Os participantes são agrupados de acordo com uma métrica de distância obtida a partir do SVD \textbf{SVD será explicado na mono?} truncado da matriz de adjacência desse grafo e, em seguida, as falas de cada grupo obtido são tratadas como um único documento. Aplica-se um Naïve Bayes a esta nova coleção de documentos e os resultados obtidos são propagados para todos os participantes de cada grupo.
-
-
-%O uso do SVD truncado da matriz de adjacência se deve ao fato de que ele possui menos ruído e evidencia informações estruturais do grafo, como padrões de comunicação entre os vértices, melhor do que a matriz de adjacência \emph{per se} \cite{drineas}. Essa metodologia atinge resultados significativamente melhores que o simples uso de um Naïve Bayes: para participantes com mais de 500 palavras de fala, a taxa de acerto relatada é de 73\% \cite{malouf-taking_sides}.
+%Em dois artigos \cite{malouf-taking_sides} e \cite{aaai-politcs}, o \emph{dataset} estudado é o \textbf{Politics}: um conjunto de debates políticos dos Estados Unidos. Os dois trabalhos visavam a classificar discursos de 185 participantes da discussão de acordo com suas orientações políticas: Esquerda ou Direita. Cada participante era representado por um único documento, resultante da concatenação de todas as suas falas nos debates. Aplicando um Naïve Bayes na coleção de documentos, as taxas de acerto obtidas foram de 60.37\% \cite{aaai-politics} e 63.59\% \cite{malouf-taking_sides}. A análise do \emph{dataset} indica que 62.2\% das falas de Esquerda mencionam trechos de falas de Direita; quanto às falas de Direita, 77.5\% delas mencionam falas de Esquerda \cite{aaai-politics}.
 
 %\begin{figure}[t]
 %  \centering % este comando é usado para centralizar a Figura

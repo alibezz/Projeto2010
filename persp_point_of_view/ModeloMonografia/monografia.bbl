@@ -70,6 +70,12 @@ ISBN 0471371246.}
   and model selection. In:  \emph{Proceedings of the 14th international joint
   conference on Artificial intelligence}. [S.l.: s.n.], 1995. p. 1137--1143.}
 
+\bibitem[Laver, Benoit e College 2003]{wordscores}
+\abntrefinfo{Laver, Benoit e College}{LAVER; BENOIT; COLLEGE}{2003}
+{LAVER, M.; BENOIT, K.; COLLEGE, T. Extracting policy positions from political
+  texts using words as data.
+\emph{American Political Science Review}, p. 311--331, 2003.}
+
 \bibitem[Lewis 1998]{naive-forty}
 \abntrefinfo{Lewis}{LEWIS}{1998}
 {LEWIS, D.~D. Naive (bayes) at forty: The independence assumption in
@@ -142,12 +148,6 @@ Disserta\c{c}\~ao (Mestrado) --- Pontificia Universidade Catolica do Rio de
 {PANG, B.; LEE, L. \emph{Opinion Mining and Sentiment Analysis}. [S.l.]:
   Foundations and Trends in Information Retrieval series. Now publishers,
   2008.}
-
-\bibitem[Polanyi e Zaenen 2004]{valence-shifters}
-\abntrefinfo{Polanyi e Zaenen}{POLANYI; ZAENEN}{2004}
-{POLANYI, L.; ZAENEN, A. Contextual valence shifters. In:  \emph{Proceedings of
-  the AAAI Spring Symposium on Exploring Attitude and Affect in Text: Theories
-  and Applications}. [S.l.: s.n.], 2004.}
 
 \bibitem[Ramage et al. 2009]{llda}
 \abntrefinfo{Ramage et al.}{RAMAGE et al.}{2009}

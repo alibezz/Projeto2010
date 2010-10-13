@@ -10,17 +10,27 @@
 \contentsline {section}{\numberline {2.5}\emph {Labeled-Latent Dirichlet Allocation} (L-LDA)}{21}
 \contentsline {chapter}{\numberline {3}Classifica\IeC {\c c}\IeC {\~a}o por perspectiva: revis\IeC {\~a}o e discuss\IeC {\~a}o}{23}
 \contentsline {section}{\numberline {3.1}Trabalhos Revisados}{24}
-\contentsline {subsection}{\numberline {3.1.1}\emph {Which side are you on? Identifying perspectives at the document and sentence levels}}{25}
-\contentsline {subsection}{\numberline {3.1.2}\emph {A preliminary investigation into sentiment analysis of informal political discourse}}{26}
-\contentsline {section}{\numberline {3.2}Experimentos com L-LDA e Na\IeC {\"\i }ve Bayes}{27}
-\contentsline {section}{\numberline {3.3}Conclus\IeC {\~o}es}{32}
-\contentsline {chapter}{\numberline {4}Estudo de caso: Perspectivas sobre o governo brasileiro}{35}
-\contentsline {section}{\numberline {4.1}Construindo um corpus para estudo}{35}
-\contentsline {section}{\numberline {4.2}Identificando perspectivas com um classificador Na\IeC {\"\i }ve Bayes}{42}
-\contentsline {section}{\numberline {4.3}Ilustrando a linguagem por perspectiva}{43}
-\contentsline {section}{\numberline {4.4}Conclus\IeC {\~o}es e estudos futuros}{47}
-\contentsline {chapter}{\numberline {5}Conclus\IeC {\~a}o}{48}
-\contentsline {section}{\numberline {5.1}Dificuldades encontradas}{48}
-\contentsline {section}{\numberline {5.2}Trabalhos futuros}{48}
-\contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Resultados experimentais}{49}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{50}
+\contentsline {subsection}{\numberline {3.1.1}Posicionamentos sobre o conflito Israel-Palestina}{25}
+\contentsline {subsection}{\numberline {3.1.2}Posicionamentos em um f\IeC {\'o}rum de discuss\IeC {\~a}o pol\IeC {\'\i }tica}{26}
+\contentsline {subsection}{\numberline {3.1.3}Posicionamentos em \emph {blogs} pol\IeC {\'\i }ticos}{27}
+\contentsline {subsection}{\numberline {3.1.4}Posicionamentos ideol\IeC {\'o}gicos no Senado dos Estados Unidos}{28}
+\contentsline {subsection}{\numberline {3.1.5}Posicionamentos sobre o Presidente Bush e a Guerra do Iraque}{28}
+\contentsline {subsection}{\numberline {3.1.6}Posicionamentos sobre a Pena de Morte}{28}
+\contentsline {subsection}{\numberline {3.1.7}Posicionamentos de congressistas sobre a legisla\IeC {\c c}\IeC {\~a}o dos Estados Unidos}{28}
+\contentsline {subsection}{\numberline {3.1.8}Posicionamentos em \emph {sites} de m\IeC {\'u}sica e pol\IeC {\'\i }tica}{28}
+\contentsline {subsection}{\numberline {3.1.9}Posicionamentos em debates \emph {online}}{28}
+\contentsline {subsection}{\numberline {3.1.10}An\IeC {\'a}lise de discursos pol\IeC {\'\i }ticos e suas reais ideologias}{28}
+\contentsline {subsection}{\numberline {3.1.11}An\IeC {\'a}lise da rela\IeC {\c c}\IeC {\~a}o entre a defesa de uma perspectiva e a escolha de palavras}{28}
+\contentsline {subsection}{\numberline {3.1.12}Compara\IeC {\c c}\IeC {\~o}es}{28}
+\contentsline {section}{\numberline {3.2}Experimentos com L-LDA e Na\IeC {\"\i }ve Bayes}{28}
+\contentsline {section}{\numberline {3.3}Conclus\IeC {\~o}es}{33}
+\contentsline {chapter}{\numberline {4}Estudo de caso: Perspectivas sobre o governo brasileiro}{36}
+\contentsline {section}{\numberline {4.1}Construindo um corpus para estudo}{36}
+\contentsline {section}{\numberline {4.2}Identificando perspectivas com um classificador Na\IeC {\"\i }ve Bayes}{43}
+\contentsline {section}{\numberline {4.3}Ilustrando a linguagem por perspectiva}{44}
+\contentsline {section}{\numberline {4.4}Conclus\IeC {\~o}es e estudos futuros}{48}
+\contentsline {chapter}{\numberline {5}Conclus\IeC {\~a}o}{49}
+\contentsline {section}{\numberline {5.1}Dificuldades encontradas}{49}
+\contentsline {section}{\numberline {5.2}Trabalhos futuros}{49}
+\contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Resultados experimentais}{50}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{51}

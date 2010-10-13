@@ -5,7 +5,9 @@ Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: abnt-options.bib
 Database file #2: monografia.bib
 Warning--I didn't find a database entry for "aaai2010"
-Warning--I didn't find a database entry for "mail-resnik"
+Warning--I didn't find a database entry for "alice-oh"
+Warning--I didn't find a database entry for "email"
+Warning--I didn't find a database entry for "jiang-argamon"
 Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
 | Estilo bibliografico abnt-alf.bst versao 1.53           |
@@ -15,43 +17,43 @@ Reallocated wiz_functions (elt_size=4) to 9000 items from 6000.
 +---------------------------------------------------------+
 You've used 30 entries,
             6522 wiz_defined-function locations,
-            1320 strings with 13931 characters,
-and the built_in function-call counts, 24941 in all, are:
-= -- 2005
-> -- 907
-< -- 21
-+ -- 379
-- -- 277
-* -- 1767
-:= -- 3337
-add.period$ -- 121
+            1323 strings with 13936 characters,
+and the built_in function-call counts, 25206 in all, are:
+= -- 2023
+> -- 926
+< -- 22
++ -- 386
+- -- 282
+* -- 1794
+:= -- 3364
+add.period$ -- 120
 call.type$ -- 31
-change.case$ -- 304
+change.case$ -- 308
 chr.to.int$ -- 42
 cite$ -- 29
-duplicate$ -- 1150
-empty$ -- 1990
-format.name$ -- 1310
-if$ -- 6019
+duplicate$ -- 1164
+empty$ -- 1989
+format.name$ -- 1333
+if$ -- 6073
 int.to.chr$ -- 0
 int.to.str$ -- 0
-missing$ -- 536
-newline$ -- 142
+missing$ -- 539
+newline$ -- 143
 num.names$ -- 147
-pop$ -- 710
+pop$ -- 716
 preamble$ -- 1
-purify$ -- 117
+purify$ -- 118
 quote$ -- 0
-skip$ -- 1401
+skip$ -- 1410
 stack$ -- 1
-substring$ -- 931
-swap$ -- 559
-text.length$ -- 17
+substring$ -- 963
+swap$ -- 572
+text.length$ -- 18
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 21
+type$ -- 20
 warning$ -- 0
-while$ -- 211
+while$ -- 214
 width$ -- 0
 write$ -- 458
-(There were 2 warnings)
+(There were 4 warnings)
