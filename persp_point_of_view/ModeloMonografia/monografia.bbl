@@ -35,6 +35,12 @@ ISBN 0387310738.}
 Dispon{\'\i}vel em:
   $<$http://www.comscore.com/press/release.asp?press=1928$>$.}
 
+\bibitem[Dave, Lawrence e Pennock 2003]{peanut-gallery}
+\abntrefinfo{Dave, Lawrence e Pennock}{DAVE; LAWRENCE; PENNOCK}{2003}
+{DAVE, K.; LAWRENCE, S.; PENNOCK, D.~M. Mining the peanut gallery: Opinion
+  extraction and semantic classification of product reviews. In:  \emph{In
+  Proceedings of WWW}. [S.l.: s.n.], 2003. p. 519--528.}
+
 \bibitem[Durant e Smith 2006]{durant-smith}
 \abntrefinfo{Durant e Smith}{DURANT; SMITH}{2006}
 {DURANT, K.~T.; SMITH, M.~D. Predicting the political sentiment of web log
@@ -176,6 +182,13 @@ Tese (Doutorado) --- Massachusetts Institute of Technology (MIT), 2008.}
 {PANG, B.; LEE, L. \emph{Opinion Mining and Sentiment Analysis}. [S.l.]:
   Foundations and Trends in Information Retrieval series. Now publishers,
   2008.}
+
+\bibitem[Pang, Lee e Vaithyanathan 2002]{thumbs-up}
+\abntrefinfo{Pang, Lee e Vaithyanathan}{PANG; LEE; VAITHYANATHAN}{2002}
+{PANG, B.; LEE, L.; VAITHYANATHAN, S. Thumbs up? sentiment classification using
+  machine learning techniques. In:  \emph{In Proceedings of the Conference on
+  Empirical Methods in Natural Language Processing (EMNLP)}. [S.l.: s.n.],
+  2002. p. 76--86.}
 
 \bibitem[Ramage et al. 2009]{llda}
 \abntrefinfo{Ramage et al.}{RAMAGE et al.}{2009}
