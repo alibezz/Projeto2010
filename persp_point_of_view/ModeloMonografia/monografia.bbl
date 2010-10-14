@@ -10,6 +10,13 @@
 {AZEVEDO, R. \emph{O pais dos petralhas}. [S.l.]: Record, 2008.
 ISBN 978-85-01-08232-9.}
 
+\bibitem[Bansal, Cardie e Lee 2008]{disagree}
+\abntrefinfo{Bansal, Cardie e Lee}{BANSAL; CARDIE; LEE}{2008}
+{BANSAL, M.; CARDIE, C.; LEE, L. The power of negative thinking: Exploiting
+  label disagreement in the min-cut classification framework. In:
+  \emph{Proceedings of the International Conference on Computational
+  Linguistics (Poster paper)}. [S.l.: s.n.], 2008.}
+
 \bibitem[Bishop 2006]{bishop}
 \abntrefinfo{Bishop}{BISHOP}{2006}
 {BISHOP, C. \emph{Pattern Recognition and Machine Learning}. [S.l.]: Springer,
@@ -47,6 +54,13 @@ Dispon{\'\i}vel em:
   Wiley-Interscience, 2000.
 ISBN 0471371246.}
 
+\bibitem[Greene e Resnik 2009]{greene}
+\abntrefinfo{Greene e Resnik}{GREENE; RESNIK}{2009}
+{GREENE, S.; RESNIK, P. More than words: Syntactic packaging and implicit
+  sentiment. In:  \emph{Proceedings of Human Language Technologies: The 2009
+  Annual Conference of the North American Chapter of the Association for
+  Computational Linguistics}. [S.l.: s.n.], 2009. p. 503--511.}
+
 \bibitem[Griffiths e Steyvers 2004]{pnas}
 \abntrefinfo{Griffiths e Steyvers}{GRIFFITHS; STEYVERS}{2004}
 {GRIFFITHS, T.~L.; STEYVERS, M. Finding scientific topics.
@@ -58,6 +72,13 @@ ISBN 0471371246.}
 {HIRST, G.; RIABININ, Y.; GRAHAM, J. Party status as a confound in the
   automatic classification of political speech by ideology. In:
   \emph{Proceedings of JADT 2010}. [S.l.: s.n.], 2010. p. 173--182.}
+
+\bibitem[Jiang e Argamon 2008]{jiang-argamon}
+\abntrefinfo{Jiang e Argamon}{JIANG; ARGAMON}{2008}
+{JIANG, M.; ARGAMON, S. Political leaning categorization by exploring
+  subjectivities in political blogs. In:  \emph{Proceedings of the 4th
+  International Conference on Data Mining (DMIN 2008)}. [S.l.: s.n.], 2008. p.
+  647--653.}
 
 \bibitem[Klebanov, Beigman e Diermeier 2010]{klebanov}
 \abntrefinfo{Klebanov, Beigman e Diermeier}{KLEBANOV; BEIGMAN; DIERMEIER}{2010}
@@ -142,6 +163,13 @@ Disserta\c{c}\~ao (Mestrado) --- Carnegie Mellon University, 2001.}
 \emph{Aprendizado de Maquina para o Problema de Sentiment Classification}.
 Disserta\c{c}\~ao (Mestrado) --- Pontificia Universidade Catolica do Rio de
   Janeiro, Rio de Janeiro, 2006.}
+
+\bibitem[Oh 2008]{alice-oh}
+\abntrefinfo{Oh}{OH}{2008}
+{OH, A.
+\emph{Generating multiple summaries based on computational model of
+  perspective}.
+Tese (Doutorado) --- Massachusetts Institute of Technology (MIT), 2008.}
 
 \bibitem[Pang e Lee 2008]{omsa}
 \abntrefinfo{Pang e Lee}{PANG; LEE}{2008}
