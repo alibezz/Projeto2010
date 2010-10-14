@@ -75,5 +75,5 @@ Testa 4: esses baselines, o método (OpPr) e a versão com discourse information
 and Cardie (2008) work on opinion co-reference;
 however, we need to identify the specific target". Pragmatic opinions, que usam "it's worth it", por exemplo. Sem a co-reference pra assimilar que "it" tá com algo anterior, fica foda resolver.
 
-A taxa de acerto dos baselines é assustadoramente ruim. E 60 e poucos% ainda é pouco.
+A taxa de acerto dos baselines é assustadoramente ruim. E 60 e poucos% ainda é pouco. O artigo D09-1120 mostraa uma forma de catar targets mais interessante doq esse acochambre com o Stanford Parser.
 
