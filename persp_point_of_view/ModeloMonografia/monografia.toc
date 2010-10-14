@@ -12,16 +12,16 @@
 \contentsline {section}{\numberline {3.1}Trabalhos Revisados}{24}
 \contentsline {subsection}{\numberline {3.1.1}Trabalhos que exploram contagem/presen\IeC {\c c}a de palavras ou varia\IeC {\c c}\IeC {\~o}es}{25}
 \contentsline {subsection}{\numberline {3.1.2}Trabalhos que exploram outras caracter\IeC {\'\i }sticas dos documentos}{28}
-\contentsline {subsection}{\numberline {3.1.3}Compara\IeC {\c c}\IeC {\~o}es}{32}
-\contentsline {section}{\numberline {3.2}Experimentos com L-LDA e Na\IeC {\"\i }ve Bayes}{33}
-\contentsline {section}{\numberline {3.3}Conclus\IeC {\~o}es}{38}
-\contentsline {chapter}{\numberline {4}Estudo de caso: Perspectivas sobre o governo brasileiro}{41}
-\contentsline {section}{\numberline {4.1}Construindo um corpus para estudo}{41}
-\contentsline {section}{\numberline {4.2}Identificando perspectivas com um classificador Na\IeC {\"\i }ve Bayes}{48}
-\contentsline {section}{\numberline {4.3}Ilustrando a linguagem por perspectiva}{49}
-\contentsline {section}{\numberline {4.4}Conclus\IeC {\~o}es e estudos futuros}{53}
-\contentsline {chapter}{\numberline {5}Conclus\IeC {\~a}o}{54}
-\contentsline {section}{\numberline {5.1}Dificuldades encontradas}{54}
-\contentsline {section}{\numberline {5.2}Trabalhos futuros}{54}
-\contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Resultados experimentais}{55}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{56}
+\contentsline {subsection}{\numberline {3.1.3}An\IeC {\'a}lise comparativa}{32}
+\contentsline {section}{\numberline {3.2}Discuss\IeC {\~a}o sobre o uso de palavras e a classifica\IeC {\c c}\IeC {\~a}o baseada em suas contagens}{33}
+\contentsline {chapter}{\numberline {4}Estudo de caso: Perspectivas sobre o governo brasileiro}{40}
+\contentsline {section}{\numberline {4.1}Construindo um corpus para estudo}{40}
+\contentsline {section}{\numberline {4.2}Identificando perspectivas com um classificador Na\IeC {\"\i }ve Bayes}{47}
+\contentsline {section}{\numberline {4.3}Ilustrando a linguagem por perspectiva}{48}
+\contentsline {section}{\numberline {4.4}Conclus\IeC {\~o}es e estudos futuros}{52}
+\contentsline {chapter}{\numberline {5}Conclus\IeC {\~a}o}{53}
+\contentsline {section}{\numberline {5.1}Conclus\IeC {\~o}es}{53}
+\contentsline {section}{\numberline {5.2}Dificuldades encontradas}{55}
+\contentsline {section}{\numberline {5.3}Trabalhos futuros}{55}
+\contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Resultados experimentais}{56}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{57}
