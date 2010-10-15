@@ -1,27 +1,24 @@
 \select@language {brazil}
-\contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{8}
-\contentsline {section}{\numberline {1.1}Objetivo}{11}
-\contentsline {section}{\numberline {1.2}Trabalhos Relacionados}{11}
-\contentsline {chapter}{\numberline {2}T\IeC {\'e}cnicas b\IeC {\'a}sicas}{13}
-\contentsline {section}{\numberline {2.1}Na\IeC {\"\i }ve Bayes}{13}
-\contentsline {section}{\numberline {2.2}\emph {Support Vector Machines} (SVMs)}{17}
-\contentsline {section}{\numberline {2.3}M\IeC {\'e}tricas para mensurar o desempenho dos classificadores}{19}
-\contentsline {section}{\numberline {2.4}Valida\IeC {\c c}\IeC {\~a}o cruzada de \ensuremath {k} dobras}{20}
-\contentsline {section}{\numberline {2.5}\emph {Labeled-Latent Dirichlet Allocation} (L-LDA)}{21}
-\contentsline {chapter}{\numberline {3}Classifica\IeC {\c c}\IeC {\~a}o por perspectiva: revis\IeC {\~a}o e discuss\IeC {\~a}o}{23}
-\contentsline {section}{\numberline {3.1}Trabalhos Revisados}{24}
-\contentsline {subsection}{\numberline {3.1.1}Trabalhos que exploram contagem/presen\IeC {\c c}a de palavras ou varia\IeC {\c c}\IeC {\~o}es}{25}
-\contentsline {subsection}{\numberline {3.1.2}Trabalhos que exploram outras caracter\IeC {\'\i }sticas dos documentos}{28}
-\contentsline {subsection}{\numberline {3.1.3}An\IeC {\'a}lise comparativa}{32}
-\contentsline {section}{\numberline {3.2}Discuss\IeC {\~a}o sobre o uso de palavras e a classifica\IeC {\c c}\IeC {\~a}o baseada em suas contagens}{33}
-\contentsline {chapter}{\numberline {4}Estudo de caso: Perspectivas sobre o governo brasileiro}{40}
-\contentsline {section}{\numberline {4.1}Construindo um corpus para estudo}{41}
-\contentsline {section}{\numberline {4.2}Identificando perspectivas com um classificador Na\IeC {\"\i }ve Bayes}{47}
-\contentsline {section}{\numberline {4.3}Ilustrando o uso de palavras por perspectiva}{49}
-\contentsline {chapter}{\numberline {5}Conclus\IeC {\~a}o}{53}
-\contentsline {section}{\numberline {5.1}Conclus\IeC {\~o}es}{53}
-\contentsline {section}{\numberline {5.2}Conclus\IeC {\~o}es e estudos futuros}{55}
-\contentsline {section}{\numberline {5.3}Dificuldades encontradas}{56}
-\contentsline {section}{\numberline {5.4}Trabalhos futuros}{56}
-\contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Resultados experimentais}{57}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{58}
+\contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{7}
+\contentsline {section}{\numberline {1.1}Objetivo}{10}
+\contentsline {section}{\numberline {1.2}Trabalhos Relacionados}{10}
+\contentsline {chapter}{\numberline {2}T\IeC {\'e}cnicas b\IeC {\'a}sicas}{12}
+\contentsline {section}{\numberline {2.1}Na\IeC {\"\i }ve Bayes}{12}
+\contentsline {section}{\numberline {2.2}\emph {Support Vector Machines} (SVMs)}{16}
+\contentsline {section}{\numberline {2.3}M\IeC {\'e}tricas para mensurar o desempenho dos classificadores}{18}
+\contentsline {section}{\numberline {2.4}Valida\IeC {\c c}\IeC {\~a}o cruzada de \ensuremath {k} dobras}{19}
+\contentsline {section}{\numberline {2.5}\emph {Labeled-Latent Dirichlet Allocation} (L-LDA)}{20}
+\contentsline {chapter}{\numberline {3}Classifica\IeC {\c c}\IeC {\~a}o por perspectiva: revis\IeC {\~a}o e discuss\IeC {\~a}o}{22}
+\contentsline {section}{\numberline {3.1}Trabalhos Revisados}{23}
+\contentsline {subsection}{\numberline {3.1.1}Trabalhos que exploram contagem/presen\IeC {\c c}a de palavras ou varia\IeC {\c c}\IeC {\~o}es}{24}
+\contentsline {subsection}{\numberline {3.1.2}Trabalhos que exploram outras caracter\IeC {\'\i }sticas dos documentos}{27}
+\contentsline {subsection}{\numberline {3.1.3}An\IeC {\'a}lise comparativa}{31}
+\contentsline {section}{\numberline {3.2}Discuss\IeC {\~a}o sobre o uso de palavras e a classifica\IeC {\c c}\IeC {\~a}o baseada em suas contagens}{32}
+\contentsline {chapter}{\numberline {4}Estudo de caso: Perspectivas sobre o governo brasileiro}{39}
+\contentsline {section}{\numberline {4.1}Construindo um corpus para estudo}{40}
+\contentsline {section}{\numberline {4.2}Identificando perspectivas com um classificador Na\IeC {\"\i }ve Bayes}{46}
+\contentsline {section}{\numberline {4.3}Ilustrando o uso de palavras por perspectiva}{48}
+\contentsline {chapter}{\numberline {5}Conclus\IeC {\~a}o}{52}
+\contentsline {section}{\numberline {5.1}Dificuldades encontradas}{54}
+\contentsline {section}{\numberline {5.2}Trabalhos futuros}{55}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{56}

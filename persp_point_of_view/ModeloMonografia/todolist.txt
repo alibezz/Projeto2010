@@ -7,6 +7,7 @@ PADRONIZAR NUMERO DE PALAVRAS NOS CAPITULOS Q USAM L-LDA! => 10
 PADRONIZAR SE FALA SÓ DE TAXA DE ACERTO OU SE TB DISCUTE UM POUCO PRECISÃO POR CLASSE E TALZ.
 TIRAR O .COM DOS SITES, DEIXANDO SÓ NO RODAPÉ!
 Explicar o q P(a|b) quer dizer.
+referenciar capitulo 2 na primeira vez q fala de algum conceito básico always.
 =======
 Glossário
 explicar oq é independência condicional. 
