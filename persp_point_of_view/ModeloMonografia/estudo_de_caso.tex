@@ -10,7 +10,7 @@ Muitos dos trabalhos revisados neste projeto analisam documentos que tratam de p
 
 %Os artigos escolhidos para este estudo foram extraídos de colunas, \emph{blogs} e \emph{sites} políticos mantidos por jornalistas de notoriedade nacional. A coleta de artigos contidos em \emph{blogs} escritos por cidadãos comuns também foi cogitada - entretanto, como eles são pouco conhecidos, comentados e divulgados, essa opção exigiria um esforço de análise manual dos \emph{posts} que foge ao escopo deste projeto. Além disso, uma vantagem em focar o estudo em material publicado por jornalistas conhecidos é poder correlacionar, posteriormente, os resultados obtidos a investigações sobre a formação de opinião na mídia brasileira \emph{online} - tanto na alternativa quanto na tradicional. A seleção dos veículos para este estudo de caso resultou do consenso entre a autora desta monografia e dois jornalistas \textbf{COMO CITÁ-LOS, DIZER SEUS NOMES?}. O critério básico para as escolhas foi a defesa clara de um ponto de vista sobre o governo Lula e/ou a sucessão presidencial de 2010. 
 
-As próximas seções deste capítulo se estruturam da seguinte forma: na seção \ref{estudo:sec1}, a construção do corpus é apresentada - desde a seleção dos veículos até a definição dos pontos de vista explorados; na seção \ref{estudo:sec2}, experimentos com um classificador Naïve Bayes são conduzidos para, assim como em outros trabalhos revisados neste projeto, se classificar artigos de acordo com suas perspectivas; na seção \ref{estudo:sec3}, o modelo de tópicos L-LDA é aplicado ao corpus, evidenciando o uso de palavras por artigos com posicionamentos diferentes. 
+As próximas seções deste capítulo se estruturam da seguinte forma: na seção \ref{estudo:sec1}, a construção do corpus é apresentada - desde a seleção dos veículos até a definição dos pontos de vista explorados; na seção \ref{estudo:sec2}, experimentos com um classificador Naïve Bayes\footnote{Esse classificador é apresentado no Capítulo \ref{basicos}.} são conduzidos para, assim como em outros trabalhos revisados neste projeto, se classificar artigos de acordo com suas perspectivas; na seção \ref{estudo:sec3}, o modelo de tópicos L-LDA\footnote{Esse modelo é apresentado no Capítulo \ref{basicos}.} é aplicado ao corpus, evidenciando o uso de palavras por artigos com posicionamentos diferentes. 
 
 % posicionamentos é analisada  
 %Por serem muito lidos, e defenderem perspectivas claras nos textos que publicam, estes jornalistas têm o poder de influenciar muitos eleitores brasileiros. %análises  % mas requereria muito mais esforço de análise do que o uso exclusivo de documentos  %Lula é minha anta Dois jornalistas
@@ -213,7 +213,9 @@ O número de artigos coletados em cada veículo varia bastante, como pode ser ob
 \section{Identificando perspectivas com um classificador Naïve Bayes}
 \label{estudo:sec2}
 
-O primeiro estudo conduzido com esse corpus consiste na classificação dos artigos de acordo com as perspectivas pró-oposição e pró-situação. O classificador Naïve Bayes foi escolhido pelos mesmos motivos indicados no Capítulo \ref{chap3}, na seção \ref{freqs:experim}. O classificador baseia-se apenas nas contagens de palavras dos documentos para definir suas classes. Os motivos para a escolha por contagens de palavras também são os mesmos apontados no Capítulo \ref{chap3}, na seção \ref{freqs:experim}. 
+O primeiro estudo conduzido com esse corpus consiste na classificação dos artigos de acordo com as perspectivas pró-oposição e pró-situação. O classificador Naïve Bayes foi escolhido pelos mesmos motivos indicados no Capítulo \ref{chap3}, na seção \ref{freqs:experim}. O classificador baseia-se apenas nas contagens de palavras dos documentos para definir suas classes. Os motivos para essa escolha foram: popularidade do uso nos trabalhos revisados no Capítulo \ref{chap3}, o que indica essa escolha como a mais natural; simplicidade de computação, dado que essa escolha envolve apenas a soma das ocorrências de palavras; fácil adaptação a qualquer língua, em particular a portuguesa. 
+
+% por contagens de palavras também são os mesmos apontados no Capítulo \ref{chap3}, na seção \ref{freqs:experim}. 
 
 Essas escolhas se mostraram adequadas para o problema: a taxa de acerto obtida na classificação foi de 89.43\%. Assim como em outros artigos revisados no Capítulo \ref{chap3} \cite{lin-et-al2006} \cite{aaai-politics} \cite{klebanov}, esse valor foi obtido via validação cruzada de dez dobras. A precisão, rechamada e métrica F1 associadas a cada classe (perspectiva) constam na Tabela 4.2. %tabela mais precisa %precisao 0 0,915979712 precisao 1 0,877579312 % rechamada 0 0,870754717 1 0,917924528  %f1 0 0,891837888 1 0,896484354
 
@@ -255,26 +257,32 @@ Os artigos escolhidos para este corpus são compostos, muitas vezes, de textos d
 \label{estudo:sec3}
 %Onde se explica o uso do L-LDA, o overlap de palavras, mostra-se snippets e talz.
 
-A análise das principais palavras enfocadas por cada perspectiva amplia a compreensão dos resultados obtidos na seção anterior. O motivo para isso é  que a classificação em si se baseia nesses usos de palavras, através de suas contagens. Neste sentido, portanto, assim como no Capítulo \ref{chap3}, o modelo generativo L-LDA foi aplicado ao corpus. Cada artigo foi associado a dois tópicos: um genérico, igual para todos eles, e um referente à sua perspectiva (pró-oposição ou pró-situação). Há, portanto, três tópicos diferentes nesta aplicação. O uso desses tópicos evidencia quais palavras são mais enfocadas por cada perspectiva (pró-oposição e pró-situação) e quais são utilizadas de forma muito semelhante em todo o corpus (genérico).
+A análise das principais palavras enfocadas por cada perspectiva amplia a compreensão dos resultados obtidos na seção anterior. O motivo para isso é  que a classificação em si se baseia nesses usos de palavras, através de suas contagens. Neste sentido, portanto, assim como no Capítulo \ref{chap3}, o modelo generativo L-LDA foi aplicado ao corpus. Cada artigo foi associado a dois tópicos: um neutro, igual para todos eles, e um referente à sua perspectiva (pró-oposição ou pró-situação). Há, portanto, três tópicos diferentes nesta aplicação. O uso desses tópicos evidencia quais palavras são mais enfocadas por cada perspectiva (pró-oposição e pró-situação). % e quais são utilizadas de forma muito semelhante em todo o corpus (genérico).
 
-A Tabela 4.3 elenca as dez palavras mais frequentemente associadas a cada tópico. Em alguns casos, essas palavras coincidem em dois ou mais tópicos. Se o genérico não estiver presente, isso significa que as duas perspectivas deram muito destaque a essa palavra. Em caso contrário, tem-se que a palavra, além de ser muito enfocada por pelo menos uma das duas perspectivas, é também uma das mais comuns no corpus.
+A Tabela 4.3 elenca as dez palavras mais frequentemente associadas a cada perspectiva. O tópico neutro não será analisado, tendo sido utilizado apenas para auxiliar na filtragem das palavras mais comuns do corpus. Em alguns casos, essas palavras coincidem nas duas perspectivas. Isso significa que ambas deram muito destaque a elas.
+
+%em dois ou mais tópicos. Se o genérico não estiver presente, i
+
+%essa palavra. Em caso contrário, tem-se que a palavra, além de ser muito enfocada por pelo menos uma das duas perspectivas, é também uma das mais comuns no corpus.
 
 \begin{table}[h]
 \centering
 \begin{tabular}{| l | p{10cm} | }
 \hline
 \textbf{Tópico} & \textbf{Palavras} \\ \hline
-\textbf{Genérico} &  governo, brasil, serra, estado, lula, poder, presidente, nacional, vez, campanha \\ \hline
 \textbf{Pró-situação} & serra, dilma, lula, psdb, presidente, pt, candidato, folha, tucano, eleições\\ \hline
 \textbf{Pró-oposição} & dilma, lula, presidente, brasil, rousseff, pt, gente, candidata, mundo, candidato \\ \hline
 \end{tabular}
 \label{tab:palavras}
-\caption{As dez palavras mais frequentemente associadas aos tópicos pró-situação, pró-oposição e genérico, em ordem e excluindo-se artigos, preposições, conjunções, advérbios e pronomes pessoais.}
+\caption{As dez palavras mais frequentemente associadas aos tópicos pró-situação e pró-oposição, em ordem e excluindo-se artigos, preposições, conjunções, advérbios e pronomes pessoais.}
 \end{table}
+
+%\textbf{Genérico} &  governo, brasil, serra, estado, lula, poder, presidente, nacional, vez, campanha \\ \hline
+
 
 A Tabela 4.3 indica que as palavras enfocadas por perspectivas diferentes são as mesmas em alguns casos, diferindo apenas na forma como são enfatizadas. Em outras palavras, a ordem das palavras nessa tabela corresponde, diretamente, ao quanto elas se associaram a cada tópico. Os artigos pró-oposição, por exemplo, dão muito destaque às palavras \emph{lula} e \emph{dilma}; os pró-situação, por sua vez, também enfatizam estas palavras, mas dão um destaque maior a \emph{serra}, candidato à presidência pelo PSDB. A associação de palavras semelhantes aos tópicos pró-oposição e pró-situação advém do fato de que os artigos compartilham um tema geral - o governo brasileiro - e, consequentemente, o mesmo vocabulário básico. É diferente do que acontece quando os tópicos correspondem a temas diferentes em vez de perspectivas, como pode ser visto no trabalho de Ramage et al. sobre \emph{tags} de \emph{blogs} \cite{llda}.
 
-Para visualizar melhor a ênfase dada às palavras na Tabela 4.3, elas foram processadas pelo \emph{software} wordle\footnote{http://wordle.net}, resultando nas figuras \ref{situacao}, \ref{oposicao} e \ref{generico}. O tamanho das palavras nas imagens está relacionado ao número de vezes que elas se associam a cada tópico. As imagens \ref{situacao} e \ref{oposicao} evidenciam o destaque dado aos políticos Lula, Dilma Rousseff e José Serra nos artigos analisados. A imagem \ref{generico} dá certo destaque a Lula e José Serra, mas também enfatiza outros termos, como \emph{governo} e \emph{brasil}, relacionados mais genericamente à temática dos artigos: a política brasileira.
+Para visualizar melhor a ênfase dada às palavras na Tabela 4.3, elas foram processadas pelo \emph{software} wordle\footnote{http://wordle.net}, resultando nas figuras \ref{situacao} e \ref{oposicao}. O tamanho das palavras nas imagens está relacionado ao número de vezes que elas se associam a cada tópico. As imagens evidenciam o destaque dado aos políticos Lula, Dilma Rousseff e José Serra nos artigos analisados. %A imagem \ref{generico} dá certo destaque a Lula e José Serra, mas também enfatiza outros termos, como \emph{governo} e \emph{brasil}, relacionados mais genericamente à temática dos artigos: a política brasileira.
 
 \begin{figure}[h]
   \centering % este comando é usado para centralizar a Figura
@@ -292,12 +300,12 @@ Para visualizar melhor a ênfase dada às palavras na Tabela 4.3, elas foram pro
 
 
 
-\begin{figure}[h]
-  \centering % este comando é usado para centralizar a Figura
-  \includegraphics[width=12.5cm, height=6.5cm]{generico.png}\\
-  \caption{Representação gráfica para as dez palavras associadas ao tópico genérico na Tabela 4.3.}
-  \label{generico}
-\end{figure}
+%\begin{figure}[h]
+%  \centering % este comando é usado para centralizar a Figura
+%  \includegraphics[width=12.5cm, height=6.5cm]{generico.png}\\
+%  \caption{Representação gráfica para as dez palavras associadas ao tópico genérico na Tabela 4.3.}
+%  \label{generico}
+%\end{figure}
 
 Essas figuras também sugerem que os artigos pró-situação dão mais enfoque a personalidades relacionadas à situação, como Lula e Dilma Rousseff, do que os pró-oposição a personalidades da oposição, como José Serra ou Marina Silva. Essa última, inclusive, candidata à presidência pelo PV, não foi mencionada nas palavras listadas na Tabela 4.3. Essas duas observações evidenciam que os veículos, no período analisado, concentraram seus antagonismos em personalidades políticas dos partidos PT, como Lula e Dilma Rousseff, e PSDB, como José Serra.
 
