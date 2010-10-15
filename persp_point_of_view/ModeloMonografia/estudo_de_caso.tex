@@ -6,24 +6,14 @@
 
 %Por ser um ano eleitoral, a
 
-Muitos dos trabalhos revisados neste projeto analisam documentos que tratam de política. Em particular, boa parte deles estuda textos relacionados a governos federais - quer sejam discussões entre os próprios governantes, como nos estudos de Thomas et al. \cite{get-out-the-vote} ou Hirst et al. \cite{hirst-et-al}, quer sejam artigos opinativos escritos por cidadãos ou especialistas, como nos artigos de Mullen e Malouf \cite{aaai-politics} \cite{malouf-taking_sides}. Considerando essa tendência, e o fato de que 2010 é ano de eleições para presidente no Brasil, decidiu-se realizar um estudo de caso que aproveitasse a abundância de artigos opinativos, disponíveis na \emph{Web}, que tratam do governo Lula e da sucessão presidencial. A ideia é construir um corpus com alguns desses documentos e investigar suas perspectivas automaticamente, classificando-os de acordo com seus posicionamentos e analisando, de forma subjetiva, as palavras por eles enfocadas.
+Muitos dos trabalhos revisados neste projeto analisam documentos que tratam de política. Em particular, boa parte deles estuda textos relacionados a governos federais - quer sejam discussões entre os próprios governantes, como nos estudos de \textbf{Thomas, Pang e Lee} \cite{get-out-the-vote} ou \textbf{Hirst, Riabinin e Graham} \cite{hirst-et-al}, quer sejam artigos escritos por cidadãos ou especialistas, como nos artigos de \textbf{Mullen e Malouf}\footnote{Todos os trabalhos mencionados nesta sentença foram revisados no Capítulo \ref{chap3}.} \cite{aaai-politics} \cite{malouf-taking_sides}. Considerando essa tendência, e o fato de que 2010 é ano de eleições para presidente no Brasil, decidiu-se realizar um estudo de caso que aproveita a abundância de artigos, disponíveis na \emph{Web}, sobre o governo Lula e da sucessão presidencial. A ideia é construir um corpus com alguns desses documentos e investigar suas perspectivas automaticamente, classificando-os de acordo com seus posicionamentos e analisando, de forma subjetiva, as palavras por eles enfocadas. É válido ressaltar que não foi encontrado nenhum outro trabalho, em português, que classifique documentos de acordo com seus pontos de vista.
 
 %Os artigos escolhidos para este estudo foram extraídos de colunas, \emph{blogs} e \emph{sites} políticos mantidos por jornalistas de notoriedade nacional. A coleta de artigos contidos em \emph{blogs} escritos por cidadãos comuns também foi cogitada - entretanto, como eles são pouco conhecidos, comentados e divulgados, essa opção exigiria um esforço de análise manual dos \emph{posts} que foge ao escopo deste projeto. Além disso, uma vantagem em focar o estudo em material publicado por jornalistas conhecidos é poder correlacionar, posteriormente, os resultados obtidos a investigações sobre a formação de opinião na mídia brasileira \emph{online} - tanto na alternativa quanto na tradicional. A seleção dos veículos para este estudo de caso resultou do consenso entre a autora desta monografia e dois jornalistas \textbf{COMO CITÁ-LOS, DIZER SEUS NOMES?}. O critério básico para as escolhas foi a defesa clara de um ponto de vista sobre o governo Lula e/ou a sucessão presidencial de 2010. 
 
-As próximas seções deste capítulo se estruturam da seguinte forma: na seção \ref{estudo:sec1}, a construção do corpus é apresentada - desde a seleção dos veículos até o pré-processamento dos artigos; na seção \ref{estudo:sec2}, experimentos com um classificador Naïve Bayes são conduzidos para, assim como em outros trabalhos revisados para este projeto, se classificar artigos de acordo com suas perspectivas; na seção \ref{estudo:sec3}, o modelo de tópicos L-LDA é aplicado ao corpus, evidenciando aspectos da linguagem explorada por artigos com posicionamentos diferentes; por fim, na seção \ref{estudo:sec4}, são apresentadas conclusões sobre o estudo e possíveis extensões para ele. % posicionamentos é analisada  
+As próximas seções deste capítulo se estruturam da seguinte forma: na seção \ref{estudo:sec1}, a construção do corpus é apresentada - desde a seleção dos veículos até a definição dos pontos de vista explorados; na seção \ref{estudo:sec2}, experimentos com um classificador Naïve Bayes são conduzidos para, assim como em outros trabalhos revisados neste projeto, se classificar artigos de acordo com suas perspectivas; na seção \ref{estudo:sec3}, o modelo de tópicos L-LDA é aplicado ao corpus, evidenciando o uso de palavras por artigos com posicionamentos diferentes. 
+
+% posicionamentos é analisada  
 %Por serem muito lidos, e defenderem perspectivas claras nos textos que publicam, estes jornalistas têm o poder de influenciar muitos eleitores brasileiros. %análises  % mas requereria muito mais esforço de análise do que o uso exclusivo de documentos  %Lula é minha anta Dois jornalistas
-
-%algo decisivo para a escolha dos veículos em que escrevem
-
-%o que tornou a escolha deste tipo de veículo mais conveniente do que a busca e análise 
-
-%O corpus deste estudo é composto de artigos escritos para colunas de jornais e revistas ou para \emph{sites} sobre política. São textos de caráter eminentemente opinativo, que diferem de notícias tanto pela finalidade - \textbf{blibli} - quanto pela linguagem - \textbf{blabla}. 
-
-
-
-%dos principais candidatos à sucessão presidencial - Dilma Rousseff, pelo PT, José Serra, pelo PSDB, e Marina Silva, pelo PV\footnote{Na data em que esta passagem foi escrita, 16/09/2010, a pesquisa sobre intenções de voto mais recente, divulgada pelo CNT/Sensus em 14/09/2010, informou que a candidata do PT possuía 50,5\% das intenções contra 26,4\% do candidato do PSDB e 8,9\% da candidata do PV.} - disponíveis na \emph{Web}.
-
-%analisam as perspectivas contidas em documentos sobre governos federais
 
 \section{Construindo um corpus para estudo}
 \label{estudo:sec1}
@@ -32,20 +22,13 @@ As próximas seções deste capítulo se estruturam da seguinte forma: na seçã
 
 Os artigos escolhidos para este estudo foram extraídos de colunas, \emph{blogs} e \emph{sites} políticos mantidos por jornalistas de notoriedade nacional. A coleta de \emph{posts} de \emph{blogs} escritos por cidadãos comuns também foi cogitada - entretanto, como eles são pouco conhecidos, comentados e divulgados, essa opção exigiria um esforço de análise manual dos \emph{posts} que foge ao escopo deste projeto. Além disso, uma vantagem em focar o estudo em material publicado por jornalistas conhecidos é poder correlacionar, posteriormente, os resultados obtidos a investigações sobre a formação de opinião na mídia brasileira \emph{online} - tanto na alternativa quanto na tradicional. 
 
-A seleção dos veículos para este estudo de caso resultou do consenso entre a autora desta monografia e dois jornalistas \textbf{COMO CITÁ-LOS, DIZER SEUS NOMES?}. O critério básico para as escolhas foi a defesa clara de um ponto de vista sobre o governo Lula e/ou a sucessão presidencial de 2010. Assim como em outros artigos revisados nesta monografia, que dividem os corpora analisados em dois lados antagônicos, assume-se que os artigos do corpus desse estudo de caso dividem-se entre pró e anti governo. O lado pró-governo é composto de artigos veiculados em:
+A seleção dos veículos para este estudo de caso resultou do consenso entre a autora desta monografia e os jornalistas Lucas Cunha Almeida e Andrea Duarte Bessa\footnote{Lucas Cunha, atualmente, é repórter do jornal baiano A Tarde; Andrea Bessa é gerente de comunicações da empresa Cetrel.}. O critério básico para as escolhas foi a defesa clara de um ponto de vista sobre o governo Lula e/ou a sucessão presidencial de 2010. Assim como em outros artigos revisados nesta monografia, que dividem os corpora analisados em dois lados antagônicos, assume-se que os artigos do \emph{dataset} desse estudo de caso dividem-se entre pró-situação e pró-oposição. Neste sentido, há autores que apóiam candidatos de ambos os lados, muitas vezes criticando o governo Lula e suas personalidades. Os trechos de \emph{posts} apresentados nessa seção reforçam a ideia de que essa divisão é adequada. O lado pró-situação é composto de artigos veiculados em:
 
 
 %EXPLICAR Q POR SIMPLICIDADE E PQ QUASE TUDO ESTUDADO É ASSIM, DIVIDIU-SE AS PERSPECTIVAS A SEREM IDENTIF. AUTOM. EM PRÓ E ANTI GOVERNO
-%NOMEAR CORPUS
-%Na maioria dos artigos revisados para este projeto, os corpora analisados são divididos em dois lados, sustentando pontos de vista antagônicos sobre um mesmo tema. Para o corpus construído para este estudo de caso, a mesma estratégia foi adotada: o tema geral é o governo Lula e a sucessão presidencial, e os artigos dividem-se entre pró e anti governo. 
-
-
-%Como o estudo visa à mineração das perspectivas pró/anti-governo federal, um critério básico para a escolha das colunas e \emph{sites} foi a existência de uma posição clara de crítica ou apoio ao atual governo. A notoriedade dos autores também foi considerada, facilitando a integração deste estudo a análises sobre a cobertura das Eleições 2010 em \textbf{TERMINE ISSO, e fale pq n políticos, e sim jornalistas}.
-
-%Este corpus, portanto, assim como outros revisados nesta monografia (vide capítulos \textbf{X} e \textbf{Y}), contém duas perspectivas em oposição sobre um mesmo assunto: o governo federal brasileiro. 
 \begin{enumerate}
 
-\item \textbf{Luis Nassif Online}\footnote{http://www.advivo.com.br/luisnassif/} Este é o \emph{blog} do jornalista Luis Nassif, premiado como Melhor Blog de Política pelo iBest 2008\footnote{http://idgnow.uol.com.br/internet/2008/05/21/ibest-2008-anuncia-vencedores/}. Nassif, que já trabalhou na TV Cultura e Rede Bandeirantes, mantém o \emph{blog} há cinco anos, enfocando principalmente assuntos relativos à política brasileira. Artigos do \emph{blog} são frequentemente citados, de forma positiva, em veículos de campanha pró-governo, como os \emph{sites} Blog da Dilma\footnote{http://dilma13.blogspot.com/} e Os Amigos do Presidente Lula\footnote{http://osamigosdopresidentelula.blogspot.com/}. De fato, o Luis Nassif Online adota um posicionamento pró-governo, como comprovam os trechos a seguir:
+\item \textbf{Luis Nassif Online}\footnote{http://www.advivo.com.br/luisnassif/} Este é o \emph{blog} do jornalista Luis Nassif, premiado como Melhor Blog de Política pelo iBest 2008\footnote{http://idgnow.uol.com.br/internet/2008/05/21/ibest-2008-anuncia-vencedores/}. Nassif, que já trabalhou na TV Cultura e Rede Bandeirantes, mantém o \emph{blog} há cinco anos, enfocando principalmente assuntos relativos à política brasileira. Artigos do \emph{blog} são frequentemente citados, de forma positiva, em veículos de campanha pró-situação, como os \emph{sites} Blog da Dilma\footnote{http://dilma13.blogspot.com/} e Os Amigos do Presidente Lula\footnote{http://osamigosdopresidentelula.blogspot.com/}. De fato, o Luis Nassif Online adota um posicionamento pró-situação, como comprovam os trechos a seguir:
 
 \begin{quote}
 \emph{"Desde o ano passado, estava claro [sic] a falta de competitividade de José Serra, seja por não ter feito um governo brilhante em São Paulo, por não representar o novo e por não conseguir desenvolver um discurso próprio."}
@@ -65,7 +48,7 @@ A seleção dos veículos para este estudo de caso resultou do consenso entre a 
 
 Como o veículo possui muito conteúdo, foram considerados apenas os artigos da categoria "Eleições".  
 
-\item \textbf{Conversa Afiada}\footnote{http://www.conversaafiada.com.br/} O \emph{site} se define como um portal de jornalismo independente, contendo principalmente artigos produzidos por Paulo Henrique Amorim. O jornalista, que já trabalhou para as Redes Globo e Bandeirantes e para a revista Carta Capital, mantém o \emph{site} desde 2006. Enfocando a política brasileira, o Conversa Afiada apóia, dentre outras iniciativas do governo federal, a candidatura da ex-ministra Dilma Rousseff\footnote{http://www.conversaafiada.com.br/brasil/2010/07/02/mino-explica-por-que-apoia-a-dilma-porque-ela-e-melhor-que-o-serra/}. Os trechos abaixo justificam a escolha do \emph{site} como representante da mídia \emph{online} pró-governo:
+\item \textbf{Conversa Afiada}\footnote{http://www.conversaafiada.com.br/} O \emph{site} se define como um portal de jornalismo independente, contendo principalmente artigos produzidos por Paulo Henrique Amorim. O jornalista, que já trabalhou para as Redes Globo e Bandeirantes e para a revista Carta Capital, mantém o \emph{site} desde 2006. Enfocando a política brasileira, o Conversa Afiada apóia, dentre outras iniciativas do governo federal, a candidatura da ex-ministra Dilma Rousseff\footnote{http://www.conversaafiada.com.br/brasil/2010/07/02/mino-explica-por-que-apoia-a-dilma-porque-ela-e-melhor-que-o-serra/}. Os trechos abaixo justificam a escolha do \emph{site} como representante da mídia \emph{online} pró-situação:
 
 \begin{quote}
 
@@ -86,7 +69,7 @@ Como o veículo possui muito conteúdo, foram considerados apenas os artigos da 
 Também por possuir muito conteúdo, apenas os artigos pertencentes à categoria "Política" foram considerados.
 % Prêmio iBest de Melhor Blog de Política, em eleição popular e da Academia iBest. 
 
-\item \textbf{Escrevinhador}\footnote{http://www.rodrigovianna.com.br/} O \emph{blog}, mantido pelo \emph{site} da revista Caros Amigos, é escrito pelo jornalista Rodrigo Vianna, que também é repórter da Rede Record. Ele está no ar desde 2008, enfocando acontecimentos da vida política do Brasil e do Mundo. No que diz respeito ao Brasil, o conteúdo do \emph{blog} assume uma perspectiva pró-governo, como ilustram os trechos abaixo:
+\item \textbf{Escrevinhador}\footnote{http://www.rodrigovianna.com.br/} O \emph{blog}, mantido pelo \emph{site} da revista Caros Amigos, é escrito pelo jornalista Rodrigo Vianna, que também é repórter da Rede Record. Ele está no ar desde 2008, enfocando acontecimentos da vida política do Brasil e do Mundo. No que diz respeito ao Brasil, o conteúdo do \emph{blog} assume uma perspectiva pró-situação, como ilustram os trechos abaixo:
 
 \begin{quote}
 
@@ -104,7 +87,7 @@ Também por possuir muito conteúdo, apenas os artigos pertencentes à categoria
 
 Como o \emph{blog} também trata de outros assuntos, apenas as categorias "Plenos Poderes" e "Palavra Minha", mais direcionadas à política, foram consideradas para extração de artigos.
 
-\item \textbf{Brasília, eu vi}\footnote{http://brasiliaeuvi.wordpress.com/} O \emph{blog}, escrito pelo jornalista Leandro Fortes, que também trabalha para a revista Carta Capital, agrega alguns de seus artigos para a revista e outros textos sobre política. Estes artigos têm boa recepção em \emph{sites} de campanha pró-governo, como o Blog da Dilma\footnote{http://dilma13.blogspot.com/2010/08/caso-lunus-verdade-dos-fatos.html}. De fato, eles assumem uma perspectiva de defesa da situação, como justificam os trechos abaixo:
+\item \textbf{Brasília, eu vi}\footnote{http://brasiliaeuvi.wordpress.com/} O \emph{blog}, escrito pelo jornalista Leandro Fortes, que também trabalha para a revista Carta Capital, agrega alguns de seus artigos para a revista e outros textos sobre política. Estes artigos têm boa recepção em \emph{sites} de campanha pró-situação, como o Blog da Dilma\footnote{http://dilma13.blogspot.com/2010/08/caso-lunus-verdade-dos-fatos.html}. De fato, eles assumem uma perspectiva de defesa da situação, como justificam os trechos abaixo:
 
 
 \begin{quote}
@@ -122,7 +105,7 @@ Como o \emph{blog} também trata de outros assuntos, apenas as categorias "Pleno
 \end{enumerate}
 
 
-O lado anti-governo, por sua vez, é composto de artigos veiculados em:
+O lado pró-oposição, por sua vez, é composto de artigos veiculados em:
 
 \begin{enumerate}
 
@@ -143,7 +126,7 @@ O lado anti-governo, por sua vez, é composto de artigos veiculados em:
 
 \end{quote}
 
-\item \textbf{Coluna do Augusto Nunes}\footnote{http://veja.abril.com.br/blog/augusto-nunes/} A coluna, parte da revista Veja, é escrita pelo jornalista Augusto Nunes, que também apresenta o programa Roda Viva na TV Cultura. Seus artigos têm má recepção em alguns veículos que defendem o atual governo, como o Luis Nassif Online\footnote{http://www.advivo.com.br/blog/luisnassif/serra-e-fhc-uma-relacao-delicada} e o Blog da Dilma\footnote{http://dilma13.blogspot.com/2010/01/mais-uma-do-tucano-augusto-nunes.html}, justamente por assumirem uma posição anti-governo. Os trechos abaixo justificam esta perspectiva:
+\item \textbf{Coluna do Augusto Nunes}\footnote{http://veja.abril.com.br/blog/augusto-nunes/} A coluna, parte da revista Veja, é escrita pelo jornalista Augusto Nunes, que também apresenta o programa Roda Viva na TV Cultura. Seus artigos têm má recepção em alguns veículos que defendem o atual governo, como o Luis Nassif Online\footnote{http://www.advivo.com.br/blog/luisnassif/serra-e-fhc-uma-relacao-delicada} e o Blog da Dilma\footnote{http://dilma13.blogspot.com/2010/01/mais-uma-do-tucano-augusto-nunes.html}, justamente por assumirem uma posição pró-oposição. Os trechos abaixo justificam esta perspectiva:
 
 
 \begin{quote}
@@ -179,7 +162,7 @@ Todos os artigos extraídos dessa coluna pertencem à categoria "Direto ao Ponto
 {\small Retirado de \emph{"A história em inquéritos"} - 20/03/2010}
 \end{quote}
 
-\item \textbf{Portal de Carlos Alberto Sardenberg}\footnote{http://www.sardenberg.com.br/site/index.php} O portal contém artigos do jornalista para suas colunas nos jornais O Globo e O Estado de S. Paulo, além de outros textos de análise política e econômica. Além destas ocupações, Sardenberg também é comentarista da TV Globo e âncora da Rádio CBN, tecendo comentários sobre a economia mundial e brasileira. Os trechos abaixo transparecem seu posicionamento anti-governo: 
+\item \textbf{Portal de Carlos Alberto Sardenberg}\footnote{http://www.sardenberg.com.br/site/index.php} O portal contém artigos do jornalista para suas colunas nos jornais O Globo e O Estado de S. Paulo, além de outros textos de análise política e econômica. Além destas ocupações, Sardenberg também é comentarista da TV Globo e âncora da Rádio CBN, tecendo comentários sobre a economia mundial e brasileira. Os trechos abaixo transparecem seu posicionamento pró-oposição: 
 
 \begin{quote}
 
@@ -196,16 +179,13 @@ Todos os artigos extraídos dessa coluna pertencem à categoria "Direto ao Ponto
 \end{quote}
 \end{enumerate}
 
-É válido ressaltar que os autores dos artigos muitas vezes colocam trechos de notícias, ou mesmo textos opinativos de outros autores, em seus escritos, colaborando para a riqueza da linguagem no corpus.
+É válido ressaltar que os autores dos artigos muitas vezes colocam trechos de notícias, ou mesmo textos críticos de outros autores, em seus escritos, colaborando para a riqueza da linguagem no corpus.
 
 Outros veículos foram cogitados, como o Blog do Noblat\footnote{http://oglobo.globo.com/pais/noblat/}, o \emph{blog} de Miriam Leitão para o jornal O Globo\footnote{oglobo.globo.com/economia/miriam/}, a coluna de Cristiana Lôbo para o portal G1\footnote{http://g1.globo.com/platb/cristianalobo/} e o \emph{blog} de Celso Ming para o jornal O Estado de S. Paulo\footnote{blogs.estadao.com.br/celso-ming/ }. Os posicionamentos contidos nestes veículos, entretanto, não foram considerados claros o suficiente para os propósitos deste estudo. 
 
-Todos os artigos contidos nas colunas, \emph{sites} e \emph{blogs} selecionados foram  publicados entre 01/01/2010 e 06/09/2010. O período fixado, por fazer parte de um ano eleitoral, encerra uma quantidade significativa de artigos pró e anti-governo - muitos deles focados na sucessão presidencial. Por este motivo, e também para manter o escopo do estudo atrelado às eleições 2010, artigos de anos anteriores não foram coletados. A extração dos documentos foi feita de forma automatizada com \emph{scripts} escritos nas linguagens de programação Python e \textbf{UNIX Shell script}\footnote{Todos eles estão disponíveis no repositório \emph{online} de Aline Bessa (http://github.com/alibezz)}. Como os jornalistas eventualmente publicam sobre política mundial ou outros assuntos, foi feita uma filtragem nos artigos, de modo a restarem apenas aqueles que contêm pelo menos uma das seguintes palavras-chave: "Lula", "FHC", "Dilma", "Serra", "Marina", "PT", "PV", "PSDB". Todos os documentos foram, por fim, anonimizados, para que os nomes de seus autores não interferissem nos estudos. 
+Todos os artigos contidos nas colunas, \emph{sites} e \emph{blogs} selecionados foram  publicados entre 01/01/2010 e 06/09/2010. O período fixado, por fazer parte de um ano eleitoral, encerra uma quantidade significativa de artigos pró-situação e pró-oposição. Por este motivo, e também para manter o escopo do estudo atrelado às eleições 2010, artigos de anos anteriores não foram coletados. A extração dos documentos foi feita de forma automatizada com \emph{scripts} desenvolvidos nas linguagens de programação Python\footnote{http://python.org/} e UNIX ShellScript\footnote{http://www.gnu.org/software/bash/manual/bashref.html}. Todos eles estão disponíveis no repositório \emph{online} de Aline Bessa\footnote{http://github.com/alibezz}. Como os jornalistas eventualmente publicam sobre política mundial ou outros assuntos, foi feita uma filtragem nos artigos, de modo a restarem apenas aqueles que contêm pelo menos uma das seguintes palavras-chave: "Lula", "FHC", "Dilma", "Serra", "Marina", "PT", "PV", "PSDB". Todos os documentos foram, por fim, anonimizados, para que os nomes de seus autores não interferissem nos estudos. 
 
-%Em seguida, para evitar ruído causado por textos muito pequenos, foram descartados do corpus todos os artigos com menos de 100 palavras. 
-%A fim de diminuir as discrepâncias entre as quantidades de artigos extraídas, de modo que todos os veículos pudessem contribuir de forma significativa para o estudo, foram agregados ao corpus, em alguns casos, apenas artigos com um número de palavras maior ou igual a um determinado valor. Este valor foi escolhido empiricamente para cada veículo, mas isto não causa perda de generalidade no estudos quais foram escolhidos aleatoriamente. A Tabela \ref{tab1:estudo} indica quantos artigos, por veículo, estavam disponíveis em cada etapa da composição do corpus. Todos os programas desenvolvidos para todas as etapas estão disponíveis no repositório \emph{online} de Aline Bessa \cite{alibezz-github}.
-
-Após filtragem e anonimização, restaram 1065 artigos pró-governo e 2747 anti-governo. Para os estudos feitos com o corpus, envolvendo o classificador Naïve Bayes e o modelo de tópicos L-LDA, reduziu-se a quantidade de documentos anti-governo para 1065, utilizando-se apenas 550 dos 2377 artigos extraídos do \emph{blog} de Reinaldo Azevedo, amostrados aleatoriamente. Essa estratégia foi adotada porque o desempenho do  Naïve Bayes se mostrou sensível a quantidades muito discrepantes de palavras por perspectiva. Como o uso do L-LDA estende as análises feitas com o classificador, decidiu-se manter o corpus idêntico para ambos os estudos. 
+Após filtragem e anonimização, restaram 1065 artigos pró-situação e 2747 pró-oposição. Para os estudos feitos com o corpus, envolvendo o classificador Naïve Bayes e o modelo de tópicos L-LDA, reduziu-se a quantidade de documentos pró-oposição para 1065, utilizando-se apenas 550 dos 2377 artigos extraídos do \emph{blog} de Reinaldo Azevedo, amostrados aleatoriamente. Essa estratégia foi adotada porque o classificador se mostrou sensível a quantidades muito discrepantes de palavras por perspectiva. Como o uso do L-LDA estende as análises feitas com o classificador, decidiu-se manter o corpus idêntico para ambos os estudos. 
 
 \begin{table}[t]
 \centering
@@ -227,51 +207,21 @@ Após filtragem e anonimização, restaram 1065 artigos pró-governo e 2747 anti
 \caption{Quantidades de artigos disponíveis em cada etapa da construção do corpus. \ensuremath{^*}Apenas 550, amostrados aleatoriamente, foram aproveitados.}
 \end{table}
 
-O número de artigos coletados em cada veículo varia bastante, como pode ser observado na Tabela 7.1. No corpus \textbf{Bitterlemons}\footnote{A descrição deste corpus encontra-se na seção \ref{bitter} desta monografia.}, estudado por Lin et al., este comportamento também é observado, e os resultados obtidos são de alta qualidade \cite{lin-et-al2006}. Isto reforça a ideia de que essa variação não interfere significativamente na qualidade dos experimentos feitos com o corpus deste estudo de caso.
+O número de artigos coletados em cada veículo varia bastante, como pode ser observado na Tabela 4.1. No corpus sobre o conflito Israel-Palestina, estudado por Lin et al. e analisado no Capítulo \ref{chap3}, este comportamento também foi observado. Os documentos desse \emph{dataset} foram escritos por diversos autores, e alguns deles contribuíram com muito mais textos do que outros. Ainda assim, como pode ser verificado na revisão apresentada no Capítulo \ref{chap3}, os resultados obtidos são de alta qualidade \cite{lin-et-al2006}. Isto reforça a ideia de que essa variação não interfere significativamente na qualidade dos experimentos feitos com o corpus deste estudo de caso.
 
-%Os estudos de Mullen e Malouf com um fórum de discussão política também sugerem que a contribuição dos participantes é assimétrica, obedecendo a uma distribuição livre de escala
-
-% Um estudo de Mullen e Malouf com um fórum de discussão política aponta, inclusive, que   % Isto é comum em outros corpora, como apontam os estudos de Mullen e Malouf com fóruns de discussão política%Os estudos de Tony Mullen e Robert Malouf com um fórum de discussão política dos Estados Unidos  \cite{malouf-taking_sides} \cite{aaai-politcs} %apenas 24 do \emph{blog} de Leandro Fortes foram aproveitados. 
-%A escolha das percentagens foi empírica, visando a definir quantidades de artigos, para cada veículo, tão parecidas quanto possível - mas que, ao mesmo tempo, respeitassem as disponibilidades iniciais de artigos. Assim como a quantidade de arquivos do Luis Nassif Online é maior que a do Escrevinhador na etapa de \emph{download}, isto se conserva na etapa final da composição do corpus. Por ser uma heurística, cuja finalidade é simplesmente otimizar o aprendizado das perspectivas considerando veículos diferentes, não é necessário haver um rigor matemático na escolha destes valores. 
-
-%Tem-se, portanto, um conjunto de artigos escritos sob duas perspectivas opostas: anti e pró governo federal. O número de artigos selecionados para cada perspectiva foi 499, de modo que o corpus possui 998 documentos. 
-
-%foram, respectivamente, 499 e  Tem-se, respectivamente, Do primeiro lado, foram selecionados 499 textos; do segundo, 
-
-
-
-% para o estudo. 
-
-%  o que evidencia %A escolha do período deveu-se ao fato de que 2010, por ser ano eleitoral, concentra muitas opiniões a respeito do atual governo e seus possíveis sucessores à presidência,
-
-%Para se traçar paralelos entre os resultados deste estudo e o comportamento da mídia tradicional brasileira, escolheu-se apenas artigos veiculados por jornalistas de notoriedade nacional
-
-%os autores dos artigos são jornalistas de notoriedade nacional, o que confere ao estudo um caráter \textbf{bleble}.
-
-% e notoriedade dos autores em nível nacional. 
-
-%A seleção dos jornalistas levou em consideração dois fatores: o caráter opinativo de seus textos e a notoriedade em nível nacional.  
-
-
-%Onde se fala dos critérios utilizados na escolha dos jornalistas (justifique com trechos e talz), download, tratamento de tags, período estudado, palavras-chave, número de caracteres. Idiossincrasias da coisa.
-
-
-%Onde se explica detalhadamente as perspectivas do corpus, justifica-se o método, mostra-se o desempenho via 10-fold-cross-validation (fala pq escolheu essa também), discute-se questões de estilo e compara com o desempenho de outros artigos.
 
 \section{Identificando perspectivas com um classificador Naïve Bayes}
 \label{estudo:sec2}
-O primeiro estudo conduzido com esse corpus consiste na classificação dos artigos de acordo com suas perspectivas - problema fundamental na área de Mineração de Perspectiva \cite{omsa}. O classificador Naïve Bayes, escolhido para o estudo por sua simplicidade, se mostrou adequado para o problema: a taxa de acerto obtida foi de 89.43\%; a precisão, de  89.68\%; a métrica F1, de 89.42\%. Assim como em outros artigos revisados para esta monografia \cite{lin-et-al2006} \cite{aaai-politics} \cite{klebanov}, esses valores foram obtidos via validação cruzada de dez dobras. O bom desempenho do método indica que a simples análise das palavras utilizadas nos artigos - desconsiderando, portanto, aspectos sintáticos e semânticos dos mesmos - já evidencia suas diferentes perspectivas. 
 
-% e a avaliação das taxas de acerto, precisão e métrica F1 obtidas. 
+O primeiro estudo conduzido com esse corpus consiste na classificação dos artigos de acordo com as perspectivas pró-oposição e pró-situação. O classificador Naïve Bayes foi escolhido pelos mesmos motivos indicados no Capítulo \ref{chap3}, na seção \ref{freqs:experim}. O classificador baseia-se apenas nas contagens de palavras dos documentos para definir suas classes. Os motivos para a escolha por contagens de palavras também são os mesmos apontados no Capítulo \ref{chap3}, na seção \ref{freqs:experim}. 
+
+Essas escolhas se mostraram adequadas para o problema: a taxa de acerto obtida na classificação foi de 89.43\%; a precisão média, de  89.68\%; a métrica F1 média, de 89.42\%. Assim como em outros artigos revisados no Capítulo \ref{chap3} \cite{lin-et-al2006} \cite{aaai-politics} \cite{klebanov}, esses valores foram obtidos via validação cruzada de dez dobras. %tabela mais precisa
+ O bom desempenho do método indica que o uso de metodologias mais complexas, envolvendo aspectos sintáticos dos documentos, por exemplo, não é necessário. Além disso, é válido ressaltar que a adoção de características sintáticas/semânticas, para a classificação de um corpus em português, não é tão simples como para um corpus em inglês. Isso advém  da carência de \emph{softwares} e dicionários semânticos para a língua portuguesa - em particular, a variação utilizada no Brasil. Esses \emph{softwares} e dicionários colaboram com a determinação de diversos aspectos gramaticais/linguísticos dos textos, minimizando o esforço manual requerido quando eles não podem ser utilizados.
 
 
-% Se a taxa de acerto for alta, isto significa que a linguagem contida nos artigos, sem se considerar nenhum contexto, é suficiente para demarcar essas perspectivas. A fim de verificar esta hipótese, um classificador Naïve Bayes foi aplicado aos documentos.  A taxa de acerto obtida foi de 88.26\%; a precisão, de 89.47\%; e a métrica F1, de 88.16\%. 
+Os valores obtidos com o classificador Naïve Bayes são comparáveis àqueles obtidos por \textbf{Durant e Smith} em seu trabalho sobre George W. Bush e a Guerra do Iraque\footnote{Esse trabalho foi revisado no Capítulo \ref{chap3}.} \cite{durant-smith}: 89.77\%. É válido ressaltar que, diferentemente da metodologia adotada por Durant e Smith, nenhuma palavra foi descartada no processamento dos textos para este estudo de caso.  
 
-%A taxa de acerto do classificador foi alta, comprovando a hipótese. 
-
-Os valores obtidos com o classificador Naïve Bayes são comparáveis àqueles apresentados por Durant e Smith em seu trabalho sobre o posicionamento de \emph{blogs} frente às atitudes de George W. Bush na guerra do Iraque \cite{durant-smith}: 89.77\%. É válido ressaltar que, diferentemente da metodologia adotada por Durant e Smith, nenhuma palavra foi descartada no processamento dos textos para este estudo de caso. A alta taxa de acerto obtida encoraja estudos semelhantes ao desenvolvido por Durant e Smith, envolvendo \emph{blogs} e \emph{sites} políticos brasileiros escritos por cidadãos comuns. % Isto pode, inclusive, resultar em boas aplicações para análise automática de conteúdo.
-
-Os artigos escolhidos para este corpus são compostos, muitas vezes, de textos de outros autores. Isto reforça o fato de que o classificador Naïve Bayes está efetivamente aprendendo as perspectivas dos documentos, em vez de estilos de escrita. De todo modo, assim como no estudo de Lin et al. com o corpus \textbf{Bitterlemons} \cite{lin-et-al2006}, foi conduzido um experimento em que os artigos pertencentes aos conjuntos de treinamento e teste são escritos por autores diferentes. Se o que está sendo aprendido são de fato as perspectivas dos documentos, a performance do classificador não deve ser muito diferente da obtida na validação cruzada de dez dobras. Testando com artigos da coluna de Augusto Nunes e do \emph{site} Conversa Afiada, e treinando com os demais, a taxa de acerto obtida foi de 92.79\%, acompanhada de precisão de 93.32\% e métrica F1 de 91.86\%. Este experimento, portanto, ratifica os outros resultados, evidenciando que o classificador Naïve Bayes cumpre bem a tarefa de identificar as perspectivas pró e anti governo.
+Os artigos escolhidos para este corpus são compostos, muitas vezes, de textos de outros autores. Isto reforça a ideia de que o classificador Naïve Bayes está efetivamente aprendendo as perspectivas dos documentos, em vez de estilos de escrita. De todo modo, assim como no estudo de \textbf{Lin et al.} sobre o conflito Israel-Palestina\footnote{Esse trabalho foi revisado no Capítulo \ref{chap3}.} \cite{lin-et-al2006}, foi conduzido um experimento em que os artigos pertencentes aos conjuntos de treinamento e teste são escritos por autores diferentes. Se o que está sendo aprendido são de fato as perspectivas dos documentos, o desempenho do classificador não deve ser muito diferente do obtido na validação cruzada de dez dobras. Testando com artigos da coluna de Augusto Nunes e do \emph{site} Conversa Afiada, e treinando com os demais, a taxa de acerto obtida foi de 92.79\%, acompanhada de precisão média de 93.32\% e métrica F1 média de 91.86\%. Este experimento, portanto, ratifica os outros resultados, evidenciando que o classificador Naïve Bayes cumpre bem a tarefa de identificar as perspectivas pró-oposição e pró-situação.
 
 % indicado para identificar perspectivas em artigos opinativos.
 %Uma alta taxa de acerto também indica que a identificação de perspectiva política em \emph{blogs} brasileiros, cujas linguagens se assemelham às estudadas, pode apresentar um bom resultado.
@@ -282,51 +232,42 @@ Os artigos escolhidos para este corpus são compostos, muitas vezes, de textos d
 %- talvez até escritas por blogueiros comuns, em vez de jornalistas.
 
 
-\section{Ilustrando a linguagem por perspectiva}
+\section{Ilustrando o uso de palavras por perspectiva}
 \label{estudo:sec3}
 %Onde se explica o uso do L-LDA, o overlap de palavras, mostra-se snippets e talz.
 
-%Com um modelo generativo L-LDA, é possível visualizar o uso de palavras por cada perspectiva do corpus.
+A análise das principais palavras enfocadas por cada perspectiva amplia a compreensão dos resultados obtidos na seção anterior. O motivo para isso é  que a classificação em si se baseia nesses usos de palavras, através de suas contagens. Neste sentido, portanto, assim como no Capítulo \ref{chap3}, o modelo generativo L-LDA foi aplicado ao corpus. Cada artigo foi associado a dois tópicos: um genérico, igual para todos eles, e um referente à sua perspectiva (pró-oposição ou pró-situação). Há, portanto, três tópicos diferentes nesta aplicação. O uso desses tópicos evidencia quais palavras são mais enfocadas por cada perspectiva (pró-oposição e pró-situação) e quais são utilizadas de forma muito semelhante em todo o corpus (genérico).
 
-%ESSE PAPO DE CONTAGEM TÁ MAIS COMPLICANDO DOQ AJUDANDO! MUDAR ESSE PAPO PARA 'ASSOCIOU MAIS FREQUENTEMENTE' por mim nem fala do estudo de lin et al., já justifica o método logo.
-O bom desempenho do classificador Naïve Bayes indica que o simples processamento das palavras contidas nos artigos já é suficiente para a compreensão automática das perspectivas pró e anti governo. Para aprofundar o estudo sobre a linguagem de cada perspectiva, o modelo generativo L-LDA foi aplicado ao corpus. Cada artigo foi associado a dois tópicos: um genérico, igual para todos eles, e um referente à sua perspectiva (pró ou anti governo). Há, portanto, três tópicos diferentes nesta aplicação. O modelo relaciona as palavras contidas nos documentos a seus tópicos, de modo que aquelas mais comuns se associam mais frequentemente ao tópico genérico, enquanto outras, mais particulares de cada perspectiva, aos outros dois tópicos.   
-
-%No estudo de Lin et al. com o corpus \textbf{Bitterlemons} \cite{lin-et-al2006}, utiliza-se as contagens de palavras geradas pelo classificador Naïve Bayes  Essas contagens \textbf{BLA}.  O uso do modelo L-LDA gera uma contagem de palavras mais flexível, por tópicos. Neste caso, assim como no capítulo \textbf{Freqs}, assume-se que cada artigo deste estudo se relaciona a dois tópicos:  Essa estratégia permite que palavras muito utilizadas por ambos os posicionamentos se associem mais fortemente ao tópico genérico, enquanto aquelas mais específicas se destaquem para os outros dois tópicos. As contagens geradas por um L-LDA, portanto, são mais direcionadas do que aquelas obtida com a simples contagem de todas as palavras por perspectiva.
-
-
-% Diferentemente da simples contagem de todas as palavras por posicionamento, sugerida no estudo de Lin et al. com o corpus \textbf{Bitterlemons} \cite{lin-et-al2006}, o uso do L-LDA permite que cada documento possa se associar a mais de um tópico, adaptando as contagens para cada um deles.
+A Tabela 4.3 elenca as dez palavras mais frequentemente associadas a cada tópico. Em alguns casos, essas palavras coincidem em dois ou mais tópicos. Se o genérico não estiver presente, isso significa que as duas perspectivas deram muito destaque a essa palavra. Em caso contrário, tem-se que a palavra, além de ser muito enfocada por pelo menos uma das duas perspectivas, é também uma das mais comuns no corpus.
 
 \begin{table}[h]
 \centering
 \begin{tabular}{| l | p{10cm} | }
 \hline
 \textbf{Tópico} & \textbf{Palavras} \\ \hline
-\textbf{Genérico} &  governo, brasil, serra, estado, lula, poder, presidente, nacional, vez, campanha, federal, história, pt, forma, pessoas, psdb, vida, brasileira, dinheiro, programa, texto, lei, ministro, nome, direito, brasileiro, momento, eleitoral, passado, ministério \\ \hline
-\textbf{Pró-Governo} & serra, dilma, lula, psdb, presidente, pt, candidato, folha, tucano, eleições, partido, jornal, campanha, pesquisa, fhc, brasil, henrique, eleitoral, candidata, rousseff, globo, mundo, governador, entrevista, imprensa, presidência, petista, dem, candidatura, turno\\ \hline
-\textbf{Anti-Governo} & dilma, lula, presidente, brasil, rousseff, pt, gente, candidata, mundo, candidato, petista, entrevista, partido, josé, eleições, chefe, tucano, presidência, sarney, eleitoral, petistas, fernando, casa, ministro, companheiro, amigo, planalto, brasileiros, senador, saber \\ \hline
+\textbf{Genérico} &  governo, brasil, serra, estado, lula, poder, presidente, nacional, vez, campanha \\ \hline
+\textbf{Pró-situação} & serra, dilma, lula, psdb, presidente, pt, candidato, folha, tucano, eleições\\ \hline
+\textbf{Pró-oposição} & dilma, lula, presidente, brasil, rousseff, pt, gente, candidata, mundo, candidato \\ \hline
 \end{tabular}
 \label{tab:palavras}
-\caption{As trinta palavras mais frequentemente associadas aos tópicos Pró-Governo, Anti-Governo e Genérico, em ordem e excluindo-se artigos, preposições, conjunções, advérbios e pronomes pessoais.}
+\caption{As dez palavras mais frequentemente associadas aos tópicos pró-situação, pró-oposição e genérico, em ordem e excluindo-se artigos, preposições, conjunções, advérbios e pronomes pessoais.}
 \end{table}
 
-%\textbf{BLABLABLA. Trinta. O tamanho das pal. é prop. ao número de vezes que cada uma delas se associou ao tópico X.}
+A Tabela 4.3 indica que as palavras enfocadas por perspectivas diferentes são as mesmas em alguns casos, diferindo apenas na forma como são enfatizadas. Em outras palavras, a ordem das palavras nessa tabela corresponde, diretamente, ao quanto elas se associaram a cada tópico. Os artigos pró-oposição, por exemplo, dão muito destaque às palavras \emph{lula} e \emph{dilma}; os pró-situação, por sua vez, também enfatizam estas palavras, mas dão um destaque maior a \emph{serra}, candidato à presidência pelo PSDB. A associação de palavras semelhantes aos tópicos pró-oposição e pró-situação advém do fato de que os artigos compartilham um tema geral - o governo brasileiro - e, consequentemente, o mesmo vocabulário básico. É diferente do que acontece quando os tópicos correspondem a temas diferentes em vez de perspectivas, como pode ser visto no trabalho de Ramage et al. sobre \emph{tags} de \emph{blogs} \cite{llda}.
 
-A Tabela 7.2 indica que as palavras utilizadas por autores com posicionamentos diferentes muitas vezes são as mesmas, diferindo apenas na forma como são enfatizadas. Os artigos anti-governo, por exemplo, dão muito destaque às palavras \emph{lula} e \emph{dilma}; os pró-governo, por sua vez, também enfatizam estas palavras, mas dão um destaque maior a \emph{serra}, candidato à presidência pelo PSDB. A associação de palavras semelhantes, ainda que em intensidades diferentes, aos tópicos anti e pró governo advém do fato de que os artigos compartilham um tema geral - o governo brasileiro - e, consequentemente, o mesmo vocabulário básico. É diferente do que acontece quando os tópicos correspondem a temas diferentes em vez de perspectivas, como pode ser visto no trabalho de Ramage et al. sobre L-LDA e \emph{tags} de \emph{blogs} \cite{llda}.
-
-As palavras na Tabela 7.2 estão ordenadas de acordo com o número de vezes que se associam aos tópicos, mas isto não é suficiente para compreender o quanto cada perspectiva realmente as enfatiza. Para compreender melhor o uso das palavras pelos diferentes pontos de vista do corpus, elas foram processadas pelo \emph{software} wordle\footnote{http://wordle.net}, resultando nas figuras \ref{situacao}, \ref{oposicao} e \ref{generico}. O tamanho das palavras nas imagens corresponde ao quanto elas se associam a cada tópico\footnote{Os valores correspondentes a cada uma das palavras, por tópico, se encontra no \textbf{ANEXO BLA}.}. As imagens \ref{situacao} e \ref{oposicao} evidenciam o destaque dado aos políticos Lula, Dilma Rousseff e José Serra nos artigos analisados. A imagem \ref{generico} dá certo destaque a Lula e José Serra, mas também enfatiza outros termos, como \emph{governo} e \emph{brasil}, relacionados mais genericamente ao tema geral dos artigos: a política brasileira.
-
+Para visualizar melhor a ênfase dada às palavras na Tabela 4.3, elas foram processadas pelo \emph{software} wordle\footnote{http://wordle.net}, resultando nas figuras \ref{situacao}, \ref{oposicao} e \ref{generico}. O tamanho das palavras nas imagens está relacionado ao número de vezes que elas se associam a cada tópico. As imagens \ref{situacao} e \ref{oposicao} evidenciam o destaque dado aos políticos Lula, Dilma Rousseff e José Serra nos artigos analisados. A imagem \ref{generico} dá certo destaque a Lula e José Serra, mas também enfatiza outros termos, como \emph{governo} e \emph{brasil}, relacionados mais genericamente à temática dos artigos: a política brasileira.
 
 \begin{figure}[h]
   \centering % este comando é usado para centralizar a Figura
   \includegraphics[width=12.5cm, height=6.5cm]{situacao.png}\\
-  \caption{Representação gráfica para as trinta palavras mais frequentemente associadas ao tópico pró-governo.}
+  \caption{Representação gráfica para as dez palavras associadas ao tópico pró-situação na Tabela 4.3.}
   \label{situacao}
 \end{figure}
 
 \begin{figure}[h]
   \centering % este comando é usado para centralizar a Figura
   \includegraphics[width=12.5cm, height=6.5cm]{oposicao.png}\\
-  \caption{Representação gráfica para as trinta palavras mais frequentemente associadas ao tópico anti-governo.}
+  \caption{Representação gráfica para as dez palavras associadas ao tópico pró-oposição na Tabela 4.3.}
   \label{oposicao}
 \end{figure}
 
@@ -335,12 +276,15 @@ As palavras na Tabela 7.2 estão ordenadas de acordo com o número de vezes que 
 \begin{figure}[h]
   \centering % este comando é usado para centralizar a Figura
   \includegraphics[width=12.5cm, height=6.5cm]{generico.png}\\
-  \caption{Representação gráfica para as trinta palavras mais frequentemente associadas ao tópico genérico.}
+  \caption{Representação gráfica para as dez palavras associadas ao tópico genérico na Tabela 4.3.}
   \label{generico}
 \end{figure}
 
+Essas figuras também sugerem que os artigos pró-situação dão mais enfoque a personalidades relacionadas à situação, como Lula e Dilma Rousseff, do que os pró-oposição a personalidades da oposição, como José Serra ou Marina Silva. Essa última, inclusive, candidata à presidência pelo PV, não foi mencionada nas palavras listadas na Tabela 4.3. Essas duas observações evidenciam que os veículos, no período analisado, concentraram seus antagonismos em personalidades políticas dos partidos PT, como Lula e Dilma Rousseff, e PSDB, como José Serra.
 
-É válido ressaltar, por fim, que, apesar dos textos terem caráter opinativo, as palavras elencadas na Tabela 7.2 não carregam uma polaridade natural, como no caso dos adjetivos "bom" ou "ruim". Para aprofundar o entendimento da relação que elas estabelecem com as perspectivas dos artigos, portanto, recomenda-se ler um número razoável de passagens de texto que as contenham. Alguns trechos foram selecionados abaixo, em caráter ilustrativo:
+%É válido ressaltar, por fim, que, apesar dos textos terem caráter crítico e não necessariamente informativo, as palavras elencadas na Tabela 4.3 não carregam uma polaridade natural, como no caso dos adjetivos \emph{bom} ou \emph{ruim}. Isso reforça a ideia de que a expressão de pontos de vista não é tão simples quanto a emissão de opiniões pontuais e claramente polarizadas, como \emph{Serra é um candidato ruim} ou \emph{Lula é um presidente bom}. 
+
+Os pontos de vista desse corpus são construídos através de argumentações complexas, como indicam os trechos de artigos apresentados na seção \ref{estudo:sec1}. Para compreender melhor a relação que as palavras da Tabela 4.3 estabelecem com eles, recomenda-se, por fim, a leitura de um número razoável de passagens de texto que as contenham. Alguns trechos foram selecionados abaixo, em caráter ilustrativo:
 
 \begin{quote}
 \emph{"O que parece estarrecedor para quem nunca ouviu \textbf{Dilma} antes - e tenho colegas jornalistas que nunca a viram discursando ou dando \textbf{entrevista} - é absolutamente familiar para os frequentadores desta coluna. Que há nove meses têm acesso a veementes indícios, há muito transformados em provas documentais, de que \textbf{Dilma} é uma afronta imposta ao \textbf{Brasil} por \textbf{Lula}, num [sic] crime lesa-pátria sem perdão."}
@@ -366,61 +310,5 @@ As palavras na Tabela 7.2 estão ordenadas de acordo com o número de vezes que 
 
 {\small Retirado de "O povo não é (mais) bobo...", do \emph{blog} Luis Nassif Online - 10/08/2010}
 \end{quote}
-
-
-
-
-%ns \textbf{Bla e Ble} representam as palavras para os tópicos Pró-Governo e Anti-Governo
-
-% a frequência de associação com cada um dos tópicos, mas esta informação não evidencia 
-%constam abaixoOs trechos abaixo são passagens de alguns artigos contendo parte das palavras listadas para cada perspectiva. Eles sugerem que essas palavras funcionam como âncoras, a partir das quais os pontos de vista dos artigos são construídos. 
-
-%ilustram pontos de vista associados a elas, aprofundando a compreensão 
-
-
-%O modelo L-LDA provê um critério subjetivo para a melhor compreensão do bom desempenho obtido pelo classificador Naïve Bayes, evidenciando os diferentes enfoques encontrados no corpus. As imagens \textbf{BLA e BLI} facilitam a visualização das palavras listadas na Tabela \textbf{BLA}, para os tópicos pró-governo e anti-governo. O tamanho das palavras, nas imagens, é proporcional ao número de vezes que cada uma delas se associou a cada tópico. 
-
-%É interessante observar como, de modo geral, as palavras da imagem \textbf{BLI} são menores do que aquelas contidas na imagem \textbf{BLA}. Isto sugere que o vocabulário dos artigos anti-governo é mais variado do que aquele empregado pelos pró-governo, de modo 
-
-%A Tabela \ref{tab:palavras} contém as trinta palavras mais frequentemente associadas aos tópicos genérico, pró-governo e anti-governo. Elas estão ordenadas de acordo com a frequência da associação
-
-%tanto termos relacionados à situação, como \emph{dilma} e \emph{lula} quanto outros associados à oposição, como \emph{serra} e \emph{psdb}. As palavras listadas para o tópico anti-governo m relação a todas as outras 28 palavras listadas. \textbf{A PALAVRA BLA, POR EXEMPLO, APARECE X VEZES MAIS QUE BLA NO LADO K...} IssoO que muda de uma perspectiva para outra neste caso, portanto, não são exatamente as palavras escolhidas, mas a forma como elas são enfatizadas. %falar de banner words, dizendo q existem mas oq realmente tem ajudado é a intensidade
-
-% genéricocomum bem-estabelecido: a política brasileira. O que colabora para a identificação da perspectiva de um artigo com um Naïve Bayes, portanto, é o tratamento dado pelo mesmo a um determinado político ou acontecimento, evidenciado pelo uso mais ou menos intenso de determinadas palavras. 
-
-%mostrar trechos dos textos
-
-% de todos os artigos 
-
-%A aplicação do L-LDA, diferentemente da simples contagem de palavras de todos os artigos de cada perspectiva,  em cada texto pela sua escalabilidade: é possível assumir que cada documento possui mais de um tópico, e segmentar as contagens de palavras de acordo com eles.
-
-
-\section{Conclusões e estudos futuros}
-\label{estudo:sec4}
-
-Este estudo de caso, inicialmente, apresentou todos os passos envolvidos na criação de um corpus sobre a atual política brasileira, dividido entre as perspectivas pró e anti governo. É válido ressaltar que não foi encontrado nenhum outro corpus brasileiro desenvolvido para um estudo de Mineração de Perspectiva. A alta taxa de acerto obtida com um classificador Naïve Bayes, na identificação das perspectivas dos artigos, evidencia que a escolha de palavras feita por seus autores já reflete suficientemente seus pontos de vista, claramente antagônicos. Resultados semelhantes foram obtidos em outros corpora revisados neste projeto, conforme abordado no capítulo \ref{chap3}. %O bom desempenho obtido com o Naïve Bayes, inclusive, sugere sua aplicação a textos políticos de cidadãos comuns. 
-
-
-% Considerando-se a notoriedade dos jornalistas e a popularidade dos veículos em que publicam, os bons resultados obtidos com o Naïve Bayes podem fomentar a discussão sobre a formação de opinião na mídia brasileira \emph{online}. Por uma questão de escopo e objetivo, entretanto, essa discussão não será levantada nesta monografia. %Além disso,
-
-O experimento com o modelo de tópicos L-LDA, por sua vez, proporciona uma análise subjetiva da linguagem dos artigos, evidenciando os diferentes enfoques dados por cada perspectiva. As figuras \ref{situacao} e \ref{oposicao}, referentes, respectivamente, às perspectivas pró e anti governo, apresentam uma característica em comum: ambas enfatizam termos que têm a ver com o lado a que se opõem. No primeiro caso, a palavra \emph{serra}, que corresponde ao candidato à presidência da oposição José Serra, é rapidamente visualizável. De forma análoga, no segundo caso, as palavras \emph{lula} e \emph{dilma}, que correspondem ao atual presidente e sua candidata, recebem mais destaque. Essas figuras também indicam que os artigos pró-governo dão mais enfoque a personalidades relacionadas à situação, como Lula e Dilma Rousseff, do que os anti-governo a personalidades da oposição, como José Serra ou Marina Silva. Essa última, inclusive, candidata à presidência pelo PV, não é mencionada nas palavras listadas na Tabela 7.2, o que indica que os veículos, no período analisado, concentraram seus antagonismos em personalidades políticas dos partidos PT, como Lula e Dilma Rousseff, e PSDB, como José Serra. Por fim, é importante frisar que não foi encontrado nenhum outro estudo de Mineração de Perspectiva que tenha feito uso do modelo de tópicos L-LDA para analisar o emprego de palavras por diferentes perspectivas.
-
-%inclusive viabilizar a criação de uma ferramenta que auxilie a análise de conteúdo político em nível nacional. Se conduzido em uma escala significativa, um estudo assim pode
-
-Futuramente, pretende-se estender este estudo de caso a textos políticos escritos por cidadãos comuns em seus \emph{blogs}, o que pode contribuir para a compreensão de como o brasileiro se posiciona politicamente na Internet. Além disso, o estudo também deve ser ampliado para identificar as perspectivas contidas nos comentários feitos aos artigos do corpus, a fim de se avaliar como eles refletem o posicionamento dos leitores em relação àquilo que leram. Este tipo de análise pode ajudar a compreender o impacto destes artigos em seus leitores e a formação de opinião na mídia brasileira \emph{online}.
-
-%como evidencia a Tabela % adicionalmente, também enfatizam % No segundo caso,  % diferentes perspectivas, bem como 
- % descoberta automática de seus posicionamentos. %Esta discussão, entretanto, envolve conhecimentos mais apurados de Comunicação e Ciência Política, fugindo do escopo deste projeto. %sendo apenas provocada - e,  fugir do escopo deste projeto, 
-
-%Dado que eles são jornalistas de notoriedade nacional, cujos textos, em parte dos casos, também foram publicados \emph{online} em revistas e jornais de alta circulação (como Veja e O Globo), a alta taxa de acerto obtida neste estudo, que evidencia , 
-
-
-%Apesar do número de veículos analisados ser um tanto pequeno, esses resultados provocam a discussão sobre a formação de opinião na mídia brasileira \emph{online} - não apenas porque os jornalistas possuem muita notoriedade ou escrevem para revistas e jornais de alta circulação, como Veja e O Globo, mas também por eles serem muito lidos e comentados. Muito comumente, artigos dos autores selecionados receberam mais de cem comentários em suas colunas e \emph{blogs}.  % FALAR DE COMO TEM MTO COMMENT NOS BLOGS/COLUNAS MESMO!! Apesar dos veículos escolhidos para este estudo não representarem adequadamente %a mídia política online
-
-%discutir o l-lda, marina silva n aparecer
-
-%trabalhos futuros
-%Onde se discute o que tudo isso quer dizer sobre nossa mídia, se fala um pouco da questão da linguística de corpus, como os jornais n necessariamente assumem um ponto de vista, mas contratam colunistas e talz. Amarrar questões futuras.
-
 
 
