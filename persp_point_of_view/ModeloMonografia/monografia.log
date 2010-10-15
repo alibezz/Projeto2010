@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  14 OCT 2010 21:38
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  14 OCT 2010 23:40
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -655,24 +655,30 @@ Overfull \hbox (11.76984pt too wide) in paragraph at lines 144--145
 o du-elo que Lula não pode re-cu-sar." \T1/ptm/m/n/10.95 - 11/02/2010 
  []
 
-[45] [46] [47]
-Overfull \hbox (2.75311pt too wide) in paragraph at lines 235--235
+[45] [46] [47] [48]
+Overfull \hbox (2.75311pt too wide) in paragraph at lines 252--252
 []\T1/ptm/b/n/17.28 ILUSTRANDO O USO DE PA-LA-VRAS POR PERS-PEC-
  []
 
-[48] [49] <situacao.png, id=174, 1270.7475pt x 605.26125pt>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[49] <situacao.png, id=174, 1270.7475pt x 605.26125pt>
 File: situacao.png Graphic file (type png)
  <use situacao.png>
 <oposicao.png, id=175, 1271.75125pt x 642.4pt>
 File: oposicao.png Graphic file (type png)
  <use oposicao.png>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
 <generico.png, id=176, 1260.71pt x 502.87875pt>
 File: generico.png Graphic file (type png)
  <use generico.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[50 <./situacao.png> <./oposicao.png>] [51 <./generico.png>]) (./conclusao.tex
+[50 <./situacao.png>] [51 <./oposicao.png> <./generico.png>]) (./conclusao.tex
 [52]
 Cap\'{\i }tulo 5.
 
@@ -717,10 +723,10 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6593 strings out of 94101
- 87317 string characters out of 1165810
- 146496 words of memory out of 1500000
- 9627 multiletter control sequences out of 10000+50000
+ 6594 strings out of 94101
+ 87329 string characters out of 1165810
+ 146507 words of memory out of 1500000
+ 9628 multiletter control sequences out of 10000+50000
  110302 words of font info for 162 fonts, out of 1200000 for 2000
  637 hyphenation exceptions out of 8191
  32i,11n,41p,2436b,605s stack positions out of 5000i,500n,6000p,200000b,5000s
@@ -734,7 +740,7 @@ usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texl
 ive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/
 times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (61 pages, 454190 bytes).
+Output written on monografia.pdf (61 pages, 455131 bytes).
 PDF statistics:
  256 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)

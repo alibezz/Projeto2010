@@ -215,8 +215,27 @@ O número de artigos coletados em cada veículo varia bastante, como pode ser ob
 
 O primeiro estudo conduzido com esse corpus consiste na classificação dos artigos de acordo com as perspectivas pró-oposição e pró-situação. O classificador Naïve Bayes foi escolhido pelos mesmos motivos indicados no Capítulo \ref{chap3}, na seção \ref{freqs:experim}. O classificador baseia-se apenas nas contagens de palavras dos documentos para definir suas classes. Os motivos para a escolha por contagens de palavras também são os mesmos apontados no Capítulo \ref{chap3}, na seção \ref{freqs:experim}. 
 
-Essas escolhas se mostraram adequadas para o problema: a taxa de acerto obtida na classificação foi de 89.43\%; a precisão média, de  89.68\%; a métrica F1 média, de 89.42\%. Assim como em outros artigos revisados no Capítulo \ref{chap3} \cite{lin-et-al2006} \cite{aaai-politics} \cite{klebanov}, esses valores foram obtidos via validação cruzada de dez dobras. %tabela mais precisa
- O bom desempenho do método indica que o uso de metodologias mais complexas, envolvendo aspectos sintáticos dos documentos, por exemplo, não é necessário. Além disso, é válido ressaltar que a adoção de características sintáticas/semânticas, para a classificação de um corpus em português, não é tão simples como para um corpus em inglês. Isso advém  da carência de \emph{softwares} e dicionários semânticos para a língua portuguesa - em particular, a variação utilizada no Brasil. Esses \emph{softwares} e dicionários colaboram com a determinação de diversos aspectos gramaticais/linguísticos dos textos, minimizando o esforço manual requerido quando eles não podem ser utilizados.
+Essas escolhas se mostraram adequadas para o problema: a taxa de acerto obtida na classificação foi de 89.43\%. Assim como em outros artigos revisados no Capítulo \ref{chap3} \cite{lin-et-al2006} \cite{aaai-politics} \cite{klebanov}, esse valor foi obtido via validação cruzada de dez dobras. A precisão, rechamada e métrica F1 associadas a cada classe (perspectiva) constam na Tabela 4.2. %tabela mais precisa %precisao 0 0,915979712 precisao 1 0,877579312 % rechamada 0 0,870754717 1 0,917924528  %f1 0 0,891837888 1 0,896484354
+
+%; a precisão média, de  89.68\%; a métrica F1 média, de 89.42\%
+
+\begin{table}[h]
+\centering
+\begin{tabular}{| l | l | l | l | }
+\hline
+
+\textbf{Classe} & \textbf{Precisão} & \textbf{Rechamada} & \textbf{Métrica F1} \\ \hline
+
+\textbf{Pró-situação} & 91.60\% & 87.08\% & 89.18\% \\ \hline
+\textbf{Pró-oposição} & 87.78\% & 91.79\% & 89.65\% \\ \hline
+\end{tabular}
+\label{resultados}
+\caption{Métricas de desempenho associadas a cada classe.}
+\end{table}
+
+A primeira coluna da Tabela 4.2 indica que o Naïve Bayes classificou menos documentos erroneamente como pró-situação do que como pró-oposição. Em outras palavras, a classificação como pró-situação foi mais \textbf{precisa}. A segunda coluna indica que, por outro lado, o Naïve Bayes classificou mais documentos pró-oposição corretamente. Neste sentido, a rechamada funciona como a taxa de acerto. Por fim, a terceira coluna indica que, ponderando as colunas anteriores via métrica F1, os resultados obtidos são praticamente idênticos. Isso significa, na prática, que o Naïve Bayes apresenta um desempenho bastante equilibrado considerando-se ambas as classes. 
+
+O bom desempenho obtido com o Naïve Bayes indica que o uso de metodologias mais complexas, envolvendo aspectos sintáticos dos documentos, por exemplo, não é necessário. Além disso, é válido ressaltar que a adoção de características sintáticas/semânticas, para a classificação de um corpus em português, não é tão simples como para um corpus em inglês. Isso advém  da carência de \emph{softwares} e dicionários semânticos para a língua portuguesa - em particular, a variação utilizada no Brasil. Esses \emph{softwares} e dicionários colaboram com a determinação de diversos aspectos gramaticais/linguísticos dos textos, minimizando o esforço manual requerido quando eles não podem ser utilizados.
 
 
 Os valores obtidos com o classificador Naïve Bayes são comparáveis àqueles obtidos por \textbf{Durant e Smith} em seu trabalho sobre George W. Bush e a Guerra do Iraque\footnote{Esse trabalho foi revisado no Capítulo \ref{chap3}.} \cite{durant-smith}: 89.77\%. É válido ressaltar que, diferentemente da metodologia adotada por Durant e Smith, nenhuma palavra foi descartada no processamento dos textos para este estudo de caso.  

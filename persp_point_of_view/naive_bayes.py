@@ -120,6 +120,8 @@ class NaiveBayesSampler(object):
       self.theta[1] = np.random.dirichlet(self.Gammatheta + self.wccs[1])
 
       num, den = self.num_den()
+      print num[0], num[1]
+      print den[0], den[1]
       print "accuracy"
       ac = self.accuracy(num, den)
       print ac
