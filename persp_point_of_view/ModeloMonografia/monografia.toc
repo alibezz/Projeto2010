@@ -7,7 +7,7 @@
 \contentsline {section}{\numberline {2.2}\emph {Support Vector Machines} (SVMs)}{17}
 \contentsline {section}{\numberline {2.3}M\IeC {\'e}tricas para mensurar o desempenho dos classificadores}{19}
 \contentsline {section}{\numberline {2.4}Valida\IeC {\c c}\IeC {\~a}o cruzada de \ensuremath {k} dobras}{20}
-\contentsline {section}{\numberline {2.5}\emph {Labeled-Latent Dirichlet Allocation} (L-LDA)}{21}
+\contentsline {section}{\numberline {2.5}\emph {Labeled-Latent Dirichlet Allocation} (L-LDA)}{20}
 \contentsline {chapter}{\numberline {3}Classifica\IeC {\c c}\IeC {\~a}o por ponto de vista: revis\IeC {\~a}o e discuss\IeC {\~a}o}{23}
 \contentsline {section}{\numberline {3.1}Trabalhos que exploram contagens de palavras ou varia\IeC {\c c}\IeC {\~o}es}{25}
 \contentsline {section}{\numberline {3.2}Trabalhos que exploram outras caracter\IeC {\'\i }sticas dos documentos}{28}

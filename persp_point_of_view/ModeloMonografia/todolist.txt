@@ -1,19 +1,25 @@
+
+*** resolver svms: botar figura 
+*** dar a validaçao cruzada dos trabalhos revisados.
+*** construir glossario
+
 CORRIGIR RODAPÉÉÉÉÉÉS!!!!!!!!!!!! - ok
 PARAR DE FAZER \SECTION{INTRODUÇÃO}!!!!! - ok
 REVISAR BIBLIOGRAFIAS!!!!
-VER QTOS ARTIGOS EU DIGO Q REVISO, SE ISSO TÁ PADRONIZADO E COERENTE.
+VER QTOS ARTIGOS EU DIGO Q REVISO, SE ISSO TÁ PADRONIZADO E COERENTE. - ok
 ARRUMAR TABELAS COMO H OU T - ok
 PADRONIZAR NUMERO DE PALAVRAS NOS CAPITULOS Q USAM L-LDA! => 10
 PADRONIZAR SE FALA SÓ DE TAXA DE ACERTO OU SE TB DISCUTE UM POUCO PRECISÃO POR CLASSE E TALZ. - ok
 TIRAR O .COM DOS SITES, DEIXANDO SÓ NO RODAPÉ! - ok
 
-MUDAR DE PERSPECTIVA PRA PONTO DE VISTA SEMPRE QUE POSSÍVEL!
+MUDAR DE PERSPECTIVA PRA PONTO DE VISTA SEMPRE QUE POSSÍVEL! - ok
 
 Explicar o q P(a|b) quer dizer.
 referenciar capitulo 2 na primeira vez q fala de algum conceito básico always.
 =======
 Glossário
-explicar oq é independência condicional. 
+explicar oq é independência condicional.
+mostrar o teorema de bayes, passinho a passinho na coisa das palavras. 
 P(a|b)
 
 ====================

@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  16 OCT 2010 09:24
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  16 OCT 2010 13:11
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -584,27 +584,24 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
 Cap\'{\i }tulo 2.
 [13
 
-] [14]
-LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 83.
- [15] [16]
+] [14] [15] [16]
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 123.
- [17] [18]
-Overfull \hbox (11.5667pt too wide) in paragraph at lines 194--194
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 138.
+ [17]
+Overfull \hbox (11.5667pt too wide) in paragraph at lines 223--223
 []\T1/ptm/b/n/17.28 MÉTRICAS PARA MEN-SU-RAR O DE-SEM-PE-NHO DOS
  []
 
-[19]
+[18] [19]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 230.
- [20]
-Overfull \hbox (14.79982pt too wide) in paragraph at lines 242--242
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 260.
+
+Overfull \hbox (14.79982pt too wide) in paragraph at lines 272--272
 []\T1/ptm/b/it/17.28 LABELED-LATENT DI-RI-CH-LET AL-LO-CA-TION \T1/ptm/b/n/17.2
 8 (L-LDA) 
  []
 
-[21]) (./frequencia_palavras.tex [22]
+[20] [21]) (./frequencia_palavras.tex [22]
 Cap\'{\i }tulo 3.
 
 Underfull \hbox (badness 10000) in paragraph at lines 4--4
@@ -663,7 +660,10 @@ File: oposicao.png Graphic file (type png)
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[44 <./situacao.png>] [45 <./oposicao.png>]) (./conclusao.tex [46]
+[44 <./situacao.png>]
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 318.
+ [45 <./oposicao.png>]) (./conclusao.tex [46]
 Cap\'{\i }tulo 5.
 [47
 
@@ -685,11 +685,11 @@ LaTeX Warning: There were undefined references.
 
  ) 
 Here is how much of TeX's memory you used:
- 6561 strings out of 94101
- 86794 string characters out of 1165810
- 145725 words of memory out of 1500000
- 9605 multiletter control sequences out of 10000+50000
- 92856 words of font info for 138 fonts, out of 1200000 for 2000
+ 6554 strings out of 94101
+ 86638 string characters out of 1165810
+ 145588 words of memory out of 1500000
+ 9591 multiletter control sequences out of 10000+50000
+ 95769 words of font info for 145 fonts, out of 1200000 for 2000
  637 hyphenation exceptions out of 8191
  30i,11n,41p,2626b,605s stack positions out of 5000i,500n,6000p,200000b,5000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
@@ -702,7 +702,7 @@ usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texl
 ive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/
 times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></
 usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
-Output written on monografia.pdf (53 pages, 368954 bytes).
+Output written on monografia.pdf (53 pages, 365635 bytes).
 PDF statistics:
  228 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
