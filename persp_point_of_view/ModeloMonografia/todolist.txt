@@ -1,7 +1,9 @@
 
-*** resolver svms: botar figura 
-*** dar a validaçao cruzada dos trabalhos revisados.
-*** construir glossario
+*** dar a validaçao cruzada dos trabalhos revisados. - HOJE
+*** tirar ref. errada no cap 4 - HOJE
+*** resolver svms: botar figura - DOMINGO
+*** construir glossario - SEGUNDA
+*** reler - SEGUNDA
 
 CORRIGIR RODAPÉÉÉÉÉÉS!!!!!!!!!!!! - ok
 PARAR DE FAZER \SECTION{INTRODUÇÃO}!!!!! - ok

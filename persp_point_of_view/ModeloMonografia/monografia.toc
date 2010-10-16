@@ -11,7 +11,7 @@
 \contentsline {chapter}{\numberline {3}Classifica\IeC {\c c}\IeC {\~a}o por ponto de vista: revis\IeC {\~a}o e discuss\IeC {\~a}o}{23}
 \contentsline {section}{\numberline {3.1}Trabalhos que exploram contagens de palavras ou varia\IeC {\c c}\IeC {\~o}es}{25}
 \contentsline {section}{\numberline {3.2}Trabalhos que exploram outras caracter\IeC {\'\i }sticas dos documentos}{28}
-\contentsline {section}{\numberline {3.3}An\IeC {\'a}lise comparativa}{31}
+\contentsline {section}{\numberline {3.3}An\IeC {\'a}lise comparativa}{32}
 \contentsline {chapter}{\numberline {4}Estudo de caso: Pontos de vista sobre o governo brasileiro}{34}
 \contentsline {section}{\numberline {4.1}Construindo um corpus para estudo}{35}
 \contentsline {section}{\numberline {4.2}Classificando documentos com um Na\IeC {\"\i }ve Bayes}{41}
