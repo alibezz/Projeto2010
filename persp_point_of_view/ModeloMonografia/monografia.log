@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  16 OCT 2010 00:35
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  16 OCT 2010 00:57
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -614,63 +614,62 @@ ode ser con-fe-rido em
 
 [23
 
-] [24] [25] [26]
-Overfull \hbox (7.40819pt too wide) in paragraph at lines 53--54
+] [24]
+Overfull \hbox (4.55127pt too wide) in paragraph at lines 42--42
+[]\T1/ptm/b/n/17.28 TRABALHOS QUE EX-PLO-RAM CON-TA-GENS DE PA-
+ []
+
+[25]
+Overfull \hbox (7.40819pt too wide) in paragraph at lines 55--56
 []\T1/ptm/m/n/12 O tra-ba-lho de \T1/ptm/b/n/12 Du-rant e Smith \T1/ptm/m/n/12 
 cons-trói um cor-pus so-bre os po-si-ci-o-na-men-tos do ex-Presidente
  []
 
-[27]
-Overfull \hbox (2.35213pt too wide) in paragraph at lines 73--73
-[]\T1/ptm/b/n/14.4 TRABALHOS QUE EX-PLO-RAM OU-TRAS CA-RAC-TE-RÍS-TI-CAS
+[26] [27]
+Overfull \hbox (5.05331pt too wide) in paragraph at lines 75--75
+[]\T1/ptm/b/n/17.28 TRABALHOS QUE EX-PLO-RAM OU-TRAS CA-RAC-TE-
  []
 
-[28] [29] [30] [31] [32]
-Overfull \hbox (5.68849pt too wide) in paragraph at lines 107--107
-[]\T1/ptm/b/n/17.28 DISCUSSÃO SO-BRE O USO DE PA-LA-VRAS E A CLAS-
- []
-
-[33] [34]
-Overfull \hbox (0.36414pt too wide) in paragraph at lines 137--138
-[]\T1/ptm/m/n/12 Inicialmente, considerando-se es-sas di-vi-sões dos \T1/ptm/m/
-it/12 da-ta-sets\T1/ptm/m/n/12 , ex-pe-ri-men-tos com o Naïve Bayes
- []
-
-[35] [36] [37] [38]) (./estudo_de_caso.tex [39]
+[28] [29] [30] [31] [32]) (./estudo_de_caso.tex [33]
 Cap\'{\i }tulo 4.
-[40
+[34
 
-] [41]
+] [35]
 Underfull \hbox (badness 10000) in paragraph at lines 51--51
 [][]\T1/ptm/m/n/10 http://www.conversaafiada.com.br/brasil/2010/07/02/mino-expl
 ica-por-que-apoia-a-dilma-porque-ela-e-
  []
 
-[42] (/usr/share/texmf-texlive/tex/latex/ucs/data/uni-32.def
+[36] (/usr/share/texmf-texlive/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2004/10/17 UCS: Unicode data U+2000..U+20FF
-) [43] [44]
+) [37] [38]
 Overfull \hbox (11.76984pt too wide) in paragraph at lines 144--145
 []\T1/ptm/m/n/10.95 Retirado de \T1/ptm/m/it/10.95 "FHC aceita o con-vite para 
 o du-elo que Lula não pode re-cu-sar." \T1/ptm/m/n/10.95 - 11/02/2010 
  []
 
-[45] [46] [47] [48] [49] <situacao.png, id=174, 1270.7475pt x 605.26125pt>
+[39] [40]
+
+LaTeX Warning: Reference `freqs:experim' on page 41 undefined on input line 216
+.
+
+[41] [42] [43] <situacao.png, id=155, 1270.7475pt x 605.26125pt>
 File: situacao.png Graphic file (type png)
 
-<use situacao.png> <oposicao.png, id=175, 1271.75125pt x 642.4pt>
+<use situacao.png> <oposicao.png, id=156, 1271.75125pt x 642.4pt>
 File: oposicao.png Graphic file (type png)
 
 <use oposicao.png>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[50 <./situacao.png>] [51 <./oposicao.png>]) (./conclusao.tex [52]
+[44 <./situacao.png>] [45 <./oposicao.png>]) (./conclusao.tex [46]
 Cap\'{\i }tulo 5.
-[53
+[47
 
-] [54]) (./monografia.bbl [55] [56
+] [48]) (./monografia.bbl [49] [50
 
-] [57])
+] [51])
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
@@ -680,29 +679,32 @@ tabela-simbolos: agora rode geratss (linux) ou manualmente,
 makeindex -s tabela-siglas.ist -o monografia.sigla monografia.siglax
 makeindex -s tabela-simbolos.ist -o monografia.symbols monografia.symbolsx
 ########################################################################
-[58] (./monografia.aux) ) 
+[52] (./monografia.aux)
+
+LaTeX Warning: There were undefined references.
+
+ ) 
 Here is how much of TeX's memory you used:
- 6555 strings out of 94101
- 86730 string characters out of 1165810
- 146570 words of memory out of 1500000
- 9599 multiletter control sequences out of 10000+50000
+ 6546 strings out of 94101
+ 86593 string characters out of 1165810
+ 145520 words of memory out of 1500000
+ 9590 multiletter control sequences out of 10000+50000
  92856 words of font info for 138 fonts, out of 1200000 for 2000
  637 hyphenation exceptions out of 8191
  30i,11n,41p,2626b,605s stack positions out of 5000i,500n,6000p,200000b,5000s
-{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}
-</usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/texmf-t
-exlive/fonts/type1/bluesky/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/
-bluesky/cm/cmr10.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmsy10.pf
-b></usr/share/texmf-texlive/fonts/type1/bluesky/ams/msbm10.pfb></usr/share/texm
-f-texlive/fonts/type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1
-/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb
-></usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-t
-exlive/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/
-urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pf
-b>
-Output written on monografia.pdf (59 pages, 386192 bytes).
+{/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}</usr/share/texmf-texli
+ve/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/texmf-texlive/fonts/type1/blue
+sky/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmr10.pfb></
+usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmsy10.pfb></usr/share/texmf-tex
+live/fonts/type1/bluesky/ams/msbm10.pfb></usr/share/texmf-texlive/fonts/type1/u
+rw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1/urw/symbol/usyr.pfb></
+usr/share/texmf-texlive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texl
+ive/fonts/type1/urw/times/utmb8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/
+times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmr8a.pfb></
+usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pfb>
+Output written on monografia.pdf (53 pages, 368271 bytes).
 PDF statistics:
- 247 PDF objects out of 1000 (max. 8388607)
+ 228 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 

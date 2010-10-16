@@ -13,10 +13,16 @@ A \emph{survey} de Pang e Lee, uma das principais referências para este projeto
 \item Busca nos \emph{sites} dos eventos \emph{EMNLP\footnote{\emph{Empirical Methods in Natural Language Processing Conference.}}, NAACL\footnote{\emph{North American Chapter of the Association for Computational Linguistics Conference.}}, AAAI\footnote{\emph{Association for the Advancement of Artificial Intelligence Conference.}}} e \emph{CoNNL\footnote{\emph{Computational Natural Language Learning Conference.}}}, realizados entre 2000 e 2010, pelas mesmas palavras do item anterior. Esses eventos foram selecionados pela relevância na área de Mineração de Opinião. 
 \end{enumerate}
 
-Nem todos os trabalhos coletados, de acordo com essa metodologia, tinham necessariamente a ver com classificação por ponto de vista. Alguns, como a tese de Alice Oh, se propõem a modelar computacionalmente o conceito de perspectiva \cite{alice-oh}; outros, como o artigo de Laver et al., se propõem a criar uma escala ideológica e comparar documentos de acordo com ela \cite{wordscores}.  Por este motivo, foi feita uma filtragem que resultou em onze trabalhos a serem revisados. Na seção \ref{freqs:revisao}, essa revisão é apresentada. 
+Nem todos os trabalhos coletados, de acordo com essa metodologia, tinham necessariamente a ver com classificação por ponto de vista. Alguns, como a tese de Alice Oh, se propõem a modelar computacionalmente o conceito de perspectiva \cite{alice-oh}; outros, como o artigo de Laver et al., se propõem a criar uma escala ideológica e comparar documentos de acordo com ela \cite{wordscores}.  Por este motivo, foi feita uma filtragem que resultou em onze trabalhos a serem revisados. 
+
+Todos esses trabalhos apresentam uma metodologia em comum: eles organizam um corpus de documentos, definem em que pontos de vista ele se divide, eventualmente pré-processam os documentos e, em seguida, classificam-nos utilizando alguma técnica - na maioria dos casos, SVMs ou Naïve Bayes\footnote{Esses classificadores são apresentados no Capítulo \ref{basicos}.}. Independentemente da forma de classificação, tem-se que elas sempre se baseiam em características dos documentos para determinar suas classes. Quase todos os trabalhos revisados nesse capítulo exploram, como características, (1) contagens de palavras ou alguma variação delas\footnote{O conceito de contagens de palavras é apresentado no Capítulo \ref{basicos}.}. Boa parte deles não faz uso de nenhuma outra característica e alguns trabalhos as comparam com outras, que normalmente são seu enfoque. Essas outras características são escolhidas de forma muito particular, variando de um trabalho para outro. Em vez de apenas considerarem ocorrências de palavras em textos, esses trabalhos exploram (2) suas relações sintáticas, suas propriedades semânticas e também valores associados às interações entre dois ou mais documentos. 
+
+Dado que essas últimas características variam bastante, e considerando também a popularidade das primeiras nos trabalhos estudados, decidiu-se dividir a revisão dos trabalhos nas seguintes seções: a seção \ref{contagem} apresenta trabalhos que classificam documentos baseando-se \textbf{exclusivamente} em (1) - ou seja, eles desconsideram \emph{quaisquer} aspectos gramaticais dos documentos. A seção \ref{sintaxe} apresenta trabalhos que exploram (2) na classificação, exclusivamente ou em conjunto com (1). É importante informar que alguns trabalhos da segunda seção, por questões comparativas, também classificam documentos exclusivamente de acordo com (1) - mas este não é o foco deles.  Por fim, na seção \ref{compara}, é apresentada uma pequena análise comparativa envolvendo os trabalhos revisados nas seções anteriores.
+
+%Na seção \ref{freqs:revisao}, essa revisão é apresentada. 
 
 %Boa parte dos trabalhos revisados na seção anterior  
-Uma parte significativa dos trabalhos apresentados na seção \ref{freqs:revisao} classifica documentos explorando apenas suas diferentes contagens de palavras\footnote{É válido reforçar que, conforme apresentado no Capítulo \ref{basicos}, tem-se que, dado um documento, a contagem de uma palavra é o \emph{número de vezes} que ela ocorre nele \cite{mccallum-nigam}. Ainda nesse capítulo, as descrições dos SVMs e do Naïve Bayes evidenciam como esses classificadores podem explorar essas contagens.}. De todo modo, em alguns trabalhos, os autores propõem o emprego de outras características, mas não há sequer dois deles que as explorem da mesma forma. Neste sentido, no momento, o uso de contagens de palavras parece ser a escolha mais comum para classificação por ponto de vista.  Diante da popularidade do uso de contagens de palavras na seção \ref{freqs:revisao}, foi julgado importante, em um capítulo que discute classificação por ponto de vista, dar um enfoque especial a elas. Neste sentido, a seção \ref{freqs:experim} discute a classificação baseada em contagens de palavras, analisando a relação entre seu desempenho e o emprego de palavras por diferentes perspectivas sobre um mesmo tema.  
+%Uma parte significativa dos trabalhos apresentados na seção \ref{freqs:revisao} classifica documentos explorando apenas suas diferentes contagens de palavras\footnote{É válido reforçar que, conforme apresentado no Capítulo \ref{basicos}, tem-se que, dado um documento, a contagem de uma palavra é o \emph{número de vezes} que ela ocorre nele \cite{mccallum-nigam}. Ainda nesse capítulo, as descrições dos SVMs e do Naïve Bayes evidenciam como esses classificadores podem explorar essas contagens.}. De todo modo, em alguns trabalhos, os autores propõem o emprego de outras características, mas não há sequer dois deles que as explorem da mesma forma. Neste sentido, no momento, o uso de contagens de palavras parece ser a escolha mais comum para classificação por ponto de vista.  Diante da popularidade do uso de contagens de palavras na seção \ref{freqs:revisao}, foi julgado importante, em um capítulo que discute classificação por ponto de vista, dar um enfoque especial a elas. Neste sentido, a seção \ref{freqs:experim} discute a classificação baseada em contagens de palavras, analisando a relação entre seu desempenho e o emprego de palavras por diferentes perspectivas sobre um mesmo tema.  
 
 %\footnote{Esse conceito pode ser estendido para uma classe fixada. Neste cenário, a contagem de uma palavra é o número de vezes que ela ocorre em todos os documentos dessa classe.}
 
@@ -29,15 +35,11 @@ Uma parte significativa dos trabalhos apresentados na seção \ref{freqs:revisao
 %Grande parte dos trabalhos revisados na seção \ref{freqs:revisao} exploram contagens de palavras, ou pequenas variações sobre elas, na classificação. Uma variação que recebe certo destaque são as ausências/presenças de palavras. Conforme discutido no Capítulo \ref{basicos}, tem-se que, dado um documento, a ausência/presença de uma palavra corresponde a um \emph{bit}, indicando se ela está ausente (0) ou presente (1) nele \cite{mccallum-nigam}. De todas as características exploradas na revisão, essas são as mais fáceis de computar, pois desprezam qualquer aspecto gramatical dos documentos e ignoram suas relações com outros textos. O fato de independerem de propriedades sintáticas ou semânticas faz das contagens, e de suas variações, características fáceis de serem exploradas em documentos escritos em qualquer língua. Diante desses fatores, 
 
 
-\section{Trabalhos Revisados}
-\label{freqs:revisao}
+%\section{Trabalhos Revisados}
+%\label{freqs:revisao}
 
-Todos os trabalhos revisados nesta seção apresentam uma metodologia em comum: eles organizam um corpus de documentos, definem em que pontos de vista ele se divide, eventualmente pré-processam os documentos e, em seguida, classificam-nos utilizando alguma técnica - na maioria dos casos, SVMs ou Naïve Bayes. Independentemente da forma de classificação, tem-se que elas sempre se baseiam em características dos documentos para determinar suas classes. 
-Quase todos os trabalhos revisados nessa seção exploram, como características, (1) contagens de palavras ou alguma variação delas. Boa parte deles não testa o uso de nenhuma outra característica e alguns trabalhos as comparam com outras, que normalmente são seu enfoque. Essas outras características são escolhidas de forma muito particular, variando de um trabalho para outro. Em vez de apenas considerarem ocorrências de palavras em textos, esses trabalhos exploram (2) suas relações sintáticas, suas propriedades semânticas e também valores associados às interações entre dois ou mais documentos. 
 
-Dado que essas últimas características variam bastante, e considerando também a popularidade das primeiras, decidiu-se dividir a revisão dos trabalhos nas seguintes subseções: a subseção \ref{contagem} apresenta trabalhos que classificam documentos baseando-se \textbf{exclusivamente} em (1) - ou seja, eles desconsideram \emph{quaisquer} aspectos gramaticais dos documentos. A subseção \ref{sintaxe} apresenta trabalhos que exploram (2) na classificação, exclusivamente ou em conjunto com (1). É importante informar que alguns trabalhos da segunda subseção, por questões comparativas, também classificam documentos exclusivamente de acordo com (1) - mas este não é o foco deles.  Por fim, na subseção \ref{compara}, é apresentada uma pequena análise comparativa envolvendo os trabalhos revisados nas subseções anteriores.
-
-\subsection{Trabalhos que exploram contagens de palavras ou variações}
+\section{Trabalhos que exploram contagens de palavras ou variações}
 \label{contagem}
 
 O trabalho de \textbf{Lin et al.} classifica artigos do \emph{site} Bitterlemons\footnote{http://bitterlemons.org/} como pró-Palestina ou pró-Israel \cite{lin-et-al2006}. Inicialmente, os documentos são representados como listas de palavras reduzidas a seus radicais. Isso significa, por exemplo, que as palavras \emph{political} e \emph{politics} são representadas através de um mesmo termo, o radical \emph{politic}. Os classificadores Naïve Bayes e SVM são então aplicados, explorando as contagens desses radicais em cada documento. A taxa de acerto obtida com o SVM variou entre 81.48\% e 97.24\%; com o Naïve Bayes, ela variou entre 84.85\% e 99.09\%. Essas variações advêm de diferentes divisões entre os conjuntos de treinamento e teste. Por fim, o trabalho de Lin et al. propõe o classificador \emph{Latent Sentence Perspective Model}, ou simplesmente LSPM. Ele consiste em uma variação do Naïve Bayes que, em vez de considerar documentos como listas de palavras, os representa como listas de senteças. A hipótese assumida por ele é a seguinte: nem todas as sentenças carregam um ponto de vista, de modo que o classificador, antes de definir a classe de um documento, deve selecionar quais delas carregam palavras relevantes. A taxa de acerto obtida com o LSPM variou entre  86.99\% e 94.93\%, também como consequência de diferentes divisões entre os conjuntos de treinamento e teste. Para essas divisões, as taxas de acerto obtidas com o Naïve Bayes foram de 84.85\% e 93.46\%. O SVM não foi comparado diretamente com o LSPM. Apesar do desempenho superior ao do Naïve Bayes, nenhum outro trabalho revisado faz uso desse classificador. 
@@ -70,7 +72,7 @@ O trabalho de \textbf{Klebanov, Beigman e Diermeier} avalia o desempenho dos cla
 
 
 
-\subsection{Trabalhos que exploram outras características dos documentos}
+\section{Trabalhos que exploram outras características dos documentos}
 \label{sintaxe}
 
 O trabalho de \textbf{Jiang e Argamon} constrói um corpus de documentos extraídos de \emph{blogs} sobre política escritos em inglês \cite{jiang-argamon}. Cada \emph{blog} é associado ao ponto de vista liberal ou conservador, divisão explorada na classificação. Os documentos que constituem o corpus são apenas as páginas iniciais de cada um deles. Inicialmente, Jiang e Argamon aplicam um SVM às páginas, considerando apenas a presença/ausência de palavras nos documentos. A taxa de acerto obtida foi de 81.92\% e, considerando ambas as classes, tem-se que a precisão média foi de 81.76\%, a rechamada média foi de 81.93\% e a métrica F1 média foi de 81.79\%. Em seguida, as páginas foram reduzidas a suas sentenças subjetivas, através de uma seleção baseada no dicionário semântico \emph{General Inquirer}\footnote{http://www.wjh.harvard.edu/~inquirer/}. Para uma sentença ser escolhida, ela deveria conter pelo menos duas palavras categorizadas, segundo o dicionário, como pertencentes às categorias \emph{Dor}, \emph{Hostilidade}, \emph{Prazer} ou \emph{Virtude}, dentre outras. A taxa de acerto, neste cenário, subiu para 83.28\%. As precisão, rechamada e métrica F1 médias foram de, respectivamente, 83.26\%, 83.38\% e 83.24\%. Esse trabalho, por fim, busca extrair as expressões opinativas que mais se relacionam aos pontos de vista liberal e conservador, baseando-se nas sentenças subjetivas e em consultas ao dicionário \emph{General Inquirer}. O SVM é aplicado considerando a presença/ausência de palavras e, adicionalmente, a presença/ausência das expressões opinativas separadas para cada lado. A taxa de acerto neste cenário foi de 84.96\%. As precisão, rechamada e métrica F1 médias foram de, respectivamente, 83.24\%, 83.48\% e 83.27\%. As melhorias em relação ao uso exclusivo de ausência/presença de palavras, portanto, são pequenas. Além disso, essas metodologias não são facilmente adaptáveis a línguas que não dispõem de dicionários como o \emph{General Inquirer} \emph{online}.
@@ -91,29 +93,31 @@ O trabalho de \textbf{Bansal, Cardie e Lee} propõe uma extensão ao trabalho de
 
 
 
-\subsection{Análise comparativa}
+\section{Análise comparativa}
 \label{compara}
 
-Os trabalhos revisados nesta seção propõem, em quase todos os casos, \emph{datasets} relacionados com questões políticas. Neste sentido, o trabalho de \textbf{Efron}, revisado na subseção \ref{sintaxe}, destaca-se por também abordar pontos de vista sobre música (pró-alternativa e pró-popular) \cite{efron}. De fato, não é simples definir o que é um ponto de vista ou perspectiva, mas, considerando-se a discussão proposta na \emph{survey} de Pang e Lee \cite{omsa}, essas terminologias não abrangem apenas temáticas políticas - mesmo que seja mais fácil visualizá-las nesses contextos. Adicionalmente, Alice Oh, em seu trabalho sobre modelagem de perspectiva, aborda uma temática esportiva (jogos de \emph{baseball}) \cite{alice-oh}. Embora ela não lide com classificação, seu estudo envolve as perspectivas sobre os jogos, evidenciando que é possível explorar temáticas não-políticas. Seria interessante, portanto, ampliar os estudos de classificação por ponto de vista para outros domínios sócio-culturais. Por fim, é importante escolher esses pontos de vista com certo cuidado, de modo que elas correspondam efetivamente ao conteúdo do corpus. Neste sentido, o trabalho de \textbf{Hirst, Riabinin e Graham}, apresentado na subseção \ref{contagem}, apresenta uma boa discussão \cite{hirst-et-al}. 
+Os trabalhos revisados neste capítulo propõem, em quase todos os casos, \emph{datasets} relacionados com questões políticas. Neste sentido, o trabalho de \textbf{Efron}, revisado na seção \ref{sintaxe}, destaca-se por também abordar pontos de vista sobre música (pró-alternativa e pró-popular) \cite{efron}. De fato, não é simples definir o que é um ponto de vista ou perspectiva, mas, considerando-se a discussão proposta na \emph{survey} de Pang e Lee \cite{omsa}, essas terminologias não abrangem apenas temáticas políticas - mesmo que seja mais fácil visualizá-las nesses contextos. Adicionalmente, Alice Oh, em seu trabalho sobre modelagem de perspectiva, aborda uma temática esportiva (jogos de \emph{baseball}) \cite{alice-oh}. Embora ela não lide com classificação, seu estudo envolve as perspectivas sobre os jogos, evidenciando que é possível explorar temáticas não-políticas. Seria interessante, portanto, ampliar os estudos de classificação por ponto de vista para outros domínios sócio-culturais. Por fim, é importante escolher esses pontos de vista com certo cuidado, de modo que eles correspondam efetivamente ao conteúdo do corpus. Neste sentido, o trabalho de \textbf{Hirst, Riabinin e Graham}, apresentado na seção \ref{contagem}, apresenta uma boa discussão \cite{hirst-et-al}. 
 
-Quanto à definição dos pontos de vista, todos os trabalhos revisados dividiram seus corpora em dois deles, associando cada um a uma classe. No que diz respeito ao pré-processamento dos documentos, destaca-se o segundo trabalho de \textbf{Mullen e Malouf}, apresentado na subseção \ref{contagem} \cite{malouf-taking_sides}. Apesar da classificação em si ser simples, baseando-se apenas em contagens de palavras, a geração dos documentos envolve a formulação de um grafo e a análise de padrões de citação semelhantes. 
+Quanto à definição dos pontos de vista, todos os trabalhos revisados dividiram seus corpora em dois deles, associando cada um a uma classe. No que diz respeito ao pré-processamento dos documentos, destaca-se o segundo trabalho de \textbf{Mullen e Malouf}, apresentado na seção \ref{contagem} \cite{malouf-taking_sides}. Apesar da classificação em si ser simples, baseando-se apenas em contagens de palavras, a geração dos documentos envolve a formulação de um grafo e a análise de padrões de citação semelhantes. 
 
-No que diz respeito aos classificadores, foi observado que não há consenso quanto à escolha pelo Naïve Bayes ou por um SVM, principais técnicas abordadas. Aparentemente, o desempenho de ambos não difere muito; o que realmente apresenta um impacto na classificação é a escolha das características dos documentos, exploradas por algum dos classificadores. De todo modo, \textbf{Lin et al.} destaca, em seu trabalho revisado na subseção \ref{contagem}, o desenvolvimento de um novo classificador, o LSPM \cite{lin-et-al2006}. Esse classificador apresenta um desempenho apenas um pouco superior ao do Naïve Bayes, além de não ter sido explorado por nenhum outro trabalho pesquisado. Por outro lado, os trabalhos de Efron, \textbf{Thomas, Pang e Lee} e \textbf{Bansal, Cardie e Lee} apresentam metodologias de classificação completamente diferentes do Naïve Bayes e dos SVMs, e obtêm melhorias significativas em seus resultados \cite{efron} \cite{get-out-the-vote} \cite{disagree}. Essas metodologias, entretanto, exploram valores associados às interações entre documentos: quando elas não são significativas, essas metodologias podem não ser úteis.  
+No que diz respeito aos classificadores, foi observado que não há consenso quanto à escolha pelo Naïve Bayes ou por um SVM, principais técnicas abordadas. Aparentemente, o desempenho de ambos não difere muito; o que realmente apresenta um impacto na classificação é a escolha das características dos documentos, exploradas por algum dos classificadores. De todo modo, \textbf{Lin et al.} destaca, em seu trabalho revisado na seção \ref{contagem}, o desenvolvimento de um novo classificador, o LSPM \cite{lin-et-al2006}. Esse classificador apresenta um desempenho apenas um pouco superior ao do Naïve Bayes, além de não ter sido explorado por nenhum outro trabalho pesquisado. Por outro lado, os trabalhos de Efron, \textbf{Thomas, Pang e Lee} e \textbf{Bansal, Cardie e Lee} apresentam metodologias de classificação completamente diferentes do Naïve Bayes e dos SVMs, e obtêm melhorias significativas em seus resultados \cite{efron} \cite{get-out-the-vote} \cite{disagree}. Essas metodologias, entretanto, exploram valores associados às interações entre documentos: quando elas não são significativas, essas metodologias podem não ser úteis.  
 
-Os trabalhos revisados exploram características diferentes dos documentos e, até quando exploram as mesmas, podem escolher apenas um subconjunto delas ou investir no pré-processa mento dos documentos. Tudo isso contribui para a riqueza metodológica desses trabalhos, de modo que ainda não há consenso sobre qual é a melhor forma de classificar documentos de acordo com seus pontos de vista. Aparentemente, a resposta para essa questão depende do cenário. Em alguns casos, a simples aplicação de um Naïve Bayes ou de um SVM, explorando-se apenas contagens de palavras ou alguma variação, já conduz a bons resultados. É o caso dos trabalhos de Lin et al., Hirst, Riabinin e Graham e \textbf{Klebanov, Beigman e Diermeier}, revisados na subseção \ref{contagem}, e de \textbf{Jiang e Argamon}, revisado na subseção \ref{sintaxe} \cite{lin-et-al2006} \cite{hirst-et-al} \cite{klebanov} \cite{jiang-argamon}. Em outros casos, é possível melhorar o desempenho utilizando-se \emph{ainda} apenas contagens de palavras. Nestes casos, a estratégia envolve mudar o pré-processamento dos documentos, como no segundo trabalho de Mullen e Malouf, ou escolher um subconjunto ótimo de palavras, como no trabalho de \textbf{Durant e Smith} \cite{malouf-taking_sides} \cite{durant-smith}.
+Os trabalhos revisados exploram características diferentes dos documentos e, até quando exploram as mesmas, podem escolher apenas um subconjunto delas ou investir no pré-processa mento dos documentos. Tudo isso contribui para a riqueza metodológica desses trabalhos, de modo que ainda não há consenso sobre qual é a melhor forma de classificar documentos de acordo com seus pontos de vista. Aparentemente, a resposta para essa questão depende do cenário. Em alguns casos, a simples aplicação de um Naïve Bayes ou de um SVM, explorando-se apenas contagens de palavras ou alguma variação, já conduz a bons resultados. É o caso dos trabalhos de Lin et al., Hirst, Riabinin e Graham e \textbf{Klebanov, Beigman e Diermeier}, revisados na seção \ref{contagem}, e de \textbf{Jiang e Argamon}, revisado na seção \ref{sintaxe} \cite{lin-et-al2006} \cite{hirst-et-al} \cite{klebanov} \cite{jiang-argamon}. Em outros casos, é possível melhorar o desempenho utilizando-se \emph{ainda} apenas contagens de palavras. Nestes casos, a estratégia envolve mudar o pré-processamento dos documentos, como no segundo trabalho de Mullen e Malouf, ou escolher um subconjunto ótimo de palavras, como no trabalho de \textbf{Durant e Smith} \cite{malouf-taking_sides} \cite{durant-smith}.
 
-Quando essas mudanças não são suficientes, sugere-se a investigação do uso de outras características, como indicam os trabalhos de \textbf{Greene e Resnik}, Efron e Thomas, Pang e Lee, revisados na subseção \ref{sintaxe} \cite{greene} \cite{efron} \cite{get-out-the-vote}. O uso de outras características pode envolver a aplicação de \emph{softwares} de apoio ou consultas a dicionários semânticos, de modo que é melhor verificar antes se um Naïve Bayes ou SVM, baseado na simples contagem de palavras, já não resolve o problema. Além disso, a exploração de outras características nem sempre é facilmente adaptável a qualquer língua, como evidenciam os trabalhos de Greene e Resnik \cite{greene} e Jiang e Argamon \cite{jiang-argamon}, e nem sempre apresentam uma melhoria significativa em relação a metodologias mais simples, como nesse último caso.
+Quando essas mudanças não são suficientes, sugere-se a investigação do uso de outras características, como indicam os trabalhos de \textbf{Greene e Resnik}, Efron e Thomas, Pang e Lee, revisados na seção \ref{sintaxe} \cite{greene} \cite{efron} \cite{get-out-the-vote}. O uso de outras características pode envolver a aplicação de \emph{softwares} de apoio ou consultas a dicionários semânticos, de modo que é melhor verificar antes se um Naïve Bayes ou SVM, baseado na simples contagem de palavras, já não resolve o problema. Além disso, a exploração de outras características nem sempre é facilmente adaptável a qualquer língua, como evidenciam os trabalhos de Greene e Resnik \cite{greene} e Jiang e Argamon \cite{jiang-argamon}, e nem sempre apresentam uma melhoria significativa em relação a metodologias mais simples, como nesse último caso.
  
-\section{Discussão sobre o uso de palavras e a classificação baseada em suas contagens}
-\label{freqs:experim}
+%\section{Discussão sobre o uso de palavras e a classificação baseada em suas contagens}
+%\label{freqs:experim}
 
 
-Boa parte dos trabalhos revisados na seção anterior classifica documentos explorando suas diferentes contagens de palavras. Eles se baseiam, ainda que não intencionalmente, na hipótese de que indíviduos com posicionamentos diferentes se expressam de formas distintas, dando ênfase a palavras diferentes. Essa hipótese, é importante frisar, encontra respaldo na área de Linguística \cite{teubert}. Embora os aspectos gramaticais dos documentos, ou suas interações com outros, também possam colaborar na identificação de pontos de vista diferentes, muitas vezes já é possível obter bons resultados considerando-se apenas a forma como as palavras ocorrem nos documentos. Este foi o caso de uma parte significativa dos trabalhos revisados na seção anterior. Além disso, não houve sequer dois trabalhos, na seção anterior, que tenham explorado outros aspectos dos documentos da mesma forma, o que reforça a ideia de que o uso de contagens de palavras - ou variações, como a ausência/presença de palavras\footnote{Conforme apresentado no Capítulo \ref{basicos}, dado um documento, a ausência/presença de uma palavra corresponde a um valor \emph{booleano}, que indica se ela está ausente (0) ou presente (1) nele \cite{mccallum-nigam}.} - é, atualmente, a escolha mais natural para classificação por ponto de vista. 
+%Boa parte dos trabalhos revisados na seção anterior classifica documentos explorando suas diferentes contagens de palavras. Eles se baseiam, ainda que não intencionalmente, na hipótese de que indíviduos com posicionamentos diferentes se expressam de formas distintas, dando ênfase a palavras diferentes. Essa hipótese, é importante frisar, encontra respaldo na área de Linguística \cite{teubert}. Embora os aspectos gramaticais dos documentos, ou suas interações com outros, também possam colaborar na identificação de pontos de vista diferentes, muitas vezes já é possível obter bons resultados considerando-se apenas a forma como as palavras ocorrem nos documentos. Este foi o caso de uma parte significativa dos trabalhos revisados na seção anterior. Além disso, não houve sequer dois trabalhos, na seção anterior, que tenham explorado outros aspectos dos documentos da mesma forma, o que reforça a ideia de que o uso de contagens de palavras - ou variações, como a ausência/presença de palavras\footnote{Conforme apresentado no Capítulo \ref{basicos}, dado um documento, a ausência/presença de uma palavra corresponde a um valor \emph{booleano}, que indica se ela está ausente (0) ou presente (1) nele \cite{mccallum-nigam}.} - é, atualmente, a escolha mais natural para classificação por ponto de vista. 
 
-Diante desses pontos, essa seção se propõe a ampliar a compreensão sobre classificações baseadas em contagens de palavras. A ideia é aprofundar o entendimento sobre o desempenho obtido nesse tipo de classificação, observando a forma como documentos, escritos sob pontos de vista diferentes, empregam palavras. Parte-se da seguinte evidência: se um classificador utiliza \emph{apenas} as contagens de palavras dos documentos para identificar seus pontos de vista, sua taxa de acerto é tão mais baixa quanto menos essas contagens mudam de um ponto de vista para outro. Apesar dessa relação ser clara, não se conhece nenhum método para \emph{quantificá-la}.  O objetivo dessa seção, portanto, é \emph{ilustrá-la} através de alguns experimentos. Neste sentido, é feita uma comparação entre o uso de palavras em dois \emph{datasets}, classificados com um Naïve Bayes que explora apenas suas contagens. Para a análise do uso das palavras, será utilizado o modelo de tópicos L-LDA\footnote{O L-LDA é apresentado no Capítulo \ref{basicos}.}. 
+%Diante desses pontos, essa seção se propõe a ampliar a compreensão sobre classificações baseadas em contagens de palavras. A ideia é aprofundar o entendimento sobre o desempenho obtido nesse tipo de classificação, observando a forma como documentos, escritos sob pontos de vista diferentes, empregam palavras. Parte-se da seguinte evidência: se um classificador utiliza \emph{apenas} as contagens de palavras dos documentos para identificar seus pontos de vista, sua taxa de acerto é tão mais baixa quanto menos essas contagens mudam de um ponto de vista para outro. Apesar dessa relação ser clara, não se conhece nenhum método para \emph{quantificá-la}.  O objetivo dessa seção, portanto, é \emph{ilustrá-la} através de alguns experimentos. Neste sentido, é feita uma comparação entre o uso de palavras em dois \emph{datasets}, classificados com um Naïve Bayes que explora apenas suas contagens. Para a análise do uso das palavras, será utilizado o modelo de tópicos L-LDA\footnote{O L-LDA é apresentado no Capítulo \ref{basicos}.}. 
+
+%%%%%%%%%%%%%%%%%%%%%%% NAIVE BAYES
+%A escolha pelo Naïve Bayes, em vez de um SVM, advém da ideia de que, na seção anterior, ambos os classificadores apresentam desempenho semelhante. Em alguns casos, o primeiro funciona melhor do que o segundo; em outros, tem-se a situação contrária. Para os propósitos dessa seção, não houve necessidade de comparar o desempenho dos dois classificadores. Um ponto que reforça a escolha pelo Naïve Bayes é o trabalho de Ng e Jordan, que indica o uso desse classificador quando os \emph{datasets} analisados são pequenos \cite{ng-jordan}. Este é o caso de um dos corpora analisados. %, esse argumento reforça a escolha pelo Naïve Bayes.
 
 
-A escolha pelo Naïve Bayes, em vez de um SVM, advém da ideia de que, na seção anterior, ambos os classificadores apresentam desempenho semelhante. Em alguns casos, o primeiro funciona melhor do que o segundo; em outros, tem-se a situação contrária. Para os propósitos dessa seção, não houve necessidade de comparar o desempenho dos dois classificadores. Um ponto que reforça a escolha pelo Naïve Bayes é o trabalho de Ng e Jordan, que indica o uso desse classificador quando os \emph{datasets} analisados são pequenos \cite{ng-jordan}. Este é o caso de um dos corpora analisados. %, esse argumento reforça a escolha pelo Naïve Bayes.
 %Para isso, os resultados obtidos em dois cenários serão analisados à luz das palavras mais destacadas por cada perspectiva. 
 % Em outras palavras, isso significa que, em corpus nos quais os documentos usam as palavras de forma muito parecida (contagens semelhantes), a classificação se torna mais difícil.
 %como a contagem de uma palavra é o número de vezes que ela ocorre,
@@ -132,17 +136,17 @@ A escolha pelo Naïve Bayes, em vez de um SVM, advém da ideia de que, na seçã
 %APRESENTE OS DOIS DATASETS. JUSTIFIQUE PQ REFEZ EXPERIMENTOS OU PQ N ESCOLHEU O AAAI E SIM OUTRO. - OK 
 
 
-O primeiro \emph{dataset} estudado é composto de artigos sobre o conflito Israel-Palestina\footnote{Esse corpus está disponível em http://sites.google.com/site/weihaolinatcmu/data}, estudado pela primeira vez por Lin et al. em trabalho revisado na seção anterior \cite{lin-et-al2006}. O segundo \emph{dataset} estudado provém de outro trabalho: o artigo de Thomas, Pang e Lee sobre debates de congressistas dos Estados Unidos\footnote{Esse corpus está disponível em http://www.cs.cornell.edu/home/llee/data/convote.html}, também apresentado na seção anterior \cite{get-out-the-vote}. O primeiro \emph{dataset} contém 594 artigos, divididos entre os posicionamentos pró-Israel (297) e pró-Palestina (297); o segundo, 8126 falas em debates, dividos entre os pontos de vista republicano (4044) e democrata (4046). Esse corpus também se divide entre os pontos de vista suporte e oposição em relação a novas leis, explorados por Thomas, Pang e Lee. Nessa seção, a primeira divisão é adotada por questões didáticas. Assume-se que o público desse trabalho está mais familiarizado com posicionamentos republicanos ou democratas, amplamente divulgados nas mídias, do que com aqueles da segunda divisão. Isso fará diferença na compreensão da análise de palavras proposta nessa seção.
+%O primeiro \emph{dataset} estudado é composto de artigos sobre o conflito Israel-Palestina\footnote{Esse corpus está disponível em http://sites.google.com/site/weihaolinatcmu/data}, estudado pela primeira vez por Lin et al. em trabalho revisado na seção anterior \cite{lin-et-al2006}. O segundo \emph{dataset} estudado provém de outro trabalho: o artigo de Thomas, Pang e Lee sobre debates de congressistas dos Estados Unidos\footnote{Esse corpus está disponível em http://www.cs.cornell.edu/home/llee/data/convote.html}, também apresentado na seção anterior \cite{get-out-the-vote}. O primeiro \emph{dataset} contém 594 artigos, divididos entre os posicionamentos pró-Israel (297) e pró-Palestina (297); o segundo, 8126 falas em debates, dividos entre os pontos de vista republicano (4044) e democrata (4046). Esse corpus também se divide entre os pontos de vista suporte e oposição em relação a novas leis, explorados por Thomas, Pang e Lee. Nessa seção, a primeira divisão é adotada por questões didáticas. Assume-se que o público desse trabalho está mais familiarizado com posicionamentos republicanos ou democratas, amplamente divulgados nas mídias, do que com aqueles da segunda divisão. Isso fará diferença na compreensão da análise de palavras proposta nessa seção.
 
-Inicialmente, considerando-se essas divisões dos \emph{datasets}, experimentos com o Naïve Bayes foram conduzidos. Não foi feito nenhum pré-processamento nos corpora, simplificando ainda mais a metodologia dessa classificação. Via validação cruzada de dez dobras, a taxa de acerto obtida para o primeiro corpus foi de 86.22\%; para o segundo, de 54.01\%. A investigação sobre como as palavras são empregadas nesses \emph{datasets}, divididas por pontos de vista, amplia a compreensão sobre esses resultados.
+%Inicialmente, considerando-se essas divisões dos \emph{datasets}, experimentos com o Naïve Bayes foram conduzidos. Não foi feito nenhum pré-processamento nos corpora, simplificando ainda mais a metodologia dessa classificação. Via validação cruzada de dez dobras, a taxa de acerto obtida para o primeiro corpus foi de 86.22\%; para o segundo, de 54.01\%. A investigação sobre como as palavras são empregadas nesses \emph{datasets}, divididas por pontos de vista, amplia a compreensão sobre esses resultados.
 
 %MOSTRE COMO OS MODELOS DE TÓPICOS SÃO USADOS NOS DOIS LADOS - ok
 
-Para a investigação sobre o uso de palavras, foi feita uma aplicação do modelo L-LDA. Cada documento de ambos os \emph{datasets} foi associado a dois tópicos: um neutro, idêntico para todos eles, e outro referente a seu ponto de vista. No primeiro corpus, esses pontos de vista são pró-Israel ou pró-Palestina; no segundo, republicano ou democrata. Há portanto, em cada corpus, três tópicos diferentes. O uso de um tópico neutro, associado a todos os documentos, ajuda a filtrar palavras muito comuns nos \emph{datasets}, independentemente de ponto de vista. Essa é a diferença fundamental entre essa aplicação do L-LDA e a simples contagem de palavras em documentos, dividida entre os dois pontos de vista. Esse tipo de contagem não diferencia quais palavras são \emph{mais destacadas} em documentos escritos sob uma certa perspectiva e quais são \emph{muito utilizadas} por todos eles - informação que colabora para um maior entendimento das taxas de acerto supracitadas, obtidas com um Naïve Bayes. Para os propósitos dessa seção, não é necessário analisar o tópico neutro: ele apenas colabora no processo de evidenciar as palavras mais importantes, por ponto de vista. É válido ressaltar que, em alguns casos, essas palavras coincidem para os dois pontos de vista. Nestes casos, ambos dão muito destaque a elas.
+%Para a investigação sobre o uso de palavras, foi feita uma aplicação do modelo L-LDA. Cada documento de ambos os \emph{datasets} foi associado a dois tópicos: um neutro, idêntico para todos eles, e outro referente a seu ponto de vista. No primeiro corpus, esses pontos de vista são pró-Israel ou pró-Palestina; no segundo, republicano ou democrata. Há portanto, em cada corpus, três tópicos diferentes. O uso de um tópico neutro, associado a todos os documentos, ajuda a filtrar palavras muito comuns nos \emph{datasets}, independentemente de ponto de vista. Essa é a diferença fundamental entre essa aplicação do L-LDA e a simples contagem de palavras em documentos, dividida entre os dois pontos de vista. Esse tipo de contagem não diferencia quais palavras são \emph{mais destacadas} em documentos escritos sob uma certa perspectiva e quais são \emph{muito utilizadas} por todos eles - informação que colabora para um maior entendimento das taxas de acerto supracitadas, obtidas com um Naïve Bayes. Para os propósitos dessa seção, não é necessário analisar o tópico neutro: ele apenas colabora no processo de evidenciar as palavras mais importantes, por ponto de vista. É válido ressaltar que, em alguns casos, essas palavras coincidem para os dois pontos de vista. Nestes casos, ambos dão muito destaque a elas.
 
 %MOSTRE AS PALAVRAS ELENCADAS E DISCUTA
 
-As dez palavras mais frequentemente associadas a cada ponto de vista, retirando-se artigos, conjunções, preposições, advérbios e pronomes pessoais, estão listadas nas Tabelas 3.1 e \ref{freqs:tab2}. Apesar de pequenas, essas listagens sugerem interpretações sobre como as palavras de cada corpus são exploradas por seus diferentes pontos de vista. Essas interpretações, essencialmente  subjetivas, ajudam a entender o comportamento do classificador Naïve Bayes aplicado aos dois \emph{datasets}.%colaboram parsubjetiva de se ampliar a discussão sobre os resultados obtidos com o Naïve Bayes.
+%As dez palavras mais frequentemente associadas a cada ponto de vista, retirando-se artigos, conjunções, preposições, advérbios e pronomes pessoais, estão listadas nas Tabelas 3.1 e \ref{freqs:tab2}. Apesar de pequenas, essas listagens sugerem interpretações sobre como as palavras de cada corpus são exploradas por seus diferentes pontos de vista. Essas interpretações, essencialmente  subjetivas, ajudam a entender o comportamento do classificador Naïve Bayes aplicado aos dois \emph{datasets}.%colaboram parsubjetiva de se ampliar a discussão sobre os resultados obtidos com o Naïve Bayes.
 
 %provêem informações subjetivas sobre a linguagem empregada nos corpora.
 %As palavras extraídas a partir da aplicação de um L-LDA  Ainda assim, essas informações 
@@ -151,47 +155,47 @@ As dez palavras mais frequentemente associadas a cada ponto de vista, retirando-
 
 %As análises feitas a partir dessas pequenas listagens são essencialmente subjetivas, sugerindo interpretações %sugerindo  Essa análise não pretende  % A partir disso, espera-se compreender melhor o 
 
-\begin{table}[h]
-\label{tab1}
-\centering
-\begin{tabular}{| l | p{10cm} | }
-\hline
-\textbf{Tópico} & \textbf{Palavras} \\ \hline
-\textbf{Pró-Israel} & sharon, palestinian, arafat, peace, israeli, prime, bush, minister, american, process \\ \hline
-\textbf{Pró-Palestina} & palestinian, israeli, sharon, peace, occupation, international, political, united, people, violence \\ \hline
-\end{tabular}
-\caption{As dez palavras mais frequentemente associadas aos tópicos pró-Israel e pró-Palestina, de acordo com um L-LDA.}
-\end{table}
+%\begin{table}[h]
+%\label{tab1}
+%\centering
+%\begin{tabular}{| l | p{10cm} | }
+%\hline
+%\textbf{Tópico} & \textbf{Palavras} \\ \hline
+%\textbf{Pró-Israel} & sharon, palestinian, arafat, peace, israeli, prime, bush, minister, american, process \\ \hline
+%\textbf{Pró-Palestina} & palestinian, israeli, sharon, peace, occupation, international, political, united, people, violence \\ \hline
+%\end{tabular}
+%\caption{As dez palavras mais frequentemente associadas aos tópicos pró-Israel e pró-Palestina, de acordo com um L-LDA.}
+%\end{table}
 %\textbf{Genérico} & israel, palestinian, israeli, palestinians, state, one, two, israelis, political, right \\ \hline
 
 
-Considerando o primeiro corpus, as palavras associadas aos pontos de vista pró-Israel e pró-Palestina remetem de imediato ao conflito travado entre essas duas nações. Parte delas, como \emph{palestinian} e \emph{israeli}, são bastante mencionadas por ambos os pontos de vista, ainda que com propósitos diferentes: %israelenses, 
+%Considerando o primeiro corpus, as palavras associadas aos pontos de vista pró-Israel e pró-Palestina remetem de imediato ao conflito travado entre essas duas nações. Parte delas, como \emph{palestinian} e \emph{israeli}, são bastante mencionadas por ambos os pontos de vista, ainda que com propósitos diferentes: %israelenses, 
 
-\begin{quote}
+%\begin{quote}
 
-\emph{"The recent \textbf{Israeli} government decision to begin building extensive walls
-around \textbf{Palestinian} is just one more example of how \textbf{Israeli} Prime
-Minister Ariel Sharon is unable to deal with \textbf{Israeli} problems save
-through his narrow security vision."}
+%\emph{"The recent \textbf{Israeli} government decision to begin building extensive walls
+%around \textbf{Palestinian} is just one more example of how \textbf{Israeli} Prime
+%Minister Ariel Sharon is unable to deal with \textbf{Israeli} problems save
+%through his narrow security vision."}
 
-{\small Retirado de "Peace in peaces", de Ghassan Khatib (pró-Palestina) - 10/06/2002}
-\end{quote}
+%{\small Retirado de "Peace in peaces", de Ghassan Khatib (pró-Palestina) - 10/06/2002}
+%\end{quote}
 
-\begin{quote}
+%\begin{quote}
 
-\emph{"The first conclusion that the Israeli political and security
-establishment should learn and internalize after 18 months of
-\textbf{Palestinian} Intifada, concerns the intensity of \textbf{Palestinian} blind
-terrorism and guerilla warfare against the State of Israel."}
+%\emph{"The first conclusion that the Israeli political and security
+%establishment should learn and internalize after 18 months of
+%\textbf{Palestinian} Intifada, concerns the intensity of \textbf{Palestinian} blind
+%terrorism and guerilla warfare against the State of Israel."}
 
-{\small Retirado de "The lessons Israel should learn", de Meir Pa'il (pró-Israel) - 29/04/2002}
-\end{quote}
+%{\small Retirado de "The lessons Israel should learn", de Meir Pa'il (pró-Israel) - 29/04/2002}
+%\end{quote}
 
 %\emph{"Meanwhile, the Israeli army was still suffering in South Lebanon as a result of the dilemma that \textbf{Sharon} put them in."}
 
 %{\small Retirado de "Sharon settles accounts", de Mamdouh Nofal (pró-Palestina) - 28/01/2002}
 
-Outras palavras, como \emph{bush} e \emph{occupation}, foram mais enfatizadas, respectivamente, pelos pontos de vista pró-Israel e pró-Palestina, constando em apenas uma listagem. Os trechos abaixo evidenciam a importância, no período em que os documentos desse corpus foram escritos (2001 - 2005), do Governo Bush para Israel e da criação de um Estado para a nação palestina:
+%Outras palavras, como \emph{bush} e \emph{occupation}, foram mais enfatizadas, respectivamente, pelos pontos de vista pró-Israel e pró-Palestina, constando em apenas uma listagem. Os trechos abaixo evidenciam a importância, no período em que os documentos desse corpus foram escritos (2001 - 2005), do Governo Bush para Israel e da criação de um Estado para a nação palestina:
  %\textbf{Falar das figuras e de como elas deixam isso tão claro.} 
 
 %\textbf{FIGURAS} % Para compreender melhor o uso das palavras pelos diferentes pontos de vista do corpus, elas foram processadas pelo software wordle22 , resultando nas figuras 7.1, 7.2 e 7.3. O tamanho das palavras nas imagens corresponde ao quanto elas se associam a cada tópico23 .
@@ -219,24 +223,24 @@ Outras palavras, como \emph{bush} e \emph{occupation}, foram mais enfatizadas, r
 %\end{quote}
 
 
-\begin{quote}
-\emph{"\textbf{Bush} and his advisers, who have been critical of Clinton's deep involvement
-in a failed peace process ever since taking office, nevertheless
-understood at the time that peace in the Middle East should be beyond
-politics in America, and that the US could not permit itself to turn its
-back on an Israeli leader who was determined to make peace."} 
+%\begin{quote}
+%\emph{"\textbf{Bush} and his advisers, who have been critical of Clinton's deep involvement
+%in a failed peace process ever since taking office, nevertheless
+%understood at the time that peace in the Middle East should be beyond
+%politics in America, and that the US could not permit itself to turn its
+%back on an Israeli leader who was determined to make peace."} 
 
-{\small Retirado de "Barak was willing, and so were US Jews", de Yossi Alpher (pró-Israel) - 15/07/2002}
-\end{quote}
+%{\small Retirado de "Barak was willing, and so were US Jews", de Yossi Alpher (pró-Israel) - 15/07/2002}
+%\end{quote}
 
-\begin{quote}
-\emph{"But just as we were close to a complete
-package that would have ended the \textbf{occupation} and established a
-Palestinian state, Barak permitted Ariel Sharon's provocative visit to
-Al Aqsa mosque, and launched his "revenge" on Palestinians."} 
+%\begin{quote}
+%\emph{"But just as we were close to a complete
+%package that would have ended the \textbf{occupation} and established a
+%Palestinian state, Barak permitted Ariel Sharon's provocative visit to
+%Al Aqsa mosque, and launched his "revenge" on Palestinians."} 
 
-{\small Retirado de "Guarding our legitimacy", de Samir Abdullah (pró-Palestina) - 14/10/2002}
-\end{quote}
+%{\small Retirado de "Guarding our legitimacy", de Samir Abdullah (pró-Palestina) - 14/10/2002}
+%\end{quote}
 
 %Associadas ao tópico genérico, também estão as palavras \emph{palestinian} e \emph{israeli}, bastante exploradas pelas duas perspectivas. Isso reflete a importância que esses termos têm para o corpus como um todo. Palavras relacionadas mais genericamente ao conflito Israel-Palestina, como \emph{state} e \emph{political}, também aparecem na listagem. %, evidenciando indica que essas palavras         
 
@@ -246,17 +250,17 @@ Al Aqsa mosque, and launched his "revenge" on Palestinians."}
 
 %Essas análises, avaliadas à luz das altas taxas de acerto obtidas com o Naïve Bayes, sugerem que os autores desse primeiro corpus defendem seus pontos de vista veementemente. Como eles são antagônicos, isso se reflete em enfoques diferentes a determinados termos, %empregos diferentes de palavras. % tornando a forma como empregam as palavras  defendem suas perspectivas utilizando palavras de forma suficientemente diferentedestacando ideias diferentes.
 
-\begin{table}[h]
-\label{freqs:tab2}
-\centering
-\begin{tabular}{| l | p{10cm} | }
-\hline
-\textbf{Tópico} & \textbf{Palavras} \\ \hline
-\textbf{Democrata} & bill, security, legislation, states, chairman, country, act, billion, million, law \\ \hline
-\textbf{Republicano} & act, chairman, security, states, bill, legislation, 11, support, 9, system \\ \hline
-\end{tabular}
-\caption{As dez palavras mais frequentemente associadas aos tópicos republicano e democrata, de acordo com um L-LDA.}
-\end{table}
+%\begin{table}[h]
+%\label{freqs:tab2}
+%\centering
+%\begin{tabular}{| l | p{10cm} | }
+%\hline
+%\textbf{Tópico} & \textbf{Palavras} \\ \hline
+%\textbf{Democrata} & bill, security, legislation, states, chairman, country, act, billion, million, law \\ \hline
+%\textbf{Republicano} & act, chairman, security, states, bill, legislation, 11, support, 9, system \\ \hline
+%\end{tabular}
+%\caption{As dez palavras mais frequentemente associadas aos tópicos republicano e democrata, de acordo com um L-LDA.}
+%\end{table}
 
 %\textbf{Genérico} & mr., speaker, bill, all, time, people, today, gentleman, federal, support \\ \hline
 
@@ -264,51 +268,51 @@ Al Aqsa mosque, and launched his "revenge" on Palestinians."}
 
 %Falar q blz, aparecem palavras diferentes e tb há proporções diferentes, mas oq dá pra notar no geral eh q os termos envolvem pouca polêmica, e são usados de forma parecida. Isso, e o fato da amostra ser pequena, sugere q os debatentes n defendem as perspectivas republicana e democrata de forma suficientemente clara pra q um Naïve Bayes classifique corretamente.
 
-Considerando o segundo corpus, tem-se que parte das palavras associadas aos pontos de vista republicano e democrata, como \emph{bill}, \emph{legislation}, \emph{states} e \emph{act}, tem mais a ver com o processo legislativo em si do que com algum deles. Isso sugere que os debatentes não focam seus discursos na defesa de ideias republicanas ou democratas. Além disso, algumas dessas palavras são, muitas vezes, empregadas com conotações semelhantes por democratas e republicanos. Um exemplo é a palavra \emph{security}, como pode ser observado nos trechos abaixo
+%Considerando o segundo corpus, tem-se que parte das palavras associadas aos pontos de vista republicano e democrata, como \emph{bill}, \emph{legislation}, \emph{states} e \emph{act}, tem mais a ver com o processo legislativo em si do que com algum deles. Isso sugere que os debatentes não focam seus discursos na defesa de ideias republicanas ou democratas. Além disso, algumas dessas palavras são, muitas vezes, empregadas com conotações semelhantes por democratas e republicanos. Um exemplo é a palavra \emph{security}, como pode ser observado nos trechos abaixo
 
-\begin{quote}
-\emph{"Mr. speaker, I wholeheartedly agree that if we want to cut down on illegal immigration, we must improve border \textbf{security}. Just 2 weeks ago, an astute crane operator at the port of Los Angeles discovered 32 Chinese stowaways in a container that had just been unloaded from a Panamanian freighter."} 
+%\begin{quote}
+%\emph{"Mr. speaker, I wholeheartedly agree that if we want to cut down on illegal immigration, we must improve border \textbf{security}. Just 2 weeks ago, an astute crane operator at the port of Los Angeles discovered 32 Chinese stowaways in a container that had just been unloaded from a Panamanian freighter."} 
 
-{\small Retirado de discurso de Jane Harman, democrata - 09/02/2005 }
+%{\small Retirado de discurso de Jane Harman, democrata - 09/02/2005 }
 
-\end{quote}
+%\end{quote}
 
-\begin{quote}
-\emph{"The fence remains incomplete and is an opportunity for aliens to cross the border illegally. This incomplete fence allows border \textbf{security} gaps to remain open.  We must close these gaps because they remain a threat to our national \textbf{security}."}
+%\begin{quote}
+%\emph{"The fence remains incomplete and is an opportunity for aliens to cross the border illegally. This incomplete fence allows border \textbf{security} gaps to remain open.  We must close these gaps because they remain a threat to our national \textbf{security}."}
 
-{\small Retirado de discurso de John Boozman, republicano - 02/10/2005}
+%{\small Retirado de discurso de John Boozman, republicano - 02/10/2005}
 
-\end{quote}
+%\end{quote}
 
-Duas palavras listadas apenas para o ponto de vista republicano, \emph{11} e \emph{9}, podem sugerir um maior enfoque no episódio 11 de Setembro e seus desdobramentos. A palavra \emph{billion}, listada apenas para o ponto de vista democrata, é muitas vezes utilizada para discutir gastos públicos, o que pode indicar um destaque maior para esse assunto
+%Duas palavras listadas apenas para o ponto de vista republicano, \emph{11} e \emph{9}, podem sugerir um maior enfoque no episódio 11 de Setembro e seus desdobramentos. A palavra \emph{billion}, listada apenas para o ponto de vista democrata, é muitas vezes utilizada para discutir gastos públicos, o que pode indicar um destaque maior para esse assunto
 
-\begin{quote}
-\emph{We know that all but one of the \textbf{9}/\textbf{11} hijackers acquired some type of U.S. identification documents. In fact, the 19 hijackers had 63 driver 's licenses among them.}
+%\begin{quote}
+%\emph{We know that all but one of the \textbf{9}/\textbf{11} hijackers acquired some type of U.S. identification documents. In fact, the 19 hijackers had 63 driver 's licenses among them.}
 
-{\small Retirado de discurso de John Sullivan, republicano - 09/02/2005} 
-\end{quote}
+%{\small Retirado de discurso de John Sullivan, republicano - 09/02/2005} 
+%\end{quote}
 
-\begin{quote}
-\emph{The Pomeroy bill would cost the treasury \$72 \textbf{billion} over 10 years, compared with the \$290 \textbf{billion} price tag of a full repeal through 2015, according to the joint committee on taxation.}
+%\begin{quote}
+%\emph{The Pomeroy bill would cost the treasury \$72 \textbf{billion} over 10 years, compared with the \$290 \textbf{billion} price tag of a full repeal through 2015, according to the joint committee on taxation.}
 
-{\small Retirado de discurso de Earl Pomeroy, democrata - 12/04/2005}
-\end{quote}
+%{\small Retirado de discurso de Earl Pomeroy, democrata - 12/04/2005}
+%\end{quote}
 
 
 %As palavras associadas ao tópico genérico, assim como aquelas associadas às perspectivas republicana e democrata, também têm mais a ver com o processo legislativo e a estrutura dos debates do que com posicionamentos políticos. Alguns exemplos são \emph{bill}, \emph{mr.}, \emph{speaker} e \emph{gentleman}. 
 
-O uso de palavras que pouco têm a ver com os pontos de vista republicano e democrata, como \emph{bill} e \emph{legislation}, reforça a ideia, apresentada por \textbf{Hirst, Riabinin e Graham} em trabalho revisado na seção anterior \cite{hirst-et-al}, de que a divisão entre os pontos de vista republicano e democrata não é muito adequada para este corpus. De todo modo, uma divisão inadequada não necessariamente implica em mau desempenho: em uma classificação, esses autores obtiveram, utilizando uma divisão inadequada de corpus, uma taxa de acerto de 83.8\% \cite{hirst-et-al}. É válido ressaltar que eles utilizam \emph{apenas} contagens de palavras e exploram um \emph{dataset} muito semelhante a este: debates entre congressistas do Canadá. 
+%O uso de palavras que pouco têm a ver com os pontos de vista republicano e democrata, como \emph{bill} e \emph{legislation}, reforça a ideia, apresentada por \textbf{Hirst, Riabinin e Graham} em trabalho revisado na seção anterior \cite{hirst-et-al}, de que a divisão entre os pontos de vista republicano e democrata não é muito adequada para este corpus. De todo modo, uma divisão inadequada não necessariamente implica em mau desempenho: em uma classificação, esses autores obtiveram, utilizando uma divisão inadequada de corpus, uma taxa de acerto de 83.8\% \cite{hirst-et-al}. É válido ressaltar que eles utilizam \emph{apenas} contagens de palavras e exploram um \emph{dataset} muito semelhante a este: debates entre congressistas do Canadá. 
 
-As Tabelas 3.1 e \ref{freqs:tab2} sugerem que os republicanos e democratas estudados no segundo corpus se expressam de forma mais parecida do que os autores do primeiro corpus. Este é o ponto que, de fato, pode contribuir negativamente para a classificação. Talvez isso advenha do fato de que seus discursos fazem parte de debates, o que pode concentrar as discussões em torno de um conjunto muito específico de termos. No primeiro corpus, os autores não escreveram seus artigos como resposta direta a outros, o que pode colaborar para que eles se expressem de forma mais autêntica e veemente, focando seus textos na apresentação de seus pontos de vista. A aplicação do L-LDA, associando cada tópico a um ponto de vista diferente, se mostrou válida, evidenciando uma certa homogeneização no uso de palavras no segundo corpus, quando comparado com o primeiro.
+%As Tabelas 3.1 e \ref{freqs:tab2} sugerem que os republicanos e democratas estudados no segundo corpus se expressam de forma mais parecida do que os autores do primeiro corpus. Este é o ponto que, de fato, pode contribuir negativamente para a classificação. Talvez isso advenha do fato de que seus discursos fazem parte de debates, o que pode concentrar as discussões em torno de um conjunto muito específico de termos. No primeiro corpus, os autores não escreveram seus artigos como resposta direta a outros, o que pode colaborar para que eles se expressem de forma mais autêntica e veemente, focando seus textos na apresentação de seus pontos de vista. A aplicação do L-LDA, associando cada tópico a um ponto de vista diferente, se mostrou válida, evidenciando uma certa homogeneização no uso de palavras no segundo corpus, quando comparado com o primeiro.
   %Associadas ao tópico genérico, há palavras referentes ao processo legislativo e aos debates, como \emph{bill}, \emph{mr.}, \emph{speaker} e \emph{gentleman}. Essas são as palavras mais comuns em todo o corpus - e, como pode ser observado, elas se assemelham às palavras elencadas para as perspectivas. Não apenas porque algumas delas, como blablala, estão listadas para os três tópicos, mas especialmente porque grande parte delas não evidencia um viés republicano ou democrata.%  Essa característica também é observada nas palavras listadas para as duas perspectivas, o que sugere a dificuldade de se identificar as perspectivas republicana ou democrática nos documentos desse segundo corpus. %  estão as palavras \emph{palestinian} e \emph{israeli}, bastante exploradas pelas duas perspectivas. Isso reflete a importância que esses termos têm para o corpus como um todo. Palavras relacionadas mais genericamente ao conflito Israel-Palestina, como \emph{state} e \emph{political}, também aparecem na listagem. 
 
 
 %As taxas de acerto obtidas com um Naïve Bayes nesse segundo corpus foram baixas. % Ainda que as perspectivas republicana e democrata enfatizem palavras diferentes, conforme pode ser observado na Tabela \ref{freqs:tab2}, as listagens sugerem que elas empregam mais palavras em comum, no decorrer dos debates, do que os artigos  
 
-As palavras das Tabelas 3.1 e \ref{freqs:tab2} foram representadas graficamente com o apoio do \emph{software} wordle\footnote{http://wordle.net/}. Apesar de se associarem aos tópicos com frequências distintas, o \emph{software} não foi sensível o suficiente para capturar essas diferenças. Por este motivo, essas imagens não constam nessa monografia.
+%As palavras das Tabelas 3.1 e \ref{freqs:tab2} foram representadas graficamente com o apoio do \emph{software} wordle\footnote{http://wordle.net/}. Apesar de se associarem aos tópicos com frequências distintas, o \emph{software} não foi sensível o suficiente para capturar essas diferenças. Por este motivo, essas imagens não constam nessa monografia.
 
 
-É válido ressaltar que, a depender do \emph{dataset}, outras questões podem colaborar para um mau desempenho na classificação. Um conjunto de documentos com poucos exemplares, ou contendo poucas palavras, é um cenário onde a aplicação do Naïve Bayes pode não funcionar bem. Entretanto, esse não parece ser o caso dos corpora analisados nessa seção. De todo modo, quando não se obtém uma boa taxa de acerto com um classificador baseado em contagens de palavras, a investigação subjetiva de como cada ponto de vista faz uso delas pode ajudar na compreensão do fenômeno. Nesses casos, é preciso buscar características dos documentos que os diferenciem melhor. 
+%É válido ressaltar que, a depender do \emph{dataset}, outras questões podem colaborar para um mau desempenho na classificação. Um conjunto de documentos com poucos exemplares, ou contendo poucas palavras, é um cenário onde a aplicação do Naïve Bayes pode não funcionar bem. Entretanto, esse não parece ser o caso dos corpora analisados nessa seção. De todo modo, quando não se obtém uma boa taxa de acerto com um classificador baseado em contagens de palavras, a investigação subjetiva de como cada ponto de vista faz uso delas pode ajudar na compreensão do fenômeno. Nesses casos, é preciso buscar características dos documentos que os diferenciem melhor. 
 
 %O tópico genérico, por sua vez, concentra as palavras mais comuns em todo o corpus. Se elas são muito semelhantes às palavras elencadas para cada perspectiva, isso também pode indicar uma certa homogeneização no uso das palavras.%Apesar de não se quantificar a relação entre o uso de palavras no segundo corpus  sua classificação,  %A depender das conclusões retiradas, pode-se pensar em outras metodologias para a classificação dos documentos de acordo com suas perspectivas.
 
