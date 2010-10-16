@@ -60,6 +60,18 @@ Dispon{\'\i}vel em:
   Wiley-Interscience, 2000.
 ISBN 0471371246.}
 
+\bibitem[Fader et al. 2007]{fader}
+\abntrefinfo{Fader et al.}{FADER et al.}{2007}
+{FADER, A. et al. Mavenrank: Identifying influential members of the us senate
+  using lexical centrality. In:  \emph{In Proceedings of the 2007 Joint
+  Conference on Empirical Methods in Natural Language Processing and
+  Computational Natural Language Learning}. [S.l.: s.n.], 2007. p. 658--666.}
+
+\bibitem[Gentzkow e Shapiro 2006]{gentzkow}
+\abntrefinfo{Gentzkow e Shapiro}{GENTZKOW; SHAPIRO}{2006}
+{GENTZKOW, M.; SHAPIRO, J.~M. Media bias and reputation.
+p. 280--316, 2006.}
+
 \bibitem[Greene e Resnik 2009]{greene}
 \abntrefinfo{Greene e Resnik}{GREENE; RESNIK}{2009}
 {GREENE, S.; RESNIK, P. More than words: Syntactic packaging and implicit
@@ -72,6 +84,11 @@ ISBN 0471371246.}
 {GRIFFITHS, T.~L.; STEYVERS, M. Finding scientific topics.
 \emph{Proceedings of the National Academy of Sciences}, v.~101, p. 5228--5235,
   Abril 2004.}
+
+\bibitem[Groseclose e Milyo 2005]{milyo}
+\abntrefinfo{Groseclose e Milyo}{GROSECLOSE; MILYO}{2005}
+{GROSECLOSE, T.; MILYO, J. A measure of media bias.
+p. 1191--1237, 2005.}
 
 \bibitem[Hirst, Riabinin e Graham 2010]{hirst-et-al}
 \abntrefinfo{Hirst, Riabinin e Graham}{HIRST; RIABININ; GRAHAM}{2010}
