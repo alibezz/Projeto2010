@@ -207,17 +207,19 @@ Após filtragem e anonimização, restaram 1065 artigos pró-situação e 2747 p
 \caption{Quantidades de artigos disponíveis em cada etapa da construção do corpus. \ensuremath{^*}Apenas 550, amostrados aleatoriamente, foram aproveitados.}
 \end{table}
 
-O número de artigos coletados em cada veículo varia bastante, como pode ser observado na Tabela 4.1. No corpus sobre o conflito Israel-Palestina, estudado por Lin et al. e analisado no Capítulo \ref{chap3}, este comportamento também foi observado. Os documentos desse \emph{dataset} foram escritos por diversos autores, e alguns deles contribuíram com muito mais textos do que outros. Ainda assim, como pode ser verificado na revisão apresentada no Capítulo \ref{chap3}, os resultados obtidos são de alta qualidade \cite{lin-et-al2006}. Isto reforça a ideia de que essa variação não interfere significativamente na qualidade dos experimentos feitos com o corpus deste estudo de caso.
+O número de artigos coletados em cada veículo varia bastante, como pode ser observado na Tabela 4.1. No corpus sobre o conflito Israel-Palestina, estudado por Lin et al. em trabalho revisado no Capítulo \ref{chap3}, este comportamento também foi observado. Os documentos desse \emph{dataset} foram escritos por diversos autores, e alguns deles contribuíram com muito mais textos do que outros. Ainda assim, como pode ser verificado na revisão apresentada no Capítulo \ref{chap3}, os resultados obtidos são de alta qualidade \cite{lin-et-al2006}. Isto reforça a ideia de que essa variação não interfere significativamente na qualidade dos experimentos feitos com o corpus deste estudo de caso.
 
 
 \section{Classificando documentos com um Naïve Bayes}
 \label{estudo:sec2}
 
-O primeiro estudo conduzido com esse corpus consiste na classificação dos artigos de acordo com os pontos de vista pró-oposição e pró-situação. O classificador Naïve Bayes foi escolhido pelos mesmos motivos indicados no Capítulo \ref{chap3}, na seção \ref{freqs:experim}. O classificador baseia-se apenas nas contagens de palavras dos documentos para definir suas classes. Os motivos para essa escolha foram: popularidade do uso nos trabalhos revisados no Capítulo \ref{chap3}, o que indica essa escolha como a mais natural; simplicidade de computação, dado que essa escolha envolve apenas a soma das ocorrências de palavras; fácil adaptação a qualquer língua, em particular a portuguesa. 
+O primeiro estudo conduzido com esse corpus consiste na classificação dos artigos de acordo com os pontos de vista pró-oposição e pró-situação. Esse capítulo não se propõe a comparar classificadores diferentes, de modo que o Naïve Bayes será a única técnica explorada em seu escopo. O classificador Naïve Bayes foi escolhido porque, de acordo com a revisão do Capítulo \ref{chap3}, não há um consenso sobre qual dos dois - ele ou um SVM - é mais indicado para classificação por ponto de vista. Em alguns trabalhos o Naïve Bayes conduz a melhores resultados; em outros, o SVM. Essas questões, e a consideração de que o Naïve Bayes é mais simples de implementar, justificam sua escolha.  
+
+O classificador explora apenas as contagens de palavras dos documentos para definir suas classes. Os motivos para essa escolha foram: popularidade do uso nos trabalhos revisados no Capítulo \ref{chap3}, o que indica essa escolha como a mais natural; simplicidade de computação, dado que essa escolha envolve apenas a soma das ocorrências de palavras; fácil adaptação a qualquer língua, em particular a portuguesa. 
 
 % por contagens de palavras também são os mesmos apontados no Capítulo \ref{chap3}, na seção \ref{freqs:experim}. 
 
-Essas escolhas se mostraram adequadas para o problema: a taxa de acerto obtida na classificação foi de 89.43\%. Assim como em outros artigos revisados no Capítulo \ref{chap3} \cite{lin-et-al2006} \cite{aaai-politics} \cite{klebanov}, esse valor foi obtido via validação cruzada de dez dobras. A precisão, rechamada e métrica F1 associadas a cada classe (ponto de vista) constam na Tabela 4.2. %tabela mais precisa %precisao 0 0,915979712 precisao 1 0,877579312 % rechamada 0 0,870754717 1 0,917924528  %f1 0 0,891837888 1 0,896484354
+Essas escolhas se mostraram adequadas para o problema: a taxa de acerto obtida na classificação foi de 89.43\%. Assim como em outros artigos revisados no Capítulo \ref{chap3} \cite{lin-et-al2006} \cite{aaai-politics} \cite{klebanov}, esse valor foi obtido via validação cruzada de dez dobras\footnote{Essa técnica de validação é apresentada no Capítulo \ref{basicos}.}. A precisão, rechamada e métrica F1\footnote{Essas métricas são descritas no Capítulo \ref{basicos}.} associadas a cada classe (ponto de vista) constam na Tabela 4.2. %tabela mais precisa %precisao 0 0,915979712 precisao 1 0,877579312 % rechamada 0 0,870754717 1 0,917924528  %f1 0 0,891837888 1 0,896484354
 
 %; a precisão média, de  89.68\%; a métrica F1 média, de 89.42\%
 
@@ -257,9 +259,19 @@ Os artigos escolhidos para este corpus são compostos, muitas vezes, de textos d
 \label{estudo:sec3}
 %Onde se explica o uso do L-LDA, o overlap de palavras, mostra-se snippets e talz.
 
-A análise das principais palavras enfocadas por cada ponto de vista amplia a compreensão dos resultados obtidos na seção anterior. O motivo para isso é  que a classificação em si se baseia nesses usos de palavras, através de suas contagens. Neste sentido, portanto, assim como no Capítulo \ref{chap3}, o modelo generativo L-LDA foi aplicado ao corpus. Cada artigo foi associado a dois tópicos: um neutro, igual para todos eles, e um referente a seu ponto de vista (pró-oposição ou pró-situação). Há, portanto, três tópicos diferentes nesta aplicação. O uso desses tópicos evidencia quais palavras são mais enfocadas por cada ponto de vista. % e quais são utilizadas de forma muito semelhante em todo o corpus (genérico).
+A análise das principais palavras enfocadas por cada ponto de vista amplia a compreensão dos resultados obtidos na seção anterior. A alta taxa de acerto obtida sugere que os jornalistas se expressam de forma bastante diferente, de modo que o Naïve Bayes não \emph{se engana} com muita frequência. Em outras palavras, como essas expressões foram quantificadas via contagens de palavras, a alta taxa de acerto indica que essas características foram suficientes para discrimar documentos de classes diferentes. Essa seção se propõe a ilustrar quais palavras foram mais destacadas por eles, colaborando para a transmissão de pontos de vista diferentes.
 
-A Tabela 4.3 elenca as dez palavras mais frequentemente associadas a cada ponto de vista. O tópico neutro não será analisado, tendo sido utilizado apenas para auxiliar na filtragem das palavras mais comuns do corpus. Em alguns casos, essas palavras coincidem nos dois pontos de vista. Isso significa que ambos deram muito destaque a elas.
+Para a investigação sobre essas palavras, foi feita uma aplicação do modelo L-LDA. Cada documento foi associado a dois tópicos: um neutro, igual para todos eles, e um referente a seu ponto de vista (pró-oposição ou pró-situação). Há, portanto, três tópicos diferentes nesta aplicação. O uso de um tópico neutro, associado a todos os documentos, ajuda a filtrar palavras muito comuns nos \emph{datasets}, independentemente de ponto de vista. Dois exemplos são as palavras \emph{vez} e \emph{campanha}. Essa é a diferença fundamental entre essa aplicação do L-LDA e a simples contagem de palavras em documentos, dividida entre os dois pontos de vista. Esse tipo de contagem não diferencia quais palavras são \emph{mais destacadas} em documentos escritos sob uma certa perspectiva e quais são \emph{muito utilizadas} por todos eles. Essas últimas possivelmente não os discriminam tanto quanto as primeiras.
+
+% Cada documento de ambos os \emph{datasets} foi associado a dois tópicos: um neutro, idêntico para todos eles, e outro referente a seu ponto de vista. No primeiro corpus, esses pontos de vista são pró-Israel ou pró-Palestina; no segundo, republicano ou democrata. Há portanto, em cada corpus, três tópicos diferentes.
+
+
+%O motivo para isso é  que a classificação em si se baseia nesses usos de palavras, através de suas contagens. Neste sentido, portanto, a compreensão de quais palavras receberam mais destaque 
+
+% o modelo generativo L-LDA foi aplicado ao corpus. Cada artigo O uso desses tópicos evidencia quais palavras são mais enfocadas por cada ponto de vista. % e quais são utilizadas de forma muito semelhante em todo o corpus (genérico).
+
+%Para a investigação sobre o uso de palavras,
+A Tabela 4.3 elenca as dez palavras mais frequentemente associadas a cada ponto de vista. O tópico neutro não será analisado, haja vista que foi utilizado apenas para auxiliar na filtragem das palavras mais comuns do corpus. Em alguns casos, essas palavras coincidem nos dois pontos de vista. Isso significa que ambos deram muito destaque a elas.
 
 %em dois ou mais tópicos. Se o genérico não estiver presente, i
 
@@ -271,7 +283,7 @@ A Tabela 4.3 elenca as dez palavras mais frequentemente associadas a cada ponto 
 \hline
 \textbf{Tópico} & \textbf{Palavras} \\ \hline
 \textbf{Pró-situação} & serra, dilma, lula, psdb, presidente, pt, candidato, folha, tucano, eleições\\ \hline
-\textbf{Pró-oposição} & dilma, lula, presidente, brasil, rousseff, pt, gente, candidata, mundo, petista \\ \hline
+\textbf{Pró-oposição} & dilma, lula, presidente, brasil, rousseff, pt, gente, candidata, mundo, candidato \\ \hline
 \end{tabular}
 \label{tab:palavras}
 \caption{As dez palavras mais frequentemente associadas aos tópicos pró-situação e pró-oposição, em ordem e excluindo-se artigos, preposições, conjunções, advérbios e pronomes pessoais.}
@@ -287,14 +299,14 @@ Para visualizar melhor a ênfase dada às palavras na Tabela 4.3, elas foram pro
 %Isso fica mais claro nas Figuras \ref{situacao} e \ref{oposicao}. É válido ressaltar que, nos experimentos do Capítulo \ref{chap3}, foram geradas imagens como essas, mas elas não indicaram ênfases muito diferentes no uso das palavras selecionadas.
 \begin{figure}[h]
   \centering % este comando é usado para centralizar a Figura
-  \includegraphics[width=12.5cm, height=6.5cm]{situacao.png}\\
+  \includegraphics[width=12.5cm, height=5cm]{situacao.png}\\
   \caption{Representação gráfica para as dez palavras associadas ao tópico pró-situação na Tabela 4.3.}
   \label{situacao}
 \end{figure}
 
 \begin{figure}[h]
   \centering % este comando é usado para centralizar a Figura
-  \includegraphics[width=12.5cm, height=6.5cm]{oposicao.png}\\
+  \includegraphics[width=11.5cm, height=6.5cm]{oposicao.png}\\
   \caption{Representação gráfica para as dez palavras associadas ao tópico pró-oposição na Tabela 4.3.}
   \label{oposicao}
 \end{figure}
@@ -308,7 +320,7 @@ Para visualizar melhor a ênfase dada às palavras na Tabela 4.3, elas foram pro
 %  \label{generico}
 %\end{figure}
 
-Essas figuras também sugerem que os artigos pró-situação dão mais enfoque a personalidades relacionadas à situação, como Lula e Dilma Rousseff, do que os pró-oposição a personalidades da oposição, como José Serra ou Marina Silva. Essa última, inclusive, candidata à presidência pelo PV, não foi mencionada nas palavras listadas na Tabela 4.3. Essas duas observações evidenciam que os veículos, no período analisado, concentraram seus antagonismos em personalidades políticas dos partidos PT, como Lula e Dilma Rousseff, e PSDB, como José Serra.
+Essas figuras também sugerem que os artigos pró-situação dão mais enfoque a personalidades relacionadas à situação, como Lula e Dilma Rousseff, do que os pró-oposição a personalidades da oposição, como José Serra ou Marina Silva. Essa última, inclusive, candidata à presidência pelo PV, não foi mencionada nas palavras listadas na Tabela 4.3. Essas duas observações evidenciam que os veículos, no período analisado, concentraram seus antagonismos em personalidades políticas dos partidos PT, como Lula e Dilma Rousseff, e PSDB, como José Serra. 
 
 %É válido ressaltar, por fim, que, apesar dos textos terem caráter crítico e não necessariamente informativo, as palavras elencadas na Tabela 4.3 não carregam uma polaridade natural, como no caso dos adjetivos \emph{bom} ou \emph{ruim}. Isso reforça a ideia de que a expressão de pontos de vista não é tão simples quanto a emissão de opiniões pontuais e claramente polarizadas, como \emph{Serra é um candidato ruim} ou \emph{Lula é um presidente bom}. 
 
