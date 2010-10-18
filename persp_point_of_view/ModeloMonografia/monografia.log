@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  17 OCT 2010 13:20
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  18 OCT 2010 08:25
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -691,10 +691,10 @@ makeindex -s tabela-simbolos.ist -o monografia.symbols monografia.symbolsx
 ########################################################################
 [53] (./monografia.aux) ) 
 Here is how much of TeX's memory you used:
- 6588 strings out of 94101
- 87142 string characters out of 1165810
- 143655 words of memory out of 1500000
- 9621 multiletter control sequences out of 10000+50000
+ 6593 strings out of 94101
+ 87244 string characters out of 1165810
+ 143735 words of memory out of 1500000
+ 9626 multiletter control sequences out of 10000+50000
  104876 words of font info for 163 fonts, out of 1200000 for 2000
  637 hyphenation exceptions out of 8191
  32i,11n,41p,2071b,605s stack positions out of 5000i,500n,6000p,200000b,5000s
@@ -709,7 +709,7 @@ f-texlive/fonts/type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1
 exlive/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/
 urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on monografia.pdf (54 pages, 400980 bytes).
+Output written on monografia.pdf (54 pages, 401640 bytes).
 PDF statistics:
  233 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
