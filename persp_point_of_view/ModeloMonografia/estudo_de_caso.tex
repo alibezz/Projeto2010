@@ -6,7 +6,7 @@
 
 %Por ser um ano eleitoral, a
 
-Muitos dos trabalhos revisados neste projeto analisam documentos que tratam de política. Em particular, boa parte deles estuda textos relacionados a governos federais - quer sejam discussões entre os próprios governantes \cite{hirst-et-al}, quer sejam artigos escritos por cidadãos ou especialistas\footnote{Todos os trabalhos mencionados nesta sentença foram revisados no Capítulo \ref{chap3}.} \cite{aaai-politics} \cite{malouf-taking_sides}. Considerando essa tendência, e o fato de que 2010 é ano de eleições para presidente no Brasil, decidiu-se realizar um estudo de caso que aproveita a abundância de artigos, disponíveis na \emph{Web}, sobre o governo Lula e a sucessão presidencial. A ideia é construir um corpus com alguns desses documentos e investigar seus pontos de vista automaticamente, classificando-os de acordo com eles e analisando, de forma subjetiva, as palavras por eles enfocadas. É válido ressaltar que não foi encontrado nenhum outro trabalho, em português, que classifique documentos de acordo com seus pontos de vista.
+Muitos dos trabalhos revisados neste projeto analisam documentos que tratam de política. Em particular, boa parte deles estuda textos relacionados a governos federais - quer sejam discussões entre os próprios governantes \cite{hirst-et-al}, quer sejam artigos escritos por cidadãos ou especialistas\footnote{Todos os trabalhos mencionados nesta sentença foram revisados no Capítulo \ref{chap3}.} \cite{aaai-politics, malouf-taking_sides}. Considerando essa tendência, e o fato de que 2010 é ano de eleições para presidente no Brasil, decidiu-se realizar um estudo de caso que aproveita a abundância de artigos, disponíveis na \emph{Web}, sobre o governo Lula e a sucessão presidencial. A ideia é construir um corpus com alguns desses documentos e investigar seus pontos de vista automaticamente, classificando-os de acordo com eles e analisando, de forma subjetiva, as palavras por eles enfocadas. É válido ressaltar que não foi encontrado nenhum outro trabalho, em português, que classifique documentos de acordo com seus pontos de vista.
 
 %Os artigos escolhidos para este estudo foram extraídos de colunas, \emph{blogs} e \emph{sites} políticos mantidos por jornalistas de notoriedade nacional. A coleta de artigos contidos em \emph{blogs} escritos por cidadãos comuns também foi cogitada - entretanto, como eles são pouco conhecidos, comentados e divulgados, essa opção exigiria um esforço de análise manual dos \emph{posts} que foge ao escopo deste projeto. Além disso, uma vantagem em focar o estudo em material publicado por jornalistas conhecidos é poder correlacionar, posteriormente, os resultados obtidos a investigações sobre a formação de opinião na mídia brasileira \emph{online} - tanto na alternativa quanto na tradicional. A seleção dos veículos para este estudo de caso resultou do consenso entre a autora desta monografia e dois jornalistas \textbf{COMO CITÁ-LOS, DIZER SEUS NOMES?}. O critério básico para as escolhas foi a defesa clara de um ponto de vista sobre o governo Lula e/ou a sucessão presidencial de 2010. 
 
@@ -271,7 +271,7 @@ Para a investigação sobre essas palavras, foi feita uma aplicação do modelo 
 % o modelo generativo L-LDA foi aplicado ao corpus. Cada artigo O uso desses tópicos evidencia quais palavras são mais enfocadas por cada ponto de vista. % e quais são utilizadas de forma muito semelhante em todo o corpus (genérico).
 
 %Para a investigação sobre o uso de palavras,
-A Tabela 4.3 elenca as dez palavras mais frequentemente associadas a cada ponto de vista. O tópico neutro não será analisado, haja vista que foi utilizado apenas para auxiliar na filtragem das palavras mais comuns do corpus. Em alguns casos, essas palavras coincidem nos dois pontos de vista. Isso significa que ambos deram muito destaque a elas.
+A Tabela 4.3 elenca as quinze palavras mais frequentemente associadas a cada ponto de vista. O tópico neutro não será analisado, haja vista que foi utilizado apenas para auxiliar na filtragem das palavras mais comuns do corpus. Em alguns casos, essas palavras coincidem nos dois pontos de vista. Isso significa que ambos deram muito destaque a elas.
 
 %em dois ou mais tópicos. Se o genérico não estiver presente, i
 
@@ -282,11 +282,11 @@ A Tabela 4.3 elenca as dez palavras mais frequentemente associadas a cada ponto 
 \begin{tabular}{| l | p{10cm} | }
 \hline
 \textbf{Tópico} & \textbf{Palavras} \\ \hline
-\textbf{Pró-situação} & serra, dilma, lula, psdb, presidente, pt, candidato, folha, tucano, eleições\\ \hline
-\textbf{Pró-oposição} & dilma, lula, presidente, brasil, rousseff, pt, gente, candidata, mundo, candidato \\ \hline
+\textbf{Pró-situação} & serra, dilma, lula, psdb, presidente, pt, candidato, folha, tucano, rio, eleições, partido, jornal, campanha, pesquisa \\ \hline
+\textbf{Pró-oposição} & dilma, lula, presidente, brasil, rousseff, rio, pt, gente, candidata, mundo, candidato, petista, entrevista, partido, josé \\ \hline
 \end{tabular}
 \label{tab:palavras}
-\caption{As dez palavras mais frequentemente associadas aos tópicos pró-situação e pró-oposição, em ordem e excluindo-se artigos, preposições, conjunções, advérbios e pronomes pessoais.}
+\caption{As quinze palavras mais frequentemente associadas aos tópicos pró-situação e pró-oposição, em ordem e excluindo-se artigos, preposições, conjunções, advérbios e pronomes pessoais.}
 \end{table}
 
 %\textbf{Genérico} &  governo, brasil, serra, estado, lula, poder, presidente, nacional, vez, campanha \\ \hline
@@ -294,20 +294,20 @@ A Tabela 4.3 elenca as dez palavras mais frequentemente associadas a cada ponto 
 %JUSTIFICAR ISSO DIREITO, E FAZER AS FIGURAS
 A Tabela 4.3 indica que as palavras enfocadas por pontos de vista diferentes são as mesmas em alguns casos, diferindo apenas na forma como são enfatizadas. Em outras palavras, a ordem das palavras nessa tabela corresponde, diretamente, ao quanto elas se associaram a cada tópico. Os artigos pró-oposição, por exemplo, dão muito destaque às palavras \emph{lula} e \emph{dilma}; os pró-situação, por sua vez, também enfatizam estas palavras, mas dão um destaque maior a \emph{serra}, candidato à presidência pelo PSDB. A associação de palavras semelhantes aos tópicos pró-oposição e pró-situação advém do fato de que os artigos compartilham um tema geral - o governo brasileiro - e, consequentemente, o mesmo vocabulário básico. É diferente do que acontece quando os tópicos correspondem a temas diferentes em vez de pontos de vista, como pode ser visto no trabalho de Ramage et al. sobre \emph{tags} de \emph{blogs} \cite{llda}.
 
-Para visualizar melhor a ênfase dada às palavras na Tabela 4.3, elas foram processadas pelo \emph{software} wordle\footnote{http://wordle.net}, resultando nas figuras \ref{situacao} e \ref{oposicao}. O tamanho das palavras nas imagens está relacionado ao número de vezes que elas se associam a cada tópico. As imagens evidenciam o destaque dado aos políticos Lula, Dilma Rousseff e José Serra nos artigos analisados. %A imagem \ref{generico} dá certo destaque a Lula e José Serra, mas também enfatiza outros termos, como \emph{governo} e \emph{brasil}, relacionados mais genericamente à temática dos artigos: a política brasileira.
+Para visualizar melhor a ênfase dada às palavras na Tabela 4.3, elas foram processadas pelo \emph{software} wordle\footnote{http://wordle.net}, resultando nas figuras \ref{situacao} e \ref{oposicao}. O tamanho das palavras nas imagens é proporcional ao número de vezes que elas se associam a cada tópico. As imagens evidenciam o destaque dado aos políticos Lula, Dilma Rousseff e José Serra nos artigos analisados. %A imagem \ref{generico} dá certo destaque a Lula e José Serra, mas também enfatiza outros termos, como \emph{governo} e \emph{brasil}, relacionados mais genericamente à temática dos artigos: a política brasileira.
 
 %Isso fica mais claro nas Figuras \ref{situacao} e \ref{oposicao}. É válido ressaltar que, nos experimentos do Capítulo \ref{chap3}, foram geradas imagens como essas, mas elas não indicaram ênfases muito diferentes no uso das palavras selecionadas.
 \begin{figure}[h]
   \centering % este comando é usado para centralizar a Figura
-  \includegraphics[width=12.5cm, height=5cm]{situacao.png}\\
-  \caption{Representação gráfica para as dez palavras associadas ao tópico pró-situação na Tabela 4.3.}
+  \includegraphics[width=12.5cm, height=6.5cm]{15palavras-situacao.jpg}\\
+  \caption{Representação gráfica para as quinze palavras associadas ao tópico pró-situação na Tabela 4.3.}
   \label{situacao}
 \end{figure}
 
 \begin{figure}[h]
   \centering % este comando é usado para centralizar a Figura
-  \includegraphics[width=11.5cm, height=6.5cm]{oposicao.png}\\
-  \caption{Representação gráfica para as dez palavras associadas ao tópico pró-oposição na Tabela 4.3.}
+  \includegraphics[width=11.5cm, height=6.8cm]{15palavras-oposicao.jpg}\\
+  \caption{Representação gráfica para as quinze palavras associadas ao tópico pró-oposição na Tabela 4.3.}
   \label{oposicao}
 \end{figure}
 
@@ -333,7 +333,7 @@ Os pontos de vista desse corpus são construídos através de argumentações co
 \end{quote}
 
 \begin{quote}
-\emph{"Que o \textbf{tucano} \textbf{José} Serra se saiu muito melhor no \textbf{Jornal} Nacional e que a eleição é, sim, de continuidade — no sentido de que não cabe mais falar em ruptura. E fiz uma crítica ou outra ao governo \textbf{Lula}."}
+\emph{"Que o \textbf{tucano} \textbf{José Serra} se saiu muito melhor no \textbf{Jornal} Nacional e que a eleição é, sim, de continuidade — no sentido de que não cabe mais falar em ruptura. E fiz uma crítica ou outra ao governo \textbf{Lula}."}
 
 {\small Retirado de "A cabeça dos brasileiros... autoritários", do \emph{blog} de Reinaldo Azevedo - 15/08/2010}
 \end{quote}
@@ -346,7 +346,7 @@ Os pontos de vista desse corpus são construídos através de argumentações co
 \end{quote}
 
 \begin{quote}
-\emph{"A entrevista de \textbf{Dilma} ao JN foi didática: \textbf{Dilma} conseguiu colar sua \textbf{candidatura} como continuidade das políticas do governo \textbf{Lula}. Ponto pra ela.Por outro lado, o casal número um do JN da \textbf{Globo} escorregou e mostrou claramente contra quem trabalham em 2010 e a favor de quem se esforçam para mudar tudo o que está aí."}
+\emph{"A entrevista de \textbf{Dilma} ao JN foi didática: \textbf{Dilma} conseguiu colar sua candidatura como continuidade das políticas do governo \textbf{Lula}. Ponto pra ela.Por outro lado, o casal número um do JN da Globo escorregou e mostrou claramente contra quem trabalham em 2010 e a favor de quem se esforçam para mudar tudo o que está aí."}
 
 {\small Retirado de "O povo não é (mais) bobo...", do \emph{blog} Luis Nassif Online - 10/08/2010}
 \end{quote}

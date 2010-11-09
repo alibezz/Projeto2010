@@ -1,4 +1,4 @@
-This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  18 OCT 2010 08:25
+This is pdfTeXk, Version 3.141592-1.40.3 (Web2C 7.5.6) (format=pdflatex 2010.8.23)  9 NOV 2010 10:44
 entering extended mode
  %&-line parsing enabled.
 **monografia.tex
@@ -541,132 +541,164 @@ Underfull \hbox (badness 10000) in paragraph at lines 16--20
 
  []
 
-[1])
+[1]) (./agradecimentos.tex
 LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <24.88> not available
-(Font)              Font shape `T1/ptm/b/sl' tried instead on input line 54.
- [2
-
+(Font)              Font shape `T1/ptm/b/sl' tried instead on input line 1.
+) [2
 
 ] [3
 
 
-] (./monografia.lof)
+] [4
+
+
+] (./monografia.lof
+Overfull \hbox (1.11229pt too wide) in paragraph at lines 4--4
+ [][] []\T1/ptm/m/n/12 Representação grá-fica para as quinze pa-la-vras as-so-c
+i-a-das ao tó-pico pró-oposição 
+ []
+
+)
 \tf@lof=\write5
 \openout5 = `monografia.lof'.
 
- [4
+ [5
+
+] (./monografia.lot)
+\tf@lot=\write6
+\openout6 = `monografia.lot'.
+
+ [6
 
 ] (./monografia.toc
 LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <12> not available
 (Font)              Font shape `T1/ptm/b/sl' tried instead on input line 2.
- [5
+ [7
 
 ])
-\tf@toc=\write6
-\openout6 = `monografia.toc'.
+\tf@toc=\write7
+\openout7 = `monografia.toc'.
 
- [6]
-(./introducao.tex
+ [8] (./introducao.tex
 Cap\'{\i }tulo 1.
-[7
+
+Overfull \hbox (0.90459pt too wide) in paragraph at lines 9--11
+[]\T1/ptm/m/n/12 Diante disso, es-tu-dos com o in-tuito de ex-trair opi-niões e
+ pon-tos de vista da Web, e interpretá-
+ []
+
+[9
 
 
 ]
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 20.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 33.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <7.4> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 20.
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 33.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <6> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 20.
- [8] [9]) (./conceitos_basicos.tex [10] [11]
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 33.
+ [10] [11]) (./conceitos_basicos.tex [12]
 Cap\'{\i }tulo 2.
-[12
+[13
 
-] [13] [14] [15]
+] [14] [15] [16]
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <17.28> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 138.
- [16] <svm.png, id=69, 275.429pt x 248.127pt>
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 143.
+ [17] <svm.png, id=72, 275.429pt x 248.127pt>
 File: svm.png Graphic file (type png)
  <use svm.png>
-[17 <./svm.png>]
-Overfull \hbox (11.5667pt too wide) in paragraph at lines 230--230
-[]\T1/ptm/b/n/17.28 MÉTRICAS PARA MEN-SU-RAR O DE-SEM-PE-NHO DOS
+[18 <./svm.png>]
+Overfull \hbox (26.3743pt too wide) in paragraph at lines 235--235
+[]\T1/ptm/b/n/17.28 MÉTRICAS PARA ME-DIR O DE-SEM-PE-NHO DOS CLAS-
  []
 
-[18]
-LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
-(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 267.
+[19]
 
-Overfull \hbox (14.79982pt too wide) in paragraph at lines 279--279
+LaTeX Warning: Command \c invalid in math mode on input line 263.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 263.
+
+
+LaTeX Warning: Command \c invalid in math mode on input line 263.
+
+
+LaTeX Warning: Command \~ invalid in math mode on input line 263.
+
+Missing character: There is no ç in font zptmcm7t!
+Missing character: There is no ã in font zptmcm7t!
+Missing character: There is no ç in font zptmcm7t!
+Missing character: There is no ã in font zptmcm7t!
+LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <17.28> not available
+(Font)              Font shape `OT1/ptm/b/n' tried instead on input line 272.
+
+Overfull \hbox (14.79982pt too wide) in paragraph at lines 284--284
 []\T1/ptm/b/it/17.28 LABELED-LATENT DI-RI-CH-LET AL-LO-CA-TION \T1/ptm/b/n/17.2
 8 (L-LDA) 
  []
 
-[19] [20]) (./frequencia_palavras.tex [21]
+[20] [21]
+LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
+(Font)              Font shape `T1/ptm/b/it' tried instead on input line 313.
+) (./frequencia_palavras.tex [22]
 Cap\'{\i }tulo 3.
+[23
 
-Underfull \hbox (badness 10000) in paragraph at lines 4--4
-[][]\T1/ptm/m/n/10 O pro-grama dessa con-fe-rên-cia, que con-tém essa se-ção, p
-ode ser con-fe-rido em
- []
-
-[22
-
-] [23]
+] [24]
 Overfull \hbox (4.55127pt too wide) in paragraph at lines 41--41
 []\T1/ptm/b/n/17.28 TRABALHOS QUE EX-PLO-RAM CON-TA-GENS DE PA-
  []
 
-[24] [25]
+[25] [26]
 Overfull \hbox (7.40819pt too wide) in paragraph at lines 60--61
 []\T1/ptm/m/n/12 O tra-ba-lho de \T1/ptm/b/n/12 Du-rant e Smith \T1/ptm/m/n/12 
 cons-trói um cor-pus so-bre os po-si-ci-o-na-men-tos do ex-Presidente
  []
 
-[26] [27]
+[27]
 Overfull \hbox (5.05331pt too wide) in paragraph at lines 86--86
 []\T1/ptm/b/n/17.28 TRABALHOS QUE EX-PLO-RAM OU-TRAS CA-RAC-TE-
  []
 
-[28] [29] [30] [31] [32]) (./estudo_de_caso.tex [33]
+[28] [29] [30] [31] [32] [33]) (./estudo_de_caso.tex [34]
 Cap\'{\i }tulo 4.
-[34
+[35
 
-] [35]
+] [36]
 Underfull \hbox (badness 10000) in paragraph at lines 51--51
 [][]\T1/ptm/m/n/10 http://www.conversaafiada.com.br/brasil/2010/07/02/mino-expl
 ica-por-que-apoia-a-dilma-porque-ela-e-
  []
 
-[36] (/usr/share/texmf-texlive/tex/latex/ucs/data/uni-32.def
+[37] (/usr/share/texmf-texlive/tex/latex/ucs/data/uni-32.def
 File: uni-32.def 2004/10/17 UCS: Unicode data U+2000..U+20FF
-) [37] [38]
+) [38] [39]
 Overfull \hbox (11.76984pt too wide) in paragraph at lines 144--145
 []\T1/ptm/m/n/10.95 Retirado de \T1/ptm/m/it/10.95 "FHC aceita o con-vite para 
 o du-elo que Lula não pode re-cu-sar." \T1/ptm/m/n/10.95 - 11/02/2010 
  []
 
-[39] [40] [41] [42] [43] <situacao.png, id=157, 845.1575pt x 313.17pt>
-File: situacao.png Graphic file (type png)
+[40] [41] [42] [43] [44]
+<15palavras-situacao.jpg, id=160, 636.12656pt x 355.3275pt>
+File: 15palavras-situacao.jpg Graphic file (type jpg)
 
-<use situacao.png>
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-<oposicao.png, id=158, 846.16125pt x 445.665pt>
-File: oposicao.png Graphic file (type png)
- <use oposicao.png>
+<use 15palavras-situacao.jpg>
 
 LaTeX Warning: `h' float specifier changed to `ht'.
 
-[44]
-LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
-(Font)              Font shape `T1/ptm/b/it' tried instead on input line 330.
- [45 <./situacao.png> <./oposicao.png>]) (./conclusao.tex [46]
+<15palavras-oposicao.jpg, id=161, 613.54219pt x 405.76593pt>
+File: 15palavras-oposicao.jpg Graphic file (type jpg)
+
+<use 15palavras-oposicao.jpg>
+
+LaTeX Warning: `h' float specifier changed to `ht'.
+
+[45] [46 <./15palavras-situacao.jpg> <./15palavras-oposicao.jpg>])
+(./conclusao.tex [47]
 Cap\'{\i }tulo 5.
-[47
+[48
 
-] [48]) (./apendices.tex [49]
+] [49]) (./apendices.tex [50]
 LaTeX Font Info:    Font shape `T1/ptm/bx/sl' in size <20.74> not available
 (Font)              Font shape `T1/ptm/b/sl' tried instead on input line 3.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <20.74> not available
@@ -675,11 +707,11 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 3.
 
 Apendice A.
-) (./monografia.bbl [50
+) (./monografia.bbl [51
 
-] [51
+] [52
 
-] [52])
+] [53])
 +-------------------------------------------------------------------+
 | Comentario, sugestao ou critica sobre o abnTeX? Entre em contato: |
 |                  http://abntex.codigolivre.org.br                 |
@@ -689,15 +721,15 @@ tabela-simbolos: agora rode geratss (linux) ou manualmente,
 makeindex -s tabela-siglas.ist -o monografia.sigla monografia.siglax
 makeindex -s tabela-simbolos.ist -o monografia.symbols monografia.symbolsx
 ########################################################################
-[53] (./monografia.aux) ) 
+[54] (./monografia.aux) ) 
 Here is how much of TeX's memory you used:
- 6593 strings out of 94101
- 87244 string characters out of 1165810
- 143735 words of memory out of 1500000
- 9626 multiletter control sequences out of 10000+50000
+ 6601 strings out of 94101
+ 87451 string characters out of 1165810
+ 143746 words of memory out of 1500000
+ 9627 multiletter control sequences out of 10000+50000
  104876 words of font info for 163 fonts, out of 1200000 for 2000
  637 hyphenation exceptions out of 8191
- 32i,11n,41p,2071b,605s stack positions out of 5000i,500n,6000p,200000b,5000s
+ 32i,11n,41p,1896b,605s stack positions out of 5000i,500n,6000p,200000b,5000s
 {/usr/share/texmf-texlive/fonts/enc/dvips/base/8r.enc}
 </usr/share/texmf-texlive/fonts/type1/bluesky/cm/cmex10.pfb></usr/share/texmf-t
 exlive/fonts/type1/bluesky/cm/cmmi10.pfb></usr/share/texmf-texlive/fonts/type1/
@@ -709,9 +741,9 @@ f-texlive/fonts/type1/urw/symbol/usyr.pfb></usr/share/texmf-texlive/fonts/type1
 exlive/fonts/type1/urw/times/utmbi8a.pfb></usr/share/texmf-texlive/fonts/type1/
 urw/times/utmr8a.pfb></usr/share/texmf-texlive/fonts/type1/urw/times/utmri8a.pf
 b>
-Output written on monografia.pdf (54 pages, 401640 bytes).
+Output written on monografia.pdf (55 pages, 386948 bytes).
 PDF statistics:
- 233 PDF objects out of 1000 (max. 8388607)
+ 235 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 131072)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

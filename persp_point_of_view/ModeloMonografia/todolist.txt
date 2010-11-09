@@ -1,203 +1,44 @@
+NB:
 
-*** dar a validaçao cruzada dos trabalhos revisados. - HOJE - OK!
-*** tirar ref. errada no cap 4 - HOJE
-*** figura cap. 4 - HOJE
-*** resolver svms: botar figura - DOMINGO
-*** construir glossario - SEGUNDA
-*** reler - SEGUNDA
+botar exemplo antes de apresentar a modelagem.
+botar figurinha esquemática depois de falar de treinamento e teste.
 
-CORRIGIR RODAPÉÉÉÉÉÉS!!!!!!!!!!!! - ok
-PARAR DE FAZER \SECTION{INTRODUÇÃO}!!!!! - ok
-REVISAR BIBLIOGRAFIAS!!!!
-VER QTOS ARTIGOS EU DIGO Q REVISO, SE ISSO TÁ PADRONIZADO E COERENTE. - ok
-ARRUMAR TABELAS COMO H OU T - ok
-PADRONIZAR NUMERO DE PALAVRAS NOS CAPITULOS Q USAM L-LDA! => 10
-PADRONIZAR SE FALA SÓ DE TAXA DE ACERTO OU SE TB DISCUTE UM POUCO PRECISÃO POR CLASSE E TALZ. - ok
-TIRAR O .COM DOS SITES, DEIXANDO SÓ NO RODAPÉ! - ok
+SVM:
 
-MUDAR DE PERSPECTIVA PRA PONTO DE VISTA SEMPRE QUE POSSÍVEL! - ok
+colocar um exemplo depois da matemática, antes de rep. parecidas.
 
-Explicar o q P(a|b) quer dizer.
-referenciar capitulo 2 na primeira vez q fala de algum conceito básico always.
-=======
-Glossário
-explicar oq é independência condicional.
-mostrar o teorema de bayes, passinho a passinho na coisa das palavras. 
-P(a|b)
+L-LDA:
 
-====================
-introdução
-falar da metodologia, estrutura, problemas relacionados (onde fala de outros métodos)
-justificar, na introdução, por que a sua monografia vale
-dizer que problema você acha que ela resolve ou ajuda a entender
-====================
-Conceitos básicos: (n pode passar de 56 páginas!)
+exemplo antes de comparar com nb. - ok, mas depois.
 
-explicar pq falo de cada coisa. - ok
-corrigir a coisa de q lspm é o unico diferente. retirar isso. - ok
-explicar pq a tabela tem x palavras, de onde vem essa mania de analisar os textos assim - ok
-falar, em svm, q ele eh meio equivalente ao naive bayes, e dizer noq é q muda. - ok
-mostrar como o uso de palavras mto parecidas pode confundir a classificação. - ok
+cap 3 => tabela
+
+cap 4 => conclusao no estudo de caso
+
+cap 4 => exemplos acerto/erro no estudo de caso
+
+cap 4 => enfatizar q a boa taxa de acerto é o primeiro passo. (na parte da conclusao)
+
+corrigir k-fold de novo.
+
+fazer resumo.
+
+fazer agradecimento.
+====
+
+toda vez q citar + de um, mudar formatação. - ok
+
+corrigir k-fold, recup. e maiusculas em tudo. - ok
 
 
-dizer q o naive bayes usado considera apenas contagens de palavras - ok
-corrigir a comparação com processo generativo na parte de class. naive - ok
-arrumar gamma na parte de class. naive - ok
-padronizar \phi e essas coisas. - ok
-retirar equações desnecessárias. - ok
-Escrever melhor sobre a escolha de parametros. - ok
-deixar mais claro no naive essa coisa da contagem de palavras - ok
-explicar pra q servem os valores iniciais - ok
-falar essa coisa da reamostragem, q a ideia é sempre tornar os parâmetros os melhores possíveis. - ok
-FALAR MTO BEM DESSA COISA DE USAR CONTAGEEEEEEEEENNNNSSSSSS DE PALAVRAS -  ok? 
+mudar maiusculas pra minusculas - resolver svms - REVISAR
 
-geral:
-brincar mais com isso de contextualizar os conceitos básicos na questão de mineração de perspectiva. - ok
-corrigir citações ao github - ok
-refazer introdução de classificadores. - ok
-Escrever, em classificadores, métodos de validação de desempenho. - ok
-escrever sobre k-folds - ok
+ARrumar seção de trabalhos relacionados. - ok
+
+motivar l-lda. - ok
+
+falar explicitamente a citação de teubert. - ok
 
 
-lda - modelo:
-dizer oq tem a ver. - ok
-mostrar as contas. - ok
-Escrever que 'mais fortemente associado' quer dizer 'contagem mais alta' ou 'que mais frequentemente se associaram'. - ok
-
-svm:
-dizer q o svm é baseado em contagens de palavras. - ok
-Escrever pq n usa svm (naive bayes generaliza melhor pra pequenos datasets) - ok
-botar referencias às equações - ok
-
-naive - classificação:
-mudar perfil pra proporção ou coisa assim. - ok
-consertar formulas - ok
-
-================
-
-Estudo de caso: 
-
-***** Frisar a questão das contagens de palavras
-**** Tem uma duvida de como citar os nomes dos jornalistas.
-**** Duvida sobre o nome da linguagem shell
-**** Falar das banner words (n precisa definir, é só falar das palavras diferentes), costurando com freqs
-**** rearrumar a parte da citação a trechos e explicação das palavras, + parecido com freqs. Falar de como isso, à luz das taxas de acerto, sugere q os autores se posicionam de forma clara, defendendo suas ideias de modo suficientemente diferente. (1 - palavras iguais em enfases diferentes; 2 - palavras unicas; 3 - essas observações)
-**** explicar pq só usa contagens de palavras, q eh pq normalmente funciona mto bem e pelos trechos parece q se trata dum corpus bem divid. ideol.
-**** retirar menção a bitterlemons como está, citar de outra forma.
-> botar 	mais um trecho anti governo na ilustração com L-LDA. 
-
-> corrigir frase que tem compreender e compreende e generico e tema geral.
-> mudar conc. e estudos fut. p/ conc.
-
-escrever intr. OK 
-
-escrever conclusão. - ok
-
-falar como marina nem aparece. (na conclusão) - ok
-
-fechar frases  OK
-
-citações - OK
- 
-dizer as seções dos blogs/colunas q foram aproveitadas. - OK
-
-botar os endereços dos sites em algum lugar. - OK
-
-
-
-enfatizar que, qdo digo governo, quero dizer presidencia. OK
-
-arrumar tabela inteira. - ok
-
-dizer q as palavras listadas excluem stop words, justificando. - ok
-
-
-consertar referencia à tabela 7.1. - ok
- 
-
-falar que as discrepancias são comuns em foruns etc e q, mesmo assim, estes estudos são conduzidos. - ok
-
-expplicar pq escolheu o naive bayes, classificador baseado em frequencia de palavras. - OK
-
-arrumar números - OK
-
-========================
-
-Anexos:
-
-fazer anexo com contagem de palavras pro estudo de caso
-fazer anexo com trechos do estudo de caso.
-arrumar os 'retirado de' no anexo do estudo de caso. (na hora de montar anexo) 
-Fazer anexo com síntese de outras revisões do capitulo de contagens (tipo um tabelão com os artigos). fichá-los, papá.
-anexo com contagens do top 10 bitterlemons e convote
-==================
-
-introdução:
-
-explicar que persp. e posic. e ponto de vista dão na msm. - ok
-filhos/P10-2047 traz boa definição de perspectiva.
-
-======
-
-Freqs de palavras: (vai pra NO MÁXIMO 53 pgs)
-
-***** mudar pra L-LDA ==> tipo L-LDA foi escolhido pq dá uma ideia refinada da coisa (comparar com contar freqs).
-***** DIZER PQ SÓ REVISA CONTAGENS
-***** resolver como citar conteúdo de email.
-***** botar figura do lspm explicando parametros
-***** explicar lspm de modo q n fale de modelo generativo
-***** enfatizar q os artigos revisados nos anexos utilizam metodologia mto semelhante, apenas pré-processando as palavras de forma um pouco diferente, ou selecionando apenas uma parte delas. do pto de vista de usar ou n contagem, n muda mto. 
-
-Retirar a palavra "Introdução" - OK
-Nomear as seções com \ref na introdução - OK
-Botar referencias na introdução - ok
-terminar tudo q tem a ver com wordscores na revisão. - ok
-completar a citação aos trechos de palestina/israel - ok
-falar algumas coisas sobre as listagens genéricas pros dois corpora (overlaps e talz). - ok
-falar de pal./isr. (usos diferentes, mesma palavra) - ok
-enfatizar q o método originalmente utilizado no convote usa outras coisas, mas q usando só palavras E UM SVM, ele atinge dizer q o convote n é revisado ali pq prioriza outras caracs dos documentos, *já q n se encontrou art. ruim com dataset disp. q só usasse cont. de palavras.* FALAR MESMO Q N FAZ PARTE DOS NOVE DESSE CAPÍTULO, O FOCO ALI EH EM OUTRAS FEATURES, E O DESEMPENHO OBTIDO É INCLUSIVE MTO BOM NO ARTIGO. APENAS SE APROVEITOU E SE ESTUDOU. - ok
-evidenciar, na introdução e na conclusão da seção freqs, a autenticidade do uso dos tópicos, do l-lda, e como de fato ajuda nas conclusões. - ok
-botar mais info sobre qtos docs têm por corpus, dizendo q isso é razoável. - ok
-na hora do convote, mesma coisa. - ok
-dizer que as taxas de acerto variaram de acordo com as divisões entre conjuntos de treinamento e teste, nas duas revisões E RETIRAR OS FOOTNOTES NA PARTE DO L-LDA. - ok
-dizer onde os dados do convote tão disponíveis. - ok
-Arrumar o título (Ficou "Classificação por perspectiva baseada em contagens de palavras") - ok
-refazer experimento convote. - ok
-fazer conclusão. (classif. com contagens rocks, l-lda rocks, qto mais diferente melhor, mas pelos resultados obtidos na revisão, parece q eh bem por aí.) - ok
-
-
--- maybe
-
-nomear todos os corpora, pra citar nas subseções seguintes da parte de revisão. - supernão.
-
-
-=> VOLTAR PRA REVISAR SE ESSA INTENÇÃO ESTÁ SENDO CUMPRIDA
-  começa falando pq q isso eh importante
-tipo, de 12 trabalhos, 9 usam isso
-6 exclusivamente
-e 2 n
-e desses 6, 5 têm ótimo resultado
-e fala q vai revisar trabalhos com isso, mostrar experimentos q ilustrem a relação entre o desempenho e o uso d epalavras, 
- Alexandre:  ótimo, boa justificativa
- eu:  q tá mais pra investigação, na verdade
-e q nisso se usa um l-lda e naive bayes
-e explica um pouco sobre pq isso e como n se achou outro trabalho assim
-daí, na hora de revisar
-falar dos 6 ia ficar meio hard
-aí peguei os dois mais citados e fichei os outros e anexei
-sendo q, desses 6, um eh o lspm e o outro é o do desempenho ruim. mas eu reforço a ideia de q ele é o unico, q contagem é massa, e q isso fomenta a discussão levantada com os exp. da seção seguinte
-ok
-na seção seguinte
-o corpus desse bicho do desempenho ruim n tá legal
- Alexandre:  ok, soa bom
- eu:  eu pego outro, q inclusive n utiliza só contagem de palavras, justifico pq tou usando ele e n o do desempenho ruim (pedi, n consgeui, n achei)
-e faço a discussão toda
-period.
-o ponto é
-eu tou achando
-q se eu incrementar um pouco a revisão deles dois
-
-
-=====
-
+mexer na qtd de palavras com l-lda, tanto no basicos qto no estudo de caso. - ok
 
