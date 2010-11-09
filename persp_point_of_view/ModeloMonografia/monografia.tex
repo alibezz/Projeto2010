@@ -35,9 +35,9 @@
 %% O comando \obs aqui definido permite que o autor faca anotacoes na
 %% monografia que aparecem no PDF gerado. Para ativar o comando, descomente
 %% a primeira linha e comente a segunda.
-%% Exemplo de uso: \obs{Preciso melhorar este par�grafo...}
+%% Exemplo de uso: \obs{Preciso melhorar este parágrafo...}
 
-%\newcommand{\obs}[1]{\underline{\textbf{OBSERVAÇÃO}}: \emph{#1}}
+%\newcommand{\obs}[1]{\underline{\textbf{OBSERVAÃÃO}}: \emph{#1}}
 \newcommand{\obs}[1]{}
 
 \def\ordfem{\mbox{\raise .35em \hbox{\underline{\scriptsize a}\ }}}
@@ -53,35 +53,44 @@
 \input{agradecimentos.tex}
 
 \begin{resumo}
-Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
-Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
-Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
-Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
-Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
-Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
-Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
+A classificação de documentos de acordo com seus pontos de vista sobre um tema é um tópico de pesquisa que vem recebendo atenção crescente. Dado um conjunto de documentos sobre a política dos Estados Unidos, por exemplo, esse tipo de classificação pode ser empregado 
+para identificar quais deles defendem o ponto de vista \emph{liberal} e quais defendem o ponto de vista 
+\emph{conservador}. Esse tipo de classificação colabora com a análise de documentos argumentativos, especialmente quando não é possível lê-los um por  um. Devido ao caráter desses documentos, esse tipo de classificação pode fazer parte de estudos interdisciplinares, envolvendo áreas como Ciência Política e Comunicação. 
+
+Diante disso, essa monografia apresenta uma revisão de trabalhos que tratam desse tópico, indicando quais são os principais classificadores utilizados, quais aspectos dos documentos podem ser explorados na identificação de seus pontos de vista, dentre outros aspectos associados a esse tópico de pesquisa. Em seguida, é feito um estudo de caso envolvendo documentos sobre a política brasileira escritos em 2010, ano de eleição presidencial. Eles são classificados de acordo com os pontos de vista \emph{pró-oposição} e \emph{pró-situação}, e as palavras mais enfatizadas por cada ponto de vista também são discutidas. 
+
+
+%    Diante disso, estudos com o intuito de extrair opiniões e pontos de vista da Web, e interpretá-
+%los automaticamente, tornaram-se mais frequentes na área de Ciência da Computação. Juntos,
+
+%, que visa a separar documentos de acordo com seus diferentes posicionamentos sobre um tema
+
+
+%e outros aspectos associados a 
 
 \textbf{Palavras-chave:}
 Mineração de opinião,
-Naive Bayes, 
-politica brasileira,
+classificação, 
+política brasileira,
 ponto de vista.
 \end{resumo}
 
 % O abstract e' opcional.
 \begin{abstract}
-Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
-Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
-Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
-Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
-Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
-Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
-Nonono nonono nonono, nonono, nonono nonono nonono nononono nonno.
+Documents classification according to their viewpoints is a research topic that has been receiving a growing attention. Given a set of documents about the United States politics, for example, this kind of classification may be useful to identify those that defend a \emph{liberal} viewpoint and those that defend a \emph{conservative} one. This kind of classification is helpful in analyzing argumentative documents, specially when it is not possible to read them one by one. Due to the content of these documents, this kind of classification may be part of interdisciplinary studies, involving areas such as Political Sciences or Communication.
+
+In the view of this, this monograph presents a review of papers that discuss this topic, indicating which classifiers are the most used, which aspects of the documents may be exploited in the identification of their viewpoints, among other aspects associated to this research topic. After that, a case study is conducted, involving documents about brazilian politics written in 2010, year of brazilian presidential election. They are classified according to the \emph{pro-situation} and \emph{pro-opposition} viewpoints, and the words that are more emphasized by each viewpoint are also discussed.     
+
+%A classificação de documentos de acordo com seus pontos de vista sobre um tema é um tópico de pesquisa que vem recebendo atenção crescente. Dado um conjunto de documentos sobre a política dos Estados Unidos, por exemplo, esse tipo de classificação pode ser empregado 
+%para identificar quais deles defendem o ponto de vista \emph{liberal} e quais defendem o ponto de vista 
+%\emph{conservador}. Esse tipo de classificação colabora com a análise de documentos argumentativos, especialmente em cenários nos quais não é possível lê-los um a um. Devido ao caráter desses documentos, esse tipo de classificação pode fazer parte de estudos interdisciplinares, envolvendo áreas como Ciência Política e Comunicação. 
+
+%Diante disso, essa monografia apresenta uma revisão de trabalhos que tratam desse tópico, indicando quais são os principais classificadores utilizados, quais aspectos dos documentos podem ser explorados na identificação de seus pontos de vista, dentre outros aspectos associados a esse tópico de pesquisa. Em seguida, é feito um estudo de caso envolvendo documentos sobre a política brasileira escritos em 2010, ano de eleição presidencial. Eles são classificados de acordo com os pontos de vista \emph{pró-oposição} e \emph{pró-situação}, e as palavras mais enfatizadas por cada ponto de vista também são discutidas. 
 
 \textbf{Keywords:} 
 Opinion mining,
-Naive Bayes,
-brasilian politics,
+classification,
+brazilian politics,
 viewpoint.
 \end{abstract}
 
@@ -99,9 +108,9 @@ viewpoint.
 \input{frequencia_palavras.tex}
 \input{estudo_de_caso.tex}
 \input{conclusao.tex}
-\input{apendices.tex}
 
 \bibliography{monografia}
+\input{apendices.tex}
 
 \end{document}
 

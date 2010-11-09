@@ -19,5 +19,5 @@
 \contentsline {chapter}{\numberline {5}Conclus\IeC {\~a}o}{48}
 \contentsline {section}{\numberline {5.1}Dificuldades encontradas}{49}
 \contentsline {section}{\numberline {5.2}Trabalhos futuros}{50}
-\contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Teorema de Bayes e nota\IeC {\c c}\IeC {\~o}es}{51}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{52}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{51}
+\contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Teorema de Bayes e nota\IeC {\c c}\IeC {\~o}es}{54}
