@@ -11,19 +11,19 @@ L-LDA:
 
 exemplo antes de comparar com nb. - ok, mas depois.
 
-cap 3 => tabela
-
 cap 4 => conclusao no estudo de caso
 
 cap 4 => exemplos acerto/erro no estudo de caso
 
 cap 4 => enfatizar q a boa taxa de acerto é o primeiro passo. (na parte da conclusao)
 
-corrigir k-fold de novo.
+corrigir k-fold de novo. - ok
+
+mudar o título do capítulo técnicas básicas.
 
 fazer resumo. - ok
 
-fazer agradecimento.
+fazer agradecimento. - ok
 ====
 
 toda vez q citar + de um, mudar formatação. - ok
@@ -31,7 +31,7 @@ toda vez q citar + de um, mudar formatação. - ok
 corrigir k-fold, recup. e maiusculas em tudo. - ok
 
 
-mudar maiusculas pra minusculas - resolver svms - REVISAR
+mudar maiusculas pra minusculas - resolver svms - ok
 
 ARrumar seção de trabalhos relacionados. - ok
 

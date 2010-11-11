@@ -6,7 +6,7 @@
 \contentsline {section}{\numberline {2.1}Na\IeC {\"\i }ve Bayes}{13}
 \contentsline {section}{\numberline {2.2}\emph {Support vector machines} (SVMs)}{17}
 \contentsline {section}{\numberline {2.3}M\IeC {\'e}tricas para medir o desempenho dos classificadores}{19}
-\contentsline {section}{\numberline {2.4}Valida\IeC {\c c}\IeC {\~a}o cruzada por \ensuremath {k} vezes}{20}
+\contentsline {section}{\numberline {2.4}Valida\IeC {\c c}\IeC {\~a}o cruzada \emph {k-fold}}{20}
 \contentsline {section}{\numberline {2.5}\emph {Labeled-latent dirichlet allocation} (L-LDA)}{20}
 \contentsline {chapter}{\numberline {3}Classifica\IeC {\c c}\IeC {\~a}o por ponto de vista: revis\IeC {\~a}o e discuss\IeC {\~a}o}{23}
 \contentsline {section}{\numberline {3.1}Trabalhos que exploram contagens de palavras ou varia\IeC {\c c}\IeC {\~o}es}{25}
