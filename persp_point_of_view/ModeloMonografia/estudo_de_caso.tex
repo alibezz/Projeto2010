@@ -246,7 +246,7 @@ Os valores obtidos com o classificador Naïve Bayes são comparáveis àqueles o
 
 Os artigos escolhidos para este corpus são compostos, muitas vezes, de textos de outros autores. Isto reforça a ideia de que o classificador Naïve Bayes está efetivamente aprendendo os pontos de vista dos documentos, em vez de estilos de escrita. De todo modo, assim como no estudo de \textbf{Lin et al.} sobre o conflito Israel-Palestina\footnote{Esse trabalho foi revisado no Capítulo \ref{chap3}.} \cite{lin-et-al2006}, foi conduzido um experimento em que os artigos pertencentes aos conjuntos de treinamento e teste são escritos por autores diferentes. Se o que está sendo aprendido são de fato os pontos de vista dos documentos, o desempenho do classificador não deve ser muito diferente do obtido na validação cruzada \emph{10-fold}. Testando com artigos da coluna de Augusto Nunes e do \emph{site} Conversa Afiada, e treinando com os demais, a taxa de acerto obtida foi de 92.79\%, acompanhada de precisão média de 93.32\% e métrica F1 média de 91.86\%. Este experimento, portanto, ratifica os outros resultados, evidenciando que o classificador Naïve Bayes cumpre bem a tarefa de identificar os pontos de vista pró-oposição e pró-situação.
 
-Esses experimentos indicam que o Naïve Bayes aprendeu a generalizar bem os pontos de vista contidos nos documentos, o que sugere que seu uso, estendido à classificação de outros documentos dentro da mesma temática, pode ser adequado. Apenas a caráter de ilustração, segue um trecho de um dos documentos  que o Naïve Bayes classificou corretamente:
+Esses experimentos indicam que o Naïve Bayes aprendeu a generalizar bem os pontos de vista contidos nos documentos, o que sugere que seu uso, estendido à classificação de outros documentos dentro da mesma temática, pode ser adequado. Apenas em caráter de ilustração, segue um trecho de um dos documentos  que o Naïve Bayes classificou corretamente:
 
 \begin{quote}
 
@@ -255,7 +255,7 @@ Esses experimentos indicam que o Naïve Bayes aprendeu a generalizar bem os pont
 {\small Retirado de "Um debate pálido na “Band”: saudade de 89!", do \emph{blog} de Rodrigo Vianna -06/08/2010}
 \end{quote}
 
-Também a caráter de ilustração, segue um trecho de um dos documentos que o Naïve Bayes classificou incorretamente:
+Também em caráter de ilustração, segue um trecho de um dos documentos que o Naïve Bayes classificou incorretamente:
 
 \begin{quote}
 
@@ -342,7 +342,7 @@ Essas figuras também sugerem que os artigos pró-situação dão mais enfoque a
 
 %É válido ressaltar, por fim, que, apesar dos textos terem caráter crítico e não necessariamente informativo, as palavras elencadas na Tabela 4.3 não carregam uma polaridade natural, como no caso dos adjetivos \emph{bom} ou \emph{ruim}. Isso reforça a ideia de que a expressão de pontos de vista não é tão simples quanto a emissão de opiniões pontuais e claramente polarizadas, como \emph{Serra é um candidato ruim} ou \emph{Lula é um presidente bom}. 
 
-Os pontos de vista desse corpus são construídos através de argumentações complexas, como indicam os trechos de artigos apresentados na seção \ref{estudo:sec1}. Para compreender melhor a relação que as palavras da Tabela 4.3 estabelecem com eles, recomenda-se, por fim, a leitura de um número razoável de passagens de texto que as contenham. Alguns trechos foram selecionados abaixo, a caráter ilustrativo:
+Os pontos de vista desse corpus são construídos através de argumentações complexas, como indicam os trechos de artigos apresentados na seção \ref{estudo:sec1}. Para compreender melhor a relação que as palavras da Tabela 4.3 estabelecem com eles, recomenda-se, por fim, a leitura de um número razoável de passagens de texto que as contenham. Alguns trechos foram selecionados abaixo, em caráter ilustrativo:
 
 \begin{quote}
 \emph{"O que parece estarrecedor para quem nunca ouviu \textbf{Dilma} antes - e tenho colegas jornalistas que nunca a viram discursando ou dando \textbf{entrevista} - é absolutamente familiar para os frequentadores desta coluna. Que há nove meses têm acesso a veementes indícios, há muito transformados em provas documentais, de que \textbf{Dilma} é uma afronta imposta ao \textbf{Brasil} por \textbf{Lula}, num [sic] crime lesa-pátria sem perdão."}
