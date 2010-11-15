@@ -1,15 +1,4 @@
-NB:
 
-botar exemplo antes de apresentar a modelagem.
-botar figurinha esquemática depois de falar de treinamento e teste.
-
-SVM:
-
-colocar um exemplo depois da matemática, antes de rep. parecidas.
-
-L-LDA:
-
-exemplo antes de comparar com nb. - ok, mas depois.
 
 cap 4 => conclusao no estudo de caso
 
@@ -17,14 +6,26 @@ cap 4 => exemplos acerto/erro no estudo de caso
 
 cap 4 => enfatizar q a boa taxa de acerto é o primeiro passo. (na parte da conclusao)
 
-corrigir k-fold de novo. - ok
+====
 
-mudar o título do capítulo técnicas básicas.
+NB: - ok
+
+botar exemplo antes de apresentar a modelagem.
+botar figurinha esquemática depois de falar de treinamento e teste.
+
+SVM: ok
+
+colocar um exemplo depois da matemática, antes de rep. parecidas.
+
+L-LDA:
+
+exemplo antes de comparar com nb. - ok
+
+mudar o título do capítulo técnicas básicas. - ok
 
 fazer resumo. - ok
 
 fazer agradecimento. - ok
-====
 
 toda vez q citar + de um, mudar formatação. - ok
 

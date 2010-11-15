@@ -2,22 +2,22 @@
 \contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{9}
 \contentsline {section}{\numberline {1.1}Objetivo}{11}
 \contentsline {section}{\numberline {1.2}Trabalhos Relacionados}{11}
-\contentsline {chapter}{\numberline {2}T\IeC {\'e}cnicas b\IeC {\'a}sicas}{13}
+\contentsline {chapter}{\numberline {2}T\IeC {\'e}cnicas b\IeC {\'a}sicas para classifica\IeC {\c c}\IeC {\~a}o e an\IeC {\'a}lise dos documentos}{13}
 \contentsline {section}{\numberline {2.1}Na\IeC {\"\i }ve Bayes}{13}
-\contentsline {section}{\numberline {2.2}\emph {Support vector machines} (SVMs)}{17}
-\contentsline {section}{\numberline {2.3}M\IeC {\'e}tricas para medir o desempenho dos classificadores}{19}
-\contentsline {section}{\numberline {2.4}Valida\IeC {\c c}\IeC {\~a}o cruzada \emph {k-fold}}{20}
-\contentsline {section}{\numberline {2.5}\emph {Labeled-latent dirichlet allocation} (L-LDA)}{20}
-\contentsline {chapter}{\numberline {3}Classifica\IeC {\c c}\IeC {\~a}o por ponto de vista: revis\IeC {\~a}o e discuss\IeC {\~a}o}{23}
-\contentsline {section}{\numberline {3.1}Trabalhos que exploram contagens de palavras ou varia\IeC {\c c}\IeC {\~o}es}{25}
-\contentsline {section}{\numberline {3.2}Trabalhos que exploram outras caracter\IeC {\'\i }sticas dos documentos}{29}
-\contentsline {section}{\numberline {3.3}An\IeC {\'a}lise comparativa}{32}
-\contentsline {chapter}{\numberline {4}Estudo de caso: Pontos de vista sobre o governo brasileiro}{35}
-\contentsline {section}{\numberline {4.1}Construindo um corpus para estudo}{36}
-\contentsline {section}{\numberline {4.2}Classificando documentos com um Na\IeC {\"\i }ve Bayes}{42}
-\contentsline {section}{\numberline {4.3}Ilustrando o uso de palavras por ponto de vista}{44}
-\contentsline {chapter}{\numberline {5}Conclus\IeC {\~a}o}{48}
-\contentsline {section}{\numberline {5.1}Dificuldades encontradas}{49}
-\contentsline {section}{\numberline {5.2}Trabalhos futuros}{50}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{51}
-\contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Teorema de Bayes e nota\IeC {\c c}\IeC {\~o}es}{54}
+\contentsline {section}{\numberline {2.2}\emph {Support vector machines} (SVMs)}{18}
+\contentsline {section}{\numberline {2.3}M\IeC {\'e}tricas para medir o desempenho dos classificadores}{20}
+\contentsline {section}{\numberline {2.4}Valida\IeC {\c c}\IeC {\~a}o cruzada \emph {k-fold}}{21}
+\contentsline {section}{\numberline {2.5}\emph {Labeled-latent dirichlet allocation} (L-LDA)}{21}
+\contentsline {chapter}{\numberline {3}Classifica\IeC {\c c}\IeC {\~a}o de acordo com pontos de vista: revis\IeC {\~a}o e discuss\IeC {\~a}o}{24}
+\contentsline {section}{\numberline {3.1}Trabalhos que exploram contagens de palavras ou varia\IeC {\c c}\IeC {\~o}es}{26}
+\contentsline {section}{\numberline {3.2}Trabalhos que exploram outras caracter\IeC {\'\i }sticas dos documentos}{30}
+\contentsline {section}{\numberline {3.3}An\IeC {\'a}lise comparativa}{34}
+\contentsline {chapter}{\numberline {4}Estudo de caso: pontos de vista sobre o governo brasileiro}{37}
+\contentsline {section}{\numberline {4.1}Construindo um corpus para estudo}{38}
+\contentsline {section}{\numberline {4.2}Classificando documentos com um Na\IeC {\"\i }ve Bayes}{44}
+\contentsline {section}{\numberline {4.3}Ilustrando o uso de palavras por ponto de vista}{46}
+\contentsline {chapter}{\numberline {5}Conclus\IeC {\~a}o}{50}
+\contentsline {section}{\numberline {5.1}Dificuldades encontradas}{51}
+\contentsline {section}{\numberline {5.2}Trabalhos futuros}{52}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{53}
+\contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Teorema de Bayes e nota\IeC {\c c}\IeC {\~o}es}{56}

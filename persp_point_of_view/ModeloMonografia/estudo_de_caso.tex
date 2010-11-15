@@ -1,4 +1,4 @@
-\chapter{Estudo de caso: Pontos de vista sobre o governo brasileiro}
+\chapter{Estudo de caso: pontos de vista sobre o governo brasileiro}
 \label{estudo}
 %Onde se motiva o estudo das eleições e fala pq tratará de colunas de jornalistas de notoriedade nacional. TUDO NESTE CAPÍTULO PRECISA SER BEM DIDÁTICO. FALAR DA FOLHA DILMAFACTSBYFOLHA
 
@@ -6,7 +6,7 @@
 
 %Por ser um ano eleitoral, a
 
-Muitos dos trabalhos revisados neste projeto analisam documentos que tratam de política. Em particular, boa parte deles estuda textos relacionados a governos federais - quer sejam discussões entre os próprios governantes \cite{hirst-et-al}, quer sejam artigos escritos por cidadãos ou especialistas\footnote{Todos os trabalhos mencionados nesta sentença foram revisados no Capítulo \ref{chap3}.} \cite{aaai-politics, malouf-taking_sides}. Considerando essa tendência, e o fato de que 2010 é ano de eleições para presidente no Brasil, decidiu-se realizar um estudo de caso que aproveita a abundância de artigos, disponíveis na \emph{Web}, sobre o governo Lula e a sucessão presidencial. A ideia é construir um corpus com alguns desses documentos e investigar seus pontos de vista automaticamente, classificando-os de acordo com eles e analisando, de forma subjetiva, as palavras por eles enfocadas. É válido ressaltar que não foi encontrado nenhum outro trabalho, em português, que classifique documentos de acordo com seus pontos de vista.
+Muitos dos trabalhos revisados neste projeto analisam documentos que tratam de política. Em particular, boa parte deles estuda textos relacionados a governos federais - quer sejam discussões entre os próprios governantes \cite{hirst-et-al}, quer sejam artigos escritos por cidadãos ou especialistas\footnote{Todos os trabalhos mencionados nesta sentença foram revisados no Capítulo \ref{chap3}.} \cite{aaai-politics, malouf-taking_sides}. Considerando essa tendência, e o fato de que 2010 foi ano de eleições para presidente no Brasil, decidiu-se realizar um estudo de caso que aproveita a abundância de artigos, disponíveis na \emph{Web}, sobre o governo Lula e a sucessão presidencial. A ideia é construir um corpus com alguns desses documentos e investigar seus pontos de vista automaticamente, classificando-os de acordo com eles e analisando, de forma subjetiva, as palavras por eles enfocadas. É válido ressaltar que não foi encontrado nenhum outro trabalho, em português, que classifique documentos de acordo com seus pontos de vista.
 
 %Os artigos escolhidos para este estudo foram extraídos de colunas, \emph{blogs} e \emph{sites} políticos mantidos por jornalistas de notoriedade nacional. A coleta de artigos contidos em \emph{blogs} escritos por cidadãos comuns também foi cogitada - entretanto, como eles são pouco conhecidos, comentados e divulgados, essa opção exigiria um esforço de análise manual dos \emph{posts} que foge ao escopo deste projeto. Além disso, uma vantagem em focar o estudo em material publicado por jornalistas conhecidos é poder correlacionar, posteriormente, os resultados obtidos a investigações sobre a formação de opinião na mídia brasileira \emph{online} - tanto na alternativa quanto na tradicional. A seleção dos veículos para este estudo de caso resultou do consenso entre a autora desta monografia e dois jornalistas \textbf{COMO CITÁ-LOS, DIZER SEUS NOMES?}. O critério básico para as escolhas foi a defesa clara de um ponto de vista sobre o governo Lula e/ou a sucessão presidencial de 2010. 
 
@@ -38,7 +38,7 @@ A seleção dos veículos para este estudo de caso resultou do consenso entre a 
 
 \begin{quote}
 
-\emph{"Na entrevista, Bonner se limitou a perguntar da dependência de Dilma em relação à Lula [...] A consequência foi Dilma rebatendo com facilidade cada bobagem dita, reforçando o discurso social, mas sem avançar em uma proposta sequer de programa, explicando a lógica das alianças políticas. E William Bonner interrompendo-a a toda hora, impedindo sequer uma resposta completa. Algo tão desastrado e mal educado que obrigou Fátima Bernardes, do alto de sua elegância, a calá-lo com um sinal, para que parasse de ser inconveniente."}
+\emph{"Na entrevista, Bonner se limitou a perguntar da dependência de Dilma em relação à [sic] Lula [...] A consequência foi Dilma rebatendo com facilidade cada bobagem dita, reforçando o discurso social, mas sem avançar em uma proposta sequer de programa, explicando a lógica das alianças políticas. E William Bonner interrompendo-a a toda hora, impedindo sequer uma resposta completa. Algo tão desastrado e mal educado que obrigou Fátima Bernardes, do alto de sua elegância, a calá-lo com um sinal, para que parasse de ser inconveniente."}
 
 { \small Retirado de \emph{"O dia em que William Bonner escorregou"} - 10/08/2010}
 
@@ -66,7 +66,7 @@ Como o veículo possui muito conteúdo, foram considerados apenas os artigos da 
 
 %Os artigos do \emph{site} muitas vezes citam notícias retiradas de portais, como o G1 ou UOL, a fim de contextualizar críticas e análises.
 
-Também por possuir muito conteúdo, apenas os artigos pertencentes à categoria "Política" foram considerados.
+Também por possuir muito conteúdo, apenas os artigos pertencentes à categoria "Política"  foram considerados.
 % Prêmio iBest de Melhor Blog de Política, em eleição popular e da Academia iBest. 
 
 \item \textbf{Escrevinhador}\footnote{http://www.rodrigovianna.com.br/} O \emph{blog}, mantido pelo \emph{site} da revista Caros Amigos, é escrito pelo jornalista Rodrigo Vianna, que também é repórter da Rede Record. Ele está no ar desde 2008, enfocando acontecimentos da vida política do Brasil e do Mundo. No que diz respeito ao Brasil, o conteúdo do \emph{blog} assume uma perspectiva pró-situação, como ilustram os trechos abaixo:
@@ -213,9 +213,9 @@ O número de artigos coletados em cada veículo varia bastante, como pode ser ob
 \section{Classificando documentos com um Naïve Bayes}
 \label{estudo:sec2}
 
-O primeiro estudo conduzido com esse corpus consiste na classificação dos artigos de acordo com os pontos de vista pró-oposição e pró-situação. Esse capítulo não se propõe a comparar classificadores diferentes, de modo que o Naïve Bayes será a única técnica explorada em seu escopo. O classificador Naïve Bayes foi escolhido porque, de acordo com a revisão do Capítulo \ref{chap3}, não há um consenso sobre qual dos dois - ele ou um SVM - é mais indicado para classificação por ponto de vista. Em alguns trabalhos o Naïve Bayes conduz a melhores resultados; em outros, o SVM. Essas questões, e a consideração de que o Naïve Bayes é mais simples de implementar, justificam sua escolha.  
+O primeiro estudo conduzido com esse corpus consiste na classificação dos artigos de acordo com os pontos de vista pró-oposição e pró-situação. Esse capítulo não se propõe a comparar classificadores diferentes, de modo que o Naïve Bayes será a única técnica explorada em seu escopo. O classificador Naïve Bayes foi escolhido porque, de acordo com a revisão do Capítulo \ref{chap3}, não há um consenso sobre qual dos dois - ele ou um SVM - é mais indicado para classificação de acordo com pontos de vista. Em alguns trabalhos o Naïve Bayes conduz a melhores resultados; em outros, o SVM. Essas questões, e a consideração de que o Naïve Bayes é mais simples de implementar, justificam sua escolha.  
 
-O classificador explora apenas as contagens de palavras dos documentos para definir suas classes. Os motivos para essa escolha foram: popularidade do uso nos trabalhos revisados no Capítulo \ref{chap3}, o que indica essa escolha como a mais natural; simplicidade de computação, dado que essa escolha envolve apenas a soma das ocorrências de palavras; fácil adaptação a qualquer língua, em particular a portuguesa. 
+O classificador explora apenas as contagens de palavras dos documentos para discriminar suas classes. Os motivos para essa escolha foram: popularidade do uso nos trabalhos revisados no Capítulo \ref{chap3}, o que indica essa escolha como a mais natural; simplicidade de computação, dado que essa escolha envolve apenas a soma das ocorrências de palavras; fácil adaptação a qualquer língua, em particular a portuguesa. 
 
 % por contagens de palavras também são os mesmos apontados no Capítulo \ref{chap3}, na seção \ref{freqs:experim}. 
 
