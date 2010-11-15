@@ -15,9 +15,9 @@
 \contentsline {chapter}{\numberline {4}Estudo de caso: pontos de vista sobre o governo brasileiro}{37}
 \contentsline {section}{\numberline {4.1}Construindo um corpus para estudo}{38}
 \contentsline {section}{\numberline {4.2}Classificando documentos com um Na\IeC {\"\i }ve Bayes}{44}
-\contentsline {section}{\numberline {4.3}Ilustrando o uso de palavras por ponto de vista}{46}
-\contentsline {chapter}{\numberline {5}Conclus\IeC {\~a}o}{50}
-\contentsline {section}{\numberline {5.1}Dificuldades encontradas}{51}
-\contentsline {section}{\numberline {5.2}Trabalhos futuros}{52}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{53}
-\contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Teorema de Bayes e nota\IeC {\c c}\IeC {\~o}es}{56}
+\contentsline {section}{\numberline {4.3}Ilustrando o uso de palavras por ponto de vista}{47}
+\contentsline {chapter}{\numberline {5}Conclus\IeC {\~a}o}{51}
+\contentsline {section}{\numberline {5.1}Dificuldades encontradas}{52}
+\contentsline {section}{\numberline {5.2}Trabalhos futuros}{53}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{54}
+\contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Teorema de Bayes e nota\IeC {\c c}\IeC {\~o}es}{57}

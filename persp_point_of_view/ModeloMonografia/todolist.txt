@@ -1,12 +1,9 @@
 
 
-cap 4 => conclusao no estudo de caso
-
-cap 4 => exemplos acerto/erro no estudo de caso
-
-cap 4 => enfatizar q a boa taxa de acerto é o primeiro passo. (na parte da conclusao)
-
 ====
+
+cap 4 => exemplos acerto/erro no estudo de caso - ok
+
 
 NB: - ok
 
