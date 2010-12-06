@@ -1,6 +1,4 @@
 #Aline Bessa - 17/05/2010
-#This program counts word frequencies within documents,
-#sentences and the corpus itself
 import sys
 import os
 import numpy as np
@@ -56,17 +54,6 @@ class CorpusParser(object):
   def words(self):
     return self.all_words
 
-  def get_sntc(self, sntc):
- # print self.all_words
-    freqs = np.zeros(len(self.all_words))
-    #TODO Get rid of this repetition
-    for t in get_words(sntc):
-      t = t.lower().strip()
-    # t = en.noun.singular(t)
-      if not t in stop_words:
-        freqs[self.all_words.index(t)] += 1.
-    return freqs
-
   def get_new_words(self, doc):
     for i in xrange(len(doc)):
       for t in get_words(str(doc[i])):
@@ -82,49 +69,36 @@ class CorpusParser(object):
     return self.corpus
 
   def get_doc(self, doc):
-    freqs = np.zeros(len(self.all_words))
-    #TODO Get rid of this repetition
+    counts = np.zeros(len(self.all_words))
     for sntc in doc:
       for t in get_words(sntc):
         t = t.lower().strip()
        # t = en.noun.singular(t)
         if not t in stop_words and t in self.all_words:
-          freqs[self.all_words.index(t)] += 1.
-    return freqs
+          counts[self.all_words.index(t)] += 1.
+    return counts
 
+  #TODO cut redundancy between docs and dir params
+  def iterate_corpus(self, docs, dir, action, doc_preprocessing = None):
+    for file in docs:
+      f = open(os.path.realpath(dir + '/' + file), 'r')
+      doc = read_file(f)
+      if doc_preprocessing:
+        action(doc_preprocessing(doc))
+      else:
+        action(doc)
+      f.close()
+
+
+  ###get every single word first
   def pdocs(self):
 
-    for file in self.train_list_docs:
-      f = open(os.path.realpath(self.train_corpus + '/' + file), 'r')
-      doc = read_file(f)
-      #doc = BeautifulSoup(''.join(text)).contents[1].findAll('s')
-      self.get_new_words(doc)
-      f.close()
-
-    for file in self.test_list_docs:
-      f = open(os.path.realpath(self.test_corpus + '/' + file), 'r')
-      doc = read_file(f)
-      #doc = BeautifulSoup(''.join(text)).contents[1].findAll('s')
-      self.get_new_words(doc)
-      f.close()
-
-    ###documents as word counts
-    for file in self.train_list_docs:
-#      #TODO get rid of repetition
-      f = open(os.path.realpath(self.train_corpus + '/' + file), 'r')
-      doc = read_file(f)
-      self.train_docs.append(self.get_doc(doc))
-      f.close()
-
-    for file in self.test_list_docs:
-#      #TODO get rid of repetition
-      f = open(os.path.realpath(self.test_corpus + '/' + file), 'r')
-      doc = read_file(f)
-      self.test_docs.append(self.get_doc(doc))
-      f.close()
-    ###
- # print self.all_words, len(self.all_words)
+    self.iterate_corpus(self.train_list_docs, self.train_corpus, self.get_new_words)
+    self.iterate_corpus(self.test_list_docs, self.test_corpus, self.get_new_words)
+    self.iterate_corpus(self.train_list_docs, self.train_corpus, self.train_docs.append, self.get_doc)
+    self.iterate_corpus(self.test_list_docs, self.test_corpus, self.test_docs.append, self.get_doc)
     return self.train_docs, self.test_docs
+ # print self.all_words, len(self.all_words)
 
 if __name__ =='__main__':
   a = CorpusParser(sys.argv[1], sys.argv[2])
