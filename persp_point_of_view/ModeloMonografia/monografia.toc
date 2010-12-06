@@ -1,23 +1,26 @@
 \select@language {brazil}
 \contentsline {chapter}{\numberline {1}Introdu\IeC {\c c}\IeC {\~a}o}{9}
-\contentsline {section}{\numberline {1.1}Objetivo}{11}
-\contentsline {section}{\numberline {1.2}Trabalhos Relacionados}{11}
-\contentsline {chapter}{\numberline {2}T\IeC {\'e}cnicas b\IeC {\'a}sicas para classifica\IeC {\c c}\IeC {\~a}o e an\IeC {\'a}lise dos documentos}{13}
-\contentsline {section}{\numberline {2.1}Na\IeC {\"\i }ve Bayes}{13}
-\contentsline {section}{\numberline {2.2}\emph {Support vector machines} (SVMs)}{18}
-\contentsline {section}{\numberline {2.3}M\IeC {\'e}tricas para medir o desempenho dos classificadores}{20}
-\contentsline {section}{\numberline {2.4}Valida\IeC {\c c}\IeC {\~a}o cruzada \emph {k-fold}}{21}
-\contentsline {section}{\numberline {2.5}\emph {Labeled-latent dirichlet allocation} (L-LDA)}{21}
-\contentsline {chapter}{\numberline {3}Classifica\IeC {\c c}\IeC {\~a}o de acordo com pontos de vista: revis\IeC {\~a}o e discuss\IeC {\~a}o}{24}
-\contentsline {section}{\numberline {3.1}Trabalhos que exploram contagens de palavras ou varia\IeC {\c c}\IeC {\~o}es}{26}
-\contentsline {section}{\numberline {3.2}Trabalhos que exploram outras caracter\IeC {\'\i }sticas dos documentos}{30}
-\contentsline {section}{\numberline {3.3}An\IeC {\'a}lise comparativa}{34}
-\contentsline {chapter}{\numberline {4}Estudo de caso: pontos de vista sobre o governo brasileiro}{37}
-\contentsline {section}{\numberline {4.1}Construindo um corpus para estudo}{38}
-\contentsline {section}{\numberline {4.2}Classificando documentos com um Na\IeC {\"\i }ve Bayes}{44}
-\contentsline {section}{\numberline {4.3}Ilustrando o uso de palavras por ponto de vista}{47}
-\contentsline {chapter}{\numberline {5}Conclus\IeC {\~a}o}{51}
-\contentsline {section}{\numberline {5.1}Dificuldades encontradas}{52}
-\contentsline {section}{\numberline {5.2}Trabalhos futuros}{53}
-\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{54}
-\contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Teorema de Bayes e nota\IeC {\c c}\IeC {\~o}es}{57}
+\contentsline {section}{\numberline {1.1}Objetivo}{12}
+\contentsline {section}{\numberline {1.2}Trabalhos Relacionados}{12}
+\contentsline {chapter}{\numberline {2}T\IeC {\'e}cnicas b\IeC {\'a}sicas para classifica\IeC {\c c}\IeC {\~a}o e an\IeC {\'a}lise dos documentos}{14}
+\contentsline {section}{\numberline {2.1}Na\IeC {\"\i }ve Bayes}{14}
+\contentsline {section}{\numberline {2.2}\emph {Support vector machines} (SVMs)}{19}
+\contentsline {section}{\numberline {2.3}M\IeC {\'e}tricas para medir o desempenho dos classificadores}{21}
+\contentsline {section}{\numberline {2.4}Valida\IeC {\c c}\IeC {\~a}o cruzada \emph {k-fold}}{22}
+\contentsline {section}{\numberline {2.5}\emph {Labeled-latent dirichlet allocation} (L-LDA)}{23}
+\contentsline {chapter}{\numberline {3}Classifica\IeC {\c c}\IeC {\~a}o de acordo com pontos de vista: revis\IeC {\~a}o e discuss\IeC {\~a}o}{26}
+\contentsline {section}{\numberline {3.1}Trabalhos que exploram contagens de palavras ou varia\IeC {\c c}\IeC {\~o}es}{28}
+\contentsline {section}{\numberline {3.2}Trabalhos que exploram outras caracter\IeC {\'\i }sticas dos documentos}{32}
+\contentsline {section}{\numberline {3.3}An\IeC {\'a}lise comparativa}{36}
+\contentsline {chapter}{\numberline {4}Estudo de caso: pontos de vista sobre o governo brasileiro}{39}
+\contentsline {section}{\numberline {4.1}Construindo um corpus para estudo}{39}
+\contentsline {section}{\numberline {4.2}Classificando documentos com um Na\IeC {\"\i }ve Bayes}{46}
+\contentsline {section}{\numberline {4.3}Ilustrando o uso de palavras por ponto de vista}{49}
+\contentsline {chapter}{\numberline {5}Conclus\IeC {\~a}o}{53}
+\contentsline {section}{\numberline {5.1}Dificuldades encontradas}{55}
+\contentsline {section}{\numberline {5.2}Trabalhos futuros}{55}
+\contentsline {chapter}{Refer\^encias Bibliogr\'aficas}{56}
+\contentsline {chapter}{Ap\^endice{} A{} -$\tmspace -\thinmuskip {.1667em}$-{} Teorema de Bayes e nota\IeC {\c c}\IeC {\~o}es}{59}
+\contentsline {chapter}{Ap\^endice{} B{} -$\tmspace -\thinmuskip {.1667em}$-{} C\IeC {\'o}digo do Na\IeC {\"\i }ve Bayes}{60}
+\contentsline {section}{\numberline {B.1}CorpusParser}{60}
+\contentsline {section}{\numberline {B.2}NaiveBayesSampler}{63}
