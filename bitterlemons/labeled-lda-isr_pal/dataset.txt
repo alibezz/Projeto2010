@@ -1,2 +1,0 @@
-CSVFile("guests_llda.csv") ~> Column(3) ~> CaseFolder ~> SimpleEnglishTokenizer ~> WordsAndNumbersOnlyFilter ~> TermCounter ~> TermMinimumLengthFilter(3) ~> TermMinimumDocumentCountFilter(4) ~> TermDynamicStopListFilter(30) ~> DocumentMinimumLengthFilter(5)
-CSVFile("guests_llda.csv") ~> Column(1) ~> WhitespaceTokenizer

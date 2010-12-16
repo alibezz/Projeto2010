@@ -1,1 +1,0 @@
-ModelParams(TermSmoothing(FixedSymmetricDirichlet(0.01)),TopicSmoothing(FixedSymmetricDirichlet(0.1)))
