@@ -1,4 +1,0 @@
-EXTRACTING POLICY POSITIONS FROM POLITICAL TEXTS USING WORDS AS DATA
-
-===> Método adaptável a  várias línguas. Vc passatextos de que tem certeza da posição, ele extrai frequencias e a partir daí vc passa novos textos. 
-

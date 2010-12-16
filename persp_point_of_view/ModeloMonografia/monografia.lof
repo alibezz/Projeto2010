@@ -1,5 +1,0 @@
-\select@language {brazil}
-\contentsline {figure}{\numberline {2.1}{\ignorespaces Na\IeC {\"\i }ve Bayes aplicado iterativamente e utilizando conjuntos de treinamento e teste \cite {nigam}.}}{18}
-\contentsline {figure}{\numberline {2.2}{\ignorespaces Solu\IeC {\c c}\IeC {\~a}o para um cen\IeC {\'a}rio bidimensional. Os c\IeC {\'\i }rculos escuros representam documentos da classe -1; os claros, aqueles da classe 1. As representa\IeC {\c c}\IeC {\~o}es que incidem nos hiperplanos s\IeC {\~a}o os vetores de suporte. \ensuremath {||}\textbf {\mathversion {bold}w}\ensuremath {||} \IeC {\'e} a norma euclidiana do vetor \textbf {\mathversion {bold}w}.}}{20}
-\contentsline {figure}{\numberline {4.1}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o gr\IeC {\'a}fica para as quinze palavras associadas ao t\IeC {\'o}pico pr\IeC {\'o}-situa\IeC {\c c}\IeC {\~a}o na Tabela 4.3.}}{50}
-\contentsline {figure}{\numberline {4.2}{\ignorespaces Representa\IeC {\c c}\IeC {\~a}o gr\IeC {\'a}fica para as quinze palavras associadas ao t\IeC {\'o}pico pr\IeC {\'o}-oposi\IeC {\c c}\IeC {\~a}o na Tabela 4.3.}}{51}
