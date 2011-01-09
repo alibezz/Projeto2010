@@ -10,34 +10,40 @@ import os
 
 class NaiveBayesSampler(object):
   def __init__(self, a):
-    self.docs = a.pdocs()
+    pdocs = a.pdocs()
+    self.train_docs = pdocs[0]
+    self.test_docs = pdocs[1]
+    self.docs = self.train_docs + self.test_docs
+
     if not self.docs: 
       self.all_words = 0
     else:
       self.all_words = len(self.docs[0])
-    self.dirname = a.dirname()
+    print self.all_words
+    self.train_dirname = a.train_dirname()
+    self.test_dirname = a.test_dirname()
     self.labels = [] 
-    self.alpha = 0.4 #supervision level
-    self.Ndocs = len(self.docs)
-    self.list_docs = a.ldocs()
+#    self.alpha = 0.4 #supervision level
+    self.Ntraindocs = len(self.train_docs)
+    self.Ntestdocs = len(self.test_docs)
 
   def initial_label(self):
     return np.random.binomial(1, self.pi)
 
-  def get_real_label(self, index):
+  def get_real_label(self, dir, index):
     #assumptions, assumptions: pal = 1; isr = 0
-    filename = os.path.realpath(self.dirname + '/' + self.list_docs[index])
-    if filename.find("is") >= 0:
+    ldocs = os.listdir(dir)
+    if ldocs[index].find("opos") >= 0:
       return 0
     else:
       return 1
 
   def label_documents(self):
-    for i in xrange(self.Ndocs):
-      if i < self.alpha * self.Ndocs:
-        label = self.get_real_label(i)
-      else:
-        label = self.initial_label()
+    for i in xrange(self.Ntraindocs):
+      label = self.get_real_label(self.train_dirname, i)
+      self.labels.append(label)
+    for i in xrange(self.Ntestdocs):
+      label = self.initial_label()
       self.labels.append(label)
 
   def pLi(self, j, doc):
@@ -63,23 +69,21 @@ class NaiveBayesSampler(object):
     self.wccs[new] += self.docs[j]
     return new
   
-  def get_denominator(self, first):
+  def get_denominator(self):
       den = np.zeros(2)
-      for i in range(first, self.Ndocs - 1):
-        den[self.get_real_label(i)] += 1
+      for i in range(self.Ntestdocs):
+        den[self.get_real_label(self.test_dirname, i)] += 1
       return den
 
   def accuracy(self):
-    first_sampled = math.ceil(self.alpha * self.Ndocs)
-    den = self.get_denominator(first_sampled)
+    den = self.get_denominator()
     num = np.zeros(2)
     
-    for i in range(first_sampled, self.Ndocs - 1):
-      l = self.labels[i]
-      if l == self.get_real_label(i):
-        num[self.labels[i]] += 1
-
-#    print num, den
+    for i in range(self.Ntestdocs):
+      l = self.labels[i + self.Ntraindocs] #shifting Ntraindocs positions
+      if l == self.get_real_label(self.test_dirname, i):
+        num[self.labels[i + self.Ntraindocs]] += 1
+    
     return num[0]/den[0], num[1]/den[1]
 
   def sample(self, nsamples):
@@ -98,27 +102,14 @@ class NaiveBayesSampler(object):
       self.wccs[a] += self.docs[i]
 
     for i in xrange(nsamples):
-      for j in xrange(self.Ndocs):
-        if j < self.alpha * self.Ndocs:
-          self.get_real_label(j)
-        else:
-          self.pick_label(j)
+      for j in xrange(self.Ntestdocs):
+        self.pick_label(j + self.Ntraindocs) #shifting Ntraindocs positions
       self.theta[0] = np.random.dirichlet(self.Gammatheta + self.wccs[0])
       self.theta[1] = np.random.dirichlet(self.Gammatheta + self.wccs[1])
       print self.accuracy()
  
 
 if __name__=='__main__':
- # docs = np.array([
-#[0, 1, 1, 1, 1, 0, 0, 0, 0, 1],
-#[1, 0, 1, 1, 1, 0, 0, 0, 1, 0],
-#[1, 1, 0, 1, 1, 0, 0, 1, 0, 0],
-#[1, 1, 1, 0, 1, 0, 1, 0, 0, 0],
-#[1, 0, 0, 0, 0, 1, 1, 1, 1, 0],
-#[0, 1, 0, 0, 0, 1, 1, 1, 0, 1],
-#[0, 0, 1, 0, 0, 1, 1, 0, 1, 1],
-#[0, 0, 0, 1, 0, 1, 0, 1, 1, 1],
-#], dtype=np.float32)
-  a = CorpusParser(sys.argv[1]) 
+  a = CorpusParser(sys.argv[1], sys.argv[2]) 
   s = NaiveBayesSampler(a)
-  s.sample(200)
+  s.sample(500)
